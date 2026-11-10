@@ -6,7 +6,7 @@
 
 ## Abstract
 
-Reported fusion gains in airborne mineral exploration are rarely reproducible because of two confounds: the target is derived from the channels being inverted, and the inversion is underdetermined, so adding any channel changes conditioning rather than information. We separate both on a real-data benchmark over the Ivanpah-Clark Mountain area: USGS radiometrics (295,943 samples), real ASTER L1T thermal infrared (five emissivity bands), real aeromagnetics and USGS SIM 3206 geology, with one synthetic electromagnetic augmentation since no measured airborne EM exists. Three gamma channels for five minerals give rank 3, and gamma alone scores at chance against independent geology (AUC 0.387). Five ASTER bands raise proxy F1 from 0.531 to 0.652 and geological AUC to 0.913 - but five channels of zeros with the same response rows reproduce F1 0.649 and AUC 0.922, so most of that gain is conditioning. A model-free test isolates the information: gamma plus ASTER classifies four similar substrates at balanced accuracy 0.529 versus 0.350 for gamma (+0.179, CI [0.120, 0.241], 20/20 repeats), while a shuffled cube gives 0.354. Correcting a mis-specified electromagnetic row raises F1 from 0.168 to 0.497 but still loses to gamma plus thermal. Effective sample size is 110, not 1.2 million pixels, and the filter variance is not a confidence interval (coverage 0.13). Fusion studies should report the rank of the inverse problem and an information test that does not use the response matrix.
+Reported fusion gains in airborne mineral exploration are rarely reproducible because of two confounds: the target is derived from the channels being inverted, and the inversion is underdetermined, so adding any channel changes conditioning rather than information. We separate both on a real-data benchmark over the Ivanpah-Clark Mountain area: USGS radiometrics (295,943 samples), real ASTER L1T thermal infrared (five emissivity bands), real aeromagnetics and USGS SIM 3206 geology, with one synthetic electromagnetic augmentation since no measured airborne EM exists. Three gamma channels for five minerals give rank 3, and gamma alone scores at chance against independent geology (AUC 0.387). Five ASTER bands raise proxy F1 from 0.531 to 0.652 and geological AUC to 0.913 - but five uninformative channels with the same response rows recover 69-98 % of the F1 gain and all of the AUC gain, so most of it is conditioning. A model-free test isolates the information: gamma plus ASTER classifies four similar substrates at balanced accuracy 0.529 versus 0.350 for gamma (+0.179, CI [0.120, 0.241], 20/20 repeats), while a shuffled cube gives 0.354. Correcting a mis-specified electromagnetic row raises F1 from 0.168 to 0.497 but still loses to gamma plus thermal. Effective sample size is 110, not 1.2 million pixels, and the filter variance is not a confidence interval (coverage 0.13). Fusion studies should report the rank of the inverse problem and an information test that does not use the response matrix.
 
 **Keywords:** airborne mineral exploration; gamma-ray spectrometry; thermal infrared; ASTER; multi-modal fusion; identifiability; reproducibility; benchmark
 
@@ -14,7 +14,7 @@ Reported fusion gains in airborne mineral exploration are rarely reproducible be
 
 - Most fusion gains stem from circular targets and underdetermined inversions
 - Three gamma channels for five minerals give rank 3; AUC 0.387 on real geology
-- Real ASTER TIR lifts proxy F1 to 0.652; identical zero channels give 0.649
+- Real ASTER TIR lifts proxy F1 to 0.652; inert channels recover 69-98 %
 - Model-free gain is +0.179 balanced accuracy, lost when the cube is shuffled
 - Fixing the synthetic EM row helps (+0.332 F1) but still loses to gamma+TIR
 
@@ -56,9 +56,10 @@ definition.
 Our contributions are four.
 
 (i) We show that the two confounds can be separated experimentally. Appending
-channels of *zeros* with the correct response rows reproduces the fused score of
-the real thermal data (F1 0.649 versus 0.652; geological AUC 0.922 versus 0.913),
-which measures the conditioning effect directly.
+channels that carry no information - all zeros, Gaussian noise, or the real cube
+block-shuffled - recovers 69-98 % of that F1 gain (0.614, 0.649 and 0.634
+against 0.652) and all of the geological AUC gain, which measures the
+conditioning effect directly.
 
 (ii) We provide an information test that conditioning cannot fake: a
 multinomial model on the same channels with spatial-block cross-validation and
@@ -328,18 +329,21 @@ paired block bootstrap gives ΔAUC +0.457 [0.123, 0.697] and ΔF1 +0.120
 
 ### 7.3 Most of that gain is conditioning, not information
 
-Replacing the real ASTER cube with five channels of **zeros**, keeping the same
-response rows, reproduces almost the entire effect:
+Replacing the real ASTER cube with channels that carry no information, while
+keeping the same response rows, recovers most of the effect. The share depends
+on which inert control is used, so Table 5 reports three:
 
-**Table 5.** Conditioning controls. "Five noise channels" and "zeros" use
-the real ASTER rows of `H` with data that carry no information; the block-shuffled
-cube keeps the ASTER marginals and destroys geographic registration.
+**Table 5.** Conditioning controls. The zero and noise blocks use the real ASTER
+rows of `H` with data that carry no information; the block-shuffled cube keeps
+the ASTER marginals and destroys geographic registration. Columns are proxy F1,
+average precision, geological AUC and the model-free balanced accuracy.
 
 | configuration | F1 | AP | geology AUC | 4-class balanced accuracy |
 |---|---:|---:|---:|---:|
 | gamma | 0.531 | 0.393 | 0.387 | 0.350 |
 | gamma + real ASTER | 0.652 | 0.624 | 0.913 | 0.529 |
 | gamma + block-shuffled ASTER | 0.634 | 0.635 | 0.913 | 0.354 |
+| gamma + five zero channels | 0.614 | 0.774 | 0.919 | — |
 | gamma + five noise channels | 0.649 | 0.687 | 0.922 | — |
 | gamma + synthetic TIR | 0.597 | 0.706 | 0.905 | 0.389 |
 
@@ -355,15 +359,19 @@ cube keeps the ASTER marginals and destroys geographic registration.
 | gamma + TMI | 0.349 ± 0.056 | -0.001 [-0.021, +0.022] | 9/20 |
 | gamma + real ASTER + TMI | 0.521 ± 0.036 | +0.170 [+0.109, +0.235] | 20/20 |
 
-Inside the estimator, zeros and shuffled copies score like the real cube, because
-the extra rows regularise a rank-3 problem. The information test is the last
-column, which does not use the response matrix: there gamma+ASTER reaches 0.529
-against 0.350 for gamma (+0.179), a block-shuffled cube gives 0.354 — no gain —
-and the synthetic TIR cube gives 0.389, a much smaller real gain (+0.039).
+Inside the estimator, zeros, noise and shuffled copies all score close to the real
+cube (69-98 % of the F1 gain, and a geological AUC at or above the real cube's),
+because the extra rows regularise a rank-3 problem. The model-free column of
+Table 5 (expanded in Table 6) does not use the response matrix: there gamma+ASTER
+reaches 0.529 against 0.350 for gamma (+0.179), a block-shuffled cube gives 0.354
+- no gain - and the synthetic TIR cube gives 0.389, a much smaller real gain
+(+0.039).
 
 The honest reading is that real ASTER TIR does carry information about substrate
 that gamma does not (20 of 20 repeats, CI [0.120, 0.241]), but the +0.12 F1 and
-+0.46 AUC reported by the inversion overstate it by roughly a factor of four.
++0.53 AUC reported by the inversion overstate it: for the AUC there is no
+information left at all once conditioning is controlled, and for F1 the true
+share is roughly a third.
 
 ### 7.4 Estimator comparison
 
@@ -509,11 +517,12 @@ only the thermal rows are derived from a spectral library.
 
 On a real-data airborne benchmark, the apparent gain from adding real thermal
 infrared to gamma-ray data is mostly an artefact of an underdetermined inversion:
-five channels of zeros with the same response rows reproduce 0.649 of the 0.652
-F1 and 0.922 of the 0.913 geological AUC. What survives a model-free test is a
-real but much smaller information gain, +0.179 balanced accuracy across four
-geologically similar substrates, which vanishes when the thermal cube is
-block-shuffled. Correcting a mis-specified EM row raises the fused score from
+five uninformative channels with the same response rows recover 69-98 % of the
+F1 gain (0.614 for zeros, 0.649 for noise, 0.652 for the real cube) and a
+geological AUC at least as high (0.919 and 0.922 against 0.913). What survives a
+model-free test is a real but much smaller information gain, +0.179 balanced
+accuracy across four geologically similar substrates, which vanishes when the
+thermal cube is block-shuffled. Correcting a mis-specified EM row raises the fused score from
 0.168 to 0.497 but still does not beat gamma+TIR. We recommend that fusion
 studies report the rank of the inverse problem, an information test that does not
 use the response matrix, and the spatial effective sample size; without the first
@@ -523,7 +532,7 @@ two, a reported fusion gain cannot be distinguished from conditioning.
 
 The pipeline is 40 scripts in eight stages. A coverage guard fails if any
 validated artefact lacks a producing script; a validator checks 53 artefacts and
-20 invariants (including the zero-filled and shuffled controls); unit tests
+22 invariants (including the zero, noise and shuffled controls); unit tests
 assert the two switch-off invariances and the spectral-library construction of
 the thermal rows; every file carries a SHA-256 in a manifest; dependencies are
 pinned; one command rebuilds every number. The raw ASTER scenes are archived with their STAC identifiers and hashes so the

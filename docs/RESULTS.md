@@ -24,6 +24,7 @@ pixels** (65.0% of the grid).
 | gamma | 0.531 | 0.387 | 0.350 |
 | gamma + real ASTER | 0.652 | 0.913 | 0.529 |
 | gamma + block-shuffled ASTER | 0.634 | 0.913 | 0.354 |
+| gamma + five zero channels | 0.614 | 0.919 | — |
 | gamma + five noise channels | 0.649 | 0.922 | — |
 | gamma + synthetic TIR | 0.597 | 0.905 | 0.389 |
 

@@ -17,6 +17,8 @@ Configurations (corrected EM matrix where EM is involved, analysis mask):
   gamma + tir (pixel-shuffle) real ASTER, all pixels permuted
   gamma + noise               5 iid Gaussian channels with the real TIR
                               rows of H (pure conditioning, zero information)
+  gamma + zeros               5 all-zero channels, same H rows (the literal
+                              zero-information control)
   gamma + ridge x10           gamma only, lambda raised 10x (regularisation
                               alone, no extra channels)
 
@@ -82,6 +84,7 @@ def main():
     shuffled_b = np.stack([fill(shuffled_b[i]) for i in range(5)])
     shuffled_p = np.stack([fill(pixel_shuffle(real, mask, rng)[i]) for i in range(5)])
     noise = rng.standard_normal(real.shape).astype(np.float32)
+    zeros = np.zeros(real.shape, dtype=np.float32)
 
     def run(name, tir_block, H_tir, lam=0.1, use_gamma=True):
         parts, rows = [], []
@@ -117,6 +120,7 @@ def main():
         run("gamma + real TIR, block-shuffled", shuffled_b, Hr),
         run("gamma + real TIR, pixel-shuffled", shuffled_p, Hr),
         run("gamma + 5 noise channels", noise, Hr),
+        run("gamma + 5 zero channels", zeros, Hr),
     ]
 
     # information content: how much of each TIR cube is explained by gamma?

@@ -1,8 +1,13 @@
 # Publishing this repository to GitHub
 
-The local repository is initialised and committed on branch `main`. Nothing is
-pushed yet: this machine has no GitHub credentials and no `gh` CLI, and no
-account access can be assumed from a script.
+The local repository is initialised and committed on branch `main` (6 commits),
+and the remote is already configured as
+`https://github.com/Xbotsd/ivanpah-fusion-benchmark.git`. **Nothing is pushed
+yet.** A push attempt on 2026-11-10 returned `remote: Repository not found`,
+which is the server's answer when the repository does not exist under that
+account (or the credentials have no access to it). This machine has no
+`GITHUB_TOKEN`, no `gh` CLI and no stored credential helper, so the push cannot
+be completed from a script — it needs one interactive authentication.
 
 ## 1. Create the repository
 
@@ -27,13 +32,26 @@ gh auth login
 
 ## 3. Add the remote and push
 
+The remote already exists, so only the push is needed:
+
 ```powershell
 cd D:\A_MineralProspecting
-git remote add origin https://github.com/Xbotsd/ivanpah-fusion-benchmark.git
-git push -u origin main
+git remote -v                      # should show Xbotsd/ivanpah-fusion-benchmark
+git push -u origin main            # prompts once for the token
 ```
 
-If the repository name differs, change it in the `remote add` line.
+If you create the repository under a different name, repoint the remote first:
+
+```powershell
+git remote set-url origin https://github.com/Xbotsd/<name>.git
+```
+
+Check what would be published before pushing:
+
+```powershell
+git ls-files | Measure-Object -Line     # 300-odd files
+git count-objects -vH                   # ~27 MB packed, 10 MB of tracked blobs
+```
 
 ## 4. Archive with a DOI (needed by Computers & Geosciences)
 

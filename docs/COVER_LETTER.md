@@ -32,10 +32,11 @@ A single command rebuilds every number in the paper.
 
 **It reports what did not work, and isolates what did.** Adding the five ASTER
 bands raises the clay-proxy F1 from 0.531 to 0.652 and the AUC against independent
-geology from 0.387 to 0.913. Five channels of *zeros* with the same response rows
-reproduce 0.649 and 0.922, and a block-shuffled cube reproduces them too: most of
-the gain is conditioning of a rank-3 inverse problem, not mineralogical
-information. A test that never touches the response matrix — a multinomial
+geology from 0.387 to 0.913. Five inert channels with the same response rows
+recover 69-98 % of that F1 gain and an AUC at least as high (0.919
+with all-zero channels, 0.922 with Gaussian noise), and a block-shuffled cube
+does the same: most of the gain is conditioning of a rank-3 inverse problem,
+not mineralogical information. A test that never touches the response matrix — a multinomial
 classifier over four geologically similar substrates — keeps a real but much
 smaller gain, +0.179 balanced accuracy (95 % CI [0.120, 0.241], 20 of 20
 repeats), which collapses to +0.003 when the thermal cube is block-shuffled.

@@ -90,6 +90,7 @@ TABLE_LABELS = {
     "Table 5": {"gamma": "gamma",
                 "gamma + real ASTER": "gamma + real TIR",
                 "gamma + block-shuffled ASTER": "gamma + real TIR, block-shuffled",
+                "gamma + five zero channels": "gamma + 5 zero channels",
                 "gamma + five noise channels": "gamma + 5 noise channels",
                 "gamma + synthetic TIR": "gamma + synthetic TIR"},
 }
@@ -285,13 +286,26 @@ def main():
     xcheck("gamma_tir_identifiable", g["gamma+tir"]["rank"] == C.N_MIN,
            f"rank {g['gamma+tir']['rank']}/{C.N_MIN} from {g['gamma+tir']['n_equations']} eq")
 
-    # 4. the conditioning control reproduces the real-TIR score
+    # 4. the conditioning controls reproduce most of the real-TIR gain: two
+    #    different inert blocks (all zeros, Gaussian noise) with the same H rows
     ctl = {r["config"]: r for r in C.load_json(C.PROC / "tir_controls.json")["rows"]}
     real_f1 = ctl["gamma + real TIR"]["f1"]
-    zeros_f1 = ctl["gamma + 5 noise channels"]["f1"]
-    xcheck("conditioning_control_matches_real",
-           abs(zeros_f1 - real_f1) < 0.06,
-           f"noise-channels F1 {zeros_f1:.3f} vs real TIR {real_f1:.3f}")
+    gam_f1 = ctl["gamma"]["f1"]
+    gain = real_f1 - gam_f1
+    for key, label in (("gamma + 5 zero channels", "zeros"),
+                       ("gamma + 5 noise channels", "noise")):
+        share = (ctl[key]["f1"] - gam_f1) / gain
+        xcheck(f"conditioning_control_matches_real[{label}]", 0.6 <= share <= 1.0,
+               f"{label} F1 {ctl[key]['f1']:.3f} = {share:.0%} of the "
+               f"{gain:.3f} gain over gamma")
+
+    # 4b. the geological AUC gain is *entirely* conditioning: the inert
+    #     blocks score at least as high as the real cube
+    a_real = ctl["gamma + real TIR"]["geo_auc"]
+    a_inert = min(ctl["gamma + 5 zero channels"]["geo_auc"],
+                  ctl["gamma + 5 noise channels"]["geo_auc"])
+    xcheck("auc_gain_is_conditioning", a_inert >= a_real - 0.02,
+           f"inert AUC {a_inert:.3f} vs real {a_real:.3f}")
 
     # 5. inside the estimator the gain is conditioning, not geography:
     #    a block-shuffled ASTER cube scores like the real one (and like zeros).

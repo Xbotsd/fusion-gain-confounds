@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "generated_at": "2026-11-10T10:39:51+08:00",
+  "generated_at": "2026-11-10T10:44:54+08:00",
   "grid": [
     1772,
     1075
@@ -76,9 +76,19 @@
       "detail": "rank 5/5 from 8 eq"
     },
     {
-      "check": "conditioning_control_matches_real",
+      "check": "conditioning_control_matches_real[zeros]",
       "ok": true,
-      "detail": "noise-channels F1 0.649 vs real TIR 0.652"
+      "detail": "zeros F1 0.614 = 69% of the 0.121 gain over gamma"
+    },
+    {
+      "check": "conditioning_control_matches_real[noise]",
+      "ok": true,
+      "detail": "noise F1 0.649 = 98% of the 0.121 gain over gamma"
+    },
+    {
+      "check": "auc_gain_is_conditioning",
+      "ok": true,
+      "detail": "inert AUC 0.919 vs real 0.913"
     },
     {
       "check": "inversion_gain_is_conditioning",
@@ -400,7 +410,7 @@
     {
       "check": "json:tir_controls.json",
       "exists": true,
-      "size": 3704,
+      "size": 4030,
       "keys": [
         "note",
         "r2_tir_on_gamma",

@@ -1,6 +1,6 @@
 # Gap audit — what is done, what is missing, and where the rigour is thin
 
-Snapshot 2026-11-10, real-ASTER main line: **53/53 artefacts, 20/20 invariants,
+Snapshot 2026-11-10, real-ASTER main line: **53/53 artefacts, 22/22 invariants,
 25/25 unit tests, 0 coverage orphans**, manifest 6,772 files / 11.45 GB.
 
 ## Rigour scorecard
@@ -9,7 +9,7 @@ Snapshot 2026-11-10, real-ASTER main line: **53/53 artefacts, 20/20 invariants,
 |---|---:|---|
 | Data reality | 8/10 | gamma, TIR, TMI and geology real; EM synthetic and labelled everywhere |
 | Target independence | 8/10 | three targets including a model-free one that no response matrix can inflate |
-| Identifiability | 9/10 | rank, κ, variance-gain index and a zero-filled control |
+| Identifiability | 9/10 | rank, κ, variance-gain index, zero/noise/shuffle controls |
 | Statistical inference | 7/10 | 128-px block bootstrap, 20-repeat CV, CIs; N_eff 110 |
 | Uncertainty | 2/10 | coverage 0.13/0.26; the filter variance is not a predictive interval |
 | Reproducibility | 9/10 | pinned, hashed, offline ASTER archive, coverage guard, one command |
@@ -21,8 +21,10 @@ Snapshot 2026-11-10, real-ASTER main line: **53/53 artefacts, 20/20 invariants,
   offline with STAC ids and SHA-256); synthetic TIR demoted to a control.
 * **Two normalisation bugs fixed** (response-matrix columns and channel weights
   were normalised over inactive rows/channels, which inflated fusion gains).
-* **The conditioning confound measured**: five channels of zeros with the ASTER H
-  rows reproduce F1 0.649 vs 0.652 and AUC 0.922 vs 0.913.
+* **The conditioning confound measured**: five inert channels with the ASTER H
+  rows recover 69-98 % of the F1 gain (0.614 for zeros, 0.649 for Gaussian noise,
+  0.652 for the real cube) and an AUC at least as high (0.919 and 0.922 against
+  0.913).
 * **A model-free information test**: +0.179 balanced accuracy (CI [0.120, 0.241],
   20/20), null for a block-shuffled cube.
 * **Independent target wired into every experiment** (proxy F1 *and* geology AUC).

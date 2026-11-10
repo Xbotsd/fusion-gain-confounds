@@ -17,8 +17,9 @@ be spurious: a circular target and an underdetermined inversion.
 Three gamma channels for five mineral unknowns give **rank 3**, and gamma alone
 scores at chance against independent geology (AUC 0.387). Adding the five ASTER
 bands raises proxy F1 0.531 → 0.652 and the geological AUC to 0.913 — but five
-channels of **zeros** with the same response rows reproduce F1 0.649 and AUC
-0.922, so most of that gain is **conditioning**.
+channels that carry no information - all zeros, Gaussian noise, or the
+block-shuffled cube - recover 69-98 % of that F1 gain and all of
+the AUC gain, so most of it is **conditioning**.
 
 A model-free test that has no response matrix isolates the real information:
 gamma + ASTER reaches balanced accuracy 0.529 versus 0.350 for gamma
@@ -32,7 +33,7 @@ cube gives 0.354.
 .\run.bat legacy           # synthetic-TIR reference branch (optional)
 ```
 
-Measured: 53 artefacts, 20 invariants, 25 unit tests, 0 coverage orphans.
+Measured: 53 artefacts, 22 invariants, 25 unit tests, 0 coverage orphans.
 
 ## Layout
 

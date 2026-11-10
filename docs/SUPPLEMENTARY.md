@@ -23,7 +23,7 @@
 | `run_edge_ai.py`, `prepare_granite.py`, `run_granite_compensation.py` | edge-deployment modules |
 | `test_core.py` | 25 unit checks, including the two switch-off invariances |
 | `check_coverage.py` | fails if any validated artefact has no producer |
-| `validate_pipeline.py` | 53 artefacts, 20 invariants |
+| `validate_pipeline.py` | 53 artefacts, 22 invariants |
 | `build_manifest.py` | SHA-256 inventory |
 
 ## S2. Data
@@ -78,7 +78,7 @@ D:\miniconda3\envs\geo\python.exe code\test_core.py
 2. **Why is EM synthetic?** No airborne EM exists over this footprint; the
    delivered survey is radiometric and magnetic. Every EM result is labelled.
 3. **Is the fusion gain genuine?** Partly. The inversion-side gain is mostly
-   conditioning (zeros reproduce it); the model-free information gain is +0.179
+   conditioning (69-98 % of the F1 gain is reproduced by inert channels); the model-free information gain is +0.179
    balanced accuracy and is null for a shuffled cube.
 4. **Why does gamma fail on geology?** Three equations for five unknowns: rank 3.
    K alone separates the substrates at AUC 0.986, so the loss is in the

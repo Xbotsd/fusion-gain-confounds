@@ -54,7 +54,7 @@ their STAC ids and SHA-256, so `prepare` runs offline; to re-download them run
 | legacy | synthetic-TIR reference branch | the comparison table |
 | audit | unit tests, coverage guard, validator, manifest | PASS/FAIL + SHA-256 |
 
-`code/validate_pipeline.py` checks 53 artefacts and 20 invariants, including the
+`code/validate_pipeline.py` checks 53 artefacts and 22 invariants, including the
 zero-filled and shuffled controls, so a regression cannot silently restore a
 spurious gain.
 
