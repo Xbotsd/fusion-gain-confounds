@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-10T13:08:53+08:00",
+  "generated_at": "2026-11-10T13:10:46+08:00",
   "root": "D:\\A_MineralProspecting",
-  "n_files": 6809,
-  "total_bytes": 11460526336,
+  "n_files": 6811,
+  "total_bytes": 11460527552,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -14,7 +14,7 @@
     },
     "root": {
       "files": 2,
-      "bytes": 1982
+      "bytes": 1409
     },
     "survey_data": {
       "files": 1,
@@ -77,8 +77,8 @@
       "bytes": 19403151
     },
     "code": {
-      "files": 110,
-      "bytes": 484503
+      "files": 112,
+      "bytes": 486292
     }
   },
   "files": [
@@ -204,8 +204,8 @@
     {
       "path": "LICENSE",
       "stage": "root",
-      "size": 1639,
-      "sha256": "b1ece32c7659fd11c6778cf7d66045f23e93d0fa94ca9652b9ebe85535de30de",
+      "size": 1066,
+      "sha256": "b18acc204e798622d19b01d6ee49fea816ffdef46f7bd2eb974e65e16fa8e10d",
       "schema": {}
     },
     {
@@ -48523,6 +48523,13 @@
       "schema": {}
     },
     {
+      "path": "code/dev/fix_licence_line.py",
+      "stage": "code",
+      "size": 409,
+      "sha256": "4671255d32bf2b0ded0f4cc96229634e5e63b532adacd4dae39987c3060e3c61",
+      "schema": {}
+    },
+    {
       "path": "code/dev/fix_s54.py",
       "stage": "code",
       "size": 1231,
@@ -48541,6 +48548,13 @@
       "stage": "code",
       "size": 1449,
       "sha256": "e776e8a5d1f3ccb75fecff4d0eb0074ac954b2f0bcada5064f2548e3237d54e8",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/gh_verify_repo.ps1",
+      "stage": "code",
+      "size": 1380,
+      "sha256": "f3577ca273251dcf12ca945a299fbbf4fd647f0ec7e8ab27fb8ee415cb6f0243",
       "schema": {}
     },
     {

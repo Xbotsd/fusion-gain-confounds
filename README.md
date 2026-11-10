@@ -47,4 +47,4 @@ raw/        delivered survey + archived ASTER scenes (not tracked; see docs/DATA
 ```
 
 Start with `docs/README.md`, then `docs/RESULTS.md` and
-`docs/READINESS_AUDIT.md`. Licence: MIT, with USGS / NASA-METI data notices.
+`docs/READINESS_AUDIT.md`. Licence: MIT (Yudong Xu), with third-party data notices in `NOTICE.md`.

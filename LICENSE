@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 A_MineralProspecting authors
+Copyright (c) 2026 Yudong Xu
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,14 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-Data notice: the raw gamma grids (K/eU/eTh/TMI, GXF) and the radiometric CSV
-originate from the USGS Ivanpah-Clark Mountain airborne survey; the surficial
-geology is USGS SIM 3206 (DOI 10.3133/sim3206); the ASU endmember spectra are
-from the ASU Thermal Emission Spectral Library; the NGU FDEM apparent-
-resistivity statistics are from NGU surveys (Sulitjelma 2025, Roros 2020).
-USGS and NGU data are public domain / open data; cite the original sources.
-The synthetic TIR/EM cubes and all derived products are released under the
-same MIT license.
