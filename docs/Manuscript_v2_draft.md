@@ -423,8 +423,8 @@ or of one scene.
 
 The 40-layer Kalman recursion, using the real surface gamma and ASTER TIR as
 anchors and one synthetic EM layer as the depth-varying channel, gives clay
-0.317 at 13 m rising to 0.360 at 500 m without the EM correction, and a
-near-constant profile 0.334 → 0.323 with the clay-only EM row. The depth cube
+0.281 at the surface rising to 0.360 at 500 m without the EM correction, and
+0.281 → 0.342 (13 m) → 0.323 (500 m) with the clay-only EM row. The depth cube
 remains a synthetic extrapolation: surface channels are repeated at every layer
 and the only depth-varying information is the synthetic EM section.
 
@@ -530,8 +530,7 @@ validated artefact lacks a producing script; a validator checks 53 artefacts and
 18 invariants (including the zero-filled and shuffled controls); unit tests
 assert the two switch-off invariances and the spectral-library construction of
 the thermal rows; every file carries a SHA-256 in a manifest; dependencies are
-pinned; one command rebuilds every number. The raw ASTER scenes are archived with
-their STAC identifiers and hashes so the thermal cube can be rebuilt offline.
+pinned; one command rebuilds every number. The raw ASTER scenes are archived with their STAC identifiers and hashes so the thermal cube can be rebuilt offline. The repository is released under the MIT licence; the reference copy is archived on Zenodo (DOI to be inserted on acceptance) and the benchmark is built so that one command regenerates every table and figure in this paper.
 
 ## References
 
