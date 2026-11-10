@@ -1,0 +1,93 @@
+{
+  "source": "USGS SIM 3206 surficial geologic map, Ivanpah 30x60' quadrangle",
+  "doi": "10.3133/sim3206",
+  "groups": [
+    "carbonate",
+    "felsic plutonic",
+    "mafic plutonic",
+    "metasedimentary",
+    "partly consolidated",
+    "sedimentary",
+    "surficial/alluvium",
+    "volcanic"
+  ],
+  "rows": [
+    {
+      "substrate": "surficial/alluvium",
+      "pixels": 504723,
+      "clay_mean": 0.3477628231048584,
+      "quartz_mean": 0.2944808900356293,
+      "calcite_mean": 0.07700206339359283
+    },
+    {
+      "substrate": "partly consolidated",
+      "pixels": 13542,
+      "clay_mean": 0.2718697786331177,
+      "quartz_mean": 0.0774633064866066,
+      "calcite_mean": 0.1978839635848999
+    },
+    {
+      "substrate": "felsic plutonic",
+      "pixels": 105249,
+      "clay_mean": 0.2404661476612091,
+      "quartz_mean": 0.13484394550323486,
+      "calcite_mean": 0.12962113320827484
+    },
+    {
+      "substrate": "volcanic",
+      "pixels": 92213,
+      "clay_mean": 0.22423553466796875,
+      "quartz_mean": 0.020997092127799988,
+      "calcite_mean": 0.22150106728076935
+    },
+    {
+      "substrate": "mafic plutonic",
+      "pixels": 9771,
+      "clay_mean": 0.19625093042850494,
+      "quartz_mean": 0.02872973121702671,
+      "calcite_mean": 0.19031815230846405
+    },
+    {
+      "substrate": "metasedimentary",
+      "pixels": 31659,
+      "clay_mean": 0.10022164136171341,
+      "quartz_mean": 0.14929722249507904,
+      "calcite_mean": 0.1221262663602829
+    },
+    {
+      "substrate": "sedimentary",
+      "pixels": 1126,
+      "clay_mean": 0.009066678583621979,
+      "quartz_mean": 0.11691378802061081,
+      "calcite_mean": 0.057290978729724884
+    },
+    {
+      "substrate": "carbonate",
+      "pixels": 6900,
+      "clay_mean": 0.0073536476120352745,
+      "quartz_mean": 0.01628553308546543,
+      "calcite_mean": 0.11507254093885422
+    }
+  ],
+  "abundance_source": "kf_main_abundance.npy (real ASTER main line)",
+  "mask": "analysis mask (survey ∩ ASTER)",
+  "mask_pixels": 1237644,
+  "kruskal": {
+    "H": 71566.09305994614,
+    "p": 0.0
+  },
+  "felsic_vs_carbonate": {
+    "n_felsic": 105249,
+    "n_carbonate": 6900,
+    "p_greater": 0.0,
+    "median_felsic": 0.20436272025108337,
+    "median_carbonate": 3.765975586933479e-10
+  },
+  "binary_target": {
+    "pixels": 617998,
+    "positive": 609972,
+    "auc": 0.9116177864648737,
+    "definition": "surficial/alluvium + felsic plutonic vs carbonate + sedimentary"
+  },
+  "note": "Substrate groups are qualitative; no alteration label is implied."
+}

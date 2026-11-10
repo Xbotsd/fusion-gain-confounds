@@ -1,0 +1,34 @@
+{
+  "source": "USGS SIM 3206 surficial geologic map, Ivanpah 30x60' quadrangle",
+  "doi": "10.3133/sim3206",
+  "url": "https://pubs.usgs.gov/sim/3206/sim3206_database.zip",
+  "groups": [
+    "carbonate",
+    "felsic plutonic",
+    "mafic plutonic",
+    "metasedimentary",
+    "partly consolidated",
+    "sedimentary",
+    "surficial/alluvium",
+    "volcanic"
+  ],
+  "pixels_on_survey": {
+    "carbonate": 6900,
+    "felsic plutonic": 105249,
+    "mafic plutonic": 9771,
+    "metasedimentary": 31659,
+    "partly consolidated": 13542,
+    "sedimentary": 1126,
+    "surficial/alluvium": 504723,
+    "volcanic": 92213
+  },
+  "unmapped_on_survey": 500500,
+  "grid_geotransform": [
+    626275.0,
+    50.0,
+    0.0,
+    3956925.0,
+    0.0,
+    -50.0
+  ]
+}

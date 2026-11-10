@@ -1,0 +1,734 @@
+{
+  "status": "PASS",
+  "generated_at": "2026-11-10T08:39:52+08:00",
+  "grid": [
+    1772,
+    1075
+  ],
+  "metric_recalc": {
+    "recall": 0.9337233367366599,
+    "precision": 0.33835778897286245,
+    "f1": 0.4967176339575116,
+    "iou": 0.330422045583266,
+    "tp": 169186,
+    "fp": 330835,
+    "fn": 12009,
+    "n_gt": 181195,
+    "positive_rate": 0.40401036162256676,
+    "clay_mean": 0.23612454533576965
+  },
+  "metric_stored": {
+    "branch": "real-aster",
+    "em_model": "corrected",
+    "config": "all",
+    "n_channels": 11,
+    "f1": 0.4967176339575116,
+    "recall": 0.9337233367366599,
+    "precision": 0.33835778897286245,
+    "iou": 0.330422045583266,
+    "ap": 0.5769301465570709,
+    "clay_mean": 0.23612454533576965,
+    "positive_rate": 0.40401036162256676,
+    "geo_auc": 0.9116177864648737
+  },
+  "yield": {
+    "grid_pixels": 1904900,
+    "analysis_pixels": 1237644,
+    "analysis_fraction": 0.6497159955903197,
+    "survey_pixels": 1265683,
+    "aster_fraction_of_survey": 0.9778467436158975,
+    "predicted_positive_rate": 0.40401036162256676,
+    "artifact_rate": 1.0,
+    "artifacts_present": 53,
+    "artifacts_expected": 53,
+    "experiments": {
+      "ablation_rows": 24,
+      "baseline_rows": 8,
+      "bootstrap_contrasts": 5,
+      "multiclass_repeats": 0
+    },
+    "runtime_s": 729.7434537410736
+  },
+  "cross_checks": [
+    {
+      "check": "main_f1_recompute",
+      "ok": true,
+      "detail": "delta 0.00e+00"
+    },
+    {
+      "check": "main_finite",
+      "ok": true,
+      "detail": "finite 1.0000"
+    },
+    {
+      "check": "identifiability_reproduces_main",
+      "ok": true,
+      "detail": "max dev 0.00e+00"
+    },
+    {
+      "check": "gamma_underdetermined",
+      "ok": true,
+      "detail": "rank 3/5 from 3 eq"
+    },
+    {
+      "check": "gamma_tir_identifiable",
+      "ok": true,
+      "detail": "rank 5/5 from 8 eq"
+    },
+    {
+      "check": "conditioning_control_matches_real",
+      "ok": true,
+      "detail": "noise-channels F1 0.649 vs real TIR 0.652"
+    },
+    {
+      "check": "inversion_gain_is_conditioning",
+      "ok": true,
+      "detail": "shuffled 0.913 vs real 0.913 (same H rows)"
+    },
+    {
+      "check": "real_tir_geo_gain_in_inversion",
+      "ok": true,
+      "detail": "real 0.913 vs gamma 0.387"
+    },
+    {
+      "check": "multiclass_gain_ci_excludes_zero",
+      "ok": true,
+      "detail": "gain +0.179 [+0.120, +0.241]"
+    },
+    {
+      "check": "multiclass_shuffle_null",
+      "ok": true,
+      "detail": "shuffled gain +0.003"
+    },
+    {
+      "check": "aster_physical_range",
+      "ok": true,
+      "detail": "eps 0.87-0.98, median BT 291.0 K"
+    },
+    {
+      "check": "aster_coverage",
+      "ok": true,
+      "detail": "97.8% of the survey has all five bands"
+    },
+    {
+      "check": "depth_shapes",
+      "ok": true,
+      "detail": "(40, 5, 1772, 1075) vs (40, 5, 1772, 1075)"
+    },
+    {
+      "check": "block_ge_2tau",
+      "ok": true,
+      "detail": "block 128 px vs 2*tau 106 px"
+    },
+    {
+      "check": "n_eff_reported",
+      "ok": true,
+      "detail": "N_eff 173"
+    },
+    {
+      "check": "fusion_beats_published_index",
+      "ok": true,
+      "detail": "ours 0.497 vs Low eTh/K 0.365"
+    },
+    {
+      "check": "uncertainty_not_calibrated",
+      "ok": true,
+      "detail": "68% coverage 0.129"
+    },
+    {
+      "check": "geology_counts",
+      "ok": true,
+      "detail": "counts match the raster"
+    }
+  ],
+  "checks": [
+    {
+      "check": "npy:gamma_cube.npy",
+      "exists": true,
+      "size": 22858928,
+      "shape": [
+        3,
+        1772,
+        1075
+      ],
+      "dtype": "float32",
+      "finite_fraction_sample": 0.6401515151515151,
+      "status": "PASS"
+    },
+    {
+      "check": "npy:tir_cube.npy",
+      "exists": true,
+      "size": 1523920128,
+      "shape": [
+        200,
+        1772,
+        1075
+      ],
+      "dtype": "float32",
+      "finite_fraction_sample": 0.6401515151515151,
+      "status": "PASS"
+    },
+    {
+      "check": "npy:tir_cube_real.npy",
+      "exists": true,
+      "size": 38098128,
+      "shape": [
+        5,
+        1772,
+        1075
+      ],
+      "dtype": "float32",
+      "finite_fraction_sample": 0.6262626262626263,
+      "status": "PASS"
+    },
+    {
+      "check": "npy:em_cube.npy",
+      "exists": true,
+      "size": 304784128,
+      "shape": [
+        40,
+        1772,
+        1075
+      ],
+      "dtype": "float32",
+      "finite_fraction_sample": 1.0,
+      "status": "PASS"
+    },
+    {
+      "check": "npy:clay_prior.npy",
+      "exists": true,
+      "size": 7619728,
+      "shape": [
+        1772,
+        1075
+      ],
+      "dtype": "float32",
+      "finite_fraction_sample": 1.0,
+      "status": "PASS"
+    },
+    {
+      "check": "npy:truth_abundance.npy",
+      "exists": true,
+      "size": 38098128,
+      "shape": [
+        5,
+        1772,
+        1075
+      ],
+      "dtype": "float32",
+      "finite_fraction_sample": 0.6401515151515151,
+      "status": "PASS"
+    },
+    {
+      "check": "npy:valid_mask.npy",
+      "exists": true,
+      "size": 1905028,
+      "shape": [
+        1772,
+        1075
+      ],
+      "dtype": "bool",
+      "finite_fraction_sample": 1.0,
+      "status": "PASS"
+    },
+    {
+      "check": "npy:analysis_mask.npy",
+      "exists": true,
+      "size": 1905028,
+      "shape": [
+        1772,
+        1075
+      ],
+      "dtype": "bool",
+      "finite_fraction_sample": 1.0,
+      "status": "PASS"
+    },
+    {
+      "check": "npy:geology_substrate.npy",
+      "exists": true,
+      "size": 3809928,
+      "shape": [
+        1772,
+        1075
+      ],
+      "dtype": "int16",
+      "finite_fraction_sample": 1.0,
+      "status": "PASS"
+    },
+    {
+      "check": "npy:kf_main_abundance.npy",
+      "exists": true,
+      "size": 38098128,
+      "shape": [
+        5,
+        1772,
+        1075
+      ],
+      "dtype": "float32",
+      "finite_fraction_sample": 1.0,
+      "status": "PASS"
+    },
+    {
+      "check": "npy:kf_main_uncertainty.npy",
+      "exists": true,
+      "size": 38098128,
+      "shape": [
+        5,
+        1772,
+        1075
+      ],
+      "dtype": "float32",
+      "finite_fraction_sample": 1.0,
+      "status": "PASS"
+    },
+    {
+      "check": "npy:depth_kalman_3d.npy",
+      "exists": true,
+      "size": 1523920128,
+      "shape": [
+        40,
+        5,
+        1772,
+        1075
+      ],
+      "dtype": "float32",
+      "finite_fraction_sample": 1.0,
+      "status": "PASS"
+    },
+    {
+      "check": "npy:depth_uncertainty.npy",
+      "exists": true,
+      "size": 288,
+      "shape": [
+        40
+      ],
+      "dtype": "float32",
+      "finite_fraction_sample": 1.0,
+      "status": "PASS"
+    },
+    {
+      "check": "npy:depth_kalman_3d_emfix.npy",
+      "exists": true,
+      "size": 1523920128,
+      "shape": [
+        40,
+        5,
+        1772,
+        1075
+      ],
+      "dtype": "float32",
+      "finite_fraction_sample": 1.0,
+      "status": "PASS"
+    },
+    {
+      "check": "npy:depth_uncertainty_emfix.npy",
+      "exists": true,
+      "size": 288,
+      "shape": [
+        40
+      ],
+      "dtype": "float32",
+      "finite_fraction_sample": 1.0,
+      "status": "PASS"
+    },
+    {
+      "check": "npy:tmi_grid.npy",
+      "exists": true,
+      "size": 7619728,
+      "shape": [
+        1772,
+        1075
+      ],
+      "dtype": "float32",
+      "finite_fraction_sample": 1.0,
+      "status": "PASS"
+    },
+    {
+      "check": "npy:granite_indicator.npy",
+      "exists": true,
+      "size": 7619728,
+      "shape": [
+        1772,
+        1075
+      ],
+      "dtype": "float32",
+      "finite_fraction_sample": 1.0,
+      "status": "PASS"
+    },
+    {
+      "check": "json:main_results.json",
+      "exists": true,
+      "size": 20225,
+      "keys": [
+        "H_tir_real",
+        "ablation",
+        "autocorr",
+        "baselines",
+        "bootstrap_f1",
+        "bootstrap_geo_auc",
+        "calibration",
+        "definition",
+        "geology_pixels",
+        "geology_positive"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "json:identifiability.json",
+      "exists": true,
+      "size": 5164,
+      "keys": [
+        "branch",
+        "f1_reproduction_max_dev",
+        "lambda",
+        "models",
+        "sign_agreement_f1",
+        "sign_agreement_geo"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "json:tir_controls.json",
+      "exists": true,
+      "size": 3704,
+      "keys": [
+        "note",
+        "r2_tir_on_gamma",
+        "rows"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "json:tir_information.json",
+      "exists": true,
+      "size": 2986,
+      "keys": [
+        "block_px",
+        "geology_positive_fraction",
+        "n_folds",
+        "n_samples",
+        "note",
+        "raw_separability",
+        "rows",
+        "summary"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "json:geology_multiclass.json",
+      "exists": true,
+      "size": 10635,
+      "keys": [
+        "block_px",
+        "chance",
+        "classes",
+        "n_folds",
+        "n_repeats",
+        "note",
+        "per_class",
+        "repeats",
+        "summary"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "json:real_tir_robust.json",
+      "exists": true,
+      "size": 5499,
+      "keys": [
+        "bootstrap",
+        "note",
+        "rows",
+        "variants"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "json:tir_real.json",
+      "exists": true,
+      "size": 1486,
+      "keys": [
+        "analysis_pixels",
+        "bands_um",
+        "bt_percentiles",
+        "corr_eps_with_band13",
+        "corr_eps_with_tsurf",
+        "coverage_all_bands_grid",
+        "coverage_of_survey",
+        "date",
+        "eps_band_mean",
+        "eps_max_assumed"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "json:geology_groups.json",
+      "exists": true,
+      "size": 782,
+      "keys": [
+        "doi",
+        "grid_geotransform",
+        "groups",
+        "pixels_on_survey",
+        "source",
+        "unmapped_on_survey",
+        "url"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "json:depth.json",
+      "exists": true,
+      "size": 8200,
+      "keys": [
+        "depth_m",
+        "layer_mean",
+        "layers",
+        "runtime_s",
+        "uncertainty"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "json:depth_emfix.json",
+      "exists": true,
+      "size": 8208,
+      "keys": [
+        "depth_m",
+        "layer_mean",
+        "layers",
+        "runtime_s",
+        "uncertainty"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "json:calibration.json",
+      "exists": true,
+      "size": 1655,
+      "keys": [
+        "bias",
+        "calibration_error_68",
+        "calibration_error_68_scaled",
+        "calibration_error_95",
+        "calibration_error_95_scaled",
+        "coverage_68",
+        "coverage_68_scaled",
+        "coverage_95",
+        "coverage_95_scaled",
+        "mean_sigma"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "json:autocorr.json",
+      "exists": true,
+      "size": 1381,
+      "keys": [
+        "bootstrap_block_m",
+        "bootstrap_block_px",
+        "cell_m",
+        "checks",
+        "edge_ai_block_ap",
+        "fields"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "json:independent_validation.json",
+      "exists": true,
+      "size": 2638,
+      "keys": [
+        "abundance_source",
+        "binary_target",
+        "doi",
+        "felsic_vs_carbonate",
+        "groups",
+        "kruskal",
+        "mask",
+        "mask_pixels",
+        "note",
+        "rows"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "json:published_baselines.json",
+      "exists": true,
+      "size": 2380,
+      "keys": [
+        "note",
+        "prevalence",
+        "rows"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "json:edge_ai.json",
+      "exists": true,
+      "size": 932,
+      "keys": [
+        "architecture",
+        "budget_200ms",
+        "budget_300kb",
+        "cnn_float",
+        "cnn_int8",
+        "hardware",
+        "int8_size_kb",
+        "latency_ms_10k",
+        "latency_us_per_sample",
+        "params"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "json:granite_properties.json",
+      "exists": true,
+      "size": 4394,
+      "keys": [
+        "conductivity",
+        "felsic_pixels",
+        "granite_map",
+        "indicator_mean_on_felsic",
+        "indicator_mean_on_other",
+        "indicator_weights_K_eTh_TMI_bias",
+        "radiometric_separability",
+        "signature",
+        "susceptibility"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "json:granite_compensation.json",
+      "exists": true,
+      "size": 3630,
+      "keys": [
+        "indicator",
+        "results",
+        "substrate"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "json:large_files.json",
+      "exists": true,
+      "size": 1258,
+      "keys": [
+        "files",
+        "limit_mb",
+        "n_files",
+        "policy",
+        "total_mb"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "fig:main_ablation.png",
+      "exists": true,
+      "size": 143051,
+      "status": "PASS"
+    },
+    {
+      "check": "fig:main_maps.png",
+      "exists": true,
+      "size": 3325748,
+      "status": "PASS"
+    },
+    {
+      "check": "fig:identifiability.png",
+      "exists": true,
+      "size": 117087,
+      "status": "PASS"
+    },
+    {
+      "check": "fig:real_tir_robust.png",
+      "exists": true,
+      "size": 129807,
+      "status": "PASS"
+    },
+    {
+      "check": "fig:published_baselines.png",
+      "exists": true,
+      "size": 142984,
+      "status": "PASS"
+    },
+    {
+      "check": "fig:independent_validation.png",
+      "exists": true,
+      "size": 206247,
+      "status": "PASS"
+    },
+    {
+      "check": "fig:calibration.png",
+      "exists": true,
+      "size": 444005,
+      "status": "PASS"
+    },
+    {
+      "check": "fig:autocorr.png",
+      "exists": true,
+      "size": 244304,
+      "status": "PASS"
+    },
+    {
+      "check": "fig:depth_profiles.png",
+      "exists": true,
+      "size": 238900,
+      "status": "PASS"
+    },
+    {
+      "check": "fig:depth_clay_layers.png",
+      "exists": true,
+      "size": 2334041,
+      "status": "PASS"
+    },
+    {
+      "check": "fig:depth_section.png",
+      "exists": true,
+      "size": 1485075,
+      "status": "PASS"
+    },
+    {
+      "check": "fig:depth_uncertainty.png",
+      "exists": true,
+      "size": 91599,
+      "status": "PASS"
+    },
+    {
+      "check": "fig:fig_data.png",
+      "exists": true,
+      "size": 5547833,
+      "status": "PASS"
+    },
+    {
+      "check": "fig:fig_method.png",
+      "exists": true,
+      "size": 272742,
+      "status": "PASS"
+    },
+    {
+      "check": "fig:fig_results.png",
+      "exists": true,
+      "size": 2188580,
+      "status": "PASS"
+    },
+    {
+      "check": "fig:fig_granite.png",
+      "exists": true,
+      "size": 1902933,
+      "status": "PASS"
+    },
+    {
+      "check": "fig:granite_compensation.png",
+      "exists": true,
+      "size": 1707120,
+      "status": "PASS"
+    },
+    {
+      "check": "fig:edge_ai.png",
+      "exists": true,
+      "size": 136638,
+      "status": "PASS"
+    }
+  ]
+}

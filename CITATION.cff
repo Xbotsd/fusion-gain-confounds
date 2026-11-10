@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this benchmark, please cite the manuscript and this repository."
+title: "Two confounds in reported fusion gains for airborne mineral exploration"
+abstract: >-
+  Reproducible benchmark on a real USGS airborne radiometric survey combined with
+  real ASTER L1T thermal infrared, real aeromagnetics and the USGS SIM 3206
+  geologic map, with a documented synthetic EM augmentation. It separates target
+  circularity from the conditioning effect of an underdetermined inversion and
+  provides a model-free information test that conditioning cannot fake.
+authors:
+  - family-names: Xu
+    given-names: Yudong
+    affiliation: "Heilongjiang University of Science and Technology, Harbin, China"
+    email: 3468858545@qq.com
+license: MIT
+references:
+  - type: software
+    title: "ASTER L1T v003 (NASA/METI), accessed via Microsoft Planetary Computer"
+  - type: data
+    title: "USGS airborne radiometric survey, Ivanpah-Clark Mountain, NV-CA (2019-2020)"
+  - type: map
+    title: "USGS SIM 3206 surficial geologic map"
+    doi: 10.3133/sim3206

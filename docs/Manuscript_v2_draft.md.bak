@@ -1,0 +1,447 @@
+# When does multi-modal fusion improve airborne mineral exploration? An identifiability analysis and reproducible benchmark
+
+**Authors:** Yudong Xu¹  
+¹ Heilongjiang University of Science and Technology, Harbin, China  
+**Corresponding author:** 3468858545@qq.com
+
+## Abstract
+
+Multi-modal fusion is widely proposed to improve airborne mineral exploration, yet reported gains are rarely comparable because studies use different response matrices, synthetic augmentation recipes and metric definitions. We present a reproducible benchmark built on the real USGS airborne radiometric survey of the Ivanpah–Clark Mountain area (Nevada–California, 2019–2020), with physically informed synthetic thermal-infrared (TIR) and electromagnetic (EM) modalities generated from documented endmembers and AEM statistics. The benchmark fixes one response matrix, one valid-pixel mask and one contingency-table metric, and then varies modality set, sensor degradation, temperature, domain shift, response-matrix perturbation, resolution and random seed. We derive a fusion gain index from the clay-estimate variance and show that it predicts when adding a modality helps. Legacy tri-modal fusion does not improve agreement with the gamma-derived alteration proxy over gamma+TIR, because the EM row uses raw resistivity with five mineral responses. Replacing it with log10 resistivity and a clay-only response raises proxy F1 from 0.267 to 0.498 and average precision from 0.126 to 0.513, significantly above the independent (0.333/0.173) and GLS (0.326/0.245) baselines, while reducing fragmentation from 5,375 to 765 connected components. The widely quoted +104 % fusion gain remains a matrix artefact. We release the code, data recipe and audit scripts, and recommend reporting recall, precision and F1 together with an explicit statement of the evaluation target. The benchmark turns a set of inconsistent results into a reusable protocol for honest multi-modal evaluation.
+
+**Keywords:** airborne mineral exploration; gamma-ray spectrometry; thermal infrared; electromagnetic induction; multi-modal fusion; Kalman filter; reproducibility; benchmark
+
+## Highlights
+
+- One response matrix, one mask and one metric across all fusion experiments.
+- A fusion gain index predicts when adding a modality improves clay estimability.
+- Legacy EM mis-specification masks the fusion gain; correcting it unlocks it.
+- Log10 clay-only EM raises F1 from 0.267 to 0.498 and AP from 0.126 to 0.513.
+- Kalman smoothing cuts fragmented predictions without sacrificing this gain.
+- The +104 % claim is a matrix artefact, not a modality effect.
+- Code, synthetic recipes and audit scripts are released for reuse.
+
+## 1. Introduction
+
+Airborne geophysical surveys are a primary tool for mapping alteration and lithology over large areas. Gamma-ray spectrometry measures potassium, equivalent uranium and equivalent thorium within roughly the top 30 cm of the surface; electromagnetic (EM) induction responds to bulk conductivity and is sensitive to sulphides, graphite and saline fluids; thermal infrared (TIR) emissivity carries mineralogical information through reststrahlen features of quartz, feldspar, clay and carbonate. Each modality is physically limited: gamma rays cannot see non-radioactive minerals, EM suffers from non-uniqueness and conductive overburden, and TIR is affected by moisture, dust and particle size. Multi-modal fusion is therefore an attractive way to combine complementary information.
+
+The literature repeatedly reports that fusion improves mineral mapping, but the reported gains range from marginal to more than 100 %. The comparisons are difficult to reproduce because studies differ in three ways. First, the response matrix that maps mineral abundance to sensor channels is often hand-set and sometimes differs between the ablation and the validation experiments. Second, synthetic modalities are generated from a mineral field that is itself derived from the real data, and the evaluation target is derived from the same data, creating a circular dependency. Third, pixel coverage and recall are both called “detection rate”, and precision and F1 are rarely reported. These practices make a fusion gain look larger and more robust than it is.
+
+This paper asks three questions. **RQ1:** under what conditions does adding a modality reduce the variance of the clay estimate? **RQ2:** why are the reported fusion gains difficult to reproduce? **RQ3:** what benchmark protocol makes multi-modal evaluation comparable? We answer them on a real USGS airborne radiometric survey of the Ivanpah–Clark Mountain area, with documented synthetic TIR and EM modalities. The real gamma data provide realistic spatial structure and noise; the synthetic modalities provide controlled, reproducible complements; the evaluation target is the gamma-derived alteration proxy, and we state that limitation explicitly.
+
+Our contributions are four. (i) We build a reproducible benchmark with one response matrix, one valid-pixel mask and one metric definition. (ii) We derive a fusion gain index from the clay-estimate variance and show that it predicts the sign of the observed modality effect. (iii) We quantify three failure modes — response-matrix inconsistency, synthetic circularity and metric inflation — and show that the widely quoted +104 % gain is a matrix artefact. (iv) We release the code, synthetic recipes and audit scripts, and give recommendations for future multi-modal studies.
+
+The remainder of the paper is organized as follows. Section 2 reviews related work. Section 3 describes the data and the benchmark protocol. Section 4 presents the estimator. Section 5 derives the fusion gain index. Section 6 describes the experiments. Section 7 reports the results. Section 8 discusses implications and limitations, and Section 9 concludes.
+
+## 2. Related work
+
+### 2.1 Single-modality mineral exploration
+
+Airborne gamma-ray spectrometry is routinely used for geological mapping and alteration detection. Potassium, uranium and thorium concentrations are converted to a ternary image, and ratios such as K/eTh are used as alteration indices [1–4]. The method is sensitive to the top 30 cm only and is strongly affected by soil moisture and vegetation cover. Airborne EM provides conductivity structure to depths of tens to hundreds of metres; frequency-domain and time-domain systems are used for mineral exploration, groundwater and environmental mapping [5–7]. EM inversion is non-unique, and conductive overburden can mask bedrock responses. TIR spectroscopy identifies rock-forming minerals through emissivity features in the 8–14 µm atmospheric window [8–10]. Quantitative mineral abundance can be estimated by deconvolving endmember spectra, but the inversion is sensitive to particle size, viewing geometry and atmospheric correction.
+
+### 2.2 Multi-modal fusion
+
+Fusion has been approached with Bayesian updating, weighted least squares, Kalman filters, principal-component analysis and, more recently, deep networks [11–15]. Most studies report that fusion improves a map or a classification metric, but few analyse *when* the improvement is expected. In a linear mixture model, the benefit of adding a channel depends on the conditioning of the response matrix, the noise level of the new channel and the definition of the target. Without such an analysis, a fusion gain can be produced by changing the response matrix, the evaluation mask or the metric rather than by adding information. Our work makes this dependence explicit.
+
+### 2.3 Evaluation and reproducibility
+
+Reproducibility requires fixed data, code, parameters and metric definitions [16,17]. In geoscience, benchmark studies have shown that reported gains often shrink when data splits and metrics are standardized. Synthetic data are useful for controlled experiments but can create circularity when the evaluation target is derived from the same source as the synthetic modality. We therefore report both the proxy metric and the model-fit residual, and we release the synthetic recipes.
+
+### 2.4 Gap
+
+There is no common benchmark for airborne multi-modal mineral exploration that fixes the response matrix, the valid mask and the metric; there is no criterion for predicting whether a modality will help; and the effect of synthetic circularity has not been quantified. This paper addresses these three gaps.
+
+## 3. Data and benchmark design
+
+### 3.1 Real airborne radiometrics
+
+Figure 1 shows the three real radiometric channels, the synthetic TIR and EM cubes and the clay_prior proxy; Table 1 lists the layers. The real data are the USGS airborne radiometric survey of the Ivanpah–Clark Mountain area on the Nevada–California border. The line-level CSV contains 295,943 samples at 1 Hz, acquired on 631 lines over 34 survey days between 13 December 2019 and 21 March 2020. The corrected K (%), eU (ppm) and eTh (ppm) channels were gridded to 50 m; the grid is 1772 × 1075 pixels in NAD83 / UTM zone 11N, with 66.4 % valid pixels after masking the irregular survey footprint. The median values are K 3.24 %, eU 6.69 ppm and eTh 5.81 ppm. The corrected-channel medians of the CSV and the three grids agree to three decimals, which confirms that the grids are the gridded product of the CSV.
+
+| Layer | Source | Resolution | Role |
+|---|---|---|---|
+| Gamma K/eU/eTh | real USGS Ivanpah | 1772 × 1075, 50 m | only real modality |
+| TIR | synthetic splib07 | 200 bands, 50 m | controlled augmentation |
+| EM | synthetic AEM statistics | 40 layers, 50 m | controlled augmentation |
+| clay_prior | derived from gamma | 50 m | evaluation proxy |
+| TIR truth | derived from gamma | 50 m | synthetic TIR target |
+
+### 3.2 Synthetic TIR
+
+The TIR cube has 200 bands between 8 and 14 µm. Each band is generated as
+
+```
+TIR_b(p) = sum_m a_m(p) * (1 - R_m,b)
+```
+
+where `a_m` is the abundance field and `R_m,b` is the reflectance of mineral `m` from the USGS splib07 library. The abundance field is derived from the gamma grids (quartz = 0.4K + 0.2eU, feldspar = 0.3K + 0.3(1−eU), clay = 0.3K + 0.3eTh, calcite = 0.2eU(1−K), dolomite = 0.2eTh(1−K), renormalized). The four bands used by the inversion are 8.6, 9.6, 11.3 and 12.5 µm. The TIR cube is synthetic; it is not a measured image.
+
+### 3.3 Synthetic EM
+
+The EM cube has 40 layers from 0 to 600 m. Layer medians and depths come from the Wisconsin AEM survey 2022. The log-resistivity is generated as
+
+```
+log10 rho_k = log10(median_k)
+              + 0.50 * (0.55 * clay_z * exp(-depth/250)
+                        + 0.55 * independent_field
+                        + 0.35 * layer_noise)
+```
+
+with seed 12345, an independent field smoothed at 25 px and layer noise smoothed at 15 px. The cube is clipped to 1–10,000 Ω·m. It is a controlled correlated field, not a measured EM section.
+
+### 3.4 Two clay truths
+
+The TIR cube is generated from a clay field proportional to `0.3K + 0.3eTh` (mean 0.30), while the EM cube is generated from the alteration proxy `clay_prior = 0.5K + 0.3(1−eTh) + 0.2|eU−eTh|` (mean 0.46; 0.49 on valid pixels). The two fields correlate at 0.57. They are not the same target. This is a structural property of the legacy dataset; we keep it visible rather than hiding it, and we use it as part of the audit.
+
+### 3.5 Benchmark protocol
+
+All experiments use one response matrix `H` (Section 4), one valid mask (66.4 % of the grid) and one metric definition (Section 3.6). Because the inversion is unsupervised, there is no train/test split; instead, we use leave-two-channels-out and modality ablation to test robustness. Random seeds are fixed for all stochastic experiments. Results are written to JSON/CSV with the code, and a manifest records SHA-256 hashes of every file.
+
+### 3.6 Metric definitions
+
+Table 2 fixes the terms used throughout.
+
+A pixel is predicted positive when clay abundance is greater than 0.25 and clay is among the top two minerals. The target is `clay_prior > 0.55`. We report recall, precision, F1 and IoU from the same contingency table, computed on valid pixels only. “Overall” is the mean of six scenario means and is not called a detection rate. The definition is deliberately conservative: it measures agreement with a gamma-derived alteration proxy, not geological accuracy.
+
+| Term | Definition |
+|---|---|
+| Positive pixel | clay > 0.25 and clay in top-2 minerals |
+| Target | clay_prior > 0.55 |
+| Recall | TP / (TP + FN) |
+| Precision | TP / (TP + FP) |
+| F1 | 2PR / (P + R) |
+| IoU | TP / (TP + FP + FN) |
+| Mask | valid survey pixels only (66.4 %) |
+
+## 4. Methods
+
+### 4.1 Observation model and response matrix
+
+Each pixel has ten channels: K, eU, eTh, four TIR bands (8.6, 9.6, 11.3, 12.5 µm), and three EM layers (0, 15, 35; approximately 0, 12 and 227 m). The observation model is
+
+```
+z = H a + v
+```
+
+where `z` is 10 × 1, `a` is the five-mineral abundance vector and `H` is 10 × 5. The clay column of `H` is K-rich (4.0), Th-poor (1.0), TIR-flat (0.88–0.92) and EM-conductive (20, 15, 25 Ω·m). `H` is a relative signature matrix, not a set of measured concentrations.
+
+### 4.2 Weighted least squares
+
+Channels are z-scored and clipped at ±3; mineral columns of `H` are normalized to unit L2 norm. The estimate solves
+
+```
+x^ = argmin (z - Hx)^T W (z - Hx) + lambda ||x||^2
+     x >= 0, sum(x) = 1
+
+x^ = (H^T W H + lambda I)^-1 H^T W z
+```
+
+with `lambda = 0.1` and `W = diag(w)`. The solution is projected onto the non-negative unit simplex. The z-scoring plus column normalization makes this a relative-signature matching scheme, not an absolute concentration inversion; this is stated explicitly because it affects interpretation.
+
+### 4.3 Spatial Kalman filter
+
+The WLS estimate at column `j` is the observation of a random-walk state along the survey direction:
+
+```
+x^- = x,          P^- = P + Q
+K   = P^- / (P^- + R_obs)
+x   = x^- + K (z_wls - x^-)
+P   = (1 - K) P^- + 0.05 * mean(innovation^2)
+```
+
+with `Q = 0.005` and `R_obs = 0.02`. The filter is causal; `P` is a forward-filter variance, not a calibrated confidence interval.
+
+### 4.4 Depth Kalman
+
+The 40 EM layers are treated as a sequence along depth:
+
+```
+F = 0.85 I + 0.15/5
+Q = 0.03
+H_k : rows 0-6 as above; EM row scaled by 1 + 0.2 * depth_factor * [1, .5, -.8, 1.2, 1]
+R_k : gamma/TIR rows 1 + 5 * depth_factor; EM row 1
+```
+
+Surface gamma and TIR are repeated at every layer as anchors. Deep abundance variation is therefore driven mainly by EM and by the F/Q prior; this is a structural limitation.
+
+### 4.5 Quality weights
+
+The production run uses uniform weights. Scenario experiments replace them by explicit quality multipliers `q_i` (`W = diag(q)`, higher q = more weight): `q_i = 1/factor` for a degraded modality with noise injection; temperature quality from SiPM dark-count rate and TIR/EM drift; and per-pixel quality from measured temperature and humidity for the environment experiment. The quality factors are empirical and monotone, not instrument transfer models.
+
+### 4.6 Baselines
+
+We compare independent per-modality inversion, simple average, fixed weights, PCA with three components, GLS/Bayesian fusion and the proposed WLS + Kalman estimator. All methods use the same `H`, mask and metric.
+
+### 4.7 Uncertainty calibration
+
+The forward-filter variance is compared with the empirical error against the proxy target. We report 68 % and 95 % coverage, a reliability diagram and the calibration error before and after a simple variance rescaling. This tests whether `P` can be interpreted as an uncertainty rather than a smoothing parameter.
+
+Figure 2 summarises the benchmark protocol and the estimator chain.
+
+## 5. Identifiability and fusion gain
+
+### 5.1 Variance of the clay estimate
+
+For the WLS estimator, the covariance of the estimate is
+
+```
+Cov(x^) = (H^T W H + lambda I)^-1 H^T W Sigma W H (H^T W H + lambda I)^-1
+```
+
+where `Sigma` is the channel-noise covariance. The clay variance is the corresponding diagonal element. Adding a modality changes both `H` and `Sigma`; whether the clay variance decreases depends on the alignment of the new row with the clay column and on its noise.
+
+### 5.2 Condition number and weight sensitivity
+
+We define the condition number `kappa(H)` of the normalized response matrix and the clay weight fraction of each modality. A modality with a weak clay signature and a large noise level increases `kappa` and the clay variance. The EM row in the legacy matrix has a very low clay resistivity but high resistivity for the other four minerals; after column normalization this gives clay a small EM weight while the other minerals dominate, so EM is attributed to the wrong minerals.
+
+### 5.3 Fusion gain index
+
+We define
+
+```
+G(S -> S union m) = 1 - Var_clay(S union m) / Var_clay(S)
+```
+
+where `S` is the current modality set and `m` is the candidate modality. `G > 0` means the new modality reduces the clay variance; `G < 0` means it is harmful. The index is computed from `H`, `W` and `Sigma` and can be evaluated before running a fusion experiment.
+
+### 5.4 Predicted vs observed gain
+
+The sign of `G` matches the legacy ablation: under the raw-resistivity H, TIR has a positive gain, EM has a negative gain, and the full set is worse than gamma+TIR on the proxy target. The index therefore provides a cheap diagnostic: if `G` is negative, the response matrix should be checked before concluding that the modality is useless. Correcting EM to log10/clay-only flips the sign to positive.
+
+## 6. Experiments
+
+The experiment matrix covers modality ablation, sensor degradation (EMI ×5/×20, TIR ×5, gamma ×5, EMI+TIR), temperature from −60 to +80 °C, a Wyoming-like domain shift with direct transfer and CORAL, response-matrix perturbation from ±5 % to ±30 %, resolution from 50 to 800 m, 20 random seeds and six baselines. All scenarios use the metric definition of Section 3.6. The 10-run repeat experiment adds independent 1 % channel noise and averages the abundance maps.
+
+## 7. Results
+
+### 7.1 Main fusion
+
+Figure 3 shows the fused clay map and its posterior variance; Table 3 gives the depth-layer means. At the normal operating point, the fused map has a mean clay abundance of 0.458 on valid pixels, a spatial gradient of 0.00664 and a mean posterior variance of 0.0080. The proxy metrics are recall 0.6933, precision 0.1654, F1 0.2671 and IoU 0.1541. The low precision is expected: the proxy target occupies 9.5 % of the valid pixels, while the estimator labels about 60 % positive. The earlier “65.26 %” figure was recall alone.
+
+| Depth | Quartz | Feldspar | Clay | Calcite | Dolomite |
+|---:|---:|---:|---:|---:|---:|
+| 0.1 m | 0.129 | 0.211 | 0.276 | 0.181 | 0.121 |
+| 5.6 m | 0.079 | 0.244 | 0.359 | 0.197 | 0.060 |
+| 28 m | 0.068 | 0.212 | 0.401 | 0.202 | 0.063 |
+| 120 m | 0.066 | 0.202 | 0.415 | 0.199 | 0.068 |
+| 500 m | 0.063 | 0.196 | 0.444 | 0.192 | 0.069 |
+
+### 7.2 Ablation and fusion gain
+
+Figure 4 shows the ablation, and Table 4 reports the ablation. Gamma alone gives clay 0.342 and F1 0.325; adding TIR raises clay to 0.392 and F1 to 0.339; adding EM lowers F1 to 0.191; the full set gives clay 0.458 but F1 0.267. The widely quoted +104 % gain (0.198 → 0.403) does not reproduce. It was produced by an ablation matrix whose clay signature is K-poor and Th-rich, opposite to the validation matrix. The +104 % is therefore a matrix artefact, not a modality effect.
+
+| Configuration | Clay | Gradient | Recall | Precision | F1 |
+|---|---:|---:|---:|---:|---:|
+| Gamma | 0.342 | 0.00673 | 0.773 | 0.205 | 0.325 |
+| Gamma + TIR | 0.392 | 0.00406 | 0.973 | 0.205 | 0.339 |
+| Gamma + EM | 0.351 | 0.00779 | 0.392 | 0.127 | 0.191 |
+| All | 0.458 | 0.00664 | 0.693 | 0.165 | 0.267 |
+
+### 7.3 Sensor degradation
+
+Figure 5 shows the scenario recalls and the temperature sweep, and Table 5 lists them. When EMI is degraded or failed, recall increases from 0.693 to 0.952–0.976 under the legacy H. This is the opposite of graceful degradation: the legacy EM modality has a negative gain, so removing or down-weighting it improves agreement with the proxy. TIR degradation lowers recall to 0.433 and gamma degradation to 0.602. The experiment therefore identifies which modality is actually useful, rather than assuming that all modalities help; with corrected EM the dependence is expected to reverse and must be re-measured.
+
+### 7.4 Temperature
+
+Recall falls from 0.690 at 25 °C to 0.352 at −60 °C and 0.348 at +80 °C. The temperature sweep is the strongest degradation axis. The quality weights reduce the weight of the affected modalities, but they cannot recover information that is no longer present.
+
+| Scenario | Recall | Precision | F1 |
+|---|---:|---:|---:|
+| Normal | 0.693 | 0.165 | 0.267 |
+| EMI degraded ×5 | 0.952 | 0.199 | 0.329 |
+| EMI failed ×20 | 0.976 | 0.202 | 0.334 |
+| TIR degraded ×5 | 0.433 | 0.134 | 0.204 |
+| Gamma degraded ×5 | 0.602 | 0.109 | 0.184 |
+| T = −60 °C | 0.352 | 0.116 | 0.175 |
+| T = +80 °C | 0.348 | 0.109 | 0.167 |
+
+### 7.5 Cross-domain
+
+The Wyoming-like target transform changes the channel means but is largely removed by z-scoring. Direct transfer gives recall 0.692 and CORAL 0.689; the mean-abundance gap is 0.08 % for direct transfer and 0.17 % for CORAL. CORAL does not help because the synthetic shift is a per-channel scaling, not a covariance change. This does not invalidate CORAL for real domain shifts, but it shows that the experiment does not test it.
+
+### 7.6 Baselines and H robustness
+
+Table 6 compares the baselines and Table 7 adds the coherence metrics. The independent per-modality inversion has the best proxy F1 (0.333), followed by GLS/Bayesian (0.326), fixed weight (0.179), simple average (0.066) and PCA (0.026). The proposed estimator has the highest clay abundance (0.458) and the smoothest map (gradient 0.00664), but its F1 is 0.267. Under ±30 % H perturbation, recall is 0.659 ± 0.228; the mean is stable but the spread grows quickly.
+
+| Method | Clay | Gradient | Recall | F1 |
+|---|---:|---:|---:|---:|
+| Independent | 0.235 | 0.01604 | 0.701 | 0.333 |
+| Simple average | 0.028 | 0.01625 | 0.036 | 0.066 |
+| Fixed weight | 0.353 | 0.00923 | 0.383 | 0.179 |
+| PCA (3 comp.) | 0.020 | 0.00805 | 0.013 | 0.026 |
+| GLS / Bayesian | 0.315 | 0.01821 | 0.673 | 0.326 |
+| WLS + Kalman | 0.458 | 0.00664 | 0.693 | 0.267 |
+
+| Method | AP | matched precision | components | mean patch (px) |
+|---|---:|---:|---:|---:|
+| Independent | 0.173 | 0.124 | 5,375 | 108 |
+| Simple average | 0.266 | 0.143 | 8,179 | 2 |
+| Fixed weight | 0.122 | 0.037 | 465 | 1,283 |
+| PCA (3 comp.) | 0.266 | 0.143 | 1,721 | 2 |
+| GLS / Bayesian | 0.245 | 0.292 | 2,291 | 247 |
+| WLS + Kalman | 0.126 | 0.040 | 223 | 3,407 |
+
+With the legacy H, the advantage of the proposed estimator is not pixel accuracy. It produces far fewer fragmented predictions (223 connected components vs 5,375 for Independent; mean patch 3,407 vs 108 px) and fewer isolated false-positive patches (240 vs 5,038), and its F1 changes by only −0.0005 under 10 % channel noise. A 128×128 (6.4 km) spatial block bootstrap (200 replicates) confirms that the accuracy deficit is significant: ΔF1 = −0.064 [−0.116, −0.022], with the proposed estimator never winning in 200 resamples. This is a coherence/interpretability trade-off, not an accuracy win. The corrected EM model below removes this deficit.
+
+### 7.7 Uncertainty calibration and endmember sensitivity
+
+Table 8 reports the calibration. The forward-filter variance is not calibrated: the empirical 68 % and 95 % coverage are 10.3 % and 20.2 %, and a variance scale factor of 17.97 raises them only to 49.1 % and 100 %. The mean bias is −0.031 and the RMSE is 0.377 against a mean sigma of 0.089. `P` is therefore a filter variance, not a posterior predictive interval. Table 9 reports the ASU endmember variant, which replaces the USGS splib07 spectra with measured ASU emissivity, gives a much stronger TIR contrast and lowers proxy F1 to 0.132. This is not a failure of ASU data; it shows that the synthetic TIR truth and the evaluation proxy are different fields, and a stronger TIR modality amplifies that mismatch. The main results therefore use the USGS endmembers, and the ASU variant is reported as a sensitivity analysis.
+
+| Nominal coverage | Empirical | After ×17.97 scaling |
+|---|---:|---:|
+| 68 % | 10.3 % | 49.1 % |
+| 95 % | 20.2 % | 100 % |
+
+| Endmember library | Clay | Recall | Precision | F1 |
+|---|---:|---:|---:|---:|
+| USGS splib07 (main) | 0.458 | 0.693 | 0.165 | 0.267 |
+| ASU measured | 0.334 | 0.264 | 0.088 | 0.132 |
+
+A second controlled testbed (V2) removes the two data inconsistencies: clay is
+set to `clay_prior`, TIR and EM are generated from that single field, and EM uses
+log10 resistivity with a clay-only response. Gamma alone still gives the best F1
+(0.489), while gamma+TIR (0.219), gamma+EM (0.299) and the full set (0.179) are
+lower. This confirms that the bottleneck is the gamma-derived target, not only
+the synthetic recipes.
+
+### 7.8 Resolution and seed
+
+Striding the grid from 50 to 800 m raises proxy recall from 0.693 to 0.759 and changes clay from 0.458 to 0.449; runtime falls from 7.68 to 0.04 s. Coarser grids smooth the proxy agreement upward; this is an aggregation effect, not better physics. Ten repeated 1 % noise runs give recall 0.6933 ± 0.00014, F1 0.2671 ± 0.00005 and clay 0.4583 ± 0.00001.
+
+### 7.9 Correcting the EM response
+
+Figure 6 compares the legacy and corrected EM models and Table 10 gives the metrics. The legacy EM row uses raw resistivity with five mineral responses. Replacing it with log10 resistivity and a clay-only response (`β = [0.90, 0.86, 0.36]`) raises F1 from 0.267 to **0.498** and AP from 0.126 to **0.513**, with recall 0.858 and precision 0.351. The corrected model beats Independent (0.333/0.173) and GLS (0.326/0.245); a 128×128-px (6.4 km) block bootstrap — the block size exceeds twice the measured 2.7 km spatial integral scale — gives ΔF1 = +0.167 [0.118, 0.217], winning 200/200 replicates. Because the field is autocorrelated, the effective sample size is only ~110–175 independent samples (design effect ~10⁴); pixel-level standard errors are therefore not meaningful and uncertainty is reported at the block scale. All validation scenarios carry 128-px block-bootstrap 95 % CIs with Benjamini-Hochberg-corrected paired tests against the normal scenario: EMI failure costs −0.187 recall [−0.246, −0.142], TIR degradation significantly helps (+0.028 [+0.013, +0.045]), CORAL significantly hurts (−0.015 [−0.022, −0.009]), and EMI+TIR failure is indistinguishable from normal (BH p = 0.90) because gamma alone carries the proxy. Under the corrected model, the modality ablation gives gamma-only F1 0.519, all 0.498, gamma+TIR 0.451 and gamma+EM 0.417 on the proxy — the gamma-only optimum is the expected circularity of a gamma-index target, while against the synthetic TIR truth the full set is best (RMSE 0.216, r 0.290). Ten runs with 1 % channel noise give F1 0.49816 ± 0.00005, recall 0.85749 ± 0.00012 and precision 0.35105 ± 0.00003. A clay-threshold sweep at the stated proxy target gives a best F1 of 0.533 at clay > 0.35, and the corrected model remains the best method across the sweep. Propagating the correction to validation and depth gives overall recall 0.833 (legacy 0.659), overall F1 0.480 (legacy 0.253), temperature-family recall 0.912 (legacy 0.476) and H-sensitivity 0.861 (legacy 0.687); EMI failure now hurts and TIR failure helps, as expected. Depth clay decreases from 0.276 at 0.1 m to 0.179 at 500 m (legacy rose to 0.444). Fragmentation is 765 components, between the legacy Kalman (223) and Independent (5,375). The legacy negative result is therefore a model-specification artefact, not evidence against fusion.
+
+| method | F1 | AP | recall | precision | components |
+|---|---:|---:|---:|---:|---:|
+| Independent | 0.333 | 0.173 | 0.701 | 0.218 | 5,375 |
+| GLS / Bayesian | 0.326 | 0.245 | 0.673 | 0.215 | 2,291 |
+| Legacy WLS + Kalman | 0.267 | 0.126 | 0.693 | 0.165 | 223 |
+| **EM-fix Kalman** | **0.498** | **0.513** | **0.858** | **0.351** | **765** |
+
+### 7.10 Independent geological substrate check
+
+As an external, non-gamma check, the USGS SIM 3206 surficial geologic map was
+rasterised to the 50 m grid. Clay is highest in alluvium (0.487), felsic
+plutonic (0.426) and volcanic (0.417) substrates, and lowest in sedimentary
+(0.020) and carbonate (0.011) substrates; Kruskal–Wallis p<0.001 and felsic >
+carbonate p<0.001. This ranking is directionally consistent with the geology,
+but the map is surficial substrate, not an alteration or deposit label; it is a
+qualitative consistency check, not independent accuracy validation.
+
+### 7.11 Edge modules: granite compensation, residual CNN, runtime
+
+Three modules proposed in early drafts were implemented in software and tested.
+(i) *Granite interference compensation*: using the real TMI grid, real NGU
+airborne-FDEM resistivity statistics (103,484 measured values, p50 1,856 Ω·m)
+and the SIM 3206 felsic-plutonic map, we find the local granite is not
+radiometrically distinct (K 3.16 vs 3.04 %) and shows no clay excess (−0.010)
+under the corrected model; applying the compensation raises felsic clay from
+0.165 to 0.336 and lowers F1 from 0.498 to 0.475, so it is reported as
+unnecessary and harmful at this site. (ii) *1-D CNN residual learner*
+(pure NumPy, 2,717 parameters, INT8 2.7 KB): proxy RMSE improves from 0.351 to
+0.106 but average precision degrades from 0.537 to 0.344, so the CNN
+demonstrates the deployment path but not an accuracy gain. (iii) *Runtime*:
+21 ms per 10,000-sample tile on CPU (the 200 ms budget is met with a 9.5×
+margin); no Jetson device was available, so no edge-hardware claim is made.
+
+### 7.12 Published-method baselines
+
+Five published exploration methods were evaluated with the same protocol: the
+IAEA ternary K-dominance composite, the F-parameter K·eU/eTh (Gnojek &
+Prichystal 1985), low eTh/K (Dickson & Scott 1997), Spectral Angle Mapper on
+the TIR bands (Kruse et al. 1993) and an EM conductor index. The F-parameter
+reaches AP 0.650 and matched-prevalence F1 0.617, and low eTh/K reaches
+0.572/0.569 — both gamma-only indices beat the corrected fusion (0.513/0.386)
+on the proxy target, because the proxy is a monotone function of K and eTh and
+any ratio that increases with K and decreases with eTh tracks it by
+construction. SAM (0.091) and the EM conductor index (0.090) fail because the
+synthetic TIR/EM channels do not encode the proxy field. No multimodal method
+can beat a gamma ratio on a gamma-index target; the benchmark's role is to
+expose this, while the corrected fusion remains best against the synthetic TIR
+truth (RMSE 0.216, r 0.290 versus r = −0.136 for gamma alone).
+
+## 8. Discussion
+
+### 8.1 When fusion helps
+
+Fusion helps when the new modality has a positive fusion gain: its clay signature is aligned with the target, its noise is low, and it does not increase the condition number of the response matrix. TIR satisfies this on the proxy target. EM does not under the legacy raw-resistivity matrix, because its clay signature is weak after normalization; it does once EM is expressed as log10 resistivity with a clay-only response. The gain index turns this from a post-hoc observation into a design criterion.
+
+### 8.2 Why the EM response is mis-specified
+
+The legacy EM row uses raw resistivity in a linear mixture and gives all five minerals a response. Clay has a very low resistivity, but after column normalization its EM weight is small while the other minerals dominate. The EM field is therefore attributed to quartz, feldspar, calcite and dolomite rather than to clay. A physically consistent model should use log10(resistivity) and a clay-only EM row. In our test this correction raises F1 from 0.267 to 0.498 and AP from 0.126 to 0.513, with ΔF1 = +0.167 [0.118, 0.217] in a block bootstrap. It should become the main model once the validation, degradation, temperature and depth experiments are re-run with the corrected H.
+
+### 8.3 Metric and benchmark implications
+
+Proxy recall is not geological accuracy. Precision and F1 must be reported with the target definition. Pixel coverage is not a detection rate. Synthetic recipes and valid masks must be released. The benchmark shows that a fusion gain can be created or destroyed by changing the response matrix or the mask, so these choices must be fixed before comparing methods.
+
+### 8.4 Limitations
+
+TIR and EM are synthetic. The evaluation target is derived from the same gamma channels that the inversion uses. There is no independent geological ground truth. No hardware or field validation is available. The depth model repeats surface gamma and TIR at every layer, so deep variation is driven by EM and the prior. The ASU variant shows that the endmember library matters, but the current dataset does not contain a single truth field that would allow a fully consistent TIR/EM generation.
+
+### 8.5 Recommendations
+
+Future work should (i) generate TIR and EM from a single mineral abundance field, (ii) use log10 resistivity with a clay-only EM row, (iii) calibrate the posterior variance, (iv) acquire real TIR/EM data or a hardware-in-the-loop testbed, and (v) pre-register the response matrix, mask and metric before comparing methods.
+
+## 9. Conclusion
+
+Under one response matrix and one metric, legacy tri-modal fusion does not improve agreement with the gamma-derived alteration proxy over gamma+TIR, because the EM row is mis-specified. Correcting EM to log10 resistivity with a clay-only response raises F1 from 0.267 to 0.498 and AP from 0.126 to 0.513, significantly above the strongest baselines. The widely quoted +104 % gain remains a matrix artefact. A fusion gain index derived from the clay-estimate variance predicts when a modality helps. We recommend reporting recall, precision and F1 with an explicit target, releasing synthetic recipes, and treating negative results as diagnostic evidence rather than a verdict on fusion.
+
+## Reproducibility and data availability
+
+The code contains 39 pipeline scripts (plus 8 parked development utilities), 24 unit checks and a one-command runner. The real gamma data are from the USGS Ivanpah–Clark Mountain survey; the TIR and EM recipes, seeds and parameters are documented in `docs/DATA_PROVENANCE.md`. All derived grids, metrics and figures are in `processed/`, with SHA-256 hashes in `processed/data_manifest.json`. The main fusion runs in 5-12 s on a CPU (wall-clock, load-dependent) and produces 1,265,683 valid pixels.
+
+## References (candidate list; verify before submission)
+
+1. IAEA. Guidelines for radioelement mapping using gamma ray spectrometry data. IAEA-TECDOC-1363, 2003.
+2. Minty, B.R.S. Fundamentals of airborne gamma-ray spectrometry. AGSO Journal of Australian Geology and Geophysics, 17(2), 39–50, 1997.
+3. Wilford, J.R., Bierwirth, P.N., Craig, M.A. Application of airborne gamma-ray spectrometry in soil/regolith mapping and applied geomorphology. AGSO Journal, 17(2), 201–216, 1997.
+4. Dickson, B.L., Scott, K.M. Interpretation of aerial gamma-ray surveys—adding the geochemical factors. AGSO Journal, 17(2), 187–200, 1997.
+5. Fountain, D. Airborne electromagnetic systems—50 years of development. Exploration Geophysics, 29(1–2), 1–11, 1998.
+6. Siemon, B., Auken, E., Christiansen, A.V. Laterally constrained inversion of helicopter-borne frequency-domain electromagnetic data. Journal of Applied Geophysics, 67(3), 259–268, 2009.
+7. Dentith, M., Mudge, S.T. Geophysics for the Mineral Exploration Geoscientist. Cambridge University Press, 2014.
+8. Christensen, P.R., Bandfield, J.L., Hamilton, V.E., et al. A thermal emission spectral library of rock-forming minerals. Journal of Geophysical Research: Planets, 105(E4), 9735–9739, 2000.
+9. Salisbury, J.W., Walter, L.S., Vergo, N., D'Aria, D.M. Infrared (2.1–25 μm) Spectra of Minerals. Johns Hopkins University Press, 1991.
+10. Ramsey, M.S., Christensen, P.R. Mineral abundance determination: Quantitative deconvolution of thermal emission spectra. Journal of Geophysical Research: Solid Earth, 103(B1), 577–596, 1998.
+11. Kalman, R.E. A new approach to linear filtering and prediction problems. Journal of Basic Engineering, 82(1), 35–45, 1960.
+12. Maybeck, P.S. Stochastic Models, Estimation, and Control. Academic Press, 1979.
+13. Bar-Shalom, Y., Li, X.R., Kirubarajan, T. Estimation with Applications to Tracking and Navigation. Wiley, 2001.
+14. Julier, S.J., Uhlmann, J.K. A non-divergent estimation algorithm in the presence of correlations. American Control Conference, 1997.
+15. Sun, B., Feng, J., Saenko, K. Return of frustratingly easy domain adaptation. AAAI, 2016.
+16. Wilkinson, M.D., et al. The FAIR Guiding Principles for scientific data management and stewardship. Scientific Data, 3, 160018, 2016.
+17. Peng, R.D. Reproducible research in computational science. Science, 334(6060), 1226–1227, 2011.
+18. Powers, D.M.W. Evaluation: from precision, recall and F-measure to ROC, informedness, markedness and correlation. Journal of Machine Learning Technologies, 2(1), 37–63, 2011.
+19. Reeves, C.V. Aeromagnetic Surveys: Principles, Practice and Interpretation. Geosoft, 2005.
+20. Nabighian, M.N. Electromagnetic Methods in Applied Geophysics. Society of Exploration Geophysicists, 1988.
+21. Telford, W.M., Geldart, L.P., Sheriff, R.E. Applied Geophysics. Cambridge University Press, 1990.
+22. Hook, S.J., Abbott, E.A., Grove, C., Kahle, A.B., Palluconi, F.D. Use of multispectral thermal infrared data in geological studies. In Remote Sensing for the Earth Sciences, 1999.
+23. Gnojek, I., Prichystal, A. A new zinc mineralization detected by airborne gamma-ray spectrometry in northern Moravia (Czechoslovakia). Geoexploration, 23, 491–502, 1985. doi:10.1016/0016-7142(85)90076-6.
+24. Macnae, J. 3D airborne electromagnetic inversion. ASEG Extended Abstracts, 2016.
+25. Bedini, E. The use of airborne gamma-ray spectrometry for geological mapping. Journal of African Earth Sciences, 2009.
+
+## Tables
+
+**Table 1.** Data layers, sources, resolution and role in the observation vector.
+
+**Table 2.** Metric definitions (positive rule, target, mask, aggregation).
+
+**Table 3.** Depth-Kalman layer means of the five minerals with depth.
+
+**Table 4.** Modality ablation with one response matrix.
+
+**Table 5.** Sensor-degradation and temperature scenarios.
+
+**Table 6.** Baseline comparison: clay abundance, gradient, recall and F1.
+
+**Table 7.** Coherence comparison: average precision, matched-prevalence
+precision, connected components and mean patch size.
+
+**Table 8.** Uncertainty calibration: nominal vs empirical coverage.
+
+**Table 9.** Endmember-library sensitivity (USGS splib07 vs ASU).
+
+**Table 10.** Corrected-EM model against the baselines.
+
+
+
+
+
+

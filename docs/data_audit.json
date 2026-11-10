@@ -1,0 +1,85 @@
+{
+  "csv": {
+    "rows": 295943,
+    "dates": [
+      "2019/12/13",
+      "2020/03/21"
+    ],
+    "n_dates": 34,
+    "n_flights": 47,
+    "n_lines": 631,
+    "bbox_lat": [
+      34.945613861084,
+      35.7429504394531
+    ],
+    "bbox_lon": [
+      -115.604652404785,
+      -115.011558532715
+    ],
+    "trajectory_km": 31782.881908164123,
+    "median_speed_mps": 59.34124131710662,
+    "kcorr_median": 3.22885313925498,
+    "thcorr_median": 5.82095877352688,
+    "ucorr_median": 6.69135976180655
+  },
+  "grid": {
+    "shape": [
+      1772,
+      1075
+    ],
+    "pixel_m": [
+      50.0,
+      50.0
+    ],
+    "origin": [
+      626275.0,
+      3956925.0
+    ],
+    "epsg": "26911",
+    "valid_fraction": 0.6644354034332511,
+    "median": {
+      "K_pct": 3.244249105453491,
+      "eU_ppm": 6.6932549476623535,
+      "eTh_ppm": 5.812376976013184
+    }
+  },
+  "truth": {
+    "corr_clay_prior_vs_tir_truth": 0.5731929058029045,
+    "clay_prior_mean": 0.48905572295188904,
+    "tir_truth_mean": 0.29601380228996277,
+    "note": "TIR truth is K+Th-derived; the alteration proxy is K-high/Th-low. They are different fields, so a single 'clay' target does not exist in the synthetic dataset."
+  },
+  "shapefiles": {
+    "A1-2_Linepath_AirborneMagAndRadSurveyLaramieMtsRegionWy2024-5.shp": {
+      "features": 1291,
+      "vertices": 73303,
+      "length_km": 28747.102195488158
+    },
+    "A3-5_Linepath_AirborneMagAndRadSurveyLaramieMtsRegionWy2024-5.shp": {
+      "features": 2069,
+      "vertices": 116844,
+      "length_km": 42446.417282883885
+    },
+    "NRGU2402 USGS Nevada Block1 Flight Plan_ln.shp": {
+      "features": 1965,
+      "vertices": 3930,
+      "length_km": 126000.08286425877
+    },
+    "NRGU2402 USGS Nevada Block1 Flight Plan_pt.shp": {
+      "features": 3930,
+      "vertices": 3930,
+      "length_km": 0.0
+    },
+    "NRGU2402 USGS Nevada Block1 Outline_ln.shp": {
+      "features": 22,
+      "vertices": 2103,
+      "length_km": 947.6071386451878
+    }
+  },
+  "checksums": {
+    "K.gxf": "7ab6c6670c035902e67526aa2b9c77d9c883cbaac07c1e1d696a8f32a1d098c7",
+    "eU.gxf": "320d829ff613322bf1d79e6e53f05dabef4068023fccd87e73f0e266129bdd79",
+    "eTh.gxf": "9e2d37aa79e65e4818fcf803ba10678ebb0cac5f7ada4ef0a4b3cb111943357f",
+    "Radiometric_Data.csv": "0894ac300d7057a1e1564a62319b4ceec65189ba1a5cd9fcfad64b7f849f294a"
+  }
+}

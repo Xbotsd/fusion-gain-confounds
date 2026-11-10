@@ -1,0 +1,141 @@
+{
+  "granite_map": "SIM 3206 felsic plutonic polygons (DOI 10.3133/sim3206)",
+  "felsic_pixels": 105249,
+  "signature": {
+    "K": {
+      "felsic_mean": 3.156984567642212,
+      "felsic_std": 0.6836317777633667,
+      "other_mean": 3.0435993671417236,
+      "other_std": 0.8959992527961731
+    },
+    "eU": {
+      "felsic_mean": 6.56205940246582,
+      "felsic_std": 1.053166389465332,
+      "other_mean": 6.780051231384277,
+      "other_std": 0.9784178137779236
+    },
+    "eTh": {
+      "felsic_mean": 5.961545467376709,
+      "felsic_std": 2.3037171363830566,
+      "other_mean": 6.104524612426758,
+      "other_std": 2.015608787536621
+    },
+    "TMI_nT": {
+      "felsic_mean": -67.31310272216797,
+      "felsic_std": 82.18562316894531,
+      "other_mean": -47.74415588378906,
+      "other_std": 144.757080078125
+    },
+    "eTh/K": {
+      "felsic_mean": 1.7844620943069458,
+      "other_mean": 2.0460445880889893
+    },
+    "eU/eTh": {
+      "felsic_mean": 1.1746101379394531,
+      "other_mean": 1.1396172046661377
+    }
+  },
+  "radiometric_separability": {
+    "verdict": "NOT separable from gamma at this site",
+    "K_pct_felsic_vs_other": [
+      3.156984567642212,
+      3.0435993671417236
+    ],
+    "eTh_ppm_felsic_vs_other": [
+      5.961545467376709,
+      6.104524612426758
+    ],
+    "consequence": "granite detection requires geology (SIM 3206) and/or magnetics; a gamma-only granite detector fails here"
+  },
+  "susceptibility": {
+    "tmi_background_median_nT": -63.140052795410156,
+    "tmi_felsic_median_nT": -71.11390686035156,
+    "tmi_felsic_anomaly_p90_nT": 131.26241455078124,
+    "literature_granite_susceptibility_SI": [
+      0.0001,
+      0.05
+    ],
+    "note": "TMI amplitude proxy, not a susceptibility inversion"
+  },
+  "conductivity": {
+    "source": "NGU airborne FDEM apparent resistivity (Sulitjelma 2025, Roros 2020), 50 m grids, real data",
+    "n_values": 103484,
+    "p10_ohm_m": 1.9671745061874393,
+    "p50_ohm_m": 1856.1112060546875,
+    "p90_ohm_m": 954532.0374999983,
+    "crystalline_p90_ohm_m": 954532.0374999983,
+    "literature_granite_ohm_m": [
+      1000.0,
+      100000.0
+    ],
+    "per_file": {
+      "Sulitjelma_2025_EM_Database_AIQ_Res.zip": {
+        "n": 12715,
+        "p10": 1.915173888206482,
+        "p50": 1893.12939453125,
+        "p90": 960562.7750000004
+      },
+      "Sulitjelma_2025_EM_Database_BIQ_Res.zip": {
+        "n": 8313,
+        "p10": 1.857010078430176,
+        "p50": 1708.02294921875,
+        "p90": 922307.1875000001
+      },
+      "Sulitjelma_2025_EM_Database_CIQ_Res.zip": {
+        "n": 12486,
+        "p10": 2.5222362279891968,
+        "p50": 1679.1040649414062,
+        "p90": 901750.875
+      },
+      "Sulitjelma_2025_EM_Database_DIQ_Res.zip": {
+        "n": 13167,
+        "p10": 2.6374359130859384,
+        "p50": 1902.983642578125,
+        "p90": 928664.8749999994
+      },
+      "Sulitjelma_2025_EM_Database_EIQ_Res_2000_maskbadI.zip": {
+        "n": 9704,
+        "p10": 1.9248897194862369,
+        "p50": 1907.2260131835938,
+        "p90": 988927.8812500002
+      },
+      "Sulitjelma_2025_EM_Database_EQ_Res_2000.zip": {
+        "n": 12827,
+        "p10": 1.9426023960113525,
+        "p50": 1949.5648193359375,
+        "p90": 937964.9499999998
+      },
+      "Røros_2020_HEM_AppRes_6kHz_IPQ.zip": {
+        "n": 8823,
+        "p10": 2.815500164031983,
+        "p50": 1773.4652099609375,
+        "p90": 910737.9000000004
+      },
+      "Røros_2020_HEM_AppRes_7kHz_IPQ.zip": {
+        "n": 8199,
+        "p10": 1.73004252910614,
+        "p50": 1861.1844482421875,
+        "p90": 925039.5625
+      },
+      "Røros_2020_HEM_AppRes_880Hz_IPQ.zip": {
+        "n": 8358,
+        "p10": 1.815876269340515,
+        "p50": 2540.392822265625,
+        "p90": 1124729.5250000008
+      },
+      "Røros_2020_HEM_AppRes_980Hz_IPQ.zip": {
+        "n": 8892,
+        "p10": 2.3229976654052735,
+        "p50": 1565.2557983398438,
+        "p90": 1001425.6250000005
+      }
+    },
+    "note": "statistical scan of the compressed Geosoft data stream; values are real measured apparent resistivities"
+  },
+  "indicator_weights_K_eTh_TMI_bias": [
+    0.85,
+    0.15
+  ],
+  "indicator_mean_on_felsic": 0.7478519678115845,
+  "indicator_mean_on_other": 0.01778131164610386
+}

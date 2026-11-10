@@ -1,0 +1,101 @@
+{
+  "n_samples": 200000,
+  "block_px": 128,
+  "n_folds": 5,
+  "geology_positive_fraction": 0.98736,
+  "raw_separability": {
+    "K": 0.9863989600326583,
+    "eU": 0.9642877325849939,
+    "eTh": 0.9718263433984018,
+    "ASTER 8.291 um": 0.898988247178394,
+    "ASTER 8.634 um": 0.9300743623696974,
+    "ASTER 9.075 um": 0.918975127442868,
+    "ASTER 10.657 um": 0.8583908282618485,
+    "ASTER 11.289 um": 0.9134945994808578,
+    "synthetic 8.6 um": 0.9041381075334323,
+    "synthetic 9.6 um": 0.9670111709661692,
+    "synthetic 11.3 um": 0.9780172049140347,
+    "synthetic 12.5 um": 0.9209758136573863,
+    "ASTER quartz index b13/b11": 0.924137509972577,
+    "ASTER silica index": 0.9247294764567993
+  },
+  "rows": [
+    {
+      "target": "geology",
+      "features": "gamma",
+      "cv_auc": 0.9743412891787753,
+      "cv_auc_sd": 0.020181062674311412,
+      "folds_used": 4
+    },
+    {
+      "target": "geology",
+      "features": "real ASTER only",
+      "cv_auc": 0.9381325457880759,
+      "cv_auc_sd": 0.03355326971839327,
+      "folds_used": 4
+    },
+    {
+      "target": "geology",
+      "features": "gamma + real ASTER",
+      "cv_auc": 0.9774140589565933,
+      "cv_auc_sd": 0.018316451604932574,
+      "folds_used": 4
+    },
+    {
+      "target": "geology",
+      "features": "gamma + block-shuffled ASTER",
+      "cv_auc": 0.977182892501003,
+      "cv_auc_sd": 0.017137560772100335,
+      "folds_used": 4
+    },
+    {
+      "target": "geology",
+      "features": "gamma + synthetic TIR",
+      "cv_auc": 0.9733828302789456,
+      "cv_auc_sd": 0.018264419138153614,
+      "folds_used": 4
+    },
+    {
+      "target": "proxy",
+      "features": "gamma",
+      "cv_auc": 0.9167820189571163,
+      "cv_auc_sd": 0.043288379952299304,
+      "folds_used": 5
+    },
+    {
+      "target": "proxy",
+      "features": "real ASTER only",
+      "cv_auc": 0.538956338197803,
+      "cv_auc_sd": 0.0538798514332696,
+      "folds_used": 5
+    },
+    {
+      "target": "proxy",
+      "features": "gamma + real ASTER",
+      "cv_auc": 0.9131845433707714,
+      "cv_auc_sd": 0.04659897095987248,
+      "folds_used": 5
+    },
+    {
+      "target": "proxy",
+      "features": "gamma + block-shuffled ASTER",
+      "cv_auc": 0.8990291391427933,
+      "cv_auc_sd": 0.04556706507330227,
+      "folds_used": 5
+    },
+    {
+      "target": "proxy",
+      "features": "gamma + synthetic TIR",
+      "cv_auc": 0.9132371852903491,
+      "cv_auc_sd": 0.06869801897780185,
+      "folds_used": 5
+    }
+  ],
+  "summary": {
+    "geology_gain_real": 0.0030727697778180074,
+    "geology_gain_shuffled": 0.002841603322227715,
+    "geology_gain_synthetic": -0.0009584588998297061,
+    "proxy_gain_real": -0.0035974755863449337
+  },
+  "note": "Logistic regression with spatial-block cross-validation; the model has no response matrix, so extra channels cannot help by regularising an underdetermined inversion."
+}

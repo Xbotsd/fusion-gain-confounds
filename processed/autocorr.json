@@ -1,0 +1,43 @@
+{
+  "cell_m": 50,
+  "bootstrap_block_px": 128,
+  "bootstrap_block_m": 6400,
+  "fields": {
+    "clay_prior": {
+      "integral_scale_x_px": 52.33059160812222,
+      "integral_scale_y_px": 52.79182442103133,
+      "integral_scale_x_m": 2616.529580406111,
+      "integral_scale_y_m": 2639.5912210515667,
+      "design_effect": 11261.754448157042,
+      "n_valid": 1237644,
+      "n_eff": 109.89797421862073,
+      "n_eff_fraction": 8.879611117463563e-05
+    },
+    "main_clay": {
+      "integral_scale_x_px": 41.83278104739965,
+      "integral_scale_y_px": 41.77825572364061,
+      "integral_scale_x_m": 2091.6390523699824,
+      "integral_scale_y_m": 2088.9127861820307,
+      "design_effect": 7159.024570459396,
+      "n_valid": 1237644,
+      "n_eff": 172.87885909861882,
+      "n_eff_fraction": 0.00013968383404162974
+    }
+  },
+  "checks": {
+    "block_ge_2tau": {
+      "block_px": 128,
+      "tau_max_px": 52.79182442103133,
+      "ok": true,
+      "note": "bootstrap blocks must exceed ~2x the integral scale"
+    }
+  },
+  "edge_ai_block_ap": {
+    "n_blocks": 18,
+    "ap_mean": 0.376179529975897,
+    "ap_std_across_blocks": 0.28983532453449246,
+    "ap_min": 0.0,
+    "ap_max": 0.8620887035254616,
+    "note": "physics estimator, per-64px-block AP on the CNN test blocks; the across-block std is the honest uncertainty scale"
+  }
+}

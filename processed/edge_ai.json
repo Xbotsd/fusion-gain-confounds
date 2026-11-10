@@ -1,0 +1,32 @@
+{
+  "architecture": "Conv1D(16,k3)-Conv1D(12,k3)-Dense(24)-Dense(1), pure NumPy",
+  "params": 3005,
+  "int8_size_kb": 2.9658203125,
+  "budget_300kb": true,
+  "physics": {
+    "f1_matched": 0.584525537355726,
+    "ap": 0.579189063739268,
+    "rmse": 0.3360045850276947
+  },
+  "cnn_float": {
+    "f1_matched": 0.41979404243555185,
+    "ap": 0.36481527887025295,
+    "rmse": 0.13814860582351685
+  },
+  "cnn_int8": {
+    "f1_matched": 0.4210035247771096,
+    "ap": 0.36698932593182765,
+    "rmse": 0.13835497200489044
+  },
+  "latency_ms_10k": {
+    "float": 23.013591766357422,
+    "int8_sim": 22.51744270324707
+  },
+  "latency_us_per_sample": 2.251744270324707,
+  "budget_200ms": true,
+  "train_seconds": 27.715391635894775,
+  "train_n": 120000,
+  "test_n": 200000,
+  "hardware": "CPU only; no Jetson/MCU; INT8 simulated (quantized weights)",
+  "target_caveat": "target is the gamma-derived clay proxy"
+}

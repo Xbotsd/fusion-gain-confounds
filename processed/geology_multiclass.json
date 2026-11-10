@@ -1,0 +1,328 @@
+{
+  "classes": [
+    "felsic plutonic",
+    "volcanic",
+    "metasedimentary",
+    "surficial/alluvium"
+  ],
+  "per_class": 15000,
+  "chance": 0.25,
+  "block_px": 128,
+  "n_folds": 5,
+  "n_repeats": 20,
+  "summary": {
+    "gamma": {
+      "balanced_accuracy_mean": 0.35030674490997815,
+      "balanced_accuracy_sd": 0.054786852574883575,
+      "gain_vs_gamma_mean": 0.0,
+      "gain_vs_gamma_ci95": [
+        0.0,
+        0.0
+      ],
+      "repeats_improved": 0
+    },
+    "real ASTER": {
+      "balanced_accuracy_mean": 0.410373015312132,
+      "balanced_accuracy_sd": 0.024056231317505013,
+      "gain_vs_gamma_mean": 0.06006627040215379,
+      "gain_vs_gamma_ci95": [
+        -0.03529583333333333,
+        0.1464133333333333
+      ],
+      "repeats_improved": 18
+    },
+    "gamma + real ASTER": {
+      "balanced_accuracy_mean": 0.5290171710415615,
+      "balanced_accuracy_sd": 0.03393592868101388,
+      "gain_vs_gamma_mean": 0.17871042613158333,
+      "gain_vs_gamma_ci95": [
+        0.11981708333333335,
+        0.24119280771495874
+      ],
+      "repeats_improved": 20
+    },
+    "gamma + block-shuffled ASTER": {
+      "balanced_accuracy_mean": 0.35368866397442367,
+      "balanced_accuracy_sd": 0.04717951756346346,
+      "gain_vs_gamma_mean": 0.0033819190644455628,
+      "gain_vs_gamma_ci95": [
+        -0.05002041666666669,
+        0.060679166666666604
+      ],
+      "repeats_improved": 9
+    },
+    "gamma + synthetic TIR": {
+      "balanced_accuracy_mean": 0.38903878218071675,
+      "balanced_accuracy_sd": 0.04635925678779324,
+      "gain_vs_gamma_mean": 0.03873203727073868,
+      "gain_vs_gamma_ci95": [
+        0.0082229166666667,
+        0.10044041666666666
+      ],
+      "repeats_improved": 20
+    },
+    "gamma + TMI": {
+      "balanced_accuracy_mean": 0.34895145423186946,
+      "balanced_accuracy_sd": 0.055739715515749744,
+      "gain_vs_gamma_mean": -0.0013552906781087114,
+      "gain_vs_gamma_ci95": [
+        -0.021112500000000013,
+        0.02236499999999999
+      ],
+      "repeats_improved": 9
+    },
+    "gamma + real ASTER + TMI": {
+      "balanced_accuracy_mean": 0.5207607622412922,
+      "balanced_accuracy_sd": 0.03633612899540571,
+      "gain_vs_gamma_mean": 0.17045401733131413,
+      "gain_vs_gamma_ci95": [
+        0.10949125000000001,
+        0.23462009864546512
+      ],
+      "repeats_improved": 20
+    }
+  },
+  "repeats": [
+    {
+      "seed": 0,
+      "balanced": {
+        "gamma": 0.34375,
+        "real ASTER": 0.42213333333333336,
+        "gamma + real ASTER": 0.5117166666666666,
+        "gamma + block-shuffled ASTER": 0.35445,
+        "gamma + synthetic TIR": 0.36684999999999995,
+        "gamma + TMI": 0.34355,
+        "gamma + real ASTER + TMI": 0.5049166666666667
+      }
+    },
+    {
+      "seed": 1,
+      "balanced": {
+        "gamma": 0.31813489819956253,
+        "real ASTER": 0.44124363957597174,
+        "gamma + real ASTER": 0.5765267541645633,
+        "gamma + block-shuffled ASTER": 0.30748994615514047,
+        "gamma + synthetic TIR": 0.34567564361433617,
+        "gamma + TMI": 0.32917908463738854,
+        "gamma + real ASTER + TMI": 0.5737485781591788
+      }
+    },
+    {
+      "seed": 2,
+      "balanced": {
+        "gamma": 0.41883333333333334,
+        "real ASTER": 0.4194333333333333,
+        "gamma + real ASTER": 0.5433666666666667,
+        "gamma + block-shuffled ASTER": 0.3997333333333334,
+        "gamma + synthetic TIR": 0.46030000000000004,
+        "gamma + TMI": 0.41346666666666665,
+        "gamma + real ASTER + TMI": 0.5391833333333333
+      }
+    },
+    {
+      "seed": 3,
+      "balanced": {
+        "gamma": 0.4325666666666667,
+        "real ASTER": 0.45815000000000006,
+        "gamma + real ASTER": 0.5859833333333333,
+        "gamma + block-shuffled ASTER": 0.42941666666666667,
+        "gamma + synthetic TIR": 0.4530666666666667,
+        "gamma + TMI": 0.4167333333333334,
+        "gamma + real ASTER + TMI": 0.5815333333333333
+      }
+    },
+    {
+      "seed": 4,
+      "balanced": {
+        "gamma": 0.3619,
+        "real ASTER": 0.4019166666666667,
+        "gamma + real ASTER": 0.5349999999999999,
+        "gamma + block-shuffled ASTER": 0.34525,
+        "gamma + synthetic TIR": 0.3958666666666667,
+        "gamma + TMI": 0.36201666666666665,
+        "gamma + real ASTER + TMI": 0.5320333333333334
+      }
+    },
+    {
+      "seed": 5,
+      "balanced": {
+        "gamma": 0.35296666666666665,
+        "real ASTER": 0.4103333333333333,
+        "gamma + real ASTER": 0.5452666666666667,
+        "gamma + block-shuffled ASTER": 0.37183333333333335,
+        "gamma + synthetic TIR": 0.4215333333333333,
+        "gamma + TMI": 0.3666333333333333,
+        "gamma + real ASTER + TMI": 0.5422
+      }
+    },
+    {
+      "seed": 6,
+      "balanced": {
+        "gamma": 0.29035,
+        "real ASTER": 0.39454999999999996,
+        "gamma + real ASTER": 0.507,
+        "gamma + block-shuffled ASTER": 0.31143333333333334,
+        "gamma + synthetic TIR": 0.3501166666666667,
+        "gamma + TMI": 0.26804999999999995,
+        "gamma + real ASTER + TMI": 0.4809333333333333
+      }
+    },
+    {
+      "seed": 7,
+      "balanced": {
+        "gamma": 0.3418833333333333,
+        "real ASTER": 0.4420666666666667,
+        "gamma + real ASTER": 0.5193833333333333,
+        "gamma + block-shuffled ASTER": 0.36006666666666665,
+        "gamma + synthetic TIR": 0.35155,
+        "gamma + TMI": 0.35106666666666664,
+        "gamma + real ASTER + TMI": 0.5138333333333334
+      }
+    },
+    {
+      "seed": 8,
+      "balanced": {
+        "gamma": 0.37515,
+        "real ASTER": 0.3868166666666667,
+        "gamma + real ASTER": 0.5362833333333333,
+        "gamma + block-shuffled ASTER": 0.33133333333333337,
+        "gamma + synthetic TIR": 0.4024666666666667,
+        "gamma + TMI": 0.3735833333333333,
+        "gamma + real ASTER + TMI": 0.5204166666666666
+      }
+    },
+    {
+      "seed": 9,
+      "balanced": {
+        "gamma": 0.4505166666666667,
+        "real ASTER": 0.3966166666666667,
+        "gamma + real ASTER": 0.5660666666666667,
+        "gamma + block-shuffled ASTER": 0.4327666666666667,
+        "gamma + synthetic TIR": 0.4801833333333333,
+        "gamma + TMI": 0.4307166666666667,
+        "gamma + real ASTER + TMI": 0.5501833333333334
+      }
+    },
+    {
+      "seed": 10,
+      "balanced": {
+        "gamma": 0.40574999999999994,
+        "real ASTER": 0.3910166666666666,
+        "gamma + real ASTER": 0.5533666666666667,
+        "gamma + block-shuffled ASTER": 0.3852666666666667,
+        "gamma + synthetic TIR": 0.4126666666666667,
+        "gamma + TMI": 0.4236,
+        "gamma + real ASTER + TMI": 0.5494333333333333
+      }
+    },
+    {
+      "seed": 11,
+      "balanced": {
+        "gamma": 0.40545000000000003,
+        "real ASTER": 0.45541666666666664,
+        "gamma + real ASTER": 0.5658666666666666,
+        "gamma + block-shuffled ASTER": 0.37925000000000003,
+        "gamma + synthetic TIR": 0.4181666666666667,
+        "gamma + TMI": 0.40236666666666665,
+        "gamma + real ASTER + TMI": 0.5522
+      }
+    },
+    {
+      "seed": 12,
+      "balanced": {
+        "gamma": 0.3456,
+        "real ASTER": 0.39835,
+        "gamma + real ASTER": 0.4960333333333333,
+        "gamma + block-shuffled ASTER": 0.3660833333333333,
+        "gamma + synthetic TIR": 0.37888333333333335,
+        "gamma + TMI": 0.3577666666666667,
+        "gamma + real ASTER + TMI": 0.4992833333333333
+      }
+    },
+    {
+      "seed": 13,
+      "balanced": {
+        "gamma": 0.3374166666666667,
+        "real ASTER": 0.4263166666666667,
+        "gamma + real ASTER": 0.5314166666666666,
+        "gamma + block-shuffled ASTER": 0.3801166666666667,
+        "gamma + synthetic TIR": 0.35583333333333333,
+        "gamma + TMI": 0.32043333333333335,
+        "gamma + real ASTER + TMI": 0.5133333333333333
+      }
+    },
+    {
+      "seed": 14,
+      "balanced": {
+        "gamma": 0.24558333333333332,
+        "real ASTER": 0.39668333333333333,
+        "gamma + real ASTER": 0.46291666666666664,
+        "gamma + block-shuffled ASTER": 0.27971666666666667,
+        "gamma + synthetic TIR": 0.3491666666666667,
+        "gamma + TMI": 0.24679999999999996,
+        "gamma + real ASTER + TMI": 0.45699999999999996
+      }
+    },
+    {
+      "seed": 15,
+      "balanced": {
+        "gamma": 0.24491666666666667,
+        "real ASTER": 0.38615,
+        "gamma + real ASTER": 0.46710000000000007,
+        "gamma + block-shuffled ASTER": 0.28923333333333334,
+        "gamma + synthetic TIR": 0.30848333333333333,
+        "gamma + TMI": 0.2335833333333333,
+        "gamma + real ASTER + TMI": 0.44804999999999995
+      }
+    },
+    {
+      "seed": 16,
+      "balanced": {
+        "gamma": 0.34503333333333336,
+        "real ASTER": 0.3709166666666667,
+        "gamma + real ASTER": 0.5224,
+        "gamma + block-shuffled ASTER": 0.34319999999999995,
+        "gamma + synthetic TIR": 0.3847666666666667,
+        "gamma + TMI": 0.3376166666666667,
+        "gamma + real ASTER + TMI": 0.5146833333333334
+      }
+    },
+    {
+      "seed": 17,
+      "balanced": {
+        "gamma": 0.3172666666666667,
+        "real ASTER": 0.40238333333333337,
+        "gamma + real ASTER": 0.4849833333333333,
+        "gamma + block-shuffled ASTER": 0.2616333333333333,
+        "gamma + synthetic TIR": 0.33671666666666666,
+        "gamma + TMI": 0.30095,
+        "gamma + real ASTER + TMI": 0.4748
+      }
+    },
+    {
+      "seed": 18,
+      "balanced": {
+        "gamma": 0.3451166666666667,
+        "real ASTER": 0.39408333333333334,
+        "gamma + real ASTER": 0.5465166666666667,
+        "gamma + block-shuffled ASTER": 0.3420666666666667,
+        "gamma + synthetic TIR": 0.44208333333333333,
+        "gamma + TMI": 0.34651666666666664,
+        "gamma + real ASTER + TMI": 0.5529999999999999
+      }
+    },
+    {
+      "seed": 19,
+      "balanced": {
+        "gamma": 0.32795,
+        "real ASTER": 0.4128833333333333,
+        "gamma + real ASTER": 0.52315,
+        "gamma + block-shuffled ASTER": 0.4034333333333333,
+        "gamma + synthetic TIR": 0.3664,
+        "gamma + TMI": 0.3544,
+        "gamma + real ASTER + TMI": 0.51445
+      }
+    }
+  ],
+  "note": "Multinomial logistic, 128-px spatial-block CV, balanced classes; each repeat redraws the subsample, the fold assignment and the block shuffle. No response matrix."
+}

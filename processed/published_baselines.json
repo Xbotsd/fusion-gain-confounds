@@ -1,0 +1,69 @@
+{
+  "rows": [
+    {
+      "method": "Ternary K-dominance",
+      "reference": "IAEA 2003",
+      "f1_matched": 0.14988272303319627,
+      "precision_matched": 0.14988272303319627,
+      "recall_matched": 0.14988272303319627,
+      "auc_geology": 0.9863985073845591,
+      "ap": 0.20430639855638427
+    },
+    {
+      "method": "F-parameter K*eU/eTh",
+      "reference": "Gnojek & Prichystal 1985",
+      "f1_matched": 0.28397425991743747,
+      "precision_matched": 0.28397269270462533,
+      "recall_matched": 0.2839758271475482,
+      "auc_geology": 0.9229846501931159,
+      "ap": 0.20430639855638427
+    },
+    {
+      "method": "Low eTh/K",
+      "reference": "Dickson & Scott 1997",
+      "f1_matched": 0.36520323408482575,
+      "precision_matched": 0.36520323408482575,
+      "recall_matched": 0.36520323408482575,
+      "auc_geology": 0.21695074407904136,
+      "ap": 0.20430639855638427
+    },
+    {
+      "method": "SAM on real ASTER TIR",
+      "reference": "Kruse et al. 1993",
+      "f1_matched": 0.07084080686553161,
+      "precision_matched": 0.07084080686553161,
+      "recall_matched": 0.07084080686553161,
+      "auc_geology": 0.0832000062034033,
+      "ap": 0.20430639855638427
+    },
+    {
+      "method": "EM conductor index",
+      "reference": "Fountain 1998",
+      "f1_matched": 0.016054526890918623,
+      "precision_matched": 0.016054526890918623,
+      "recall_matched": 0.016054526890918623,
+      "auc_geology": 0.08703685738948569,
+      "ap": 0.20430639855638427
+    },
+    {
+      "method": "Independent inversion",
+      "reference": "this work",
+      "f1_matched": 0.3546164598847102,
+      "precision_matched": 0.21628077087773626,
+      "recall_matched": 0.9839841055216701,
+      "auc_geology": 0.6971286352804102,
+      "ap": 0.4555619844025037
+    },
+    {
+      "method": "WLS + Kalman (ours)",
+      "reference": "this work",
+      "f1_matched": 0.4967176339575116,
+      "precision_matched": 0.33835778897286245,
+      "recall_matched": 0.9337233367366599,
+      "auc_geology": 0.9116177864648737,
+      "ap": 0.5769301465570709
+    }
+  ],
+  "prevalence": 0.14640316601542933,
+  "note": "Published indices are single-modality scores evaluated with the matched-prevalence decision rule; the fusion rows use the paper's estimator. SAM uses the REAL ASTER emissivity."
+}

@@ -1,0 +1,34 @@
+{
+  "H_audit": {
+    "ablation_matrix:gamma": {
+      "clay_mean": 0.26338067650794983,
+      "recall": 0.04023845007451365,
+      "precision": 0.012724445072811903,
+      "f1": 0.019334741301305813
+    },
+    "ablation_matrix:all": {
+      "clay_mean": 0.4348006844520569,
+      "recall": 0.25832091405860613,
+      "precision": 0.06965280754393391,
+      "f1": 0.10972084451596147
+    },
+    "validation_matrix:gamma": {
+      "clay_mean": 0.2959655523300171,
+      "recall": 0.9582215598608566,
+      "precision": 0.35218185137848546,
+      "f1": 0.5150600797137407
+    },
+    "validation_matrix:all": {
+      "clay_mean": 0.45709142088890076,
+      "recall": 0.7063586686537155,
+      "precision": 0.1664793349724837,
+      "f1": 0.2694523400361795
+    }
+  },
+  "truth": {
+    "corr_clay_prior_vs_tir_truth": 0.5731929058029045,
+    "clay_prior_mean": 0.48905572295188904,
+    "tir_truth_mean": 0.29601380228996277,
+    "note": "TIR truth is K+Th-derived; the alteration proxy is K-high/Th-low. They are different fields, so a single 'clay' target does not exist in the synthetic dataset."
+  }
+}

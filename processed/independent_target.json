@@ -1,0 +1,176 @@
+{
+  "target": "USGS SIM 3206 substrate (independent of gamma and TIR)",
+  "high_groups": [
+    "felsic plutonic",
+    "surficial/alluvium"
+  ],
+  "low_groups": [
+    "carbonate",
+    "sedimentary"
+  ],
+  "n_pixels": 617998,
+  "n_high": 609972,
+  "rows": [
+    {
+      "branch": "synthetic-handset",
+      "em_model": "legacy",
+      "config": "gamma",
+      "auc": 0.4736194812675988,
+      "cohens_d": -0.042461136529808936,
+      "kruskal_H": 44945.9216434506,
+      "clay_high": 0.44672858715057373,
+      "clay_low": 0.4637416899204254
+    },
+    {
+      "branch": "synthetic-handset",
+      "em_model": "legacy",
+      "config": "gamma+tir",
+      "auc": 0.894532075550419,
+      "cohens_d": 1.4434365558053117,
+      "kruskal_H": 83425.47137552456,
+      "clay_high": 0.10523269325494766,
+      "clay_low": 0.002579892985522747
+    },
+    {
+      "branch": "synthetic-handset",
+      "em_model": "legacy",
+      "config": "gamma+em",
+      "auc": 0.8905722480871937,
+      "cohens_d": 1.2812929315163055,
+      "kruskal_H": 33162.67779496062,
+      "clay_high": 0.3533993065357208,
+      "clay_low": 0.006524781230837107
+    },
+    {
+      "branch": "synthetic-handset",
+      "em_model": "legacy",
+      "config": "all",
+      "auc": 0.9193099918494092,
+      "cohens_d": 1.761571602461447,
+      "kruskal_H": 41036.714539310306,
+      "clay_high": 0.47612133622169495,
+      "clay_low": 0.012467104010283947
+    },
+    {
+      "branch": "synthetic-handset",
+      "em_model": "corrected",
+      "config": "gamma",
+      "auc": 0.4736194812675988,
+      "cohens_d": -0.042461136529808936,
+      "kruskal_H": 44945.9216434506,
+      "clay_high": 0.44672858715057373,
+      "clay_low": 0.4637416899204254
+    },
+    {
+      "branch": "synthetic-handset",
+      "em_model": "corrected",
+      "config": "gamma+tir",
+      "auc": 0.894532075550419,
+      "cohens_d": 1.4434365558053117,
+      "kruskal_H": 83425.47137552456,
+      "clay_high": 0.10523269325494766,
+      "clay_low": 0.002579892985522747
+    },
+    {
+      "branch": "synthetic-handset",
+      "em_model": "corrected",
+      "config": "gamma+em",
+      "auc": 0.7958927406796411,
+      "cohens_d": 1.2635220055882745,
+      "kruskal_H": 44821.11770171659,
+      "clay_high": 0.5013269186019897,
+      "clay_low": 0.10984467715024948
+    },
+    {
+      "branch": "synthetic-handset",
+      "em_model": "corrected",
+      "config": "all",
+      "auc": 0.9032981387098724,
+      "cohens_d": 1.7277699737136765,
+      "kruskal_H": 71591.34757608577,
+      "clay_high": 0.23366953432559967,
+      "clay_low": 0.004738682880997658
+    },
+    {
+      "branch": "real-aster",
+      "em_model": "legacy",
+      "config": "gamma",
+      "auc": 0.4762893084246085,
+      "cohens_d": -0.03056020096557225,
+      "kruskal_H": 44504.62475956913,
+      "clay_high": 0.44647669792175293,
+      "clay_low": 0.45876091718673706
+    },
+    {
+      "branch": "real-aster",
+      "em_model": "legacy",
+      "config": "gamma+tir",
+      "auc": 0.8419994666628834,
+      "cohens_d": 0.9168004435985084,
+      "kruskal_H": 76555.64564319132,
+      "clay_high": 0.14958785474300385,
+      "clay_low": 0.025941215455532074
+    },
+    {
+      "branch": "real-aster",
+      "em_model": "legacy",
+      "config": "gamma+em",
+      "auc": 0.8894327493929373,
+      "cohens_d": 1.2796906630029121,
+      "kruskal_H": 32863.43139032441,
+      "clay_high": 0.3557693362236023,
+      "clay_low": 0.006502618081867695
+    },
+    {
+      "branch": "real-aster",
+      "em_model": "legacy",
+      "config": "all",
+      "auc": 0.8861415511919287,
+      "cohens_d": 1.8121313436080089,
+      "kruskal_H": 26223.005909202184,
+      "clay_high": 0.5107021927833557,
+      "clay_low": 0.01937621645629406
+    },
+    {
+      "branch": "real-aster",
+      "em_model": "corrected",
+      "config": "gamma",
+      "auc": 0.4762893084246085,
+      "cohens_d": -0.03056020096557225,
+      "kruskal_H": 44504.62475956913,
+      "clay_high": 0.44647669792175293,
+      "clay_low": 0.45876091718673706
+    },
+    {
+      "branch": "real-aster",
+      "em_model": "corrected",
+      "config": "gamma+tir",
+      "auc": 0.9054080027879985,
+      "cohens_d": 1.657044831086932,
+      "kruskal_H": 86478.80921153212,
+      "clay_high": 0.1545010507106781,
+      "clay_low": 0.005684982519596815
+    },
+    {
+      "branch": "real-aster",
+      "em_model": "corrected",
+      "config": "gamma+em",
+      "auc": 0.8118412275790957,
+      "cohens_d": 1.3464411957425073,
+      "kruskal_H": 45982.07599655429,
+      "clay_high": 0.496494859457016,
+      "clay_low": 0.09457438439130783
+    },
+    {
+      "branch": "real-aster",
+      "em_model": "corrected",
+      "config": "all",
+      "auc": 0.9093511531510184,
+      "cohens_d": 1.8004336171987352,
+      "kruskal_H": 68983.43202622197,
+      "clay_high": 0.274784117937088,
+      "clay_low": 0.007491494994610548
+    }
+  ],
+  "note": "AUC of clay abundance for the high-clay substrate pool vs the low-clay pool; labels never see gamma or TIR."
+}

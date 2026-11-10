@@ -1,0 +1,195 @@
+{
+  "default": {
+    "a_clay": 0.55,
+    "a_indep": 0.55,
+    "a_noise": 0.35,
+    "scale": 0.5,
+    "decay": 250.0
+  },
+  "em_reproduction_max_diff": 0.0,
+  "baseline_f1": 0.4981844585565696,
+  "em_fix_f1": 0.4981844585565696,
+  "rows": [
+    {
+      "parameter": "baseline (recipe as documented)",
+      "value": 1.0,
+      "unit": "-",
+      "f1": 0.4981844585565696,
+      "recall": 0.8575236623527093,
+      "precision": 0.35107075235095475,
+      "ap": 0.5133917392227937
+    },
+    {
+      "parameter": "EM clay amplitude",
+      "value": 0.35,
+      "unit": "-",
+      "f1": 0.46807952535002717,
+      "recall": 0.7386793233808839,
+      "precision": 0.34258180933976545,
+      "ap": 0.439215972163878
+    },
+    {
+      "parameter": "EM clay amplitude",
+      "value": 0.55,
+      "unit": "-",
+      "f1": 0.4981844585565696,
+      "recall": 0.8575236623527093,
+      "precision": 0.35107075235095475,
+      "ap": 0.5133917392227937
+    },
+    {
+      "parameter": "EM clay amplitude",
+      "value": 0.75,
+      "unit": "-",
+      "f1": 0.5090786414746882,
+      "recall": 0.9202847760699748,
+      "precision": 0.3518591980823518,
+      "ap": 0.5734170894871147
+    },
+    {
+      "parameter": "EM independent-field amplitude",
+      "value": 0.35,
+      "unit": "-",
+      "f1": 0.517804297893313,
+      "recall": 0.9275311128894235,
+      "precision": 0.3591525517901631,
+      "ap": 0.58161738659279
+    },
+    {
+      "parameter": "EM independent-field amplitude",
+      "value": 0.55,
+      "unit": "-",
+      "f1": 0.4981844585565696,
+      "recall": 0.8575236623527093,
+      "precision": 0.35107075235095475,
+      "ap": 0.5133917392227937
+    },
+    {
+      "parameter": "EM independent-field amplitude",
+      "value": 0.75,
+      "unit": "-",
+      "f1": 0.4779284006921398,
+      "recall": 0.7909379397886211,
+      "precision": 0.3424181968055232,
+      "ap": 0.46126569296232683
+    },
+    {
+      "parameter": "EM depth-decay length",
+      "value": 120.0,
+      "unit": "m",
+      "f1": 0.4946645500863313,
+      "recall": 0.8333894423135251,
+      "precision": 0.35171331147052165,
+      "ap": 0.4975825097233161
+    },
+    {
+      "parameter": "EM depth-decay length",
+      "value": 250.0,
+      "unit": "m",
+      "f1": 0.4981844585565696,
+      "recall": 0.8575236623527093,
+      "precision": 0.35107075235095475,
+      "ap": 0.5133917392227937
+    },
+    {
+      "parameter": "EM depth-decay length",
+      "value": 500.0,
+      "unit": "m",
+      "f1": 0.5005891361036772,
+      "recall": 0.8745771130549912,
+      "precision": 0.3506455574363562,
+      "ap": 0.5261708104620001
+    },
+    {
+      "parameter": "EM overall scale",
+      "value": 0.3,
+      "unit": "-",
+      "f1": 0.4981844585565696,
+      "recall": 0.8575236623527093,
+      "precision": 0.35107075235095475,
+      "ap": 0.5133965369004139
+    },
+    {
+      "parameter": "EM overall scale",
+      "value": 0.5,
+      "unit": "-",
+      "f1": 0.4981844585565696,
+      "recall": 0.8575236623527093,
+      "precision": 0.35107075235095475,
+      "ap": 0.5133917392227937
+    },
+    {
+      "parameter": "EM overall scale",
+      "value": 0.7,
+      "unit": "-",
+      "f1": 0.49815890297712634,
+      "recall": 0.8575236623527093,
+      "precision": 0.35104537095192617,
+      "ap": 0.5133648179528605
+    },
+    {
+      "parameter": "TIR multiplicative noise",
+      "value": 0.0,
+      "unit": "-",
+      "f1": 0.4981844585565696,
+      "recall": 0.8575236623527093,
+      "precision": 0.35107075235095475,
+      "ap": 0.5133917392227937
+    },
+    {
+      "parameter": "TIR multiplicative noise",
+      "value": 0.02,
+      "unit": "-",
+      "f1": 0.49796678643931097,
+      "recall": 0.8586495212340249,
+      "precision": 0.35066647433498993,
+      "ap": 0.5142872400459911
+    },
+    {
+      "parameter": "TIR multiplicative noise",
+      "value": 0.05,
+      "unit": "-",
+      "f1": 0.4966041513578373,
+      "recall": 0.8641794751510756,
+      "precision": 0.34840953389641866,
+      "ap": 0.5185740399558245
+    },
+    {
+      "parameter": "TIR multiplicative noise",
+      "value": 0.1,
+      "unit": "-",
+      "f1": 0.4928348857450015,
+      "recall": 0.8794503159579411,
+      "precision": 0.3423390908309695,
+      "ap": 0.5309021516369697
+    }
+  ],
+  "summary": {
+    "EM clay amplitude": {
+      "min": 0.46807952535002717,
+      "max": 0.5090786414746882,
+      "span": 0.040999116124661006
+    },
+    "EM independent-field amplitude": {
+      "min": 0.4779284006921398,
+      "max": 0.517804297893313,
+      "span": 0.03987589720117313
+    },
+    "EM depth-decay length": {
+      "min": 0.4946645500863313,
+      "max": 0.5005891361036772,
+      "span": 0.0059245860173458564
+    },
+    "EM overall scale": {
+      "min": 0.49815890297712634,
+      "max": 0.4981844585565696,
+      "span": 2.5555579443281573e-05
+    },
+    "TIR multiplicative noise": {
+      "min": 0.4928348857450015,
+      "max": 0.4981844585565696,
+      "span": 0.005349572811568115
+    }
+  },
+  "note": "EM regenerated through prepare_em.py; TIR gets multiplicative noise. Fusion is the corrected-EM model."
+}

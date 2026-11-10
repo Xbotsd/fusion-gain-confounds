@@ -1,0 +1,12 @@
+metric,value,definition
+grid_pixels,1904900,
+analysis_pixels,1237644,
+analysis_fraction,0.6497159955903197,
+survey_pixels,1265683,
+aster_fraction_of_survey,0.9778467436158975,
+predicted_positive_rate,0.40401036162256676,
+artifact_rate,1.0,
+artifacts_present,53,
+artifacts_expected,53,
+experiments,"{'ablation_rows': 24, 'baseline_rows': 8, 'bootstrap_contrasts': 5, 'multiclass_repeats': 0}",
+runtime_s,729.7434537410736,

@@ -1,0 +1,130 @@
+{
+  "rows": [
+    {
+      "config": "gamma",
+      "n_channels": 3,
+      "lambda": 0.1,
+      "f1": 0.5314086594160534,
+      "ap": 0.39295527741054703,
+      "recall": 0.9649659206931706,
+      "precision": 0.3666662472528387,
+      "geo_auc": 0.3873201459359042,
+      "clay_mean": 0.2987765073776245
+    },
+    {
+      "config": "gamma, ridge x10",
+      "n_channels": 3,
+      "lambda": 1.0,
+      "f1": 0.5362437626257599,
+      "ap": 0.3438910540279853,
+      "recall": 0.949606777228947,
+      "precision": 0.3736111503160392,
+      "geo_auc": 0.29612230128568284,
+      "clay_mean": 0.2785983085632324
+    },
+    {
+      "config": "gamma, ridge x100",
+      "n_channels": 3,
+      "lambda": 10.0,
+      "f1": 0.4889351622355402,
+      "ap": 0.43353418950081174,
+      "recall": 0.4729876652225477,
+      "precision": 0.5059955719557166,
+      "geo_auc": 0.5768978857867825,
+      "clay_mean": 0.1949678361415863
+    },
+    {
+      "config": "real TIR only",
+      "n_channels": 5,
+      "lambda": 0.1,
+      "f1": 0.1521609056651356,
+      "ap": 0.12987706765435056,
+      "recall": 0.2870222688264009,
+      "precision": 0.10352041466288715,
+      "geo_auc": 0.09272174820624587,
+      "clay_mean": 0.14826913177967072
+    },
+    {
+      "config": "synthetic TIR only",
+      "n_channels": 4,
+      "lambda": 0.1,
+      "f1": 0.0,
+      "ap": 0.15970997863850334,
+      "recall": 0.0,
+      "precision": 0.0,
+      "geo_auc": 0.06486330871422809,
+      "clay_mean": 0.2133616805076599
+    },
+    {
+      "config": "gamma + real TIR",
+      "n_channels": 8,
+      "lambda": 0.1,
+      "f1": 0.6519241340845392,
+      "ap": 0.6244194021316865,
+      "recall": 0.8144761168906383,
+      "precision": 0.543460969089019,
+      "geo_auc": 0.9132187118942712,
+      "clay_mean": 0.15041883289813995
+    },
+    {
+      "config": "gamma + synthetic TIR",
+      "n_channels": 7,
+      "lambda": 0.1,
+      "f1": 0.5974541733502113,
+      "ap": 0.7062314547006032,
+      "recall": 0.5097822787604487,
+      "precision": 0.7215447948319307,
+      "geo_auc": 0.9047858077447073,
+      "clay_mean": 0.09421134740114212
+    },
+    {
+      "config": "gamma + real TIR, block-shuffled",
+      "n_channels": 8,
+      "lambda": 0.1,
+      "f1": 0.6340663203730368,
+      "ap": 0.6352434025135684,
+      "recall": 0.8351499765446021,
+      "precision": 0.511024209698061,
+      "geo_auc": 0.9131574599865331,
+      "clay_mean": 0.15648284554481506
+    },
+    {
+      "config": "gamma + real TIR, pixel-shuffled",
+      "n_channels": 8,
+      "lambda": 0.1,
+      "f1": 0.6611178449789661,
+      "ap": 0.7076899149434759,
+      "recall": 0.912028477606993,
+      "precision": 0.5184779641766866,
+      "geo_auc": 0.9223374645218055,
+      "clay_mean": 0.1602550446987152
+    },
+    {
+      "config": "gamma + 5 noise channels",
+      "n_channels": 8,
+      "lambda": 0.1,
+      "f1": 0.6489815773527832,
+      "ap": 0.6874941449747235,
+      "recall": 0.9054223350533905,
+      "precision": 0.5057415279708731,
+      "geo_auc": 0.922373326670484,
+      "clay_mean": 0.1647239625453949
+    }
+  ],
+  "r2_tir_on_gamma": {
+    "real": [
+      0.08778320028308939,
+      0.2270380941621476,
+      0.2835864263017107,
+      0.09273152991593159,
+      0.3723340030132787
+    ],
+    "synthetic": [
+      0.6835794034407752,
+      0.7101073912989269,
+      0.8077973219008197,
+      0.5100278793595471
+    ]
+  },
+  "note": "Shuffles keep the marginal distribution of the real ASTER emissivity and destroy its geographic registration; noise channels carry zero information but the same H rows."
+}

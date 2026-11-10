@@ -1,0 +1,129 @@
+{
+  "results": {
+    "gamma+TIR+EM": {
+      "f1": 0.4967176339575116,
+      "recall": 0.9337233367366599,
+      "precision": 0.33835778897286245,
+      "clay_mean": 0.23612454533576965,
+      "gradient": 0.013459466397762299,
+      "clay_on_felsic": 0.2404661476612091,
+      "clay_on_other": 0.23572102189064026,
+      "felsic_excess": 0.004745125770568848
+    },
+    "TIR+EM (no gamma)": {
+      "f1": 0.3723833490265036,
+      "recall": 0.8827064764480208,
+      "precision": 0.23596425615536762,
+      "clay_mean": 0.36609265208244324,
+      "gradient": 0.010973195545375347,
+      "clay_on_felsic": 0.42260095477104187,
+      "clay_on_other": 0.3608405888080597,
+      "felsic_excess": 0.06176036596298218
+    },
+    "granite compensated": {
+      "f1": 0.48140303491514336,
+      "recall": 0.933254228869445,
+      "precision": 0.32435900632793574,
+      "clay_mean": 0.25078287720680237,
+      "gradient": 0.013234499841928482,
+      "clay_on_felsic": 0.3750854730606079,
+      "clay_on_other": 0.2392297089099884,
+      "felsic_excess": 0.1358557641506195
+    }
+  },
+  "substrate": {
+    "gamma+TIR+EM": {
+      "rows": [
+        {
+          "substrate": "surficial/alluvium",
+          "pixels": 504723,
+          "clay_mean": 0.3477628231048584
+        },
+        {
+          "substrate": "partly consolidated",
+          "pixels": 13542,
+          "clay_mean": 0.2718697786331177
+        },
+        {
+          "substrate": "felsic plutonic",
+          "pixels": 105249,
+          "clay_mean": 0.2404661476612091
+        },
+        {
+          "substrate": "volcanic",
+          "pixels": 92213,
+          "clay_mean": 0.22423553466796875
+        },
+        {
+          "substrate": "mafic plutonic",
+          "pixels": 9771,
+          "clay_mean": 0.19625093042850494
+        },
+        {
+          "substrate": "metasedimentary",
+          "pixels": 31659,
+          "clay_mean": 0.10022164136171341
+        },
+        {
+          "substrate": "sedimentary",
+          "pixels": 1126,
+          "clay_mean": 0.009066678583621979
+        },
+        {
+          "substrate": "carbonate",
+          "pixels": 6900,
+          "clay_mean": 0.0073536476120352745
+        }
+      ],
+      "kruskal_H": 71566.09305994614,
+      "kruskal_p": 0.0
+    },
+    "granite compensated": {
+      "rows": [
+        {
+          "substrate": "felsic plutonic",
+          "pixels": 105249,
+          "clay_mean": 0.3750854730606079
+        },
+        {
+          "substrate": "surficial/alluvium",
+          "pixels": 504723,
+          "clay_mean": 0.35280582308769226
+        },
+        {
+          "substrate": "partly consolidated",
+          "pixels": 13542,
+          "clay_mean": 0.27500051259994507
+        },
+        {
+          "substrate": "volcanic",
+          "pixels": 92213,
+          "clay_mean": 0.23220515251159668
+        },
+        {
+          "substrate": "mafic plutonic",
+          "pixels": 9771,
+          "clay_mean": 0.21325726807117462
+        },
+        {
+          "substrate": "metasedimentary",
+          "pixels": 31659,
+          "clay_mean": 0.11221421509981155
+        },
+        {
+          "substrate": "sedimentary",
+          "pixels": 1126,
+          "clay_mean": 0.01076028123497963
+        },
+        {
+          "substrate": "carbonate",
+          "pixels": 6900,
+          "clay_mean": 0.009626024402678013
+        }
+      ],
+      "kruskal_H": 57616.6665182208,
+      "kruskal_p": 0.0
+    }
+  },
+  "indicator": "geology-primary felsic plutonic + TMI smoothness"
+}

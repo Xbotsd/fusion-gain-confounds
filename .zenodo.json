@@ -1,0 +1,17 @@
+{
+  "title": "Two confounds in reported fusion gains for airborne mineral exploration",
+  "description": "Reproducible airborne multi-modal mineral-exploration benchmark: real USGS radiometrics + real ASTER L1T thermal infrared + real aeromagnetics + USGS SIM 3206 geology, with a documented synthetic EM augmentation. Separates target circularity from the conditioning effect of an underdetermined inversion and provides a model-free information test.",
+  "upload_type": "software",
+  "license": "MIT",
+  "creators": [
+    {"name": "Xu, Yudong", "affiliation": "Heilongjiang University of Science and Technology"}
+  ],
+  "keywords": [
+    "airborne geophysics", "gamma-ray spectrometry", "ASTER thermal infrared",
+    "multi-modal fusion", "identifiability", "reproducible benchmark",
+    "mineral exploration"
+  ],
+  "related_identifiers": [
+    {"identifier": "10.3133/sim3206", "relation": "cites", "resource_type": "other"}
+  ]
+}
