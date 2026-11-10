@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "generated_at": "2026-11-10T10:46:33+08:00",
+  "generated_at": "2026-11-10T10:52:01+08:00",
   "grid": [
     1772,
     1075
@@ -47,7 +47,7 @@
       "bootstrap_contrasts": 5,
       "multiclass_repeats": 0
     },
-    "runtime_s": 268.280277967453
+    "runtime_s": 123.5754406452179
   },
   "cross_checks": [
     {
@@ -378,7 +378,7 @@
     {
       "check": "json:main_results.json",
       "exists": true,
-      "size": 20224,
+      "size": 20627,
       "keys": [
         "H_tir_real",
         "ablation",

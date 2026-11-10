@@ -26,7 +26,8 @@ B. baselines     independent, simple average, fixed weight, PCA, GLS,
 C. bootstrap     128-px block bootstrap (200 reps) of the main contrasts
 D. repeats       10 runs with 1 % channel noise (main configuration)
 E. calibration   forward-filter variance vs empirical error
-F. autocorr      integral scale, design effect, N_eff for the main clay map
+F. autocorr      quick integral scale / design effect / N_eff for the fused map
+                 (the values quoted in the paper come from autocorr.json)
 
 Outputs: processed/main_*.json/csv/png, processed/kf_main_abundance.npy
 """
@@ -259,7 +260,12 @@ def main():
     n_valid = int(mask.sum())
     autoc = {"integral_scale_px": [tx, ty], "integral_scale_m": [tx * 50, ty * 50],
              "design_effect": de, "n_valid": n_valid, "n_eff": n_valid / de,
-             "block_px": BLOCK, "block_ge_2tau": BLOCK >= 2 * max(tx, ty)}
+             "block_px": BLOCK, "block_ge_2tau": BLOCK >= 2 * max(tx, ty),
+             "note": "in-run sanity estimate on the fused clay map; the values "
+                     "quoted in the paper (per-field integral scale, design "
+                     "effect and N_eff) come from autocorr.json, produced by "
+                     "autocorr_sample_size.py, which integrates the directional "
+                     "autocorrelation of both the proxy and the clay map."}
     print(f"F tau {tx:.1f}/{ty:.1f} px, N_eff {n_valid/de:.0f}, block OK {autoc['block_ge_2tau']}")
 
     # ---------------- outputs ------------------------------------------------

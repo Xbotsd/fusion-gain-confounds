@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-10T10:46:33+08:00",
+  "generated_at": "2026-11-10T10:52:14+08:00",
   "root": "D:\\A_MineralProspecting",
-  "n_files": 6787,
-  "total_bytes": 11450875870,
+  "n_files": 6790,
+  "total_bytes": 11450884021,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -30,7 +30,7 @@
     },
     "other": {
       "files": 86,
-      "bytes": 93941640
+      "bytes": 93942043
     },
     "prepared": {
       "files": 18,
@@ -41,8 +41,8 @@
       "bytes": 3055985320
     },
     "logs": {
-      "files": 11,
-      "bytes": 438180
+      "files": 12,
+      "bytes": 444680
     },
     "assets_em": {
       "files": 28,
@@ -62,7 +62,7 @@
     },
     "audit": {
       "files": 2,
-      "bytes": 17104
+      "bytes": 17106
     },
     "repeats": {
       "files": 3,
@@ -77,8 +77,8 @@
       "bytes": 9846387
     },
     "code": {
-      "files": 100,
-      "bytes": 467989
+      "files": 102,
+      "bytes": 469235
     }
   },
   "files": [
@@ -46896,10 +46896,17 @@
       "schema": {}
     },
     {
+      "path": "processed/main_rerun.log",
+      "stage": "logs",
+      "size": 6500,
+      "sha256": "b2a87070b8e0d921509057697c4051b9521f17320aef5638849f39dcc23fefce",
+      "schema": {}
+    },
+    {
       "path": "processed/main_results.json",
       "stage": "other",
-      "size": 20224,
-      "sha256": "359e7e3ef32adeda26bf22429e0e7f7b284dd4aadc7e9a3540cd84be622dc3f0",
+      "size": 20627,
+      "sha256": "a7b23b3bd408e7567f2df5e5b44782c474644d4b272cb0294e8ca85820cf7ef2",
       "schema": {
         "keys": [
           "H_tir_real",
@@ -46922,8 +46929,8 @@
     {
       "path": "processed/output_yield.csv",
       "stage": "audit",
-      "size": 433,
-      "sha256": "a8ebaaa84c2c32e3084ec279a33c34500e03562a0edb350a19dae23fef54e774",
+      "size": 434,
+      "sha256": "d19ee1030c3f2f9d9c7b50a93d9d3032231c1e25eb5123aa885b8d9cb36c79d8",
       "schema": {
         "rows": 11,
         "columns": 3,
@@ -46937,8 +46944,8 @@
     {
       "path": "processed/pipeline_validation.json",
       "stage": "audit",
-      "size": 16671,
-      "sha256": "233ff1845f363cf6378b6f7a7566987598c6665319d6775d6488a5dd6f60c32d",
+      "size": 16672,
+      "sha256": "b9a0f95957136f609868f99677e692fdd4565dab4a981ee389051dfb5af56e41",
       "schema": {
         "keys": [
           "checks",
@@ -48411,6 +48418,13 @@
       "schema": {}
     },
     {
+      "path": "code/dev/fix_docstring.py",
+      "stage": "code",
+      "size": 557,
+      "sha256": "504ef335ef9e8944830771c8a51f8fa3463219724e8f9e76f8f8d13e79ceacde",
+      "schema": {}
+    },
+    {
       "path": "code/dev/fix_s54.py",
       "stage": "code",
       "size": 1231,
@@ -48513,6 +48527,13 @@
       "stage": "code",
       "size": 497,
       "sha256": "95c4f0df1f9853ae98e62228fa80c981d4935aa88653321a8daa5aef0654fcf7",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/show_main_autocorr.py",
+      "stage": "code",
+      "size": 209,
+      "sha256": "4289aa9b2e2cf97bfad1256de850f00562961236edafad3a4ccffd5a46c7f3d5",
       "schema": {}
     },
     {
@@ -48840,8 +48861,8 @@
     {
       "path": "code/run_main.py",
       "stage": "code",
-      "size": 15096,
-      "sha256": "0eb57efcaef0e7bf02b4e18c990f1bb20c6d16f4d0926c63c54cda19cbe0c141",
+      "size": 15576,
+      "sha256": "14ccc891aec943bdf138623f8584006a8996903bf4524294cb4d26701941ddfd",
       "schema": {}
     },
     {

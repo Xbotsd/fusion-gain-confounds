@@ -526,7 +526,8 @@
         0.5974212007356795
       ],
       "p_better": 1.0,
-      "n_blocks": 97
+      "n_blocks": 97,
+      "n_reps": 200
     },
     "corrected_vs_independent (real)": {
       "f1_a": 0.3546164601801594,
@@ -545,7 +546,8 @@
         0.5974212007356795
       ],
       "p_better": 1.0,
-      "n_blocks": 97
+      "n_blocks": 97,
+      "n_reps": 200
     },
     "gamma+TIR_vs_gamma (real)": {
       "f1_a": 0.5314086598151208,
@@ -564,7 +566,8 @@
         0.735466152670076
       ],
       "p_better": 1.0,
-      "n_blocks": 97
+      "n_blocks": 97,
+      "n_reps": 200
     },
     "real_vs_synthetic gamma+TIR": {
       "f1_a": 0.5974541738354269,
@@ -583,7 +586,8 @@
         0.735466152670076
       ],
       "p_better": 0.94,
-      "n_blocks": 97
+      "n_blocks": 97,
+      "n_reps": 200
     },
     "real_vs_synthetic all": {
       "f1_a": 0.4984809354999118,
@@ -602,7 +606,8 @@
         0.5974212007356795
       ],
       "p_better": 0.42,
-      "n_blocks": 97
+      "n_blocks": 97,
+      "n_reps": 200
     }
   },
   "bootstrap_geo_auc": {
@@ -686,7 +691,8 @@
     "n_valid": 1237644,
     "n_eff": 121.72361171890917,
     "block_px": 128,
-    "block_ge_2tau": true
+    "block_ge_2tau": true,
+    "note": "in-run sanity estimate on the fused clay map; the values quoted in the paper (per-field integral scale, design effect and N_eff) come from autocorr.json, produced by autocorr_sample_size.py, which integrates the directional autocorrelation of both the proxy and the clay map."
   },
-  "runtime_s": 268.280277967453
+  "runtime_s": 123.5754406452179
 }
