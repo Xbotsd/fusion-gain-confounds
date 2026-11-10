@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import csv
 import json
+import re
 from datetime import datetime, timezone
 
 import numpy as np
@@ -71,6 +72,135 @@ EXPECTED_FIG = [
 def shape_ok(a, spec):
     return (len(a.shape) == len(spec)
             and all(w is None or g == w for g, w in zip(a.shape, spec)))
+
+
+# --------------------------------------------------------------------------
+# Manuscript tables vs artefacts
+# --------------------------------------------------------------------------
+MS = C.ROOT / "docs" / "Manuscript_v2_draft.md"
+TABLE_LABELS = {
+    "Table 4": {"legacy / gamma": ("legacy", "gamma"),
+                "legacy / gamma+tir": ("legacy", "gamma+tir"),
+                "legacy / gamma+em": ("legacy", "gamma+em"),
+                "legacy / all": ("legacy", "all"),
+                "corrected / gamma": ("corrected", "gamma"),
+                "corrected / gamma+tir": ("corrected", "gamma+tir"),
+                "corrected / gamma+em": ("corrected", "gamma+em"),
+                "corrected / all": ("corrected", "all")},
+    "Table 5": {"gamma": "gamma",
+                "gamma + real ASTER": "gamma + real TIR",
+                "gamma + block-shuffled ASTER": "gamma + real TIR, block-shuffled",
+                "gamma + five noise channels": "gamma + 5 noise channels",
+                "gamma + synthetic TIR": "gamma + synthetic TIR"},
+}
+
+
+def _rows_after(caption: str) -> list[list[str]]:
+    """Cell lists of the markdown table that follows a caption."""
+    lines = MS.read_text(encoding="utf-8").splitlines()
+    i = next(k for k, ln in enumerate(lines) if ln.startswith(f"**{caption}.**"))
+    k = i + 1
+    while not lines[k].lstrip().startswith("|"):
+        k += 1
+    out = []
+    while k < len(lines) and lines[k].lstrip().startswith("|"):
+        cells = [c.strip() for c in lines[k].strip().strip("|").split("|")]
+        if not set("".join(cells)) <= set("-: "):
+            out.append(cells)
+        k += 1
+    return out[1:]  # drop header
+
+
+def _nums(cells: list[str]) -> list[float | None]:
+    vals = []
+    for c in cells:
+        m = re.findall(r"[-+]?\d[\d,]*\.?\d*", c.replace("\u2212", "-"))
+        vals.append([float(x.replace(",", "")) for x in m] if m else None)
+    return vals
+
+
+def check_tables():
+    """Every table row must equal the artefact it is built from."""
+    ms_main = C.load_json(C.PROC / "main_results.json")
+    abl = {(r["em_model"], r["config"]): r for r in ms_main["ablation"]
+           if r["branch"] == "real-aster"}
+    ctl = {r["config"]: r for r in C.load_json(C.PROC / "tir_controls.json")["rows"]}
+    mc = C.load_json(C.PROC / "geology_multiclass.json")["summary"]
+    base = {r["method"]: r for r in ms_main["baselines"]}
+    pub = {r["method"]: r for r in C.load_json(
+        C.PROC / "published_baselines.json")["rows"]}
+
+    problems = []
+    for label in ("Table 4", "Table 5"):
+        for cells in _rows_after(label):
+            name = cells[0]
+            ref = TABLE_LABELS[label].get(name)
+            if ref is None:
+                problems.append(f"{label}: unknown row {name!r}")
+                continue
+            src = abl[ref] if label == "Table 4" else ctl[ref]
+            # column order: Table 4 = clay, recall, precision, F1, AP, AUC
+            #               Table 5 = F1, AP, AUC, (balanced accuracy)
+            order = (("clay_mean", "recall", "precision", "f1", "ap", "geo_auc")
+                     if label == "Table 4" else ("f1", "ap", "geo_auc"))
+            got = _nums(cells[1:])
+            for j, key in enumerate(order):
+                if got[j] is None:
+                    problems.append(f"{label}/{name}: missing {key}")
+                    continue
+                if abs(got[j][0] - src[key]) > 6e-4:
+                    problems.append(f"{label}/{name}: {key} paper {got[j][0]:.3f} "
+                                    f"!= artefact {src[key]:.3f}")
+
+    # Table 6: balanced accuracy, gain + CI, repeats
+    for cells in _rows_after("Table 6"):
+        name = cells[0]
+        if name not in mc:
+            problems.append(f"Table 6: unknown row {name!r}")
+            continue
+        s = mc[name]
+        acc, gain = _nums(cells[1:3])
+        if abs(acc[0] - s["balanced_accuracy_mean"]) > 6e-4:
+            problems.append(f"Table 6/{name}: accuracy {acc[0]:.3f} != "
+                            f"{s['balanced_accuracy_mean']:.3f}")
+        if abs(acc[1] - s["balanced_accuracy_sd"]) > 6e-4:
+            problems.append(f"Table 6/{name}: sd {acc[1]:.3f} != "
+                            f"{s['balanced_accuracy_sd']:.3f}")
+        if (abs(gain[0] - s["gain_vs_gamma_mean"]) > 6e-4
+                or abs(gain[1] - s["gain_vs_gamma_ci95"][0]) > 6e-4
+                or abs(gain[2] - s["gain_vs_gamma_ci95"][1]) > 6e-4):
+            problems.append(f"Table 6/{name}: gain/CI do not match")
+
+    # Table 7: estimator comparison
+    for cells in _rows_after("Table 7"):
+        name = cells[0]
+        if name not in base:
+            problems.append(f"Table 7: unknown row {name!r}")
+            continue
+        vals = _nums(cells[1:])
+        keys = ("f1", "ap", "precision", "geo_auc", "components")
+        for j, key in enumerate(keys):
+            if vals[j] is None or abs(vals[j][0] - base[name][key]) > 6e-4:
+                problems.append(f"Table 7/{name}: {key} mismatch")
+                break
+
+    # Table 9: published baselines
+    for cells in _rows_after("Table 9"):
+        name = cells[0]
+        if name not in pub:
+            problems.append(f"Table 9: unknown row {name!r}")
+            continue
+        vals = _nums(cells[2:])  # the reference column is text, not data
+        for j, key in enumerate(("f1_matched", "auc_geology")):
+            if vals[j] is None or abs(vals[j][0] - pub[name][key]) > 6e-4:
+                problems.append(f"Table 9/{name}: {key} mismatch")
+
+    ok = not problems
+    detail = ("tables 4-7, 9 equal the artefacts" if ok
+              else "; ".join(problems[:4]) + (f" (+{len(problems) - 4} more)"
+                                              if len(problems) > 4 else ""))
+    return ok, detail
+
 
 
 def finite_fraction(a):
@@ -249,6 +379,9 @@ def main():
               for i, g in enumerate(gg["groups"])}
     xcheck("geology_counts", counts == gg["pixels_on_survey"],
            "counts match the raster")
+
+    # 13. the manuscript's tables are the artefacts (no hand-typed numbers)
+    xcheck("manuscript_tables_match_artefacts", *check_tables())
 
     # ---------------- yield -------------------------------------------------
     valid = int(mask.sum())

@@ -1,6 +1,6 @@
 # Gap audit — what is done, what is missing, and where the rigour is thin
 
-Snapshot 2026-11-10, real-ASTER main line: **53/53 artefacts, 19/19 invariants,
+Snapshot 2026-11-10, real-ASTER main line: **53/53 artefacts, 20/20 invariants,
 25/25 unit tests, 0 coverage orphans**, manifest 6,772 files / 11.45 GB.
 
 ## Rigour scorecard

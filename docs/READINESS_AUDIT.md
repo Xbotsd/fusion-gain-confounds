@@ -6,7 +6,7 @@ Date: 2026-11-10. Every number below is from a command, not recall.
 
 | layer | verdict |
 |---|---|
-| Framework | **complete** — 53 artefacts, 19 invariants, 0 coverage orphans, 25 unit tests |
+| Framework | **complete** — 53 artefacts, 20 invariants, 0 coverage orphans, 25 unit tests |
 | Functional coverage | **complete for the manuscript**; the legacy synthetic branch is labelled and optional |
 | Data reality | gamma, ASTER TIR, TMI and geology are real; **EM is synthetic and cannot be otherwise** |
 | Manuscript | rewritten around the new evidence, 9 tables, 6 figures, IEEE-style references |
@@ -37,7 +37,7 @@ contribution than the previous "fusion works / does not work" framing.
 |---|---|
 | stages | prepare, main, controls, aux, legacy, figures, audit (+ asu, refs network) |
 | artefacts validated | **53/53** |
-| cross-artefact invariants | **19/19** |
+| cross-artefact invariants | **20/20** |
 | unit tests | **25/25** |
 | coverage orphans | **0** |
 | manifest | 6,772 files / 11.45 GB with SHA-256 |

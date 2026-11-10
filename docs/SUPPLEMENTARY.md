@@ -23,7 +23,7 @@
 | `run_edge_ai.py`, `prepare_granite.py`, `run_granite_compensation.py` | edge-deployment modules |
 | `test_core.py` | 25 unit checks, including the two switch-off invariances |
 | `check_coverage.py` | fails if any validated artefact has no producer |
-| `validate_pipeline.py` | 53 artefacts, 19 invariants |
+| `validate_pipeline.py` | 53 artefacts, 20 invariants |
 | `build_manifest.py` | SHA-256 inventory |
 
 ## S2. Data

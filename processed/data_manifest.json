@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-10T10:37:44+08:00",
+  "generated_at": "2026-11-10T10:40:08+08:00",
   "root": "D:\\A_MineralProspecting",
   "n_files": 6782,
-  "total_bytes": 11450678468,
+  "total_bytes": 11450684718,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -62,7 +62,7 @@
     },
     "audit": {
       "files": 2,
-      "bytes": 16659
+      "bytes": 16799
     },
     "repeats": {
       "files": 3,
@@ -74,11 +74,11 @@
     },
     "docs": {
       "files": 45,
-      "bytes": 9675150
+      "bytes": 9675189
     },
     "code": {
       "files": 96,
-      "bytes": 442741
+      "bytes": 448812
     }
   },
   "files": [
@@ -46937,8 +46937,8 @@
     {
       "path": "processed/pipeline_validation.json",
       "stage": "audit",
-      "size": 16226,
-      "sha256": "7c8a6a58023deedba4b62d3a2e5f9c293941e30b948c70f7f34ba2e68c5da6be",
+      "size": 16366,
+      "sha256": "048f6cd89f8b9f7ecf6464e18b22e54af626e79ba6cc60f2a61c45e2e42b8648",
       "schema": {
         "keys": [
           "checks",
@@ -48150,7 +48150,7 @@
       "path": "docs/GAP_AUDIT.md",
       "stage": "docs",
       "size": 3262,
-      "sha256": "13535b39400e9d6e23130a1ce1f3d1642394801f91e78770ad80a5cf96cb6676",
+      "sha256": "2fe40cc4ac58a170f3a3b508dc1e77d3119ec6c0754f1b263efcc787d6a8917d",
       "schema": {}
     },
     {
@@ -48170,15 +48170,15 @@
     {
       "path": "docs/Manuscript_v2_draft.docx",
       "stage": "docs",
-      "size": 9316281,
-      "sha256": "948cf86ca03b59e3975c207ce3a72a7b506669f6cc91beec3d710cf9b197dcae",
+      "size": 9316294,
+      "sha256": "1631a3f1f5df2e93c630f061a94185600d526ed1e687674eedc2ab42bdb74cb2",
       "schema": {}
     },
     {
       "path": "docs/Manuscript_v2_draft.md",
       "stage": "docs",
-      "size": 35701,
-      "sha256": "f48eacca8a457b5e663c5bf29d936dc91ee92240a97b552ca405b7ff93f392c4",
+      "size": 35727,
+      "sha256": "2e7f35582277c4ffe3f2eef97e0085030f3ba9240a08f200352b4192016f8f79",
       "schema": {}
     },
     {
@@ -48225,14 +48225,14 @@
       "path": "docs/READINESS_AUDIT.md",
       "stage": "docs",
       "size": 2856,
-      "sha256": "70a160cb37536711e697e7848c6f0c66105e6b46d184345e1bfa4e3fc012fd5f",
+      "sha256": "bb8ca29fe7d3e18d5d1fcd8c838cd51783e992a79ac9b7f415c976dd34b86550",
       "schema": {}
     },
     {
       "path": "docs/README.md",
       "stage": "docs",
       "size": 3666,
-      "sha256": "0e2018f9a3d79faf803c990a68af9bd532ace0c9efa0630880a81d9508b63056",
+      "sha256": "220e1849c8245144adaf6e2b7ddccf878d3219b51cb33489d0124ae9745a09b8",
       "schema": {}
     },
     {
@@ -48253,7 +48253,7 @@
       "path": "docs/SUPPLEMENTARY.md",
       "stage": "docs",
       "size": 4747,
-      "sha256": "8d31383ecd973b8e2bc99e51480621b60af544e7d48ce99c8e39ec12a6639c14",
+      "sha256": "fc003cdca99fbce64c38d366a57ca06794149449e3031bbddfeebd0c11ff0bbf",
       "schema": {}
     },
     {
@@ -48917,8 +48917,8 @@
     {
       "path": "code/validate_pipeline.py",
       "stage": "code",
-      "size": 13610,
-      "sha256": "e5fe8c4209dacef82abbc125ffe0fb81944ec75af9ad2571fb95eeb57b28b7d6",
+      "size": 19681,
+      "sha256": "9fe0a6f50363b00ec0ea4aac2576d87c06e7eb04a41865b35fa021487edd5249",
       "schema": {}
     },
     {

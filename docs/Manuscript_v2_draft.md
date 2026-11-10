@@ -343,7 +343,7 @@ cube keeps the ASTER marginals and destroys geographic registration.
 | gamma + five noise channels | 0.649 | 0.687 | 0.922 | — |
 | gamma + synthetic TIR | 0.597 | 0.706 | 0.905 | 0.389 |
 
-**Table 6.** Model-free information test: balanced accuracy for four geologically similar substrates, 128-px block cross-validation, 0 repeats, chance 0.25.
+**Table 6.** Model-free information test: balanced accuracy for four geologically similar substrates, 128-px block cross-validation, 15,000 pixels per class, 20 repeats, chance 0.25.
 
 | features | balanced accuracy | gain vs gamma [95 % CI] | repeats improved |
 |---|---:|---|---:|
@@ -523,7 +523,7 @@ two, a reported fusion gain cannot be distinguished from conditioning.
 
 The pipeline is 40 scripts in eight stages. A coverage guard fails if any
 validated artefact lacks a producing script; a validator checks 53 artefacts and
-19 invariants (including the zero-filled and shuffled controls); unit tests
+20 invariants (including the zero-filled and shuffled controls); unit tests
 assert the two switch-off invariances and the spectral-library construction of
 the thermal rows; every file carries a SHA-256 in a manifest; dependencies are
 pinned; one command rebuilds every number. The raw ASTER scenes are archived with their STAC identifiers and hashes so the
