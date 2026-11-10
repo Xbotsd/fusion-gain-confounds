@@ -21,7 +21,7 @@ def set_base(doc):
     st.font.name = "Times New Roman"
     st.font.size = Pt(11)
     st.element.rPr.rFonts.set(qn("w:eastAsia"), "SimSun")
-    st.paragraph_format.line_spacing = 1.4
+    st.paragraph_format.line_spacing = 2.0  # double-spaced review copy (Elsevier)
     st.paragraph_format.space_after = Pt(5)
 
 

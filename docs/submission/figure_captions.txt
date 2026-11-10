@@ -1,0 +1,11 @@
+Figure 1. The real observation layers: K, eU and eTh on the 50 m grid, the five ASTER emissivity bands (2006-10-18), the synthetic EM shallow layer and the derived clay_prior proxy. The study area spans 53.8 x 88.6 km; the analysis mask is the intersection of the radiometric footprint and full ASTER coverage.
+
+Figure 2. Benchmark protocol and estimator chain. Three targets are scored for every configuration: the circular gamma proxy, an inversion-side geological AUC, and a model-free four-class test that has no response matrix.
+
+Figure 3. Identifiability diagnostics: predicted clay-variance gain (a), observed change in proxy F1 (b) and in geological AUC (c). The variance index is positive for every addition and does not track either observed change.
+
+Figure 4. Clay abundance from the real-ASTER main line (left), from the synthetic-TIR control (centre), and the gamma-derived clay_prior (right). The synthetic cube reproduces the proxy field by construction; the real ASTER map does not, which is why the two score differently against independent geology.
+
+Figure 5. Ablation on both targets: proxy F1 (a) and independent geological AUC (b) for the three data branches. Adding any channel improves both scores inside the inversion; the model-free test in Table 6 separates conditioning from information.
+
+Figure 6. Published single-modality indices against the fusion on the matched-prevalence rule. Ranking depends on the target: ternary K-dominance is the best geological discriminator and one of the weakest proxy detectors.
