@@ -13,6 +13,7 @@ authors:
     affiliation: "Heilongjiang University of Science and Technology, Harbin, China"
     email: 3468858545@qq.com
     orcid: "https://orcid.org/0009-0002-3231-0444"
+repository-code: "https://github.com/Xbotsd/ivanpah-fusion-benchmark"
 license: MIT
 references:
   - type: software
