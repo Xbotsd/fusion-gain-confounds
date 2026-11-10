@@ -124,7 +124,44 @@ No synthetic value was silently regenerated or rescaled.
 * **State:** 90/90 artefacts, 15/15 cross-checks, 24/24 unit tests, 0 coverage
   orphans, manifest 6,685 files / 12.77 GB.
 
-## Round 8 — real ASTER promoted to the main line (current)
+## Round 9 — controls tightened, one bootstrap, one command (current)
+
+* **The zero-channel control is now literally zeros.** `run_tir_controls.py`
+  gained `gamma + 5 zero channels` alongside the Gaussian-noise block. The
+  literal zeros are the *weaker* control: they recover 69 % of the F1 gain
+  (0.614) while noise recovers 98 % (0.649) and the block-shuffled cube 85 %
+  (0.634), against 0.652 for real ASTER and 0.531 for gamma. On the independent
+  geological target every inert control scores at least as high as the real cube
+  (0.919 and 0.922 against 0.913), so that gain is conditioning in full. The
+  manuscript, abstract, highlights and conclusion now state the range instead of
+  the single noise figure they previously attributed to zeros.
+* **One block bootstrap.** `paired_bootstrap`, `block_ids` and `pred_of` moved
+  into `common.py`; `run_main.py` and `run_real_tir_robust.py` both call it, so
+  the robustness table and the main table can no longer quote different
+  intervals for the same contrast (they did: `[0.082, 0.157]` versus
+  `[0.067, 0.167]`). A new validator invariant fails if they diverge again.
+* **The manuscript's tables are validated, not typed.** `validate_pipeline.py`
+  parses Tables 4–7 and 9 out of `Manuscript_v2_draft.md` and fails if any cell
+  differs from the artefact it came from; the check was verified by perturbing a
+  cell. Invariants went 18 → 22.
+* **One autocorrelation estimate.** `main_results.json` keeps a clearly labelled
+  in-run sanity value; the quoted integral scales, design effect (11,262) and
+  N_eff (110 for the proxy, 173 for the clay map) come only from
+  `autocorr.json`.
+* **Submission back-matter.** CRediT statement, competing interests, funding and
+  acknowledgements added; highlights cut to ≤ 77 characters; a graphical
+  abstract (`docs/graphical_abstract.png`, produced by
+  `make_graphical_abstract.py` in the `figures` stage) reads its numbers from the
+  artefacts.
+* **Repository tidy.** Twenty-one superseded round notes moved to `docs/archive/`
+  with a README explaining why their numbers are stale; the cover letter rewritten
+  against the current results.
+* **State:** `python code/run_all.py all` exits 0; 53/53 artefacts, 22/22
+  invariants, 25/25 unit tests, 0 coverage orphans, manifest 6,791 files /
+  11.45 GB. A second full run reproduced every scientific value bit-for-bit; only
+  `runtime_s` differed.
+
+## Round 8 — real ASTER promoted to the main line
 
 * **The thermal infrared is now real data.** `prepare_tir_real.py` builds the
   five-band ASTER L1T emissivity cube offline from `raw/aster/` (4 scenes,

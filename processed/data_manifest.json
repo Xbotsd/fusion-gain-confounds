@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-10T10:52:14+08:00",
+  "generated_at": "2026-11-10T11:13:30+08:00",
   "root": "D:\\A_MineralProspecting",
-  "n_files": 6790,
-  "total_bytes": 11450884021,
+  "n_files": 6791,
+  "total_bytes": 11450956744,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -30,7 +30,7 @@
     },
     "other": {
       "files": 86,
-      "bytes": 93942043
+      "bytes": 93942094
     },
     "prepared": {
       "files": 18,
@@ -38,11 +38,11 @@
     },
     "depth": {
       "files": 15,
-      "bytes": 3055985320
+      "bytes": 3055985322
     },
     "logs": {
-      "files": 12,
-      "bytes": 444680
+      "files": 13,
+      "bytes": 514908
     },
     "assets_em": {
       "files": 28,
@@ -62,7 +62,7 @@
     },
     "audit": {
       "files": 2,
-      "bytes": 17106
+      "bytes": 17108
     },
     "repeats": {
       "files": 3,
@@ -74,7 +74,7 @@
     },
     "docs": {
       "files": 46,
-      "bytes": 9846387
+      "bytes": 9848827
     },
     "code": {
       "files": 102,
@@ -45501,8 +45501,8 @@
     {
       "path": "processed/depth.json",
       "stage": "depth",
-      "size": 8199,
-      "sha256": "59cb191304643861fbb821a8f9231b44781eef2243534830eb2bb1c67cb6d006",
+      "size": 8200,
+      "sha256": "57173997a1b57605fb4a5402090b45f6518ed719f87af56e17da722398ca993b",
       "schema": {
         "keys": [
           "depth_m",
@@ -45530,8 +45530,8 @@
     {
       "path": "processed/depth_emfix.json",
       "stage": "depth",
-      "size": 8207,
-      "sha256": "0e0e93bdacf79fb81d5654f0d2dc4e40c63e95ef2c71238a2e9e4f1430a96645",
+      "size": 8208,
+      "sha256": "28c8707a42b93bf72d6e1505d908268769eb86ff69ea4afc8d9e4d958194ff47",
       "schema": {
         "keys": [
           "depth_m",
@@ -45676,8 +45676,8 @@
     {
       "path": "processed/edge_ai.json",
       "stage": "other",
-      "size": 933,
-      "sha256": "11bacb8b2985fabc2b2d108c4bafb5a9ac4f549e8d5b33226932135b8795c39f",
+      "size": 932,
+      "sha256": "83b4fedab4a0a1657d35fb3e74e17d66ce0ed81554910e7332561f3cab822742",
       "schema": {
         "keys": [
           "architecture",
@@ -45701,8 +45701,8 @@
     {
       "path": "processed/edge_ai.png",
       "stage": "other",
-      "size": 136642,
-      "sha256": "86e5671520ef57bc4a2882e60dd0429621eccb38dc1848ede4a668c428baa6ea",
+      "size": 136693,
+      "sha256": "c927ae2a1d9d7af4221221dadc88bdd945f1a54c758005c153f41de51dead31b",
       "schema": {}
     },
     {
@@ -46361,6 +46361,13 @@
       "schema": {}
     },
     {
+      "path": "processed/full_run_v2.log",
+      "stage": "logs",
+      "size": 70228,
+      "sha256": "e1b7af2e666648ac4e77ca6fbc0c300e4ec16ee058c26a35a1a8e43f6295ad35",
+      "schema": {}
+    },
+    {
       "path": "processed/full_run_verify2.log",
       "stage": "logs",
       "size": 58950,
@@ -46905,8 +46912,8 @@
     {
       "path": "processed/main_results.json",
       "stage": "other",
-      "size": 20627,
-      "sha256": "a7b23b3bd408e7567f2df5e5b44782c474644d4b272cb0294e8ca85820cf7ef2",
+      "size": 20628,
+      "sha256": "d8bb5d4f8a8de65b19f860cc42b9af6bfbbb7fc0bdc7fc1a367924b856ff2a3c",
       "schema": {
         "keys": [
           "H_tir_real",
@@ -46929,8 +46936,8 @@
     {
       "path": "processed/output_yield.csv",
       "stage": "audit",
-      "size": 434,
-      "sha256": "d19ee1030c3f2f9d9c7b50a93d9d3032231c1e25eb5123aa885b8d9cb36c79d8",
+      "size": 435,
+      "sha256": "21cf1eefe826c837bb90a34456d4fe71eacd1812c94b50d5671f1838fe1944ef",
       "schema": {
         "rows": 11,
         "columns": 3,
@@ -46944,8 +46951,8 @@
     {
       "path": "processed/pipeline_validation.json",
       "stage": "audit",
-      "size": 16672,
-      "sha256": "b9a0f95957136f609868f99677e692fdd4565dab4a981ee389051dfb5af56e41",
+      "size": 16673,
+      "sha256": "e82a47b0620e8f006fd6b51420b404863ee174f169637b4941612f0c9935a25a",
       "schema": {
         "keys": [
           "checks",
@@ -48113,8 +48120,8 @@
     {
       "path": "docs/CHANGELOG.md",
       "stage": "docs",
-      "size": 16839,
-      "sha256": "040992cac1aab3ab2ca983f5657a9a215804bc84a2ffc49ba7dbbf5e6df2efc7",
+      "size": 19279,
+      "sha256": "8af884b530fecbcfb39c3cc78f97c07b68a3c58ae5c4b456f7605ee6d1a4d24f",
       "schema": {}
     },
     {
@@ -48185,7 +48192,7 @@
       "path": "docs/Manuscript_v2_draft.docx",
       "stage": "docs",
       "size": 9316582,
-      "sha256": "e7ed866412579a6e156a4fb4716090ca93ab8a202ab2592736e96bf5cde5aac0",
+      "sha256": "018262ac1df90ad245e679b07836c157981f463b3782b86622cdb652ea172164",
       "schema": {}
     },
     {
