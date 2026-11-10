@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-10T08:42:13+08:00",
+  "generated_at": "2026-11-10T10:04:19+08:00",
   "root": "D:\\A_MineralProspecting",
-  "n_files": 6772,
-  "total_bytes": 11445644847,
+  "n_files": 6775,
+  "total_bytes": 11450596575,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -30,7 +30,7 @@
     },
     "other": {
       "files": 86,
-      "bytes": 89031883
+      "bytes": 93940901
     },
     "prepared": {
       "files": 18,
@@ -38,11 +38,11 @@
     },
     "depth": {
       "files": 15,
-      "bytes": 3055985322
+      "bytes": 3055985320
     },
     "logs": {
-      "files": 9,
-      "bytes": 311124
+      "files": 10,
+      "bytes": 370074
     },
     "assets_em": {
       "files": 28,
@@ -73,12 +73,12 @@
       "bytes": 87026
     },
     "docs": {
-      "files": 43,
-      "bytes": 9688558
+      "files": 44,
+      "bytes": 9669919
     },
     "code": {
-      "files": 90,
-      "bytes": 432266
+      "files": 91,
+      "bytes": 434667
     }
   },
   "files": [
@@ -45501,8 +45501,8 @@
     {
       "path": "processed/depth.json",
       "stage": "depth",
-      "size": 8200,
-      "sha256": "5a2a27958b1ac7109fb708d02d9f90150da8d4bd85355ec5e8a7c54f2d2737d1",
+      "size": 8198,
+      "sha256": "f8b7963b75ca45c701b9bb644567c788df94c296d2d6b32beb0ef325c7d73e06",
       "schema": {
         "keys": [
           "depth_m",
@@ -45531,7 +45531,7 @@
       "path": "processed/depth_emfix.json",
       "stage": "depth",
       "size": 8208,
-      "sha256": "0e8a0af057588917f0dc4e2e8bf403d20bb3e936c1f386ac4a4d5a0aec48322f",
+      "sha256": "6a514bce4892ef94b3d24124be5e7862de27561a1153de8fdbaf1eed8c1f08c9",
       "schema": {
         "keys": [
           "depth_m",
@@ -45676,8 +45676,8 @@
     {
       "path": "processed/edge_ai.json",
       "stage": "other",
-      "size": 932,
-      "sha256": "44ef30aeec059be077e5bf6b3861f9ecff6ba8ee9ba4b68e909c8cf6a81311e5",
+      "size": 931,
+      "sha256": "c2f90abea37ef625ad1c71cc7b2ea875ed38a1fec126d1a4ee4aa896094cf4c8",
       "schema": {
         "keys": [
           "architecture",
@@ -45701,8 +45701,8 @@
     {
       "path": "processed/edge_ai.png",
       "stage": "other",
-      "size": 136638,
-      "sha256": "e2dfc9a361e3dd3d54970d91fb9b05509ae45ab9b0d083fd14475b7ba124daa8",
+      "size": 136639,
+      "sha256": "4ab69fb56858f83feac044a301254d4e2ccea35494c71d1a0d2cbe3e98aef817",
       "schema": {}
     },
     {
@@ -46354,6 +46354,13 @@
       "schema": {}
     },
     {
+      "path": "processed/full_run_verify2.log",
+      "stage": "logs",
+      "size": 58950,
+      "sha256": "e7c322e67e59680766bedc1e5a5e1f5131b9571d443a807744ada46f0ed5b119",
+      "schema": {}
+    },
+    {
       "path": "processed/fusion.json",
       "stage": "fusion",
       "size": 2325,
@@ -46885,7 +46892,7 @@
       "path": "processed/main_results.json",
       "stage": "other",
       "size": 20225,
-      "sha256": "74b6839cd16051a31a1c3658b6d83265780fb7acaa5a7bacc9a5222d9c147ee2",
+      "sha256": "b1ffea7a69990fc85762b24a22e736b215c6dc62f7e8109414bbdf99020d2bd6",
       "schema": {
         "keys": [
           "H_tir_real",
@@ -46909,7 +46916,7 @@
       "path": "processed/output_yield.csv",
       "stage": "audit",
       "size": 434,
-      "sha256": "24c531ef6417b0cbf94520b6a8c317b49432d1a3754dc393d1d7ed9f5ef2995e",
+      "sha256": "750bbaf8412c7b642f1608ce4ea0d6e4c3fc94c9813250c3d3e2af4a74bba2dd",
       "schema": {
         "rows": 11,
         "columns": 3,
@@ -46924,7 +46931,7 @@
       "path": "processed/pipeline_validation.json",
       "stage": "audit",
       "size": 16010,
-      "sha256": "cde2312daf3cfde73e53b373d88db5837e4e333f37dd2f89698acca0384de934",
+      "sha256": "a78ddbe50ccd89334b96a4f1e35c0642621b732bfae0ec6b7101f526febdf363",
       "schema": {
         "keys": [
           "checks",
@@ -47019,36 +47026,36 @@
     {
       "path": "processed/real_cache/tir_2006-09-25_cb844ea2a9.npz",
       "stage": "other",
-      "size": 12032951,
-      "sha256": "1c6b3a1c9929643526369ac2e81f56a0959a6d0312468e9acf95a997ed5b5127",
+      "size": 13043516,
+      "sha256": "e4485fa85223f74a1429593efc1db7d5fcaf5c46fcc189857c082b2502947980",
       "schema": {}
     },
     {
       "path": "processed/real_cache/tir_2006-10-18_1c61b95b88.npz",
       "stage": "other",
-      "size": 11289828,
-      "sha256": "3ad1cd3f5a4672098498332314d4081964dadd7b15781e746ded19ac3f9f70ba",
+      "size": 12194138,
+      "sha256": "b0ee95c42cfa1ac79b309be520d759b75abacb0098f339c2ec9a121f8d238195",
       "schema": {}
     },
     {
       "path": "processed/real_cache/tir_2006-10-18_236702b1f0.npz",
       "stage": "other",
-      "size": 12049668,
-      "sha256": "a149c8310c541502cefe57ea110861bc095ffcaf38d06414d8d2f243ceb6bead",
+      "size": 13039324,
+      "sha256": "f9b4f906a8b86db1cdf1c1d4613c4ed11b9786f5f51eb89d8f5624d8b179b39d",
       "schema": {}
     },
     {
       "path": "processed/real_cache/tir_2006-10-18_56fa18f716.npz",
       "stage": "other",
-      "size": 12035502,
-      "sha256": "c3d0725c9baa02872bfa8845868968ef9ddcba222add7d91d388abbb8b6968ae",
+      "size": 13024526,
+      "sha256": "623979b98361497da063033eee3c1412730df12c189d5cfd03ca573d61cbfd6f",
       "schema": {}
     },
     {
       "path": "processed/real_cache/tir_2006-10-18_893c731413.npz",
       "stage": "other",
-      "size": 12040943,
-      "sha256": "d21f2dd357e93d6886add85291263ebc231d68a1d182974e7fa6f5a488110343",
+      "size": 13030075,
+      "sha256": "0804d93f88c592840a5669a961bda078057e083b76a256df7af75c59511f6d1c",
       "schema": {}
     },
     {
@@ -47096,8 +47103,8 @@
     {
       "path": "processed/real_tir_robust.csv",
       "stage": "other",
-      "size": 1863,
-      "sha256": "6c01e0f6dcc65dc6a62faac90c676ae41fdb2e5b322094dbf6bd572acd71f315",
+      "size": 1912,
+      "sha256": "9209326a1dba494075d14e2f9bfb48a2249257016254be2afb2698e449148467",
       "schema": {
         "rows": 15,
         "columns": 7,
@@ -47108,15 +47115,15 @@
           "ap",
           "recall",
           "precision",
-          "clay"
+          "geo_auc"
         ]
       }
     },
     {
       "path": "processed/real_tir_robust.json",
       "stage": "other",
-      "size": 5499,
-      "sha256": "6c417cafa0940745738ec240653e5be93b037d30ea2df32253549061a9e69c9a",
+      "size": 5617,
+      "sha256": "58573de152b0ab2f4122d4429513eec8e8af3db512b809f8797413c9a7cdf831",
       "schema": {
         "keys": [
           "bootstrap",
@@ -47129,8 +47136,8 @@
     {
       "path": "processed/real_tir_robust.png",
       "stage": "other",
-      "size": 129807,
-      "sha256": "88cf7ccdb3e4c0e5501fb9890da9b875b36fe4b4e049c54f0986bf54bf7398a5",
+      "size": 155971,
+      "sha256": "aa14d719945bcff6549a4b6e503dc5abb2fcd8be509c5032e744a9a628dcf0fd",
       "schema": {}
     },
     {
@@ -48016,8 +48023,15 @@
     {
       "path": "docs/GAP_AUDIT.md",
       "stage": "docs",
-      "size": 10715,
-      "sha256": "81a2fd8b8dec4f7cfcf1a9f0a687f8fcaa314eb6535a48d7d667b4b87dee8b31",
+      "size": 3204,
+      "sha256": "52fd3f789389070a181b7f60da1130fd45e8e8a55a11202608788e0e04b6ffa6",
+      "schema": {}
+    },
+    {
+      "path": "docs/GITHUB_SETUP.md",
+      "stage": "docs",
+      "size": 2025,
+      "sha256": "f6ec6f47e6252011083a2586c58be5527deaeb5fffdb03922dc338853854c71e",
       "schema": {}
     },
     {
@@ -48051,15 +48065,15 @@
     {
       "path": "docs/Manuscript_v2_draft.docx",
       "stage": "docs",
-      "size": 9315886,
-      "sha256": "c90b2aa6d2397de8bee96fa6ad24d2a8d3ff3bc31e1b691048cab1da317ec875",
+      "size": 9315784,
+      "sha256": "4a50d460012e83d60f7a5d793d2703205d4c173080f82fd6de71c4c6b42266ce",
       "schema": {}
     },
     {
       "path": "docs/Manuscript_v2_draft.md",
       "stage": "docs",
-      "size": 35189,
-      "sha256": "8784129f7cebe1867455f5ebfc87151608b39eb7de9b610e1b5ffe008e5daa91",
+      "size": 34726,
+      "sha256": "114b1c941ffb7b579d033a5065077812548e7d60a27684a76081df96beb8e6b5",
       "schema": {}
     },
     {
@@ -48086,8 +48100,8 @@
     {
       "path": "docs/model_audit.json",
       "stage": "docs",
-      "size": 1132,
-      "sha256": "036c781d99d322048cfa8918838a25d2dd1e5c594d54e09074819661054b35d9",
+      "size": 1100,
+      "sha256": "92b758c8677f7073b66dc92dfaa6565348034c7b4a0b17171dbf73048a397122",
       "schema": {
         "keys": [
           "H_audit",
@@ -48147,8 +48161,8 @@
     {
       "path": "docs/READINESS_AUDIT.md",
       "stage": "docs",
-      "size": 11976,
-      "sha256": "4101ef39c170576e253f429eb8478fe494fac50e7d19e9dad72bfc7569a9a1c0",
+      "size": 2795,
+      "sha256": "2185aafc224849f6510167e23fbe0faf29511afddd7ac549633559ca9cd230a7",
       "schema": {}
     },
     {
@@ -48210,8 +48224,8 @@
     {
       "path": "docs/SUPPLEMENTARY.md",
       "stage": "docs",
-      "size": 8001,
-      "sha256": "2e430d3bb53eb1cf15f20dda7dfcf283833f42abadcffcd9b5b41bcf03ba3dab",
+      "size": 4626,
+      "sha256": "a4c5291f750a226e008524972cbeb7a6f791d7eb36bd92bdcdab8a43bf90ca42",
       "schema": {}
     },
     {
@@ -48231,8 +48245,8 @@
     {
       "path": "code/audit_data.py",
       "stage": "code",
-      "size": 6490,
-      "sha256": "3dc2a9e1a6b1a23ecbae04327eef60a71e4812ecc66eb9b3e2ad735394bef5a2",
+      "size": 6512,
+      "sha256": "3fcb5359a21aa2bba5d51980bc707bc75d5f846391eafed357c58671724ce172",
       "schema": {}
     },
     {
@@ -48471,6 +48485,13 @@
       "stage": "code",
       "size": 4233,
       "sha256": "a6700077b4f854250fd777d683af349d5290c9da8c1eed5b7eb241baad75f237",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/trim_abstract2.py",
+      "stage": "code",
+      "size": 2264,
+      "sha256": "5e57c4ba00ad7adec3cc4b9823847aa3031482179be161f2b489e078e52de67f",
       "schema": {}
     },
     {
@@ -48756,8 +48777,8 @@
     {
       "path": "code/run_real_tir_robust.py",
       "stage": "code",
-      "size": 6729,
-      "sha256": "3e93ae9a43ecb2094fe570ed2e717ccf2014676a63d95ae672d696697761be31",
+      "size": 6844,
+      "sha256": "5e45011b8b1a97c387d2dd22a1333301a284ea38aef667c10d481df695196ddf",
       "schema": {}
     },
     {

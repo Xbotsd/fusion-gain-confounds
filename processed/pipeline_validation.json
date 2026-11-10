@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "generated_at": "2026-11-10T08:39:52+08:00",
+  "generated_at": "2026-11-10T10:04:37+08:00",
   "grid": [
     1772,
     1075
@@ -47,7 +47,7 @@
       "bootstrap_contrasts": 5,
       "multiclass_repeats": 0
     },
-    "runtime_s": 729.7434537410736
+    "runtime_s": 611.6844570636749
   },
   "cross_checks": [
     {
@@ -434,7 +434,7 @@
     {
       "check": "json:real_tir_robust.json",
       "exists": true,
-      "size": 5499,
+      "size": 5617,
       "keys": [
         "bootstrap",
         "note",
@@ -479,7 +479,7 @@
     {
       "check": "json:depth.json",
       "exists": true,
-      "size": 8200,
+      "size": 8198,
       "keys": [
         "depth_m",
         "layer_mean",
@@ -566,7 +566,7 @@
     {
       "check": "json:edge_ai.json",
       "exists": true,
-      "size": 932,
+      "size": 931,
       "keys": [
         "architecture",
         "budget_200ms",
@@ -643,7 +643,7 @@
     {
       "check": "fig:real_tir_robust.png",
       "exists": true,
-      "size": 129807,
+      "size": 155971,
       "status": "PASS"
     },
     {
@@ -727,7 +727,7 @@
     {
       "check": "fig:edge_ai.png",
       "exists": true,
-      "size": 136638,
+      "size": 136639,
       "status": "PASS"
     }
   ]

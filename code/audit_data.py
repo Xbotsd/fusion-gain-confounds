@@ -145,7 +145,8 @@ def h_audit():
     gt = C.load_clay_prior()[::STEP, ::STEP]
     mask = C.load_analysis_mask()[::STEP, ::STEP]
     out = {}
-    for tag, H in (("ablation_matrix", H_A), ("validation_matrix", C.H_MATRIX)):
+    lay = C.layout("real")
+    for tag, H in (("legacy_EM", lay.H), ("corrected_EM", lay.H_emfix())):
         for name, idx in (("gamma", [0, 1, 2]), ("all", list(range(z.shape[0])))):
             q = np.zeros(z.shape[0], dtype=np.float32)
             q[idx] = 1.0

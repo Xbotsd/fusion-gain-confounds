@@ -404,20 +404,20 @@ EM section is synthetic, this is a statement about the model, not about field EM
 
 Varying the assumed maximum emissivity from 0.95 to 1.00 changes gamma+TIR F1 by
 less than 0.001; dropping the band with the largest residual temperature
-correlation (11.29 µm) leaves 0.586; repeating with the second acquisition date
-(2006-09-25) gives 0.641 against 0.640. Ten repeats with 1 % channel noise give
+correlation (11.29 µm) leaves 0.640; repeating with the second acquisition date
+(2006-09-25) gives 0.651 against 0.652. Ten repeats with 1 % channel noise give
 F1 0.4967 ± 0.00003. The conclusion is not an artefact of the TES simplification
 or of one scene.
 
-**Table 8.** Sensitivity of the thermal result to the retrieval and the acquisition. Bootstrap of the gamma+TIR gain: +0.119 [+0.080, +0.169].
+**Table 8.** Sensitivity of the thermal result to the retrieval and the acquisition. Bootstrap of the gamma+TIR gain: +0.120 [+0.082, +0.157].
 
 | variant | gamma F1 | gamma+TIR F1 |
 |---|---:|---:|
-| baseline 2006-10-18 | 0.521 | 0.640 |
-| eps_max 0.95 | 0.521 | 0.640 |
-| eps_max 1.00 | 0.521 | 0.640 |
-| no 11.29 um band | 0.522 | 0.586 |
-| second date 2006-09-25 | 0.521 | 0.641 |
+| baseline 2006-10-18 (5 bands) | 0.531 | 0.652 |
+| eps_max 0.95 | 0.531 | 0.652 |
+| eps_max 1.00 | 0.531 | 0.652 |
+| no 11.29 um band (4 bands) | 0.531 | 0.640 |
+| second date 2006-09-25 | 0.531 | 0.651 |
 
 ### 7.7 Depth
 
