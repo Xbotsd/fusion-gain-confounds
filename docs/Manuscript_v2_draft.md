@@ -6,21 +6,17 @@
 
 ## Abstract
 
-Reported fusion gains in airborne mineral exploration are rarely reproducible because of two confounds: the target is derived from the channels being inverted, and the inversion is underdetermined, so adding any channel changes conditioning rather than information. We separate both on a real-data benchmark over the Ivanpah-Clark Mountain area: USGS radiometrics (295,943 samples), real ASTER L1T thermal infrared (five emissivity bands), real aeromagnetics and USGS SIM 3206 geology, with one synthetic electromagnetic augmentation since no measured airborne EM exists. Three gamma channels for five minerals give rank 3, and gamma alone scores at chance against independent geology (AUC 0.387). Five ASTER bands raise proxy F1 from 0.531 to 0.652 and geological AUC to 0.913 - but five channels of zeros with the same response rows reproduce F1 0.649 and AUC 0.922, so most of that gain is conditioning. A model-free test isolates the information: gamma plus ASTER classifies four similar substrates at balanced accuracy 0.529 versus 0.350 for gamma (+0.179, CI [0.120, 0.241], 20/20 repeats), while a shuffled cube gives 0.354. Correcting a mis-specified electromagnetic row raises F1 from 0.168 to 0.497 but still loses to gamma plus thermal. Effective sample size is 122, not 1.2 million pixels, and the filter variance is not a confidence interval (coverage 0.13). Fusion studies should report the rank of the inverse problem and an information test that does not use the response matrix.
+Reported fusion gains in airborne mineral exploration are rarely reproducible because of two confounds: the target is derived from the channels being inverted, and the inversion is underdetermined, so adding any channel changes conditioning rather than information. We separate both on a real-data benchmark over the Ivanpah-Clark Mountain area: USGS radiometrics (295,943 samples), real ASTER L1T thermal infrared (five emissivity bands), real aeromagnetics and USGS SIM 3206 geology, with one synthetic electromagnetic augmentation since no measured airborne EM exists. Three gamma channels for five minerals give rank 3, and gamma alone scores at chance against independent geology (AUC 0.387). Five ASTER bands raise proxy F1 from 0.531 to 0.652 and geological AUC to 0.913 - but five channels of zeros with the same response rows reproduce F1 0.649 and AUC 0.922, so most of that gain is conditioning. A model-free test isolates the information: gamma plus ASTER classifies four similar substrates at balanced accuracy 0.529 versus 0.350 for gamma (+0.179, CI [0.120, 0.241], 20/20 repeats), while a shuffled cube gives 0.354. Correcting a mis-specified electromagnetic row raises F1 from 0.168 to 0.497 but still loses to gamma plus thermal. Effective sample size is 110, not 1.2 million pixels, and the filter variance is not a confidence interval (coverage 0.13). Fusion studies should report the rank of the inverse problem and an information test that does not use the response matrix.
 
 **Keywords:** airborne mineral exploration; gamma-ray spectrometry; thermal infrared; ASTER; multi-modal fusion; identifiability; reproducibility; benchmark
 
 ## Highlights
 
-- Two confounds explain most irreproducible fusion gains: circular targets and
-  underdetermined inversions.
-- Three gamma channels for five minerals give rank 3; gamma alone is at chance on
-  independent geology (AUC 0.387).
-- Real ASTER TIR lifts proxy F1 to 0.652 and geological AUC to 0.913 — but
-  zero-filled channels with the same H rows give 0.649 and 0.922.
-- Without a response matrix the genuine gain is +0.179 balanced accuracy
-  (20/20 repeats) and vanishes for a block-shuffled cube.
-- Correcting the synthetic EM row helps (+0.332 F1) yet still loses to gamma+TIR.
+- Most fusion gains stem from circular targets and underdetermined inversions
+- Three gamma channels for five minerals give rank 3; AUC 0.387 on real geology
+- Real ASTER TIR lifts proxy F1 to 0.652; identical zero channels give 0.649
+- Model-free gain is +0.179 balanced accuracy, lost when the cube is shuffled
+- Fixing the synthetic EM row helps (+0.332 F1) but still loses to gamma+TIR
 
 ## 1. Introduction
 
@@ -409,7 +405,7 @@ correlation (11.29 µm) leaves 0.640; repeating with the second acquisition date
 F1 0.4967 ± 0.00003. The conclusion is not an artefact of the TES simplification
 or of one scene.
 
-**Table 8.** Sensitivity of the thermal result to the retrieval and the acquisition. Bootstrap of the gamma+TIR gain: +0.120 [+0.082, +0.157].
+**Table 8.** Sensitivity of the thermal result to the retrieval and the acquisition. Bootstrap of the gamma+TIR gain: +0.119 [+0.067, +0.167].
 
 | variant | gamma F1 | gamma+TIR F1 |
 |---|---:|---:|
@@ -457,10 +453,10 @@ because it is essentially a potassium map, the fusion 0.912, low eTh/K 0.217
 
 The forward-filter variance is not a confidence interval: empirical 68 % and 95 %
 coverage are 0.129 and 0.258, with a variance-scale factor of 13.5 that raises
-them only to 0.517 and 1.00. The clay field has an integral scale of about 50 px
-(2.5 km), a design effect of 10,168 and an effective sample size of 122 from
-1,237,644 pixels. Every contrast in this paper is therefore reported with a
-128-px block bootstrap.
+them only to 0.517 and 1.00. The clay field has an integral scale of about 50 px (2.5 km), a design effect of
+11,262 and an effective sample size of 110 from 1,237,644 pixels; the inverted
+clay map, being smoother, gives 173. Every contrast in this paper is therefore
+reported with a 128-px block bootstrap.
 
 ### 7.10 What this bounds
 
@@ -527,10 +523,33 @@ two, a reported fusion gain cannot be distinguished from conditioning.
 
 The pipeline is 40 scripts in eight stages. A coverage guard fails if any
 validated artefact lacks a producing script; a validator checks 53 artefacts and
-18 invariants (including the zero-filled and shuffled controls); unit tests
+19 invariants (including the zero-filled and shuffled controls); unit tests
 assert the two switch-off invariances and the spectral-library construction of
 the thermal rows; every file carries a SHA-256 in a manifest; dependencies are
-pinned; one command rebuilds every number. The raw ASTER scenes are archived with their STAC identifiers and hashes so the thermal cube can be rebuilt offline. The repository is released under the MIT licence; the reference copy is archived on Zenodo (DOI to be inserted on acceptance) and the benchmark is built so that one command regenerates every table and figure in this paper.
+pinned; one command rebuilds every number. The raw ASTER scenes are archived with their STAC identifiers and hashes so the
+thermal cube can be rebuilt offline. The repository is released under the MIT
+licence; the reference copy is archived on Zenodo (DOI to be inserted on
+acceptance) and the benchmark is built so that one command regenerates every
+table and figure in this paper.
+
+## Declarations
+
+**CRediT author statement.** Yudong Xu: conceptualisation, methodology,
+software, validation, formal analysis, investigation, data curation, writing —
+original draft, writing — review and editing, visualisation.
+
+**Competing interests.** The author declares no competing financial or
+non-financial interests.
+
+**Funding.** This research received no specific grant from any funding agency in
+the public, commercial, or not-for-profit sectors.
+
+**Acknowledgements.** The airborne radiometric, magnetic and geological data are
+courtesy of the U.S. Geological Survey; the thermal data are courtesy of NASA,
+JAXA and METI through the ASTER instrument on Terra. Radiometric and magnetic
+processing followed the USGS surveys cited in Section 3; responsibility for the
+analysis and for the conclusions drawn from these public data rests with the
+author.
 
 ## References
 

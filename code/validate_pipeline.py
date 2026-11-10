@@ -214,6 +214,17 @@ def main():
     xcheck("n_eff_reported", ac["fields"]["main_clay"]["n_eff"] > 50,
            f"N_eff {ac['fields']['main_clay']['n_eff']:.0f}")
 
+    # 9b. one bootstrap implementation: the robustness baseline must return the
+    #     same interval as the main run, otherwise two CIs in the paper disagree
+    rob = C.load_json(C.PROC / "real_tir_robust.json")["bootstrap"]
+    mbs = C.load_json(C.PROC / "main_results.json")["bootstrap_f1"][
+        "gamma+TIR_vs_gamma (real)"]
+    xcheck("robust_bootstrap_matches_main",
+           abs(rob["delta_mean"] - mbs["delta_mean"]) < 1e-9
+           and all(abs(a - b) < 1e-9 for a, b in zip(rob["ci95"], mbs["ci95"])),
+           f"robust {rob['delta_mean']:+.4f} {rob['ci95']} vs "
+           f"main {mbs['delta_mean']:+.4f} {mbs['ci95']}")
+
     # 10. published baselines: the fusion beats the strongest single index
     pb = C.load_json(C.PROC / "published_baselines.json")["rows"]
     ours = next(r for r in pb if r["method"].startswith("WLS"))

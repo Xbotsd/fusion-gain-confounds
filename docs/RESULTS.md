@@ -87,7 +87,7 @@ confidence interval.
 
 Pseudo-replication: integral scale 50 px
 (2508 m), design effect
-10168, **N_eff 122**
+11,262, **N_eff 110** (inverted map 173)
 from 1,237,644 pixels.
 
 ## Files

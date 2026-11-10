@@ -78,32 +78,12 @@ def score(cube, mask, gt, sel, pos):
         out[cfg] = {"f1": m["f1"], "ap": ap, "recall": m["recall"],
                     "precision": m["precision"],
                     "geo_auc": C.geology_auc(x, sel, pos),
-                    "_pred": (x[C.TARGET] > 0.25) & C.topk_mask(x, 2)[C.TARGET]}
+                    "_pred": C.pred_of(x, mask), "_x": x.astype(np.float32)}
     return out
 
 
-def bootstrap(pred_a, pred_b, gt, mask, block=128, reps=200, seed=2024):
-    h, w = mask.shape
-    bid = (np.arange(h)[:, None] // block) * ((w + block - 1) // block) \
-        + (np.arange(w)[None, :] // block)
-    blocks = np.unique(bid[mask])
-    rng = np.random.default_rng(seed)
-    d = []
-    for _ in range(reps):
-        pick = rng.choice(blocks, size=blocks.size, replace=True)
-        mm = np.isin(bid, pick) & mask
-        vals = []
-        for p in (pred_a, pred_b):
-            pp, y = p[mm], gt[mm]
-            tp = np.sum(pp & y)
-            fp = np.sum(pp & ~y)
-            fn = np.sum(~pp & y)
-            vals.append(2 * tp / max(2 * tp + fp + fn, 1))
-        d.append(vals[1] - vals[0])
-    d = np.asarray(d)
-    return {"delta_mean": float(d.mean()),
-            "ci95": [float(np.percentile(d, 2.5)), float(np.percentile(d, 97.5))],
-            "p_better": float(np.mean(d > 0))}
+# The bootstrap is C.paired_bootstrap (common.py), so the baseline interval is
+# identical to the one in main_results.json by construction.
 
 
 def main():
@@ -128,7 +108,8 @@ def main():
               f"gamma+tir {r['gamma+tir']['f1']:.3f}  all {r['all']['f1']:.3f}  "
               f"AUC(gt) {r['gamma+tir']['geo_auc']:.3f}")
         if name.startswith("baseline"):
-            boot = bootstrap(r["gamma"]["_pred"], r["gamma+tir"]["_pred"], gt, mask)
+            boot = C.paired_bootstrap(r["gamma"]["_x"],
+                                      r["gamma+tir"]["_x"], gt, mask)
             dev = abs(r["gamma+tir"]["f1"] - ref[("corrected", "gamma+tir")]["f1"])
             print(f"  reproduces main_results: |ΔF1| = {dev:.2e}")
             assert dev < 1e-6, "robustness baseline does not reproduce run_main"

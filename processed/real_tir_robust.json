@@ -203,12 +203,24 @@
     }
   ],
   "bootstrap": {
-    "delta_mean": 0.1195211218627599,
+    "f1_a": 0.5314086598151208,
+    "f1_b": 0.6519241345646263,
+    "delta_mean": 0.11948864903266854,
     "ci95": [
-      0.08163898430894345,
-      0.15665655867494738
+      0.06741970111999009,
+      0.1668103476513668
     ],
-    "p_better": 1.0
+    "a_ci95": [
+      0.41657934937485297,
+      0.6307435035078116
+    ],
+    "b_ci95": [
+      0.5519177577147818,
+      0.735466152670076
+    ],
+    "p_better": 1.0,
+    "n_blocks": 97,
+    "n_reps": 200
   },
   "note": "Same mask, fill, H construction and estimator as run_main; the baseline row must (and does) reproduce main_results.json."
 }

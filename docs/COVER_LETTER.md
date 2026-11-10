@@ -2,8 +2,8 @@
 
 **To:** Editor-in-Chief, *Computers & Geosciences*
 
-**Subject:** Submission of "When does multi-modal fusion improve airborne mineral
-exploration? An identifiability analysis and reproducible benchmark"
+**Subject:** Submission of "Two confounds in reported fusion gains for airborne
+mineral exploration: target circularity and an underdetermined inversion"
 
 Dear Editor,
 
@@ -17,43 +17,48 @@ The paper is built for this journal's readership in three ways.
 **It is a benchmark, not a case study.** One response matrix, one valid-pixel
 mask and one contingency-table metric are fixed before any comparison, and the
 protocol is released. The real radiometric survey (USGS Ivanpah–Clark Mountain,
-Nevada–California, 2019–2020, 295,943 samples) is combined with real ASTER
-thermal-infrared data and real geological mapping; the one synthetic modality
-(airborne EM, for which no measured survey exists at this site) is labelled as
-such throughout and is used as a controlled augmentation, not as evidence about
-field EM.
+Nevada–California, 2019–2020, 295,943 samples) is combined with real ASTER L1T
+thermal infrared (five emissivity bands, 2006), real aeromagnetics and USGS
+SIM 3206 geological mapping; the one synthetic modality (airborne EM, for which
+no measured survey exists at this site) is labelled as such throughout and is
+used as a controlled augmentation, not as evidence about field EM.
 
-**It is reproducible in a checkable sense.** The pipeline is 40 scripts in ten
+**It is reproducible in a checkable sense.** The pipeline is 40 scripts in eight
 stages. A coverage guard fails if any validated artefact lacks a producing
-script; a validator checks 97 artefacts and 21 cross-artefact invariants; unit
-tests cover the estimator's algebraic properties; every file carries a SHA-256 in
-a manifest; dependencies are pinned. A single command rebuilds every number in
-the paper.
+script; a validator checks 53 artefacts and 19 cross-artefact invariants; 25 unit
+tests cover the estimator's algebraic properties, including the two switch-off
+invariances; every file carries a SHA-256 in a manifest; dependencies are pinned.
+A single command rebuilds every number in the paper.
 
-**It reports what did not work.** The widely quoted +104 % fusion gain does not
-reproduce and is shown to be a response-matrix artefact. Two published
-gamma-ratio indices beat the fusion on the gamma-derived target, and that target
-circularity is quantified rather than hidden. A variance-based gain index is
-shown to be necessary but not sufficient: it agrees with the observed F1 change
-in none of six cases, because a mis-specified channel can dominate the clay
-column (98 % of its weight) and lower the estimator variance while making the map
-worse.
+**It reports what did not work, and isolates what did.** Adding the five ASTER
+bands raises the clay-proxy F1 from 0.531 to 0.652 and the AUC against independent
+geology from 0.387 to 0.913. Five channels of *zeros* with the same response rows
+reproduce 0.649 and 0.922, and a block-shuffled cube reproduces them too: most of
+the gain is conditioning of a rank-3 inverse problem, not mineralogical
+information. A test that never touches the response matrix — a multinomial
+classifier over four geologically similar substrates — keeps a real but much
+smaller gain, +0.179 balanced accuracy (95 % CI [0.120, 0.241], 20 of 20
+repeats), which collapses to +0.003 when the thermal cube is block-shuffled.
+Correcting a mis-specified EM row to log10 resistivity with a clay-only row raises
+proxy F1 from 0.168 to 0.497 (+0.332, CI [0.244, 0.430]) and still loses to
+gamma+TIR; the fusion also beats the strongest published gamma-ratio index
+(0.497 versus 0.365).
 
-The positive result is falsifiable: correcting the EM response to log10
-resistivity with a clay-only row raises proxy F1 from 0.267 to 0.498 and average
-precision from 0.126 to 0.513, with a 128-px block-bootstrap gain of
-+0.167 [0.118, 0.216] over independent inversion. On an independent geological
-target, gamma alone sits at chance (AUC 0.476) because three channels cannot
-determine five abundances, while gamma plus real ASTER TIR reaches 0.905.
+Two methodological consequences are stated as requirements rather than
+suggestions: report the rank of the inverse problem, and report an information
+test that does not use the response matrix. We also show that the spatial
+effective sample size of this survey is 110–173, not 1.24 million pixels, and
+that the filter variance is not a confidence interval (empirical 68 % coverage
+0.13), so every contrast is given with a 128-px block bootstrap.
 
 We believe the combination of a released benchmark, an audit of a widely used
 modelling shortcut, and an honest negative result fits *Computers & Geosciences*
 better than a remote-sensing venue, where the contribution would read as an
 application rather than as a method.
 
-The manuscript is original, is not under consideration elsewhere, and all authors
-approve submission. The code and derived data will be archived with a DOI on
-acceptance; the repository layout, licence and one-command reproduction are
+The manuscript is original, is not under consideration elsewhere, and the single
+author approves submission. The code and derived data will be archived with a DOI
+on acceptance; the repository layout, licence and one-command reproduction are
 described in the data-availability section.
 
 Yours sincerely,

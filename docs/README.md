@@ -54,7 +54,7 @@ their STAC ids and SHA-256, so `prepare` runs offline; to re-download them run
 | legacy | synthetic-TIR reference branch | the comparison table |
 | audit | unit tests, coverage guard, validator, manifest | PASS/FAIL + SHA-256 |
 
-`code/validate_pipeline.py` checks 53 artefacts and 18 invariants, including the
+`code/validate_pipeline.py` checks 53 artefacts and 19 invariants, including the
 zero-filled and shuffled controls, so a regression cannot silently restore a
 spurious gain.
 
@@ -63,7 +63,11 @@ spurious gain.
 `docs/RESULTS.md` (numbers), `docs/DATA_PROVENANCE.md` (sources and recipes),
 `docs/READINESS_AUDIT.md` (publication readiness), `docs/GAP_AUDIT.md` (what is
 missing and why), `docs/MODEL_AUDIT.md` (model caveats),
+`docs/NORMALISATION_AUDIT.md` (the two switch-off bugs and their fix),
 `docs/REFERENCES_AUDIT.md` (bibliography state), `docs/CHANGELOG.md`.
+
+Older round notes are in `docs/archive/`; they are historical and their numbers
+are superseded — see `docs/archive/README.md`.
 
 ## Licence
 

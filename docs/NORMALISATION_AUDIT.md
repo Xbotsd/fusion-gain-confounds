@@ -28,15 +28,20 @@ that ignores inactive rows the two matrices agree exactly, as they must.
 
 ## Consequences for the current numbers
 
-* The ablation rows `gamma` (0.325 legacy / 0.519 corrected) are **not
-  comparable across matrices**; the +0.19 difference in that row is a
-  normalisation artefact, not an EM effect.
-* Any statement of the form "correcting EM changes the gamma-only result" is
-  invalid. Statements about the **full** model are still meaningful, because
-  there every channel is active, but part of the 0.267 → 0.498 gain may be
-  renormalisation rather than physics.
-* The real-ASTER-TIR comparison inherits the same artefact and must be rerun
-  after the fix.
+Both bugs are fixed (§*The fix*) and the whole benchmark was re-run. What the
+fix changed, stated against the numbers now in `main_results.json`:
+
+* The gamma-only row no longer depends on which EM matrix is used: it is 0.531
+  under the legacy and the corrected model alike. Before the fix the same row
+  read 0.325 under one matrix and 0.519 under the other, purely because the
+  column normalisation summed over inactive rows.
+* The corrected-EM result therefore survives as a **model** statement, not a
+  normalisation artefact: F1 0.168 → 0.497, AP 0.123 → 0.577, with every channel
+  active in both branches.
+* The real-ASTER thermal result was re-run after the fix, and its control
+  (identical H rows, zero-valued channels) is what showed the gain to be mostly
+  conditioning. That control would have been impossible to interpret before the
+  fix, because switching channels off itself changed the score.
 
 ## The fix
 

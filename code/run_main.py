@@ -107,53 +107,12 @@ def baselines(z, H, lay):
     return out
 
 
-def block_ids(mask, block=BLOCK):
-    h, w = mask.shape
-    return ((np.arange(h)[:, None] // block) * ((w + block - 1) // block)
-            + (np.arange(w)[None, :] // block))
-
-
-def block_counts(pred, gt, bid, nb):
-    lab = bid.ravel()
-    tp = np.bincount(lab, weights=(pred & gt).ravel(), minlength=nb)
-    fp = np.bincount(lab, weights=(pred & ~gt).ravel(), minlength=nb)
-    fn = np.bincount(lab, weights=(~pred & gt).ravel(), minlength=nb)
-    return tp, fp, fn
-
-
-def f1_counts(tp, fp, fn):
-    tp, fp, fn = tp.sum(), fp.sum(), fn.sum()
-    return float(2 * tp / max(2 * tp + fp + fn, 1))
-
-
-def pred_of(x, mask):
-    return (x[C.TARGET] > 0.25) & C.topk_mask(x, 2)[C.TARGET] & mask
-
-
-def paired_bootstrap(xa, xb, gt, mask, seed=2024):
-    """Block bootstrap of F1(b) - F1(a) with blocks restricted to the mask."""
-    bid = block_ids(mask)
-    nb = int(bid.max() + 1)
-    g = gt & mask
-    ca = block_counts(pred_of(xa, mask), g, bid, nb)
-    cb = block_counts(pred_of(xb, mask), g, bid, nb)
-    occupied = np.unique(bid[mask])
-    rng = np.random.default_rng(seed)
-    d, fa, fb = [], [], []
-    for _ in range(N_REP):
-        pick = rng.choice(occupied, size=occupied.size, replace=True)
-        a = f1_counts(*(c[pick] for c in ca))
-        b = f1_counts(*(c[pick] for c in cb))
-        fa.append(a)
-        fb.append(b)
-        d.append(b - a)
-    d = np.asarray(d)
-    return {"f1_a": f1_counts(*ca), "f1_b": f1_counts(*cb),
-            "delta_mean": float(d.mean()),
-            "ci95": [float(np.percentile(d, 2.5)), float(np.percentile(d, 97.5))],
-            "a_ci95": [float(np.percentile(fa, 2.5)), float(np.percentile(fa, 97.5))],
-            "b_ci95": [float(np.percentile(fb, 2.5)), float(np.percentile(fb, 97.5))],
-            "p_better": float(np.mean(d > 0)), "n_blocks": int(occupied.size)}
+# One bootstrap implementation for the whole project (common.paired_bootstrap)
+BLOCK = C.BLOCK
+N_REP = C.N_REP
+block_ids = C.block_ids
+pred_of = C.pred_of
+paired_bootstrap = C.paired_bootstrap
 
 
 def geo_bootstrap(xa, xb, sel, pos, mask, seed=2025):

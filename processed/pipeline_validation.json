@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "generated_at": "2026-11-10T10:04:37+08:00",
+  "generated_at": "2026-11-10T10:37:56+08:00",
   "grid": [
     1772,
     1075
@@ -47,7 +47,7 @@
       "bootstrap_contrasts": 5,
       "multiclass_repeats": 0
     },
-    "runtime_s": 611.6844570636749
+    "runtime_s": 268.280277967453
   },
   "cross_checks": [
     {
@@ -124,6 +124,11 @@
       "check": "n_eff_reported",
       "ok": true,
       "detail": "N_eff 173"
+    },
+    {
+      "check": "robust_bootstrap_matches_main",
+      "ok": true,
+      "detail": "robust +0.1195 [0.06741970111999009, 0.1668103476513668] vs main +0.1195 [0.06741970111999009, 0.1668103476513668]"
     },
     {
       "check": "fusion_beats_published_index",
@@ -358,7 +363,7 @@
     {
       "check": "json:main_results.json",
       "exists": true,
-      "size": 20225,
+      "size": 20224,
       "keys": [
         "H_tir_real",
         "ablation",
@@ -434,7 +439,7 @@
     {
       "check": "json:real_tir_robust.json",
       "exists": true,
-      "size": 5617,
+      "size": 5880,
       "keys": [
         "bootstrap",
         "note",
@@ -479,7 +484,7 @@
     {
       "check": "json:depth.json",
       "exists": true,
-      "size": 8198,
+      "size": 8199,
       "keys": [
         "depth_m",
         "layer_mean",
@@ -492,7 +497,7 @@
     {
       "check": "json:depth_emfix.json",
       "exists": true,
-      "size": 8208,
+      "size": 8207,
       "keys": [
         "depth_m",
         "layer_mean",
@@ -566,7 +571,7 @@
     {
       "check": "json:edge_ai.json",
       "exists": true,
-      "size": 931,
+      "size": 933,
       "keys": [
         "architecture",
         "budget_200ms",
@@ -727,7 +732,7 @@
     {
       "check": "fig:edge_ai.png",
       "exists": true,
-      "size": 136639,
+      "size": 136642,
       "status": "PASS"
     }
   ]

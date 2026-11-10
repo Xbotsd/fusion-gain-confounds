@@ -23,7 +23,7 @@
 | `run_edge_ai.py`, `prepare_granite.py`, `run_granite_compensation.py` | edge-deployment modules |
 | `test_core.py` | 25 unit checks, including the two switch-off invariances |
 | `check_coverage.py` | fails if any validated artefact has no producer |
-| `validate_pipeline.py` | 53 artefacts, 18 invariants |
+| `validate_pipeline.py` | 53 artefacts, 19 invariants |
 | `build_manifest.py` | SHA-256 inventory |
 
 ## S2. Data
@@ -85,5 +85,5 @@ D:\miniconda3\envs\geo\python.exe code\test_core.py
    inversion, not the data.
 5. **Is the uncertainty usable?** No. Coverage is 0.13/0.26; we report it as a
    filter variance and never as a confidence interval.
-6. **How many independent samples?** 122 effective samples from 1.24 M pixels;
+6. **How many independent samples?** 110 effective samples from 1.24 M pixels (173 for the inverted clay map);
    all contrasts use 128-px block bootstrap.

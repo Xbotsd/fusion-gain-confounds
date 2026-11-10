@@ -103,7 +103,7 @@ also dominates the column norms, pressing the TIR mineral contrast from 0.21–0
 to 0.024 and raising the condition number of the normalised matrix from 48.5 to
 1156. A physically consistent EM row is **clay-only in log10(Ω·m)**, with
 `z_EM = log10(rho)`. That correction was subsequently adopted as the main model
-(manuscript §4.8): F1 rises from 0.267 to 0.498 and AP from 0.126 to 0.513, and
+(manuscript §7.5): F1 rises from 0.168 to 0.497 and AP from 0.123 to 0.577, and
 all validation, degradation, temperature and depth experiments were re-run with
 it. See `docs/EM_FIX.md` and `docs/EM_FIX_VALIDATION.md`.
 

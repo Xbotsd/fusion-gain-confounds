@@ -32,7 +32,7 @@ cube gives 0.354.
 .\run.bat legacy           # synthetic-TIR reference branch (optional)
 ```
 
-Measured: 53 artefacts, 18 invariants, 25 unit tests, 0 coverage orphans.
+Measured: 53 artefacts, 19 invariants, 25 unit tests, 0 coverage orphans.
 
 ## Layout
 

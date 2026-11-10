@@ -1,6 +1,6 @@
 # Gap audit — what is done, what is missing, and where the rigour is thin
 
-Snapshot 2026-11-10, real-ASTER main line: **53/53 artefacts, 18/18 invariants,
+Snapshot 2026-11-10, real-ASTER main line: **53/53 artefacts, 19/19 invariants,
 25/25 unit tests, 0 coverage orphans**, manifest 6,772 files / 11.45 GB.
 
 ## Rigour scorecard
@@ -10,7 +10,7 @@ Snapshot 2026-11-10, real-ASTER main line: **53/53 artefacts, 18/18 invariants,
 | Data reality | 8/10 | gamma, TIR, TMI and geology real; EM synthetic and labelled everywhere |
 | Target independence | 8/10 | three targets including a model-free one that no response matrix can inflate |
 | Identifiability | 9/10 | rank, κ, variance-gain index and a zero-filled control |
-| Statistical inference | 7/10 | 128-px block bootstrap, 20-repeat CV, CIs; N_eff 122 |
+| Statistical inference | 7/10 | 128-px block bootstrap, 20-repeat CV, CIs; N_eff 110 |
 | Uncertainty | 2/10 | coverage 0.13/0.26; the filter variance is not a predictive interval |
 | Reproducibility | 9/10 | pinned, hashed, offline ASTER archive, coverage guard, one command |
 | Manuscript completeness | 6/10 | rewritten; open items below |

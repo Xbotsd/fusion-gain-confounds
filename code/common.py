@@ -536,6 +536,72 @@ def detection_metrics(x, gt, thr=0.25, top_k=2, gt_thr=0.55, mask=None) -> dict:
             "clay_mean": float(clay.mean())}
 
 
+# --------------------------------------------------------------------------
+# Spatial block bootstrap (one implementation for every script)
+# --------------------------------------------------------------------------
+BLOCK = 128
+N_REP = 200
+
+
+def block_ids(mask: np.ndarray, block: int = BLOCK) -> np.ndarray:
+    """Contiguous `block`-pixel tiles; ids are unique over the full grid."""
+    h, w = mask.shape
+    return ((np.arange(h)[:, None] // block) * ((w + block - 1) // block)
+            + (np.arange(w)[None, :] // block))
+
+
+def pred_of(x: np.ndarray, mask: np.ndarray, thr: float = 0.25) -> np.ndarray:
+    """Detection definition shared with `detection_metrics`."""
+    return (x[TARGET] > thr) & topk_mask(x, 2)[TARGET] & mask
+
+
+def _block_counts(pred, gt, bid, nb):
+    lab = bid.ravel()
+    tp = np.bincount(lab, weights=(pred & gt).ravel(), minlength=nb)
+    fp = np.bincount(lab, weights=(pred & ~gt).ravel(), minlength=nb)
+    fn = np.bincount(lab, weights=(~pred & gt).ravel(), minlength=nb)
+    return tp, fp, fn
+
+
+def _f1_from_counts(tp, fp, fn) -> float:
+    tp, fp, fn = tp.sum(), fp.sum(), fn.sum()
+    return float(2 * tp / max(2 * tp + fp + fn, 1))
+
+
+def paired_bootstrap(xa: np.ndarray, xb: np.ndarray, gt: np.ndarray,
+                     mask: np.ndarray, seed: int = 2024,
+                     reps: int = N_REP) -> dict:
+    """Block bootstrap of F1(b) - F1(a); blocks are resampled from the mask.
+
+    Both maps are thresholded with `pred_of`, so this is the only bootstrap in
+    the project and every script that quotes a Delta-F1 confidence interval
+    calls it.
+    """
+    bid = block_ids(mask)
+    nb = int(bid.max() + 1)
+    g = np.asarray(gt, dtype=bool) & mask
+    ca = _block_counts(pred_of(xa, mask), g, bid, nb)
+    cb = _block_counts(pred_of(xb, mask), g, bid, nb)
+    occupied = np.unique(bid[mask])
+    rng = np.random.default_rng(seed)
+    d, fa, fb = [], [], []
+    for _ in range(reps):
+        pick = rng.choice(occupied, size=occupied.size, replace=True)
+        a = _f1_from_counts(*(c[pick] for c in ca))
+        b = _f1_from_counts(*(c[pick] for c in cb))
+        fa.append(a)
+        fb.append(b)
+        d.append(b - a)
+    d = np.asarray(d)
+    return {"f1_a": _f1_from_counts(*ca), "f1_b": _f1_from_counts(*cb),
+            "delta_mean": float(d.mean()),
+            "ci95": [float(np.percentile(d, 2.5)), float(np.percentile(d, 97.5))],
+            "a_ci95": [float(np.percentile(fa, 2.5)), float(np.percentile(fa, 97.5))],
+            "b_ci95": [float(np.percentile(fb, 2.5)), float(np.percentile(fb, 97.5))],
+            "p_better": float(np.mean(d > 0)), "n_blocks": int(occupied.size),
+            "n_reps": int(reps)}
+
+
 def spatial_gradient(x: np.ndarray) -> float:
     return float((np.abs(np.diff(x, axis=1)).mean()
                   + np.abs(np.diff(x, axis=2)).mean()) / 2)
