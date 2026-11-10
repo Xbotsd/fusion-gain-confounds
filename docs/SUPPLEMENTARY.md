@@ -10,7 +10,7 @@
 | `prepare_geology.py` | SIM 3206 substrate raster and class counts |
 | `prepare_tir.py`, `prepare_em.py` | synthetic controls (splib07 TIR, EM section) |
 | `run_main.py` | ablation, baselines, block bootstrap, repeats, calibration, autocorrelation |
-| `run_tir_controls.py` | zero-filled, block-shuffled, noise and ridge controls |
+| `run_tir_controls.py` | all-zero, Gaussian-noise, block- and pixel-shuffled, ridge controls |
 | `run_tir_information.py` | cross-validated information test against geology and the proxy |
 | `run_geology_multiclass.py` | model-free 4-class test, 20 repeats |
 | `run_identifiability.py` | rank, condition number, variance-gain index |
@@ -24,6 +24,7 @@
 | `test_core.py` | 25 unit checks, including the two switch-off invariances |
 | `check_coverage.py` | fails if any validated artefact has no producer |
 | `validate_pipeline.py` | 53 artefacts, 22 invariants |
+| `make_figures.py`, `make_graphical_abstract.py` | paper figures and the graphical abstract |
 | `build_manifest.py` | SHA-256 inventory |
 
 ## S2. Data

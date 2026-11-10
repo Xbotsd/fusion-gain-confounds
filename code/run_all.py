@@ -47,7 +47,7 @@ STAGES = {
                "run_v2.py"],
     "asu": ["fetch_asu_spectra.py", "run_asu_variant.py"],
     "refs": ["verify_references.py"],
-    "figures": ["make_figures.py"],
+    "figures": ["make_figures.py", "make_graphical_abstract.py"],
     "audit": ["test_core.py", "check_coverage.py", "audit_data.py",
               "validate_pipeline.py", "report_large_files.py",
               "build_manifest.py"],

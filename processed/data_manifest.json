@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-10T10:45:06+08:00",
+  "generated_at": "2026-11-10T10:46:33+08:00",
   "root": "D:\\A_MineralProspecting",
-  "n_files": 6786,
-  "total_bytes": 11450874895,
+  "n_files": 6787,
+  "total_bytes": 11450875870,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -74,11 +74,11 @@
     },
     "docs": {
       "files": 46,
-      "bytes": 9846277
+      "bytes": 9846387
     },
     "code": {
-      "files": 99,
-      "bytes": 467124
+      "files": 100,
+      "bytes": 467989
     }
   },
   "files": [
@@ -48259,8 +48259,8 @@
     {
       "path": "docs/SUPPLEMENTARY.md",
       "stage": "docs",
-      "size": 4783,
-      "sha256": "f0bcadd552a6d72cd9ac2201d3568fd683f6191ae3d37c44ff7bc9421dcbbdcc",
+      "size": 4893,
+      "sha256": "b8e49ae0894e04faf679ff3619eaa76ee36fbb21ec9d5b0c3fd07ffd76dd0f38",
       "schema": {}
     },
     {
@@ -48565,6 +48565,13 @@
       "schema": {}
     },
     {
+      "path": "code/dev/update_inventory.py",
+      "stage": "code",
+      "size": 835,
+      "sha256": "52f7cd49431721ab5f547feb3dcaac0d9a873fb635283cfb975c5fdb153c472b",
+      "schema": {}
+    },
+    {
       "path": "code/dev/update_manuscript_postfix.py",
       "stage": "code",
       "size": 3921,
@@ -48714,8 +48721,8 @@
     {
       "path": "code/run_all.py",
       "stage": "code",
-      "size": 4928,
-      "sha256": "f1826a95105d238549f34d59add7de24d046a956d67dff2db6ae7c2739e1a32a",
+      "size": 4958,
+      "sha256": "db9c8b1a9959dbf02d91f32e627fbaad608b8fbcd4b4dd00c4a32bf4effd625d",
       "schema": {}
     },
     {
