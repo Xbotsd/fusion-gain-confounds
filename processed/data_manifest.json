@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-10T12:47:25+08:00",
+  "generated_at": "2026-11-10T12:56:50+08:00",
   "root": "D:\\A_MineralProspecting",
-  "n_files": 6804,
-  "total_bytes": 11460515828,
+  "n_files": 6808,
+  "total_bytes": 11460519838,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -74,11 +74,11 @@
     },
     "docs": {
       "files": 56,
-      "bytes": 19403726
+      "bytes": 19403828
     },
     "code": {
-      "files": 105,
-      "bytes": 473420
+      "files": 109,
+      "bytes": 477328
     }
   },
   "files": [
@@ -46952,7 +46952,7 @@
       "path": "processed/pipeline_validation.json",
       "stage": "audit",
       "size": 16673,
-      "sha256": "50040acb24edb677f0598a2881c376465f9eb7fc4f05cc885e2b90ac24b99b0a",
+      "sha256": "2d1c69bc7bbd3df4a31b296569c89a90b2b300dc55ed6ae89e9dfaf06d356fa7",
       "schema": {
         "keys": [
           "checks",
@@ -48191,15 +48191,15 @@
     {
       "path": "docs/Manuscript_v2_draft.docx",
       "stage": "docs",
-      "size": 9316576,
-      "sha256": "dd8a26ea6c8030c79032edc9a636fc88454ab4012c1b04484b8c5632f4f9c9f0",
+      "size": 9316622,
+      "sha256": "331b8651259cad42f5ecd45dc31a06a4458bab6f3ba4818d3b89974d68e11546",
       "schema": {}
     },
     {
       "path": "docs/Manuscript_v2_draft.md",
       "stage": "docs",
-      "size": 36285,
-      "sha256": "34ab1f4b3508d5e7aa2de6cfa41f35891a29d05ae0262c6205e0cad041da32ca",
+      "size": 36341,
+      "sha256": "439ded5fe79f98f4c2ae9e6d361b03a628c6840814bc5cb75da95b1ab36586dd",
       "schema": {}
     },
     {
@@ -48397,6 +48397,20 @@
       "schema": {}
     },
     {
+      "path": "code/dev/add_orcid.py",
+      "stage": "code",
+      "size": 2087,
+      "sha256": "9378fcf37213844948fb3fb583a3318d42825b24b2e0f1687f403424543831bc",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/add_orcid2.py",
+      "stage": "code",
+      "size": 1188,
+      "sha256": "dd1c7ddbee7abbc36df320ae61b918bbf662d5fcf691eacf25ab05fb159a20d7",
+      "schema": {}
+    },
+    {
       "path": "code/dev/align_framing.py",
       "stage": "code",
       "size": 5861,
@@ -48418,6 +48432,13 @@
       "schema": {}
     },
     {
+      "path": "code/dev/check_docx_title.py",
+      "stage": "code",
+      "size": 342,
+      "sha256": "a8ff53cc613cc1c65dea027304de07af66442c9a79bb9ce85bac6f7a8c946ed6",
+      "schema": {}
+    },
+    {
       "path": "code/dev/check_dup.py",
       "stage": "code",
       "size": 672,
@@ -48436,6 +48457,13 @@
       "stage": "code",
       "size": 1193,
       "sha256": "244f6bd41aa96c32327a765c01907242f5fdbf8b7670e1245d3a6b227b2e8a86",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/check_title.py",
+      "stage": "code",
+      "size": 291,
+      "sha256": "ca4783afb1da98e4e6420f0c45b4cf46d4aa1988748de4cf416bcb0d924c2638",
       "schema": {}
     },
     {

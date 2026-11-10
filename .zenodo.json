@@ -4,14 +4,26 @@
   "upload_type": "software",
   "license": "MIT",
   "creators": [
-    {"name": "Xu, Yudong", "affiliation": "Heilongjiang University of Science and Technology"}
+    {
+      "name": "Xu, Yudong",
+      "affiliation": "Heilongjiang University of Science and Technology",
+      "orcid": "0009-0002-3231-0444"
+    }
   ],
   "keywords": [
-    "airborne geophysics", "gamma-ray spectrometry", "ASTER thermal infrared",
-    "multi-modal fusion", "identifiability", "reproducible benchmark",
+    "airborne geophysics",
+    "gamma-ray spectrometry",
+    "ASTER thermal infrared",
+    "multi-modal fusion",
+    "identifiability",
+    "reproducible benchmark",
     "mineral exploration"
   ],
   "related_identifiers": [
-    {"identifier": "10.3133/sim3206", "relation": "cites", "resource_type": "other"}
+    {
+      "identifier": "10.3133/sim3206",
+      "relation": "cites",
+      "resource_type": "other"
+    }
   ]
 }

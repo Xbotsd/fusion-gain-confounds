@@ -1,6 +1,6 @@
 # Two confounds in reported fusion gains for airborne mineral exploration: target circularity and an underdetermined inversion
 
-**Authors:** Yudong Xu¹  
+**Authors:** Yudong Xu¹ (ORCID 0009-0002-3231-0444)  
 ¹ Heilongjiang University of Science and Technology, Harbin, China  
 **Corresponding author:** 3468858545@qq.com
 
@@ -543,7 +543,7 @@ table and figure in this paper.
 
 ## Declarations
 
-**CRediT author statement.** Yudong Xu: conceptualisation, methodology,
+**CRediT author statement.** Yudong Xu (ORCID 0009-0002-3231-0444): conceptualisation, methodology,
 software, validation, formal analysis, investigation, data curation, writing —
 original draft, writing — review and editing, visualisation.
 
