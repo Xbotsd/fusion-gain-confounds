@@ -2,6 +2,8 @@
 
 **Repository:** https://github.com/Xbotsd/fusion-gain-confounds · MIT licence · one command reproduces every table and figure.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24130421.svg)](https://doi.org/10.5281/zenodo.24130421)
+
 Real-data benchmark that asks **when adding a modality to airborne mineral
 exploration actually helps**, and separates the two reasons a reported gain can
 be spurious: a circular target and an underdetermined inversion.

@@ -541,7 +541,8 @@ The repository is public under the MIT licence at
 
 https://github.com/Xbotsd/fusion-gain-confounds
 
-and a snapshot will be archived on Zenodo with a DOI on acceptance.
+The code and the derived results are archived at https://doi.org/10.5281/zenodo.24130421
+(all versions: https://doi.org/10.5281/zenodo.24130420).
 
 ## Declarations
 

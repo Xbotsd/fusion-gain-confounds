@@ -24,14 +24,21 @@ python code/run_all.py           # experiments, figures, audits
 3206 geodatabase, and the ASTER scenes that `code/fetch_aster.py` downloads from
 the Microsoft Planetary Computer STAC API.
 
-## Remaining: the Zenodo DOI
+## DOI (issued)
 
-1. Log in to Zenodo and link the GitHub account.
-2. Enable this repository in Zenodo's GitHub list; `.zenodo.json` already carries
-   the title, description, licence, keywords, ORCID and the SIM 3206 relation.
-3. Publish a GitHub release (`v1.0.0`) and Zenodo mints the DOI.
-4. Put the DOI in `CITATION.cff`, in `.zenodo.json`, and in the manuscript's
-   data-availability paragraph, replacing "on acceptance".
+Zenodo record: https://zenodo.org/records/24130421
+
+* version DOI (cite this for the archived snapshot): **10.5281/zenodo.24130421**
+* concept DOI (always resolves to the latest version): **10.5281/zenodo.24130420**
+* archived file: `fusion-gain-confounds-1.0.0.zip`, 18.7 MB, the `git archive`
+  of commit `2d194a2`
+* the record carries the MIT licence, ORCID 0009-0002-3231-0444, the seven
+  keywords and a relation to the GitHub repository
+
+The record was created through the Zenodo API (`POST /api/deposit/depositions`,
+bucket upload, then `actions/publish`), not through the GitHub webhook, so the
+GitHub release `v0.1.0` is unrelated to the DOI. A later version is published the
+same way, or by linking the repository in Zenodo and cutting a new release.
 
 ## How the push was authenticated
 

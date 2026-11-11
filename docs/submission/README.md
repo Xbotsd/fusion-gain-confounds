@@ -49,9 +49,8 @@ items marked *(confirm)* on the Guide for Authors page before uploading.
    reviewed and verified all content and takes full responsibility for the
    publication." Tell me and I will insert it verbatim into the manuscript and
    the `.docx`.
-2. **Repository DOI.** The repository is public at https://github.com/Xbotsd/fusion-gain-confounds; link it to Zenodo,
-   mint the DOI, then replace every "DOI to be inserted on acceptance"
-   placeholder.
+2. **Repository DOI — done.** https://doi.org/10.5281/zenodo.24130421 (version 1.0.0), concept
+   https://doi.org/10.5281/zenodo.24130420. The manuscript, `CITATION.cff` and README carry it.
 3. **Confirm three journal-specific points** on the Guide for Authors: reference
    style (numbered vs author-date), whether the graphical abstract is mandatory,
    and whether a separate title-page file is required (this package keeps the

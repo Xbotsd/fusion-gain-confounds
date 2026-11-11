@@ -14,6 +14,12 @@ authors:
     email: 3468858545@qq.com
     orcid: "https://orcid.org/0009-0002-3231-0444"
 repository-code: "https://github.com/Xbotsd/fusion-gain-confounds"
+version: "1.0.0"
+date-released: "2026-11-11"
+doi: "10.5281/zenodo.24130421"
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.24130421
 license: MIT
 references:
   - type: software

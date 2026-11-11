@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-11T16:34:44+08:00",
+  "generated_at": "2026-11-11T16:48:35+08:00",
   "root": "D:\\A_MineralProspecting",
-  "n_files": 6818,
-  "total_bytes": 11460535899,
+  "n_files": 6827,
+  "total_bytes": 11460550759,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -74,11 +74,11 @@
     },
     "docs": {
       "files": 56,
-      "bytes": 19403132
+      "bytes": 19403565
     },
     "code": {
-      "files": 119,
-      "bytes": 494658
+      "files": 128,
+      "bytes": 509085
     }
   },
   "files": [
@@ -46952,7 +46952,7 @@
       "path": "processed/pipeline_validation.json",
       "stage": "audit",
       "size": 16673,
-      "sha256": "57ff48428d2775a3900c1957dc0b0ff4e148661ad9078fde984f6ca0cfe255ba",
+      "sha256": "9033962e8e69f4c7be0d5bf428146549586b5780be496be9a73076646a2c3a48",
       "schema": {
         "keys": [
           "checks",
@@ -48127,8 +48127,8 @@
     {
       "path": "docs/COVER_LETTER.md",
       "stage": "docs",
-      "size": 3954,
-      "sha256": "c4e8b3c2d63fa4bc14b8e3e360558d0b684013237c50f529a31559af08ff5d57",
+      "size": 3953,
+      "sha256": "de7a407ac4e0d4da390dd8b263267ec9e8d3640afe6cb06d3e14a37a31332498",
       "schema": {}
     },
     {
@@ -48170,8 +48170,8 @@
     {
       "path": "docs/GITHUB_SETUP.md",
       "stage": "docs",
-      "size": 1999,
-      "sha256": "cd164a8a352010168cb86407564ed66b4694d5ed3613aa3187e3bd0d9cd10609",
+      "size": 2343,
+      "sha256": "e0076195287c8387a9ef3f9c4b15b560621d7828df7b73b46dc83577724e3906",
       "schema": {}
     },
     {
@@ -48191,15 +48191,15 @@
     {
       "path": "docs/Manuscript_v2_draft.docx",
       "stage": "docs",
-      "size": 9316612,
-      "sha256": "08f607cd6a3a55ec179562a055f43e48a485fb0d102d93d10ce4a8c1c531a779",
+      "size": 9316637,
+      "sha256": "16fb0504b3981f4ce7a1b77c98a4b6819196ff82c27ecc8daeca86e9515d4c13",
       "schema": {}
     },
     {
       "path": "docs/Manuscript_v2_draft.md",
       "stage": "docs",
-      "size": 36288,
-      "sha256": "0246176662689e63711dc0b8fd3ee597142c9a46f1e9ff835e881cf3d00e13e0",
+      "size": 36367,
+      "sha256": "0676d5c4afdf4fa6e34a45e079e21b456c8a990e6decf2aad4163fb40d19e0c4",
       "schema": {}
     },
     {
@@ -48336,8 +48336,8 @@
     {
       "path": "docs/submission/README.md",
       "stage": "docs",
-      "size": 3339,
-      "sha256": "c78edb95c4fd07174cf0c64791405107b349181807c3e46177cf2f9d4c115ab7",
+      "size": 3325,
+      "sha256": "7f3980ab398b1f80e4b5a3d38f731f13d54748873b15762072f3f458da22fb09",
       "schema": {}
     },
     {
@@ -48434,8 +48434,8 @@
     {
       "path": "code/dev/check_docx_url.py",
       "stage": "code",
-      "size": 254,
-      "sha256": "b06e55a421f6cf4d67ac1d474294b4a66245b24c2845db98f54a69b9a03772af",
+      "size": 261,
+      "sha256": "27c93060f11842aabd336a4d95533250723b9ce226472ee14da5b93f5a899533",
       "schema": {}
     },
     {
@@ -48443,6 +48443,13 @@
       "stage": "code",
       "size": 672,
       "sha256": "0c6657bc7ed1aa9780c779da963c86b07f9fdce54deeb898b27e3e2ea0f9bb57",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/check_encoding.py",
+      "stage": "code",
+      "size": 703,
+      "sha256": "e15ff29e36c6ecac5624dff4256abf22231eb6f8b8c4150df4a6bca635ab8f16",
       "schema": {}
     },
     {
@@ -48516,6 +48523,13 @@
       "schema": {}
     },
     {
+      "path": "code/dev/fix_cff_doi.py",
+      "stage": "code",
+      "size": 1158,
+      "sha256": "fcf42bdd95207d02478d62127f37fdc059554119406eccf30415d5c6469301ca",
+      "schema": {}
+    },
+    {
       "path": "code/dev/fix_conditioning_text.py",
       "stage": "code",
       "size": 6773,
@@ -48539,8 +48553,8 @@
     {
       "path": "code/dev/fix_repo_name_refs.py",
       "stage": "code",
-      "size": 2313,
-      "sha256": "58fa2204ba42e971554073566bf0b0e65ef818d52c3fbc8c3f764a1aaf8e33f6",
+      "size": 2365,
+      "sha256": "b6252515859edbb463e4377e3f9e9059f85b269393b92c50e05c4cee287818aa",
       "schema": {}
     },
     {
@@ -48567,15 +48581,15 @@
     {
       "path": "code/dev/gh_final_check.ps1",
       "stage": "code",
-      "size": 1628,
-      "sha256": "765b2f5e20007aa223dbb9100145661efdaeff40d2fb41b0685f6bd6e63f8d2b",
+      "size": 1654,
+      "sha256": "1d70d20ee7fd3ed76ccd966b7ae32d3dbeae562c8da54adc04f10d05fcdd5c4b",
       "schema": {}
     },
     {
       "path": "code/dev/gh_rename_repo.ps1",
       "stage": "code",
-      "size": 702,
-      "sha256": "a149dd3c185e30ef1b8a95e540a7f405c275c868cd1a8e4a67812044d1aa3e59",
+      "size": 715,
+      "sha256": "817d271e7a94a079f9b490632c4f9c6435d2a7d38fd37b59f2b403e470f2b0a6",
       "schema": {}
     },
     {
@@ -48593,10 +48607,24 @@
       "schema": {}
     },
     {
+      "path": "code/dev/gh_status_check.ps1",
+      "stage": "code",
+      "size": 1360,
+      "sha256": "77e586075a131f1642bc4c9d2a0f8fb1b3b8fbd02066e8da776714b80ba46ce2",
+      "schema": {}
+    },
+    {
       "path": "code/dev/gh_verify_repo.ps1",
       "stage": "code",
       "size": 1397,
       "sha256": "b9de8ba962968deef9360247d76b701c9f66f4b908016808cecae8947b022168",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/gh_wait_ci.ps1",
+      "stage": "code",
+      "size": 818,
+      "sha256": "e1261c8e390f61124b5a798d6e081a453d7f70bb7a2693bb957a4e610a42b1a2",
       "schema": {}
     },
     {
@@ -48667,6 +48695,13 @@
       "stage": "code",
       "size": 1842,
       "sha256": "a84788ac5780c3594ff990f98aa2dd9749dd2627beff1b25e9b364dba507bcba",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/record_doi.py",
+      "stage": "code",
+      "size": 4363,
+      "sha256": "624a58a3706f5c06941c90c971bc34cc698eabc18e3ebe5baf6b2d16e5cc0ea5",
       "schema": {}
     },
     {
@@ -48742,8 +48777,8 @@
     {
       "path": "code/dev/sync_repo_name.py",
       "stage": "code",
-      "size": 861,
-      "sha256": "d08c25536e38a7acdc8a95a871a8899371911a8837dd7616fe50330f32b6cd79",
+      "size": 885,
+      "sha256": "d8f7dcf14b920da77d6b453d7927a428233fe560689aca2e06e2366620635a58",
       "schema": {}
     },
     {
@@ -48800,6 +48835,34 @@
       "stage": "code",
       "size": 766,
       "sha256": "5d93e5ce02984ed125404646605b96e8c2888d3e248fd4c47c0ecd024a01ba40",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/zenodo_create.ps1",
+      "stage": "code",
+      "size": 2681,
+      "sha256": "e07838c200caf60e23be3ed6fdedbcde8acda22152825de27145867e0b9a5ee5",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/zenodo_publish.ps1",
+      "stage": "code",
+      "size": 1360,
+      "sha256": "fd00bda89be726d8457641f21ff4de432956a163714dcbffcdbac2b113224156",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/zenodo_upload.ps1",
+      "stage": "code",
+      "size": 1062,
+      "sha256": "734f23625c7c34a76ba861ffc705a8634fbd52f0424bb2b2212d476304f0f96f",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/zenodo_upload_curl.ps1",
+      "stage": "code",
+      "size": 800,
+      "sha256": "92d063607d063f88daec0e37ca47680f4ece6f4d6eef3c6211b40cdfdbbffd01",
       "schema": {}
     },
     {
