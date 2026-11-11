@@ -10,7 +10,7 @@ $h = @{
 }
 $body = '{"names":["geophysics","remote-sensing","aster","gamma-ray-spectrometry","mineral-exploration","multi-modal-fusion","reproducible-research","benchmark","identifiability","thermal-infrared"]}'
 try {
-    $r = Invoke-RestMethod -Uri "https://api.github.com/repos/Xbotsd/ivanpah-fusion-benchmark/topics" `
+    $r = Invoke-RestMethod -Uri "https://api.github.com/repos/Xbotsd/fusion-gain-confounds/topics" `
         -Headers $h -Method Put -Body $body -ContentType "application/json; charset=utf-8"
     "topics set: " + ($r.names -join ", ")
 } catch {

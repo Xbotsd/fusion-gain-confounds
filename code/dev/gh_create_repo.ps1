@@ -10,7 +10,7 @@ $headers = @{
 }
 
 $body = @{
-    name        = "ivanpah-fusion-benchmark"
+    name        = "fusion-gain-confounds"
     description = "Two confounds in reported fusion gains for airborne mineral exploration: reproducible benchmark on real USGS radiometrics, real ASTER L1T thermal infrared and USGS SIM 3206 geology"
     homepage    = ""
     private     = $false

@@ -535,11 +535,13 @@ validated artefact lacks a producing script; a validator checks 53 artefacts and
 22 invariants (including the zero, noise and shuffled controls); unit tests
 assert the two switch-off invariances and the spectral-library construction of
 the thermal rows; every file carries a SHA-256 in a manifest; dependencies are
-pinned; one command rebuilds every number. The raw ASTER scenes are archived
-with their STAC identifiers and hashes so the thermal cube can be rebuilt
-offline. The repository is public at https://github.com/Xbotsd/ivanpah-fusion-
-benchmark under the MIT licence, and a snapshot will be archived on Zenodo with
-a DOI on acceptance.
+pinned; one command rebuilds every number. The raw ASTER scenes are archived with
+their STAC identifiers and hashes so the thermal cube can be rebuilt offline.
+The repository is public under the MIT licence at
+
+https://github.com/Xbotsd/fusion-gain-confounds
+
+and a snapshot will be archived on Zenodo with a DOI on acceptance.
 
 ## Declarations
 

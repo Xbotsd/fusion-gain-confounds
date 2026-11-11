@@ -1,6 +1,6 @@
 # The public repository
 
-**https://github.com/Xbotsd/ivanpah-fusion-benchmark** — created on 2026-11-10, branch `main`, public, MIT licence.
+**https://github.com/Xbotsd/fusion-gain-confounds** — created on 2026-11-10, branch `main`, public, MIT licence.
 
 The local `main` tracks `origin/main`. Tracked: `code/`, `docs/`,
 `processed/*.json` and `*.csv`, the manuscript, `CITATION.cff`, `.zenodo.json`,
@@ -13,8 +13,8 @@ prepare`, and their provenance and SHA-256 live in `docs/DATA_PROVENANCE.md` and
 ## Clone and run
 
 ```powershell
-git clone https://github.com/Xbotsd/ivanpah-fusion-benchmark.git
-cd ivanpah-fusion-benchmark
+git clone https://github.com/Xbotsd/fusion-gain-confounds.git
+cd fusion-gain-confounds
 python -m pip install numpy scipy matplotlib pillow pandas gdal
 python code/run_all.py prepare   # rebuilds every cube from raw/ (see below)
 python code/run_all.py           # experiments, figures, audits

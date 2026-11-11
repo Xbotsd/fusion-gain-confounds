@@ -1,6 +1,6 @@
 # Airborne multi-modal mineral exploration — reproducible benchmark
 
-**Repository:** https://github.com/Xbotsd/ivanpah-fusion-benchmark · MIT licence · one command reproduces every table and figure.
+**Repository:** https://github.com/Xbotsd/fusion-gain-confounds · MIT licence · one command reproduces every table and figure.
 
 Real-data benchmark that asks **when adding a modality to airborne mineral
 exploration actually helps**, and separates the two reasons a reported gain can

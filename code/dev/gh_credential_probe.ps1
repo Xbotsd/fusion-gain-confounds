@@ -34,7 +34,7 @@ $resp = Invoke-WebRequest -Uri "https://api.github.com/user" -Headers $headers -
 
 # does the target repository already exist?
 try {
-    $repo = Invoke-RestMethod -Uri "https://api.github.com/repos/Xbotsd/ivanpah-fusion-benchmark" -Headers $headers
+    $repo = Invoke-RestMethod -Uri "https://api.github.com/repos/Xbotsd/fusion-gain-confounds" -Headers $headers
     "repo exists      : $($repo.full_name)  private=$($repo.private)"
 } catch {
     "repo lookup      : $($_.Exception.Message)"

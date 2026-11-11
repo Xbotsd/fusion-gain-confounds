@@ -3,8 +3,8 @@ import pathlib
 import textwrap
 
 root = pathlib.Path(__file__).resolve().parents[2]
-URL = "https://github.com/Xbotsd/ivanpah-fusion-benchmark"
-FLAT = "https://github.com/Xbotsd/ivanpah-fusion-benchmark"
+URL = "https://github.com/Xbotsd/fusion-gain-confounds"
+FLAT = "https://github.com/Xbotsd/fusion-gain-confounds"
 
 # ---- manuscript: data availability ---------------------------------------
 ms = root / "docs" / "Manuscript_v2_draft.md"
@@ -43,7 +43,7 @@ prepare`, and their provenance and SHA-256 live in `docs/DATA_PROVENANCE.md` and
 
 ```powershell
 git clone {URL}.git
-cd ivanpah-fusion-benchmark
+cd fusion-gain-confounds
 python -m pip install numpy scipy matplotlib pillow pandas gdal
 python code/run_all.py prepare   # rebuilds every cube from raw/ (see below)
 python code/run_all.py           # experiments, figures, audits

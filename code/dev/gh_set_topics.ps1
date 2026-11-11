@@ -15,7 +15,7 @@ $topics = @(
     "benchmark", "identifiability", "thermal-infrared"
 ) | ConvertTo-Json
 try {
-    $r = Invoke-RestMethod -Uri "https://api.github.com/repos/Xbotsd/ivanpah-fusion-benchmark/topics" `
+    $r = Invoke-RestMethod -Uri "https://api.github.com/repos/Xbotsd/fusion-gain-confounds/topics" `
         -Headers $h -Method Put -Body (@{ names = ($topics | ConvertFrom-Json) } | ConvertTo-Json) `
         -ContentType "application/json"
     "topics set: " + ($r.names -join ", ")
@@ -24,7 +24,7 @@ try {
 }
 
 $h2 = @{ Authorization = "token $token"; "User-Agent" = "dsh-agent"; Accept = "application/vnd.github+json" }
-$repo = Invoke-RestMethod -Uri "https://api.github.com/repos/Xbotsd/ivanpah-fusion-benchmark" -Headers $h2
+$repo = Invoke-RestMethod -Uri "https://api.github.com/repos/Xbotsd/fusion-gain-confounds" -Headers $h2
 "license   : $($repo.license.spdx_id) / $($repo.license.name)"
 "head      : $($repo.pushed_at)"
 "size_kb   : $($repo.size)"

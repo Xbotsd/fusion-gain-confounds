@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-10T13:10:46+08:00",
+  "generated_at": "2026-11-11T16:34:44+08:00",
   "root": "D:\\A_MineralProspecting",
-  "n_files": 6811,
-  "total_bytes": 11460527552,
+  "n_files": 6818,
+  "total_bytes": 11460535899,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -74,11 +74,11 @@
     },
     "docs": {
       "files": 56,
-      "bytes": 19403151
+      "bytes": 19403132
     },
     "code": {
-      "files": 112,
-      "bytes": 486292
+      "files": 119,
+      "bytes": 494658
     }
   },
   "files": [
@@ -46952,7 +46952,7 @@
       "path": "processed/pipeline_validation.json",
       "stage": "audit",
       "size": 16673,
-      "sha256": "0186f9d79ca731584564dcc1e2135faf12de907d3913077d3107e9336e003ab4",
+      "sha256": "57ff48428d2775a3900c1957dc0b0ff4e148661ad9078fde984f6ca0cfe255ba",
       "schema": {
         "keys": [
           "checks",
@@ -48127,8 +48127,8 @@
     {
       "path": "docs/COVER_LETTER.md",
       "stage": "docs",
-      "size": 3957,
-      "sha256": "b16d8733f0749db8bc03354e898c82f7cfd1c0a9cbd5ebaf66ad74ddd065be1e",
+      "size": 3954,
+      "sha256": "c4e8b3c2d63fa4bc14b8e3e360558d0b684013237c50f529a31559af08ff5d57",
       "schema": {}
     },
     {
@@ -48170,8 +48170,8 @@
     {
       "path": "docs/GITHUB_SETUP.md",
       "stage": "docs",
-      "size": 2008,
-      "sha256": "424082d12764770ad9ffb1febda4fb9c9b44bc143de337a806fa1ff246a41335",
+      "size": 1999,
+      "sha256": "cd164a8a352010168cb86407564ed66b4694d5ed3613aa3187e3bd0d9cd10609",
       "schema": {}
     },
     {
@@ -48191,15 +48191,15 @@
     {
       "path": "docs/Manuscript_v2_draft.docx",
       "stage": "docs",
-      "size": 9316615,
-      "sha256": "0b0dd833f44ff4e0b4f8cfc2d3479de667ab6378e020a46af85d5e8db1005d8f",
+      "size": 9316612,
+      "sha256": "08f607cd6a3a55ec179562a055f43e48a485fb0d102d93d10ce4a8c1c531a779",
       "schema": {}
     },
     {
       "path": "docs/Manuscript_v2_draft.md",
       "stage": "docs",
-      "size": 36289,
-      "sha256": "397febc2ca6e6d4521fbd7baa17c00b88732acf16b093b8efd902e00566fd725",
+      "size": 36288,
+      "sha256": "0246176662689e63711dc0b8fd3ee597142c9a46f1e9ff835e881cf3d00e13e0",
       "schema": {}
     },
     {
@@ -48336,8 +48336,8 @@
     {
       "path": "docs/submission/README.md",
       "stage": "docs",
-      "size": 3342,
-      "sha256": "5b28f39c3e1ced14ae904fedcf4ca4653baefc9b949ec8d40147c6323c051221",
+      "size": 3339,
+      "sha256": "c78edb95c4fd07174cf0c64791405107b349181807c3e46177cf2f9d4c115ab7",
       "schema": {}
     },
     {
@@ -48429,6 +48429,13 @@
       "stage": "code",
       "size": 342,
       "sha256": "a8ff53cc613cc1c65dea027304de07af66442c9a79bb9ce85bac6f7a8c946ed6",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/check_docx_url.py",
+      "stage": "code",
+      "size": 254,
+      "sha256": "b06e55a421f6cf4d67ac1d474294b4a66245b24c2845db98f54a69b9a03772af",
       "schema": {}
     },
     {
@@ -48530,6 +48537,13 @@
       "schema": {}
     },
     {
+      "path": "code/dev/fix_repo_name_refs.py",
+      "stage": "code",
+      "size": 2313,
+      "sha256": "58fa2204ba42e971554073566bf0b0e65ef818d52c3fbc8c3f764a1aaf8e33f6",
+      "schema": {}
+    },
+    {
       "path": "code/dev/fix_s54.py",
       "stage": "code",
       "size": 1231,
@@ -48539,22 +48553,50 @@
     {
       "path": "code/dev/gh_create_repo.ps1",
       "stage": "code",
-      "size": 1360,
-      "sha256": "8baffb856cd9dff2afd34c21db91994bf0a659e77d98f0f0667edd7bf57bd819",
+      "size": 1394,
+      "sha256": "dc226dc8cbaf3adfb36e826f3ac1025ce50c2ffe3624f3c808c8ebd90750209a",
       "schema": {}
     },
     {
       "path": "code/dev/gh_credential_probe.ps1",
       "stage": "code",
-      "size": 1449,
-      "sha256": "e776e8a5d1f3ccb75fecff4d0eb0074ac954b2f0bcada5064f2548e3237d54e8",
+      "size": 1487,
+      "sha256": "aa68616a0e70babb813911e032c0f835eb268d994303854505d51467e1ef2c07",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/gh_final_check.ps1",
+      "stage": "code",
+      "size": 1628,
+      "sha256": "765b2f5e20007aa223dbb9100145661efdaeff40d2fb41b0685f6bd6e63f8d2b",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/gh_rename_repo.ps1",
+      "stage": "code",
+      "size": 702,
+      "sha256": "a149dd3c185e30ef1b8a95e540a7f405c275c868cd1a8e4a67812044d1aa3e59",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/gh_set_topics.ps1",
+      "stage": "code",
+      "size": 1348,
+      "sha256": "248eaf5fcf13e2302760036617d85d8e8b041c4329f38ed0e751c710f8d9a086",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/gh_set_topics2.ps1",
+      "stage": "code",
+      "size": 1061,
+      "sha256": "50444ccb48760f6f53d7df765fee9f5dc61ec4bce041317508267a8be4735fc8",
       "schema": {}
     },
     {
       "path": "code/dev/gh_verify_repo.ps1",
       "stage": "code",
-      "size": 1380,
-      "sha256": "f3577ca273251dcf12ca945a299fbbf4fd647f0ec7e8ab27fb8ee415cb6f0243",
+      "size": 1397,
+      "sha256": "b9de8ba962968deef9360247d76b701c9f66f4b908016808cecae8947b022168",
       "schema": {}
     },
     {
@@ -48630,8 +48672,8 @@
     {
       "path": "code/dev/record_repo_url.py",
       "stage": "code",
-      "size": 5845,
-      "sha256": "77a99c6eace5fda855d7055c818e046177c4f457e311c1b74763a3e81be674ec",
+      "size": 5955,
+      "sha256": "eeaad002f0eccb1ca042969b38030298881092bdca59c77d105f40a7834dea79",
       "schema": {}
     },
     {
@@ -48695,6 +48737,13 @@
       "stage": "code",
       "size": 2788,
       "sha256": "584ef6c15aeba7dbe3dcac70ae8ad5739d35bef668b03e601ea9a72c269586e6",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/sync_repo_name.py",
+      "stage": "code",
+      "size": 861,
+      "sha256": "d08c25536e38a7acdc8a95a871a8899371911a8837dd7616fe50330f32b6cd79",
       "schema": {}
     },
     {
