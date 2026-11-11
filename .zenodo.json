@@ -3,6 +3,7 @@
   "description": "Reproducible airborne multi-modal mineral-exploration benchmark: real USGS radiometrics + real ASTER L1T thermal infrared + real aeromagnetics + USGS SIM 3206 geology, with a documented synthetic EM augmentation. Separates target circularity from the conditioning effect of an underdetermined inversion and provides a model-free information test.",
   "upload_type": "software",
   "license": "MIT",
+  "version": "0.1.0",
   "creators": [
     {
       "name": "Xu, Yudong",

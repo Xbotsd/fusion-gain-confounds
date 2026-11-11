@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ivanpah-fusion-benchmark"
+version = "0.1.0"
+description = "Two confounds in reported fusion gains for airborne mineral exploration: a reproducible benchmark on real USGS, ASTER and aeromagnetic data"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Yudong Xu", email = "3468858545@qq.com" }]
+dependencies = [
+  "numpy>=1.24",
+  "scipy>=1.10",
+  "pandas>=2.0",
+  "matplotlib>=3.7",
+]
+
+# The analysis code lives in code/ as scripts, not as an importable package;
+# this file exists so the metadata, dependencies and version are machine-readable.
+[tool.setuptools]
+packages = []

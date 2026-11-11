@@ -1,0 +1,45 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: install
+        run: |
+          python -m pip install --upgrade pip
+          pip install numpy scipy pandas matplotlib
+      - name: syntax
+        run: python -m compileall -q code
+      # The full pipeline needs the survey rasters and GDAL, which are not in
+      # the repository. The numerical core can be checked without them.
+      - name: import and numerical smoke test
+        run: |
+          python - <<'PY'
+          import sys
+          sys.path.insert(0, "code")
+          import numpy as np
+          import common as C
+
+          s = np.array([0.1, 0.4, 0.35, 0.8])
+          y = np.array([False, False, True, True])
+          assert abs(C.auc_score(s, y) - 0.75) < 1e-12, C.auc_score(s, y)
+
+          z = np.ones((10, 4, 4), dtype=np.float32) * 100.0
+          assert np.allclose(C.emfix_observation(z)[7:], 2.0)
+
+          p = C.project_simplex(np.array([0.3, -0.2, 0.9, 0.1, 0.4],
+                                         dtype=np.float32)[:, None, None])
+          assert np.isclose(p[:, 0, 0].sum(), 1.0) and (p >= 0).all()
+
+          print("core import and numerical smoke test ok")
+          PY
