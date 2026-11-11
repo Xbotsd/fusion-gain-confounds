@@ -40,6 +40,31 @@ bucket upload, then `actions/publish`), not through the GitHub webhook, so the
 GitHub release `v0.1.0` is unrelated to the DOI. A later version is published the
 same way, or by linking the repository in Zenodo and cutting a new release.
 
+## Maintaining the Zenodo record
+
+The record is https://zenodo.org/records/24130421 (version 1.0.0, same DOI
+10.5281/zenodo.24130421 after every metadata edit).
+
+* **Metadata edits** go through the legacy deposition endpoint:
+  `PUT /api/deposit/depositions/24130421` with the full metadata block, then
+  `POST /api/deposit/depositions/24130421/actions/publish`. A metadata-only edit
+  keeps the DOI and the version number; `PATCH /api/records/.../draft` answers
+  405, so use `PUT` on the legacy endpoint.
+* **Communities**: `POST /api/records/24130421/communities` with
+  `{"communities": [{"id": "<community uuid>"}]}` creates an inclusion request.
+  The request for `remote-sensing` was submitted on 2026-11-11 and stays open
+  until a curator accepts it; the record page shows the community only after
+  that.
+* **No software-specific fields**: Zenodo's current schema has no
+  `programming_language` or `development_status` field (checked against the live
+  record: the metadata keys are title, doi, publication_date, description,
+  access_right, creators, keywords, related_identifiers, version, language,
+  resource_type, license, relations). Language and development status are stated
+  in the description instead, and `pyproject.toml` carries them for tooling.
+* **`isPublishedIn`**: to be added once the manuscript has a journal DOI, as
+  `related_identifiers: [{identifier: "10.xxxx/...", relation: "isPublishedIn",
+  resource_type: "publication-article"}]`.
+
 ## How the push was authenticated
 
 Git Credential Manager already held a token for `Xbotsd` on this machine. It was

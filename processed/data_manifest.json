@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-11T16:48:35+08:00",
+  "generated_at": "2026-11-11T20:47:16+08:00",
   "root": "D:\\A_MineralProspecting",
-  "n_files": 6827,
-  "total_bytes": 11460550759,
+  "n_files": 6840,
+  "total_bytes": 11460574197,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -74,11 +74,11 @@
     },
     "docs": {
       "files": 56,
-      "bytes": 19403565
+      "bytes": 19406320
     },
     "code": {
-      "files": 128,
-      "bytes": 509085
+      "files": 141,
+      "bytes": 529768
     }
   },
   "files": [
@@ -46952,7 +46952,7 @@
       "path": "processed/pipeline_validation.json",
       "stage": "audit",
       "size": 16673,
-      "sha256": "9033962e8e69f4c7be0d5bf428146549586b5780be496be9a73076646a2c3a48",
+      "sha256": "e38414077b77a3df0dac6547f5475c3b11a90e2e780d5bb1adcd7e67b6cf118e",
       "schema": {
         "keys": [
           "checks",
@@ -48120,8 +48120,8 @@
     {
       "path": "docs/CHANGELOG.md",
       "stage": "docs",
-      "size": 19279,
-      "sha256": "8af884b530fecbcfb39c3cc78f97c07b68a3c58ae5c4b456f7605ee6d1a4d24f",
+      "size": 20537,
+      "sha256": "9c2cd0807e475ab59294c137107997285c8f9e6495a9630fb988f5363c7ef303",
       "schema": {}
     },
     {
@@ -48170,8 +48170,8 @@
     {
       "path": "docs/GITHUB_SETUP.md",
       "stage": "docs",
-      "size": 2343,
-      "sha256": "e0076195287c8387a9ef3f9c4b15b560621d7828df7b73b46dc83577724e3906",
+      "size": 3840,
+      "sha256": "26a7d03c01da75ab041b5159799da952713df17a1cf1c9766781d53f3270acb9",
       "schema": {}
     },
     {
@@ -48474,6 +48474,13 @@
       "schema": {}
     },
     {
+      "path": "code/dev/document_zenodo_state.py",
+      "stage": "code",
+      "size": 3517,
+      "sha256": "c3dfb3b0962b4f6454490a479748dacb1d8e12be294d2d86965af7d2b582abec",
+      "schema": {}
+    },
+    {
       "path": "code/dev/dump_depth.py",
       "stage": "code",
       "size": 715,
@@ -48670,6 +48677,20 @@
       "schema": {}
     },
     {
+      "path": "code/dev/make_comm_bodies.py",
+      "stage": "code",
+      "size": 473,
+      "sha256": "da1e5a4b3f4af594b80a305183f6612517e2b946e9863df426a8c529769f6168",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/make_comm_body.py",
+      "stage": "code",
+      "size": 270,
+      "sha256": "7cc4d6443c7fe70e6dad618c3bfe90a06278147ee17a3f4ab89923179f2f1b2d",
+      "schema": {}
+    },
+    {
       "path": "code/dev/numbers.txt",
       "stage": "code",
       "size": 21084,
@@ -48838,6 +48859,41 @@
       "schema": {}
     },
     {
+      "path": "code/dev/zenodo_add_community.ps1",
+      "stage": "code",
+      "size": 2105,
+      "sha256": "e1c5adba41113c6dc2e64dd49ed5ff2d9262c7679489506ceb54eb02843ce361",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/zenodo_add_community_rdm.ps1",
+      "stage": "code",
+      "size": 977,
+      "sha256": "4ce7672380802da2d5d2f9cb706c82dff2aa0f8588e3c6c222e1432454d61096",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/zenodo_add_community_uuid.ps1",
+      "stage": "code",
+      "size": 1021,
+      "sha256": "1ec0ca3e9390dad0d6c9758a9d370bf9544b06f87f7064421237c3dfaf8859f5",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/zenodo_check_community.ps1",
+      "stage": "code",
+      "size": 956,
+      "sha256": "8867ea41c9520c5c0c96c0952302345ca8a4a24626416e9b6e438a9bfe366118",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/zenodo_community_detail.ps1",
+      "stage": "code",
+      "size": 1323,
+      "sha256": "8d150b90436b84572ed3be805a50319431551022aed64a64cfc350dcfc420d74",
+      "schema": {}
+    },
+    {
       "path": "code/dev/zenodo_create.ps1",
       "stage": "code",
       "size": 2681,
@@ -48845,10 +48901,45 @@
       "schema": {}
     },
     {
+      "path": "code/dev/zenodo_edit_metadata.ps1",
+      "stage": "code",
+      "size": 3653,
+      "sha256": "6fb90566493053c0ee976f0e935d85917ab00b915c26577269ace7779294b986",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/zenodo_find_communities.ps1",
+      "stage": "code",
+      "size": 798,
+      "sha256": "13b9f06c1bca3203605911a69ff329e5672f61fa91570c3a641e0ba542e05852",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/zenodo_inspect.ps1",
+      "stage": "code",
+      "size": 999,
+      "sha256": "18e34f08633df02aff58d61c0be49285f1024806bc9e4b8b5b0cf3362c4992a7",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/zenodo_inspect_draft.ps1",
+      "stage": "code",
+      "size": 862,
+      "sha256": "1762600a06be1583c5f50937cc7336899a0cd714923ec61910f3491918768ff0",
+      "schema": {}
+    },
+    {
       "path": "code/dev/zenodo_publish.ps1",
       "stage": "code",
       "size": 1360,
       "sha256": "fd00bda89be726d8457641f21ff4de432956a163714dcbffcdbac2b113224156",
+      "schema": {}
+    },
+    {
+      "path": "code/dev/zenodo_update_legacy.ps1",
+      "stage": "code",
+      "size": 3729,
+      "sha256": "8f0733af2a253c24f4958b48c47b658471d2a4ac24e9cbf5cd2ef53f10931178",
       "schema": {}
     },
     {

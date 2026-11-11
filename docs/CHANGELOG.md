@@ -124,6 +124,27 @@ No synthetic value was silently regenerated or rescaled.
 * **State:** 90/90 artefacts, 15/15 cross-checks, 24/24 unit tests, 0 coverage
   orphans, manifest 6,685 files / 12.77 GB.
 
+## Round 10 — repository and archive (current)
+
+* **Repository renamed** to `fusion-gain-confounds`, so the name states the
+  paper's thesis instead of the field area; all documents, `CITATION.cff`, the
+  cover letter and the manuscript carry the new URL.
+* **Licence corrected**: `LICENSE` was a pure MIT text signed "A_MineralProspecting
+  authors" (a directory name); it now reads "Copyright (c) 2026 Yudong Xu" and
+  GitHub detects MIT. Third-party data terms moved to `NOTICE.md`.
+* **DOI issued**: Zenodo record 24130421, version DOI 10.5281/zenodo.24130421,
+  concept DOI 10.5281/zenodo.24130420, archive `fusion-gain-confounds-1.0.0.zip`
+  (18.7 MB, `git archive` of commit `2d194a2`). The DOI is in the manuscript's
+  data-availability paragraph, `CITATION.cff`, the README badge and the cover
+  letter.
+* **Record description expanded** with the quantitative result, the archive
+  contents and the reproduction command; a community-inclusion request for
+  `remote-sensing` is pending curator acceptance.
+* **Author ORCID** 0009-0002-3231-0444 on the title page, in CRediT, in
+  `CITATION.cff` and in the Zenodo creator metadata.
+* **State:** the paper is NOT submitted; the DOI identifies the software, not a
+  publication.
+
 ## Round 9 — controls tightened, one bootstrap, one command (current)
 
 * **The zero-channel control is now literally zeros.** `run_tir_controls.py`
