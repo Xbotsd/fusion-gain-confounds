@@ -150,8 +150,29 @@ def main():
             p.alignment = WD_ALIGN_PARAGRAPH.CENTER
             add_runs(p, line)
         else:
+            # Join hard-wrapped markdown lines into one Word paragraph, stopping
+            # at blank lines, structural lines and numbered list/reference items.
+            def boundary(s: str) -> bool:
+                return (s.startswith(("|", "#", "- ", "<!--"))
+                        or re.match(r"^\*\*(Figure|Table) \d+\.\*\*", s) is not None
+                        or s.startswith(("**Authors:**", "**Corresponding"))
+                        or re.match(r"^\d+\.\s", s) is not None)
+
+            parts = [line.strip()]
+            j = i + 1
+            while j < len(lines):
+                nxt = lines[j].rstrip()
+                if not nxt.strip():
+                    break
+                s = nxt.strip()
+                if boundary(s):
+                    break
+                parts.append(s)
+                j += 1
             p = doc.add_paragraph()
-            add_runs(p, line.strip())
+            add_runs(p, " ".join(parts))
+            i = j
+            continue
         i += 1
 
     # figures are placed inline at their first citation

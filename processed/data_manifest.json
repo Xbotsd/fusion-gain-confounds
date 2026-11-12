@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-12T19:55:42+08:00",
+  "generated_at": "2026-11-12T20:08:25+08:00",
   "root": "D:\\A_MineralProspecting",
-  "n_files": 6843,
-  "total_bytes": 11460616581,
+  "n_files": 6846,
+  "total_bytes": 11460659398,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -62,7 +62,7 @@
     },
     "audit": {
       "files": 2,
-      "bytes": 17106
+      "bytes": 17103
     },
     "repeats": {
       "files": 3,
@@ -73,12 +73,12 @@
       "bytes": 87026
     },
     "docs": {
-      "files": 58,
-      "bytes": 19438458
+      "files": 61,
+      "bytes": 19481281
     },
     "code": {
       "files": 142,
-      "bytes": 540026
+      "bytes": 540023
     }
   },
   "files": [
@@ -46951,8 +46951,8 @@
     {
       "path": "processed/pipeline_validation.json",
       "stage": "audit",
-      "size": 16672,
-      "sha256": "b575b5454196816a6e68b99af2d7b5ae1cec864a3e232cce43e03cfb7a07736b",
+      "size": 16669,
+      "sha256": "68c595bcd4c756ac05d7064a215477af06f219d82213b6515503c8d9b0375ce9",
       "schema": {
         "keys": [
           "checks",
@@ -48113,8 +48113,8 @@
     {
       "path": "docs/build_draft_docx.py",
       "stage": "docs",
-      "size": 5516,
-      "sha256": "1f718be4831591fdd1cf69ad200e35fd7baa6720f4caf5b94c8cb950d5641e19",
+      "size": 6413,
+      "sha256": "15735e29d777a2bcfc1be3c1b60705414b34464635db29548a9bb6dd79ee2f8e",
       "schema": {}
     },
     {
@@ -48125,10 +48125,17 @@
       "schema": {}
     },
     {
+      "path": "docs/build_supplementary_docx.py",
+      "stage": "docs",
+      "size": 2842,
+      "sha256": "097cad8a9193f1259f14471c924b38cb694a09f2e27a59607c27b207efb29249",
+      "schema": {}
+    },
+    {
       "path": "docs/CHANGELOG.md",
       "stage": "docs",
-      "size": 28516,
-      "sha256": "0ea1fce53ea7111ab1fe0f160899d7a4709d4db9b5ae6f5a7167eb8e99787bdd",
+      "size": 30000,
+      "sha256": "58d224c9397128c60ad674383fb06cb219f649d29c68c9c3667c435a6b333ee0",
       "schema": {}
     },
     {
@@ -48170,8 +48177,8 @@
     {
       "path": "docs/GAP_AUDIT.md",
       "stage": "docs",
-      "size": 3461,
-      "sha256": "be483bd9c7bd75ffac783b7cfcc7b9347c3bdfffde22fdb870a08ef298d14e40",
+      "size": 3474,
+      "sha256": "aae53037a135dbc09e03161f396d719ae206e771f956c3308c46ecae968f4b39",
       "schema": {}
     },
     {
@@ -48191,8 +48198,8 @@
     {
       "path": "docs/JOURNAL_SHORTLIST.md",
       "stage": "docs",
-      "size": 10087,
-      "sha256": "8fe41c524c414f4d67c9a9226d24270301c68bcf71d286122e34b5fbc1599839",
+      "size": 10075,
+      "sha256": "043e4f8f2b26d95f02aaf8463a88a9bd3327e4cc2988998bd4170a146436b656",
       "schema": {}
     },
     {
@@ -48205,15 +48212,15 @@
     {
       "path": "docs/Manuscript_v2_draft.docx",
       "stage": "docs",
-      "size": 9316905,
-      "sha256": "6045f9238e1b781e9ea3c456fbf9fc161254dc4e8e422e5d2ee3941049f03ac2",
+      "size": 9315769,
+      "sha256": "7a935e7608a05095efa30c36ca3b634c6d76a941644df37ef60f2569956c8649",
       "schema": {}
     },
     {
       "path": "docs/Manuscript_v2_draft.md",
       "stage": "docs",
-      "size": 36969,
-      "sha256": "15798befce03260424b159375a812ab00093b6abb7a36201aa4a5f015638f280",
+      "size": 37072,
+      "sha256": "19a441364b896de2c0dbdda26501dff00f1ad966673efc52d2e680e97ecde8a6",
       "schema": {}
     },
     {
@@ -48259,8 +48266,8 @@
     {
       "path": "docs/READINESS_AUDIT.md",
       "stage": "docs",
-      "size": 3460,
-      "sha256": "e4241e20858ac679ec9d78fb9138f858431f22a3918541c08a7a49a97edfa541",
+      "size": 3482,
+      "sha256": "29e07ff705cba21205547a4c091d6ee035378fede92e168472e6ff66af7d2655",
       "schema": {}
     },
     {
@@ -48350,15 +48357,29 @@
     {
       "path": "docs/submission/README.md",
       "stage": "docs",
-      "size": 3872,
-      "sha256": "34570190aa72bec1ae807b91d2cc37dc0441d611ce760a6afe5bd6c77a113340",
+      "size": 3949,
+      "sha256": "3550b7889ef93752d7becbf487fd8d7a4c65c7843dd6d3e51416f9f8e1b6871d",
       "schema": {}
     },
     {
       "path": "docs/SUPPLEMENTARY.md",
       "stage": "docs",
-      "size": 6473,
-      "sha256": "0a10fbe1a5519517880b93a8fc10ad45bc5fa9b6f614f7a724b2bb7ea1703b9b",
+      "size": 6574,
+      "sha256": "70fd5d1cac7a1f14f1d6181388dd79b49237b28111f65e48ce0f278cba7cf173",
+      "schema": {}
+    },
+    {
+      "path": "docs/Supplementary_Tables.docx",
+      "stage": "docs",
+      "size": 37445,
+      "sha256": "6376649a6de2abdc1946fea27206b6e21d67b85a8e6b419e76433f54889641b4",
+      "schema": {}
+    },
+    {
+      "path": "docs/Supplementary_Tables.md",
+      "stage": "docs",
+      "size": 987,
+      "sha256": "46a0802a807154e567e8949a17a7135efd33fbe2ccbce2179e1a32e17ac4b323",
       "schema": {}
     },
     {
@@ -49344,8 +49365,8 @@
     {
       "path": "code/validate_pipeline.py",
       "stage": "code",
-      "size": 20503,
-      "sha256": "fdee6e656c39ed8c92b00a0c088b2dd32cdc6f88e01ac2a8452e32dd6fed2673",
+      "size": 20500,
+      "sha256": "f1ecf295b286e2243be3f93bb1846ab275d57a66e1579616da0e7400fef3e21d",
       "schema": {}
     },
     {

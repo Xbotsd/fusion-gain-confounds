@@ -63,6 +63,7 @@
 | T7 estimator comparison | `main_baselines.csv` |
 | T8 retrieval sensitivity | `real_tir_robust.json` |
 | T9 published practice | `published_baselines.json` |
+| S1 thermal-retrieval sensitivity | `Supplementary_Tables.md` / `.docx` (`real_tir_robust.json`) |
 
 ## S5. Reproduction
 

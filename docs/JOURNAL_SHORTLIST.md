@@ -117,8 +117,8 @@ C&G（最终选择：免费、无版面费、Q1 / 中科院 2 区、最匹配）
    段落（2026-11-12）；C&G 明确要求软件可用性。
 2. **摘要** ≤ 250 词（现 247）、关键词 6 个、Highlights 5 条（每条 ≤ 85 字符，
    现最大 77）。均已就绪（`docs/submission/`）。
-3. **图表**：正文 9 表 6 图；C&G 无硬性页数。仍建议把 Table 8（TES 敏感性）或
-   Table 9（已发表实践）移入补充材料，正文留 7–8 表。
+3. **图表**：正文 8 表 6 图；原 Table 8（TES 敏感性）已移为 Supplementary Table S1，
+   §7.6 引用，随稿上传 `Supplementary_Tables.docx`。
 4. **生成式 AI 声明**：Elsevier 要求披露。是否添加由作者决定（`docs/submission/README.md`
    仍标为待定）。
 5. **Cover letter**：已恢复为 C&G 版本（`docs/COVER_LETTER.md`）；ESI 版本在 git

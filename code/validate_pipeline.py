@@ -185,19 +185,19 @@ def check_tables():
                 problems.append(f"Table 7/{name}: {key} mismatch")
                 break
 
-    # Table 9: published baselines
-    for cells in _rows_after("Table 9"):
+    # Table 8: published baselines
+    for cells in _rows_after("Table 8"):
         name = cells[0]
         if name not in pub:
-            problems.append(f"Table 9: unknown row {name!r}")
+            problems.append(f"Table 8: unknown row {name!r}")
             continue
         vals = _nums(cells[2:])  # the reference column is text, not data
         for j, key in enumerate(("f1_matched", "auc_geology")):
             if vals[j] is None or abs(vals[j][0] - pub[name][key]) > 6e-4:
-                problems.append(f"Table 9/{name}: {key} mismatch")
+                problems.append(f"Table 8/{name}: {key} mismatch")
 
     ok = not problems
-    detail = ("tables 4-7, 9 equal the artefacts" if ok
+    detail = ("tables 4-8 equal the artefacts" if ok
               else "; ".join(problems[:4]) + (f" (+{len(problems) - 4} more)"
                                               if len(problems) > 4 else ""))
     return ok, detail

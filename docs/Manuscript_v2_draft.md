@@ -411,17 +411,9 @@ less than 0.001; dropping the band with the largest residual temperature
 correlation (11.29 µm) leaves 0.640; repeating with the second acquisition date
 (2006-09-25) gives 0.651 against 0.652. Ten repeats with 1 % channel noise give
 F1 0.4967 ± 0.00003. The conclusion is not an artefact of the TES simplification
-or of one scene.
-
-**Table 8.** Sensitivity of the thermal result to the retrieval and the acquisition. Bootstrap of the gamma+TIR gain: +0.119 [+0.067, +0.167].
-
-| variant | gamma F1 | gamma+TIR F1 |
-|---|---:|---:|
-| baseline 2006-10-18 (5 bands) | 0.531 | 0.652 |
-| eps_max 0.95 | 0.531 | 0.652 |
-| eps_max 1.00 | 0.531 | 0.652 |
-| no 11.29 um band (4 bands) | 0.531 | 0.640 |
-| second date 2006-09-25 | 0.531 | 0.651 |
+or of one scene. The variant-by-variant results, with the bootstrap of the
+gamma+TIR gain (+0.119 [+0.067, +0.167]), are listed in Supplementary
+Table S1.
 
 ### 7.7 Depth
 
@@ -437,7 +429,7 @@ and the only depth-varying information is the synthetic EM section.
 
 ### 7.8 Published single-modality practice
 
-Table 9. On the matched-prevalence rule the strongest published index is low
+Table 8. On the matched-prevalence rule the strongest published index is low
 eTh/K (F1 0.365), followed by the F-parameter (0.284) and ternary K-dominance
 (0.150); spectral angle mapping on the real ASTER bands and an EM conductor index
 give 0.071 and 0.016. The fusion reaches 0.497. On independent geology the
@@ -445,7 +437,7 @@ ordering changes: ternary K-dominance separates substrates best (AUC 0.986)
 because it is essentially a potassium map, the fusion 0.912, low eTh/K 0.217
 (inverted). Which index "wins" is a property of the target, not of the data.
 
-**Table 9.** Published single-modality practice versus the fusion, on the same mask and with the matched-prevalence rule.
+**Table 8.** Published single-modality practice versus the fusion, on the same mask and with the matched-prevalence rule.
 
 | method | reference | matched F1 | geology AUC |
 |---|---|---:|---:|
@@ -559,6 +551,12 @@ SHA-256 hashes.
 **CRediT author statement.** Yudong Xu (ORCID 0009-0002-3231-0444): conceptualisation, methodology,
 software, validation, formal analysis, investigation, data curation, writing —
 original draft, writing — review and editing, visualisation.
+
+**Declaration of generative AI and AI-assisted technologies in the writing process.**
+During the preparation of this work the author used a large language model
+(DeepSeek) to draft and edit text, to write and review code, and to assist with
+the data analysis. The author reviewed and verified all content and takes full
+responsibility for the content of the publication.
 
 **Competing interests.** The author declares no competing financial or
 non-financial interests.

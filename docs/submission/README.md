@@ -14,7 +14,8 @@ marked *(confirm)* before uploading.
 
 | file | what it is |
 |---|---|
-| `../Manuscript_v2_draft.docx` | the manuscript: title page, abstract, 6 keywords, 9 tables, 6 figures, continuous line numbers, double spacing |
+| `../Manuscript_v2_draft.docx` | the manuscript: title page, abstract, 6 keywords, 8 tables, 6 figures, continuous line numbers, double spacing |
+| `../Supplementary_Tables.docx` | supplementary Table S1 (thermal-retrieval sensitivity), referenced from §7.6 |
 | `highlights.txt` | 5 bullets, 70-77 characters each (limit 85, up to 5) |
 | `keywords.txt` | the 6 keywords, one line |
 | `figure_captions.txt` | the six captions, numbered to match `figures/` |
@@ -31,10 +32,10 @@ marked *(confirm)* before uploading.
 | Highlights: ≤ 5 bullets, ≤ 85 characters each | 5 bullets, max 77 |
 | Keywords ≤ 6 | 6 |
 | Double-spaced text with line numbers | yes (2.0, continuous) |
-| Tables as editable text, not images | 9 native Word tables |
+| Tables as editable text, not images | 8 native Word tables + 1 supplementary Word table |
 | Figures numbered in citation order, each with a caption | 6, order verified |
 | Figure resolution ≥ 300 dpi | 300 dpi; `figure04` is 5100 px wide so it stays above 300 dpi at printed width |
-| References numbered, every entry cited | 24 entries, all cited; IEEE numeric style *(confirm the journal still asks for numbered)* |
+| References numbered, every entry cited | 24 entries, all cited; consistent numeric style (Elsevier accepts any consistent style at submission and restyles at proof) *(confirm)* |
 | Title page: title, author, affiliation, corresponding e-mail | present |
 | CRediT author statement | present |
 | Declaration of competing interests | present |
@@ -42,22 +43,20 @@ marked *(confirm)* before uploading.
 | Acknowledgements and data-source credits | present |
 | Data availability statement | present (repository, MIT licence, Zenodo DOI 10.5281/zenodo.24130421) |
 | Cover letter | present, numbers rewritten against the current results |
-| Generative-AI declaration | **not added — author decision** (Elsevier requires it when generative AI was used) |
+| Generative-AI declaration | **present** — added to the Declarations section on 2026-11-12 |
 
-## Still to do before upload
+## Status and remaining items
 
-1. **Generative-AI declaration.** Elsevier requires a statement when generative
-   AI was used in the writing process. If applicable, add a short section before
-   the references, for example: "During the preparation of this work the author
-   used a large language model to draft and edit text and code; the author
-   reviewed and verified all content and takes full responsibility for the
-   publication." Tell me and I will insert it verbatim into the manuscript and
-   the `.docx`.
+1. **Generative-AI declaration — done (2026-11-12).** A declaration naming the
+   large language model used for drafting, code and analysis, and stating that the
+   author reviewed and verified all content, sits in the Declarations section.
 2. **Repository DOI — done.** https://doi.org/10.5281/zenodo.24130421 (version 1.0.0), concept
    https://doi.org/10.5281/zenodo.24130420. The manuscript, `CITATION.cff` and README carry it.
 3. **Software availability — done.** Named software, version, MIT licence, repository,
    archive DOI, environment and reproduction command are in the manuscript.
-4. **Confirm journal-specific points** on the C&G Guide for Authors: reference
-   style (numbered; the list is IEEE-style and may need minor restyling to
-   Elsevier numbered), whether the graphical abstract is mandatory, and whether a
-   separate title page is required (this package keeps it inside the manuscript).
+4. **Table S1 — moved out of the main text.** Upload `Supplementary_Tables.docx`
+   with the submission; §7.6 points to it. The main text now has 8 tables.
+5. **Confirm journal-specific points** on the C&G Guide for Authors: whether the
+   graphical abstract is mandatory, whether a separate title page is required (this
+   package keeps it inside the manuscript), and whether the Highlights file should
+   be uploaded separately or pasted into the submission form.

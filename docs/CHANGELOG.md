@@ -1,5 +1,27 @@
 # Changelog — cleanup and corrections
 
+## Round 15 — C&G submission package completed (2026-11-12)
+
+* **Generative-AI declaration added.** The Declarations section now states that a
+  large language model (DeepSeek) was used to draft and edit text, to write and
+  review code and to assist the analysis, and that the author reviewed and
+  verified all content and takes responsibility for it. Elsevier requires this
+  disclosure.
+* **Table 8 moved to Supplementary Table S1.** The thermal-retrieval sensitivity
+  table now lives in `docs/Supplementary_Tables.md` / `.docx`; §7.6 points to it
+  and the main text carries 8 tables. The published-practice table is renumbered
+  Table 9 → Table 8, and `validate_pipeline.py` now parses Tables 4–8.
+* **Documentation synced.** The submission checklist lists the supplementary file,
+  the declaration and the 8-table layout; READINESS_AUDIT, GAP_AUDIT,
+  JOURNAL_SHORTLIST and SUPPLEMENTARY follow.
+* **Word paragraph structure fixed.** `docs/build_draft_docx.py` had emitted one
+  Word paragraph per hard-wrapped Markdown line, so every line carried its own
+  paragraph spacing and the review copy was not a normal manuscript. Consecutive
+  text lines are now joined into real paragraphs (176 instead of 424), while
+  headings, list items, tables, captions and the 24 references stay separate.
+* **No data or figure changes.** The validator still passes 53/53 artefacts and
+  22/22 invariants, the 36 assertions pass, and the manifest was rebuilt.
+
 ## Round 14 — final journal choice: Computers & Geosciences (2026-11-12)
 
 * **Target fixed on C&G.** Free subscription route (0 APC, 0 page charges), JCR Q1 /

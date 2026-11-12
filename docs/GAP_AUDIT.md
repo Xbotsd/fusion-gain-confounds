@@ -29,7 +29,7 @@ artefacts, 22/22 invariants, 36/36 unit assertions, 0 coverage orphans**, manife
 * **A model-free information test**: +0.179 balanced accuracy (CI [0.120, 0.241],
   20/20), null for a block-shuffled cube.
 * **Independent target wired into every experiment** (proxy F1 *and* geology AUC).
-* Manuscript rewritten; abstract 247 words; 9 tables, 6 figures in order.
+* Manuscript rewritten; abstract 247 words; 8 tables (+ Table S1), 6 figures in order.
 
 ## Open — needs an external action
 

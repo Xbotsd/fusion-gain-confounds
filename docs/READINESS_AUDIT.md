@@ -9,7 +9,7 @@ Date: 2026-11-10; maintenance pass 2026-11-12. Every number below is from a comm
 | Framework | **complete** — 53 artefacts, 22 invariants, 0 coverage orphans, 36 unit assertions (9 test groups) |
 | Functional coverage | **complete for the manuscript**; the legacy synthetic branch is labelled and optional |
 | Data reality | gamma, ASTER TIR, TMI and geology are real; **EM is synthetic and cannot be otherwise** |
-| Manuscript | rewritten around the new evidence, 9 tables, 6 figures, IEEE-style references |
+| Manuscript | rewritten around the new evidence, 8 tables + Supplementary Table S1, 6 figures, numeric references |
 | Archive | **published** — Zenodo 10.5281/zenodo.24130421, version 1.0.0; file checksum and contents re-verified 2026-11-12 |
 
 ## What changed and why it matters
