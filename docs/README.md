@@ -60,7 +60,8 @@ spurious gain.
 
 ## Documentation
 
-`docs/RESULTS.md` (numbers), `docs/DATA_PROVENANCE.md` (sources and recipes),
+`docs/RESULTS.md` (numbers), `docs/DATA_STRUCTURE.md` (data chain, masks and
+schemas), `docs/DATA_PROVENANCE.md` (sources and recipes),
 `docs/READINESS_AUDIT.md` (publication readiness), `docs/GAP_AUDIT.md` (what is
 missing and why), `docs/MODEL_AUDIT.md` (model caveats),
 `docs/NORMALISATION_AUDIT.md` (the two switch-off bugs and their fix),

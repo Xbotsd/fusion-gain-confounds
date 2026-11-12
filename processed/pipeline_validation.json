@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "generated_at": "2026-11-12T15:19:16+08:00",
+  "generated_at": "2026-11-12T19:14:32+08:00",
   "grid": [
     1772,
     1075
@@ -47,7 +47,7 @@
       "bootstrap_contrasts": 5,
       "multiclass_repeats": 0
     },
-    "runtime_s": 124.65591502189636
+    "runtime_s": 144.6440577507019
   },
   "cross_checks": [
     {
@@ -378,7 +378,7 @@
     {
       "check": "json:main_results.json",
       "exists": true,
-      "size": 20628,
+      "size": 20627,
       "keys": [
         "H_tir_real",
         "ablation",
@@ -499,7 +499,7 @@
     {
       "check": "json:depth.json",
       "exists": true,
-      "size": 8200,
+      "size": 8199,
       "keys": [
         "depth_m",
         "layer_mean",
@@ -512,7 +512,7 @@
     {
       "check": "json:depth_emfix.json",
       "exists": true,
-      "size": 8208,
+      "size": 8207,
       "keys": [
         "depth_m",
         "layer_mean",
@@ -586,7 +586,7 @@
     {
       "check": "json:edge_ai.json",
       "exists": true,
-      "size": 932,
+      "size": 931,
       "keys": [
         "architecture",
         "budget_200ms",
@@ -747,7 +747,7 @@
     {
       "check": "fig:edge_ai.png",
       "exists": true,
-      "size": 136693,
+      "size": 136687,
       "status": "PASS"
     }
   ]

@@ -694,5 +694,5 @@
     "block_ge_2tau": true,
     "note": "in-run sanity estimate on the fused clay map; the values quoted in the paper (per-field integral scale, design effect and N_eff) come from autocorr.json, produced by autocorr_sample_size.py, which integrates the directional autocorrelation of both the proxy and the clay map."
   },
-  "runtime_s": 124.65591502189636
+  "runtime_s": 144.6440577507019
 }

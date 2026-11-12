@@ -1,245 +1,177 @@
-# 数据结构与数据链（v2）
+# 数据结构与数据链（真实 ASTER 主线）
 
-本文件描述 `A_MineralProspecting` 的完整数据链：从原始 USGS 数据到最终论文图表，每个文件的形状、类型、单位、生成脚本和依赖关系。机器可读清单见 `processed/data_manifest.json`，完整性检查见 `processed/pipeline_validation.json`。
+更新：2026-11-12。机器可读清单是 `processed/data_manifest.json`，完整性检查是
+`processed/pipeline_validation.json`。本文件描述**当前主线**：11 通道观测 =
+3 个真实伽马 + 5 个真实 ASTER L1T 发射率波段 + 3 层合成 EM。
+
+v2 时代的 10 通道/合成 TIR/`run_fusion` 结构已归档在
+`docs/archive/DATA_STRUCTURE_V2.md`，不属于投稿内容。
 
 ## 1. 目录树
 
 ```
 A_MineralProspecting/
-├─ raw/                         # 原始数据（只读）
-│  ├─ K.gxf, eU.gxf, eTh.gxf    # 真实伽马，1772×1075，50 m
-│  ├─ TMI.gxf                   # 航磁，未进入 10 通道观测
-│  ├─ ASCIIdata_splib07a/b/     # USGS 光谱库（TIR 端元）
-│  └─ em/                       # Wisconsin AEM / 挪威 AEM / Silverton AMT
-├─ code/                        # 脚本 + requirements
-├─ processed/                   # 中间产物、结果、图表
-│  ├─ spectra/                  # 5 种矿物 TIR 端元
-│  ├─ em/                       # AEM 层统计中间数组
-│  ├─ *.npy                     # 立方体、掩膜、结果
-│  ├─ *.json / *.csv            # 指标与记录
-│  └─ fig_*.png, kf_*.png ...   # 图
-├─ docs/                        # 方法、审计、结构、策略
+├─ raw/                          # 原始数据（只读，不入库）
+│  ├─ K.gxf, eU.gxf, eTh.gxf     # 真实 USGS 伽马，1772×1075，50 m
+│  ├─ TMI.gxf                    # 真实航磁（边缘实验用）
+│  ├─ aster/<date>/              # ASTER L1T GeoTIFF + manifest.json（STAC id + SHA-256）
+│  ├─ sim3206_database/          # USGS SIM 3206 地质图
+│  ├─ ASCIIdata_splib07a/b/      # USGS 光谱库（TIR 端元）
+│  └─ em/                        # AEM 层统计（仅用于合成 EM 配方）
+├─ code/                         # 流水线脚本 + dev/ 一次性工具
+├─ processed/                    # 立方体、结果 JSON/CSV、图
+├─ docs/                         # 论文、来源、审计、投稿材料
 └─ 根目录原始矢量/报告/CSV
 ```
 
-## 2. 数据链（stage → script → output）
+## 2. 数据链（stage → script → 主要输出）
 
-| Stage | Script | 主要输入 | 主要输出 | 状态 |
-|---|---|---|---|---|
-| 1 伽马 | `prepare_gamma.py` | `raw/K,eU,eTh.gxf` | `gamma_cube.npy`, `clay_prior.npy`, `truth_abundance.npy`, `valid_mask.npy`, `ratio_*.npy` | PASS |
-| 2 TIR | `prepare_tir.py` | `gamma_cube`, `truth_abundance`, `processed/spectra` | `tir_cube.npy` | PASS |
-| 3 EM | `prepare_em.py` | `clay_prior`, `processed/em_layer_*` | `em_cube.npy` | PASS |
-| 3b ASU 端元 | `fetch_asu_spectra.py` + `run_asu_variant.py` | `raw/ASU_spectra/*.txt` | `asu_endmembers.npy`, `tir_cube_asu.npy`, `H_asu.npy`, `fusion_asu.json`, `ablation_asu.*`, `fig_asu_endmembers.png` | PASS |
-| 3c V2 单真值场 | `run_v2.py` | 伽马、`clay_prior` | `processed/v2/*`（TIR/EM/H/ablation/fig） | PASS |
-| 4b 不确定度校准 | `uncertainty_calibration.py` | `kf_*`、`clay_prior` | `calibration.json/csv/png` | PASS |
-| 4c 优势分析 | `run_advantage.py` | 全部方法输出、掩膜 | `advantage.json/csv/png` | PASS |
-| 4d 空间 bootstrap | `block_bootstrap.py` | 方法输出、掩膜 | `bootstrap.json/csv` | PASS |
-| 4e EM 修正 | `run_em_fix.py` | 方法输出、log10 EM | `em_fix.json/csv/png` | PASS |
-| 4f 结构扰动 | `structured_perturbation.py` | H、观测 | `structured_perturbation.json/csv/png` | PASS |
-| 4g 独立地质 | `independent_validation.py` | SIM 3206、丰度 | `independent_validation.*`, `geology_substrate.npy` | PASS |
-| 4h 阈值扫描 | `threshold_sensitivity.py` | 方法输出、proxy | `threshold_sensitivity.*`, `threshold_summary.json` | PASS |
-| 4 融合 | `run_fusion.py` | 三立方体、掩膜、H | `kf_mineral_abundance.npy`, `kf_uncertainty.npy`, `wls_initial.npy`, `fusion.json`, `kf_fusion_final.png` | PASS |
-| 5 深度 | `run_depth.py` | 三立方体、掩膜、EM 层深 | `depth_kalman_3d.npy`, `depth_uncertainty.npy`, `depth.json`, `depth_*.png` | PASS |
-| 5b 修正深度 | `run_depth_emfix.py` | log10 EM、clay-only H | `depth_kalman_3d_emfix.npy`, `depth_emfix.json`, `depth_*_emfix.png` | PASS |
-| 6 消融 | `run_ablation.py` | 三立方体、H、掩膜 | `ablation.csv/json/png` | PASS |
-| 7 验证 | `run_validation.py` | 三立方体、H、掩膜 | `validation.csv/json/md/png` | PASS |
-| 8 基线 | `run_baselines.py` | 三立方体、H、掩膜 | `baselines.csv/json/png` | PASS |
-| 9 环境 | `run_environment.py` | CSV T/RH、三立方体 | `env_*.npy`, `environment.json/png` | PASS |
-| 10 敏感性 | `run_sensitivity.py` | 三立方体、H | `sensitivity.json/png`, `resolution.csv` | PASS |
-| 11 重复平均 | `run_repeats.py` | 三立方体、H | `repeats.json`, `repeat_mean_abundance.npy`, `repeat_std_abundance.npy` | PASS |
-| 12 图 | `make_figures.py` | 结果 JSON/npy | `fig_data/method/results.png` | PASS |
-| 13 审计 | `audit_data.py` | 原始/processed | `docs/data_audit.json`, `docs/model_audit.json` | PASS |
-| 14 完整性 | `validate_pipeline.py` | 全部输出 | `pipeline_validation.json` | PASS |
-| 15 清单 | `build_manifest.py` | 全部文件 | `data_manifest.json` | PASS |
+| Stage | Script | 主要输出 | 说明 |
+|---|---|---|---|
+| prepare | `prepare_gamma.py` | `gamma_cube.npy`, `clay_prior.npy`, `truth_abundance.npy`, `valid_mask.npy`, `ratio_*.npy` | 真实伽马与测区掩膜 |
+| prepare | `prepare_tir_real.py` | `tir_cube_real.npy`, `analysis_mask.npy`, `tir_real.json` | 真实 ASTER：镶嵌、辐亮度、亮温、归一化 TES、物理门限 |
+| prepare | `prepare_tir.py` | `tir_cube.npy` | splib07 **合成对照**，非主线 |
+| prepare | `prepare_em.py` | `em_cube.npy` | **合成** EM（seed 12345，配方见 `DATA_PROVENANCE.md`） |
+| prepare | `prepare_geology.py` | `geology_substrate.npy`, `geology_groups.json` | SIM 3206 基质栅格（独立目标） |
+| main | `run_main.py` | `kf_main_abundance.npy`, `kf_main_uncertainty.npy`, `main_results.json`, `main_ablation.*`, `main_baselines.csv`, `main_maps.png` | 消融、基线、bootstrap、重复、校准、自相关 |
+| controls | `run_tir_controls.py` | `tir_controls.json/csv` | 全零、高斯噪声、块/像元置换、ridge 对照 |
+| controls | `run_tir_information.py` | `tir_information.json/csv` | 不用响应矩阵的信息检验 |
+| controls | `run_geology_multiclass.py` | `geology_multiclass.json/csv/png` | 4 类基质、128 px 块 CV、20 次重复 |
+| controls | `run_identifiability.py` | `identifiability.json/csv/png` | 秩、条件数、方差增益指数 |
+| controls | `run_real_tir_robust.py` | `real_tir_robust.json/csv/png` | TES 假设与第二期次敏感性 |
+| aux | `run_depth.py`, `run_depth_emfix.py` | `depth_kalman_3d*.npy`, `depth*.json`, `depth_*png` | 40 层深度 Kalman |
+| aux | `run_published_baselines.py` | `published_baselines.*` | 5 个已发表单模态指数 |
+| aux | `independent_validation.py` | `independent_validation.*` | 按基质分组、Kruskal-Wallis、AUC |
+| aux | `uncertainty_calibration.py` | `calibration.*` | 覆盖率与可靠性（非预测区间） |
+| aux | `autocorr_sample_size.py` | `autocorr.*` | 积分尺度、设计效应、N_eff |
+| aux | `run_edge_ai.py`, `prepare_granite.py`, `run_granite_compensation.py`, `prepare_tmi.py` | `edge_ai.*`, `granite_*`, `tmi_grid.npy` | 边缘部署与花岗岩补偿实验 |
+| legacy | 14 个脚本（见 `run_all.py`） | `ablation*.json`, `validation*.json`, `fusion.json`, `real_tir.json`, `em_fix*.json` 等 | 合成 TIR 参考支线，**论文不引用** |
+| figures | `make_figures.py`, `make_graphical_abstract.py` | `fig_*.png`, `main_maps.png`, `graphical_abstract.png` | 论文图与图文摘要 |
+| audit | `test_core.py`, `check_coverage.py`, `audit_data.py`, `validate_pipeline.py`, `report_large_files.py`, `build_manifest.py` | `pipeline_validation.json`, `output_yield.csv`, `large_files.json`, `data_manifest.json`, `docs/data_audit.json` | 36 断言、生产者覆盖、53 产物/22 不变量、SHA-256 清单 |
 
-## 3. 数组 schema
+`python code/run_all.py all` 依次运行 prepare → main → controls → aux → figures →
+audit；`run_all.py legacy` 单独复跑旧支线（可选）。
+
+## 3. 观测、掩膜与响应矩阵
+
+| 项 | 值 |
+|---|---|
+| 网格 | 1772 × 1075，50 m |
+| 通道顺序 | K, eU, eTh \| ASTER b10–b14 \| EM layer 1–3 |
+| ASTER 波段中心 | 8.291, 8.634, 9.075, 10.657, 11.289 µm |
+| `valid_mask` | 放射性测区，1,265,683 px（66.4 % 网格） |
+| `analysis_mask` | 测区 ∩ 五波段 ASTER 全覆盖，1,237,644 px（65.0 % 网格，97.8 % 测区） |
+| 响应矩阵 `H` | 11 × 5；伽马块人工设定，TIR 行由 splib07 在 ASTER 波段内积分，EM 行为合成 |
+| EM 模型 | 主线用 corrected（log10 Ω·m + clay-only 行）；legacy 行只用于消融对比 |
+| 关闭模态 | 删除对应行；`H` 的列归一化只在**活动行**上进行（两个开关不变式由单测锁定） |
+
+`clay_prior = 0.5·K + 0.3·(1−eTh) + 0.2·|eU−eTh|`（p2–p98 归一化，σ=15 px 平滑），
+是伽马派生的**循环目标**；地质目标来自 SIM 3206，不依赖任何观测模态。
+
+## 4. 数组 schema
 
 | 文件 | 形状 | dtype | 单位/范围 | 说明 |
 |---|---|---|---|---|
 | `gamma_cube.npy` | (3, 1772, 1075) | float32 | K %, eU ppm, eTh ppm | 真实；无效像元 NaN |
-| `tir_cube.npy` | (200, 1772, 1075) | float32 | 发射率 0.65–0.99 | 合成；无效像元 NaN |
+| `tir_cube_real.npy` | (5, 1772, 1075) | float32 | 发射率 0.87–0.98 | 真实 ASTER；无效像元 NaN |
+| `tir_cube.npy` | (200, 1772, 1075) | float32 | 0.65–0.99 | 合成对照 |
 | `em_cube.npy` | (40, 1772, 1075) | float32 | 2.5–6526 Ω·m | 合成；全网格有限 |
-| `asu_endmembers.npy` | (200, 5) | float32 | 0.5–1.0 | ASU 实测发射率，8–14 µm |
-| `tir_cube_asu.npy` | (200, 1772, 1075) | float32 | 0.65–0.99 | ASU 端元生成的 TIR 变体 |
-| `H_asu.npy` | (10, 5) | float64 | 响应矩阵 | ASU TIR 行的 H |
-| `v2/truth_abundance_v2.npy` | (5, 1772, 1075) | float32 | 0–1，和为 1 | V2 单真值场 |
-| `v2/tir_cube_v2.npy` | (200, 1772, 1075) | float32 | 0.65–0.99 | V2 TIR |
-| `v2/em_cube_v2.npy` | (40, 1772, 1075) | float32 | 2.5–6526 Ω·m | V2 EM |
-| `v2/H_v2.npy` | (10, 5) | float64 | 响应矩阵 | V2 H（EM clay-only log10） |
-| `geology_substrate.npy` | (1772, 1075) | int16 | 0–8 | USGS SIM 3206 基质分组栅格 |
-| `clay_prior.npy` | (1772, 1075) | float32 | 0.30–0.67 | 伽马派生蚀变 proxy |
-| `truth_abundance.npy` | (5, 1772, 1075) | float32 | 0–1，和为 1 | TIR 生成用真值；无效像元 NaN |
-| `valid_mask.npy` | (1772, 1075) | bool | 0/1 | 66.4% 有效测区 |
-| `kf_mineral_abundance.npy` | (5, 1772, 1075) | float32 | 0–1，和为 1 | 主融合结果 |
-| `kf_uncertainty.npy` | (5, 1772, 1075) | float32 | ≥0 | 前向滤波方差 |
-| `wls_initial.npy` | (5, 1772, 1075) | float32 | 0–1 | Kalman 前 WLS |
+| `clay_prior.npy` | (1772, 1075) | float32 | 0.30–0.67 | 伽马派生 proxy |
+| `truth_abundance.npy` | (5, 1772, 1075) | float32 | 0–1，和为 1 | 合成 TIR 的真值场 |
+| `valid_mask.npy` | (1772, 1075) | bool | 0/1 | 测区掩膜 |
+| `analysis_mask.npy` | (1772, 1075) | bool | 0/1 | 测区 ∩ ASTER |
+| `geology_substrate.npy` | (1772, 1075) | int16 | 0–8 | SIM 3206 基质分组 |
+| `kf_main_abundance.npy` | (5, 1772, 1075) | float32 | 0–1，和为 1 | 主线融合丰度 |
+| `kf_main_uncertainty.npy` | (5, 1772, 1075) | float32 | ≥0 | 滤波方差（不是置信区间） |
 | `depth_kalman_3d.npy` | (40, 5, 1772, 1075) | float32 | 0–1，和为 1 | 40 层三维丰度 |
 | `depth_uncertainty.npy` | (40,) | float32 | ≥0 | 每层平均方差 |
 | `depth_kalman_3d_emfix.npy` | (40, 5, 1772, 1075) | float32 | 0–1，和为 1 | 修正 EM 三维丰度 |
 | `depth_uncertainty_emfix.npy` | (40,) | float32 | ≥0 | 修正 EM 每层方差 |
-| `env_temperature.npy` | (1772, 1075) | float32 | °C | CSV 网格化 |
-| `env_humidity.npy` | (1772, 1075) | float32 | % | CSV 网格化 |
-| `env_count.npy` | (1772, 1075) | int32 | 样本数/格 | 网格化计数 |
-| `ratio_K_eU/eTh, eU_eTh` | (1772, 1075) | float32 | 比值 | 伽马比值 |
-| `repeat_mean_abundance.npy` | (5, 1772, 1075) | float32 | 0–1 | N 次重复平均 |
-| `repeat_std_abundance.npy` | (5, 1772, 1075) | float32 | ≥0 | 重复标准差 |
+| `tmi_grid.npy` | (1772, 1075) | float32 | nT | 航磁网格（边缘实验） |
+| `granite_indicator.npy` | (1772, 1075) | float32 | 0–1 | 花岗岩补偿指示 |
+| `ratio_K_eU/eTh.npy`, `ratio_eU_eTh.npy` | (1772, 1075) | float32 | 比值 | 伽马比值 |
 
-## 4. JSON schema
+## 5. JSON schema（主线）
 
-### `fusion.json`
-| key | type | 说明 |
-|---|---|---|
-| `grid` | [h,w] | 网格 |
-| `valid_fraction` | float | 有效像元比例 |
-| `weights` | [10] | 通道权重 |
-| `clay_mean_full` | float | 全网格 clay 均值 |
-| `clay_mean_valid` | float | 有效像元 clay 均值 |
-| `spatial_gradient` | float | 空间梯度 |
-| `mean_uncertainty` | float | 平均方差 |
-| `proxy` | object | recall/precision/F1/IoU/positive_rate |
-| `recovery` | object | 每矿物 RMSE/MAE/bias/r |
-| `residual_rms` | object | 10 通道残差 |
-| `runtime_s` | float | 运行时间 |
+### `main_results.json`
+`definition`（掩膜、proxy、地质目标、正例、EM 说明）、`mask_pixels`、
+`geology_pixels`, `geology_positive`, `tir_source`, `H_tir_real`（5×5）、
+`ablation`（24 行：branch × em_model × config）、`baselines`（8 行）、
+`bootstrap_f1`、`bootstrap_geo_auc`、`repeats`、`calibration`、`autocorr`、
+`runtime_s`。
 
-### `fusion_asu.json`
-| key | type | 说明 |
-|---|---|---|
-| `endmember_source` | string | ASU 光谱库 |
-| `ids` | object | 每个矿物的 ASU id |
-| `proxy` | object | ASU 变体的 recall/precision/F1 |
-| `main_proxy` | object | 主结果的指标 |
-| `delta_recall`, `delta_f1` | float | 与主结果的差 |
+### `tir_controls.json`
+`rows`（gamma、zeros、noise、block/pixel shuffle、ridge 的 F1 与 geological AUC 等）、
+`r2_tir_on_gamma`、`note`。
 
-### `bootstrap.json`
-| key | type | 说明 |
-|---|---|---|
-| `n_rep` | int | 重采样次数 |
-| `block` | [h,w] | 区块大小 |
-| `point` | object | 点估计 F1 |
-| `methods` | object | 每方法 bootstrap 均值/std/CI |
-| `delta_ours_minus_independent` | object | 差值 CI 与胜率 |
+### `tir_information.json`
+`n_samples`, `block_px`, `n_folds`, `geology_positive_fraction`,
+`raw_separability`, `rows`（每配置平衡准确率与 CI）、`summary`, `note`。
 
-### `em_fix.json`
-| key | type | 说明 |
-|---|---|---|
-| `H_em_rows` | array | 修正后的 EM 行 |
-| `rows` | array | 各方法 F1/AP/连通域 |
-| `bootstrap` | object | ΔF1 CI 与胜率 |
+### `geology_multiclass.json`
+`classes`, `per_class`, `chance`, `block_px`, `n_folds`, `n_repeats`, `summary`
+（gain 与 CI）、`repeats`（20 条）、`note`。
 
-### `structured_perturbation.json`
-数组，每项 `{variant, clay, recall, precision, f1, gradient}`。
+### 其他
+- `identifiability.json`：`lambda`, `branch`, `models`, `f1_reproduction_max_dev`,
+  `sign_agreement_f1/geo`。
+- `real_tir_robust.json`：`variants`（eps_max、去波段、第二期次）、`rows`,
+  `bootstrap`。
+- `tir_real.json`：`source`, `date`, `scene_files`, `bands_um`,
+  `unit_coefficients`, `eps_max_assumed`, `coverage_*`, `bt/eps/t_surface`
+  分位数、`corr_eps_with_tsurf`。
+- `autocorr.json`：`cell_m`, `bootstrap_block_px/m`, `fields`（每场积分尺度、设计
+  效应、N_eff）, `checks`, `edge_ai_block_ap`。
+- `published_baselines.json`：`rows`（5 个指数）, `prevalence`, `note`。
+- `independent_validation.json`：`source`, `doi`, `groups`, `rows`, `kruskal`,
+  `felsic_vs_carbonate`, `binary_target`。
+- `calibration.json`：`n`, `bias`, `rmse`, `mean_sigma`, `coverage_68/95`,
+  `variance_scale`, `reliability`。
+- `depth.json` / `depth_emfix.json`：`layers`, `depth_m`, `layer_mean`（40×5）,
+  `uncertainty`, `runtime_s`。
+- `geology_groups.json`：`source`, `doi`, `url`, `groups`, `pixels_on_survey`,
+  `unmapped_on_survey`, `grid_geotransform`。
+- `pipeline_validation.json`：`status`, `generated_at`, `grid`, `metric_recalc`,
+  `metric_stored`, `yield`, `cross_checks`（22 条）, `checks`（53 条）。
+- `data_manifest.json`：`generated_at`, `n_files`, `total_bytes`, `summary`
+  （按 stage）, `files`（path/stage/size/sha256/schema）。
 
-### `independent_validation.json`
-| key | type | 说明 |
-|---|---|---|
-| `source`, `doi` | string | SIM 3206 |
-| `rows` | array | 各基质 clay/quartz/calcite 均值 |
-| `kruskal` | object | H/p |
-| `felsic_vs_carbonate` | object | 单侧 p |
+legacy 支线的 `fusion.json`、`validation.json`、`ablation.json` 等不在上述清单，
+也不被 `validate_pipeline.py` 检查；需要时用 `run_all.py legacy` 生成。
 
-### `advantage.json`
-| key | type | 说明 |
-|---|---|---|
-| `prevalence` | float | proxy 正例率 |
-| `methods` | array | 每种方法的 F1/AP/mP/容差/连通域 |
-| `qr_sweep` | array | 12 组 Q/R |
-| `best_qr` | object | 最佳 Q/R |
-| `noise` | array | 5%/10% 噪声下的 F1/AP 变化 |
+## 6. 完整性规则
 
-### `calibration.json`
-| key | type | 说明 |
-|---|---|---|
-| `n` | int | 有效像元数 |
-| `bias`, `rmse`, `mean_sigma` | float | clay 误差统计 |
-| `coverage_68/95` | float | 名义覆盖率 |
-| `variance_scale` | float | 方差缩放因子 |
-| `coverage_68/95_scaled` | float | 缩放后覆盖率 |
-| `reliability` | array | 10 个分箱的 sigma/RMSE |
+1. 所有空间数组共享 `(1772, 1075)` 网格；主线指标只在 `analysis_mask` 上计算。
+2. `gamma_cube`、`tir_cube_real`、`tir_cube` 的无效像元为 NaN；载入时按列填中位数
+   （EM 为有限值，不做填充）。
+3. 丰度输出满足 `x ≥ 0`、`Σx = 1`；depth 每层同样满足闭包。
+4. 预测正例定义为 `clay > 0.25` 且 clay 位于 top-2 矿物（`definition` 中固定）。
+5. 每个文件在 `data_manifest.json` 有 SHA-256；清单在 `audit` 阶段最后重建。
+6. `validate_pipeline.py` 校验 53 个产物、22 条不变量（含零/噪声/置换对照、
+   bootstrap 一致性、ASTER 物理门限，以及从论文 Markdown 解析表 4–7、9 后与产物
+   逐格比对）。
+7. `check_coverage.py` 要求每个受检产物在 `run_all.py` 中有生产者，防止“有产物、
+   无脚本”。
+8. `test_core.py` 的 36 条断言锁定闭包、指标、EM 变换、两个开关不变式和 ASTER
+   波段构造。
 
-### `validation.json`
-| key | type | 说明 |
-|---|---|---|
-| `definition` | object | 指标定义 |
-| `family_recall` | object | 6 类场景平均 recall |
-| `overall_recall` | float | 六类平均 |
-| `overall_f1` | float | 六类平均 F1 |
-| `scenarios` | array | 28 条场景记录 |
-| `temperature` | array | 温度扫描 |
-| `H_sensitivity` | array | H 扰动 |
-| `degradation` | object | 退化场景 |
-| `runtime_s` | float | 运行时间 |
+## 7. 大文件与产出率
 
-### `validation_emfix.json`
-与 `validation.json` 相同，使用修正 EM H 和 log10 EM。
+- `report_large_files.py` → `large_files.json`：当前 7 个文件超过 200 MB，合计
+  7.85 GB，全部是可重生成的 `.npy` 派生立方体；策略记录在
+  `processed/large_files.json` 与 `docs/DATA_PROVENANCE.md`（不入仓库、不入
+  Zenodo，用清单 SHA-256 验证复现）。
+- `pipeline_validation.json` 的 `yield`：`grid_pixels`, `analysis_pixels`,
+  `analysis_fraction`, `survey_pixels`, `aster_fraction_of_survey`,
+  `predicted_positive_rate`, `artifact_rate`, `artifacts_present/expected`,
+  `experiments`（ablation/baseline/bootstrap/multiclass 记录数）, `runtime_s`；
+  同一组指标导出为 `processed/output_yield.csv`。
 
-### `depth_emfix.json`
-与 `depth.json` 相同，使用修正 EM H；`layer_mean` 为 40×5。
+## 8. 命名约定
 
-### `ablation.json` / `baselines.json`
-数组，每条形如 `{config/method, clay_mean, gradient, recall, precision, f1, ...}`。
-
-### `sensitivity.json`
-`multi_seed`（20 条）、`multi_seed_stats`、`resolution`（5 条）、`weighting`（2 条）。
-
-### `environment.json`
-`cells`, `temperature_range`, `humidity_range`, `scenarios`, `subsets`, `clay_diff_*`。
-
-### `repeats.json`
-`n_runs`, `noise_frac`, `runtime_s`, `baseline`, `runs`（N 条）, `stats`（mean/std/CI）, `mean_map`。
-
-### `pipeline_validation.json`
-`status`, `generated_at`, `grid`, `metric_recalc`, `metric_stored`, `metric_delta`, `yield`, `files`, `checks`。
-
-### `data_manifest.json`
-`generated_at`, `n_files`, `total_bytes`, `summary`（按 stage 计数）, `files`（path/stage/size/sha256/schema）。
-
-## 5. 数据完整性规则
-
-1. 所有空间数组共享同一网格 `(1772, 1075)`；`valid_mask` 为唯一评价掩膜。
-2. `gamma_cube`、`tir_cube`、`truth_abundance` 在无效像元为 NaN；`load_cubes` 分别填中位数/0.5/100。
-3. 丰度输出满足 `x >= 0`、`sum_i x_i = 1`（闭包）。
-4. `depth_kalman_3d` 的每层同样满足闭包。
-5. 所有指标只在 `valid_mask=True` 上计算；不得把 NoData 填充区计入。
-6. `fusion.json` 的 `proxy` 必须与 `kf_mineral_abundance.npy` 重算结果一致（`validate_pipeline.py` 检查，容差 1e-3）。
-7. 同名文件只保留最终版；旧版本已删除，见 `docs/CHANGELOG.md`。
-8. 每个文件在 `data_manifest.json` 中有 SHA-256，可校验。
-
-### 5.1 大文件策略
-
-`report_large_files.py` 统计并写入 `processed/large_files.json`。当前有 7 个文件
-超过 200 MB，合计 7.8 GB，全部是派生的 `.npy` 立方体：
-
-| 规则 | 说明 |
-|---|---|
-| 本地保留 | 便于检查与重跑，`processed/` 下 200 MB 以内的文件全部保留 |
-| 不上传 | 超过 200 MB 的 `.npy` 不进仓库、不进 Zenodo；它们由 `run_all.py` 从 `raw/` + 固定 seed 重新生成，`data_manifest.json` 的 SHA-256 用于验证复现 |
-| 永不删除 | `raw/`、`processed/*.json`、`processed/*.csv`、`processed/*.png` |
-
-2026-11-07 清理了一个 1.45 GB 的历史残留文件
-`depth_kalman_3d.npy_emfix.npy`（旧版命名 bug 的产物，全库无引用，正确文件
-`depth_kalman_3d_emfix.npy` 存在）。
-
-## 6. 产出率（yield）定义
-
-`validate_pipeline.py` 计算并写入 `pipeline_validation.json`；同一组指标也导出为
-`processed/output_yield.csv`（metric/value/definition 三列）：
-
-| 指标 | 定义 |
-|---|---|
-| `valid_fraction` | 有效像元 / 全网格（预期 0.664） |
-| `abundance_finite_fraction_on_valid` | 有效像元中丰度有限的占比（预期 1.0） |
-| `predicted_positive_rate` | clay>0.25 且 top-2 的像元比例 |
-| `artifact_rate` | 实际存在且通过检查的产物 / 预期产物 |
-| `runtime_s` | 主融合运行时间 |
-| `valid_pixels_per_s` | 有效像元 / 运行时间 |
-| `experiment_records` | 消融/验证/基线/敏感性记录数 |
-
-## 7. 命名约定
-
-- `prepare_*`：原始 → 立方体；
-- `run_*`：实验/分析；
-- `kf_*`：主融合输出；
-- `depth_*`：深度反演；
-- `fig_*`：论文图；
-- `*_validation.json`：完整性检查；
-- `*_manifest.json`：清单。
+- `prepare_*`：原始 → 立方体/掩膜；
+- `run_*`：实验与分析；
+- `kf_main_*`：主线融合输出；`depth_*`：深度反演；
+- `fig_*`, `main_maps.png`：论文图；
+- `*_validation.json`：完整性检查；`*_manifest.json`：清单；
+- `*_emfix`：修正 EM 模型的对应产物。

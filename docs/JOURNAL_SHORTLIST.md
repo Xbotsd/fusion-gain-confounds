@@ -1,98 +1,94 @@
-# 免费 SCI 期刊评估（2026-11 版，按当前论文状态重排）
+# 免费 SCI 期刊评估（核实版，2026-11-12）
 
-约束：**SCIE 收录、不选 Gold OA 即无 APC、与论文实际内容匹配、命中率优先**。
+**结论：首投 _Computers & Geosciences_（Elsevier）。** 它是本稿内容匹配度最高的
+免费选项：订阅路径不收 APC，且 2026-11 我们已有公开仓库和 Zenodo DOI，上一版评估里
+它唯一的大短板已经消失。备选顺序 **Earth Science Informatics → Journal of Applied
+Geophysics**。**不要再把 IEEE JSTARS 或 IJAEOG 当免费选项**：两者已转为全 OA，强制
+APC（见 §3）。
 
-> 影响因子为近年近似区间，以最新 JCR 为准；"命中率"是基于论文成熟度与期刊偏好的判断，不是承诺。
+## 1. 口径与核实方法
 
-## 论文现在的实际状态（决定了选刊）
+- **“免费”指订阅路径**：hybrid 期刊不选 Gold OA 时不收文章处理费（APC）；只有
+  作者主动选 OA 才付标价。全 OA 期刊（is_oa = true）则强制收费。
+- 数据源与日期（2026-11-12）：
+  - OpenAlex `sources` API：`is_oa`、`is_in_doaj`、`apc_usd`、2 年平均被引；
+  - Crossref 近期文章（2025–2026）的 `license`：出现 CC 协议 = OA 文章；只有
+    出版商 TDM/STM 协议 = 订阅文章，说明该刊仍可免费订阅发表；
+  - 出版商 APC 页面在本机被 ScienceDirect 403 拦截，**最终金额以投稿系统报价为准**。
+- JIF 与中科院分区为近年近似值（本机无法连 JCR/分区表），标“约”；投稿前按本单位
+  认定口径复核。
 
-**强项**
-- 真实数据占多数：USGS 航空放射性（295,943 样点）、真实 TMI、真实 USGS SIM 3206 地质图、**真实 ASTER L1T 热红外**（2006-10-18，4 景 100% 覆盖，5 波段，含 TES）。
-- 工程可复现性罕见地完整：97 个受检产物、21 条交叉校验、25 项单测、生产者覆盖率守卫、SHA-256 清单、锁定依赖、一键复跑。
-- 统计口径严谨：128 px 空间块 bootstrap、BH 多重比较校正、N_eff 110–175（而非 1.27M 伪样本）、独立地质目标 AUC 验证。
-- 有真正的科学发现：融合增益的符号由"目标是否与模态同源"和"反演是否可识别"共同决定；gamma 单独在独立地质目标上 AUC 0.387（欠定），加入真实 ASTER TIR 后 0.913，但同形惰性通道（全零、高斯噪声、块置换）即可复现 F1 增益的 69–98%、AUC 增益的全部——说明大部分增益是条件改善而非信息。
+## 2. 免费候选（已核实出版模式）
 
-**弱项（审稿人会打的地方）**
-- **EM 仍是合成**：本地无实测 AEM（`raw/` 只有 K/eU/eTh/TMI），这一点无法补。
-- 无钻孔/蚀变标签，地质检查只是岩性一致性。
-- 结论是"基准 + 方法审计 + 部分负结果"，不是"找到矿"。
-- 单测区，单期次。
+| 期刊 | 出版商 | 模式（核） | 免费路径 | 选 OA 时 APC | 2yr 被引* | JIF 约 | 中科院约 | 与本稿匹配 | 命中率 |
+|---|---|---|---|---|---|---|---|---|---|
+| **Computers & Geosciences** | Elsevier | hybrid（近期文章无 CC） | **订阅，0** | ~$4,010 | 5.97 | 4.0–4.8 | 地球科学 2 区 | 方法+软件+基准+复现，几乎量身 | 中 |
+| **Earth Science Informatics** | Springer | hybrid（无 CC） | **订阅，0** | ~$3,890 | 6.94 | 2.6–3.2 | 3 区 | 地学数据/工作流/复现 | **高** |
+| **Journal of Applied Geophysics** | Elsevier | hybrid（无 CC） | **订阅，0** | ~$3,180 | 2.70 | 2.0–2.6 | 3 区 | 应用地球物理、多源融合 | 中高 |
+| Mathematical Geosciences | Springer | hybrid | 订阅，0 | ~$3,090 | 3.61 | 2.3–3.0 | 3 区 | 可识别性、估计理论 | 中 |
+| Geophysical Prospecting | Wiley | hybrid | 订阅，0 | ~$4,150 | 2.03 | 1.9–2.4 | 3 区 | 地球物理方法 | 中 |
+| Exploration Geophysics | Taylor & Francis | hybrid | 订阅，0 | 未标价 | 1.75 | 1.3–1.8 | 4 区 | 勘查地球物理、航空测量 | 中高 |
+| International Journal of Remote Sensing | Taylor & Francis | hybrid | 订阅，0 | 未标价 | 3.37 | 2.8–3.4 | 3 区 | 遥感应用 | 中 |
+| IEEE TGRS | IEEE | hybrid | 订阅，0，但**超页收费** | ~$2,645 | 9.38 | 7.0–8.0 | 1–2 区 | 要遥感新意；长文易触超页费 | 低 |
 
-**因此**：最适合"方法/数据/可复现"类期刊；最不适合要求找矿成果或硬件验证的期刊。
+\* OpenAlex 2 年平均被引，2026-11-12 直接查询，可复核；与 JIF 不完全等价。
 
-## 推荐排序
+JCR 分区（估，按近年 JIF）：C&G、TGRS 为 Q1；ESI、JAG、Mathematical Geosciences、
+Geophysical Prospecting、IJRS 为 Q2；Exploration Geophysics 为 Q3。若只要求
+“SCI + Q2”，上表除 Exploration Geophysics 外都满足；若要求 Q1，免费选项实际只有
+C&G（TGRS 的超页费不可控）。
 
-| 序 | 期刊 | 出版商 | APC | IF 约 | 匹配点 | 命中率判断 | 审稿 |
-|---:|---|---|---|---:|---|---|---|
-| 1 | **Computers & Geosciences** | Elsevier | 订阅制免费 | 3.5–4.5 | 方法+软件+benchmark+可复现，几乎为本稿量身 | 中（若按软件/复现框架写，明显高于平均） | 2–4 月 |
-| 2 | **Earth Science Informatics** | Springer | 订阅制免费 | 2.5–3.5 | 地学数据/工作流/可复现 | **高**（门槛低于 C&G，偏好数据与方法） | 2–4 月 |
-| 3 | **Journal of Applied Geophysics** | Elsevier | 订阅制免费 | 1.8–2.5 | 应用地球物理方法、多源融合 | 中高 | 2–3 月 |
-| 4 | **Exploration Geophysics** | Taylor & Francis | 订阅制（需查彩图/页面费） | 1.3–2.0 | 勘查地球物理、航空测量 | 中高 | 2–4 月 |
-| 5 | **Mathematical Geosciences** | Springer | 订阅制免费 | 2.0–2.8 | 可识别性、估计理论、可复现 | 中 | 3–5 月 |
-| 6 | **IEEE JSTARS** | IEEE | 订阅制免费（超页收费） | 4–5 | 遥感融合、真实 ASTER | 中偏低（要遥感新意，且限 8 页） | 3–5 月 |
-| 7 | **International Journal of Remote Sensing** | T&F | 订阅制免费 | 2.5–3.5 | 遥感应用 | 中 | 3–5 月 |
+**若单位硬性要求中科院 2 区**：免费选项里实际上只有 **C&G** 稳（TGRS 分区更高，但
+超页费不可控）。ESI/JAG 是 3 区。
 
-**不建议**：Remote Sensing (MDPI)、IEEE Access、Scientific Reports、PLOS ONE、GeoHazards 等——均收 APC。
-**也不建议**：Ore Geology Reviews、Natural Resources Research、Economic Geology——要正向找矿/矿床结果，本稿会被认为"没有地质结论"。
+## 3. 已转全 OA、不再免费（核实）
 
-## 两条路线
+| 期刊 | 证据 | APC |
+|---|---|---|
+| IEEE JSTARS | 2025 年文章全部 CC BY 4.0（Crossref） | ~$1,800 |
+| IJAEOG | is_oa = true, 在 DOAJ；近期文章 CC BY / CC BY-NC-ND | ~$3,550 |
+| Journal of Geophysics and Engineering | is_oa = true, 在 DOAJ | ~$1,550 |
 
-### 路线 A：命中率优先（推荐给"必须尽快见刊"）
-**首投 Earth Science Informatics**。理由：订阅制免费、SCIE、明确覆盖地学数据与计算工作流、对"基准 + 审计 + 部分负结果"接受度高、门槛低于 C&G。按现有稿件改模板即可，正文结构不用动。
+其余强制 APC、不建议：Remote Sensing (MDPI)、IEEE Access、Scientific Reports、
+PLOS ONE、Frontiers 系列、Solid Earth / Geoscientific Model Development (Copernicus)。
 
-### 路线 B：性价比优先（推荐给"要 Q1/较高 IF"）
-**首投 Computers & Geosciences**。它是本稿最好的归宿：审稿人就是做方法/软件/复现的人，我们的 97 产物 + 21 交叉校验 + 覆盖率守卫 + 清单在 C&G 是加分项而不是附件。风险是它要求"软件可用性"证据更强（仓库、许可证、安装说明），而仓库 DOI 我们还没有。
-
-### 转投顺序（省时间）
+## 4. 推荐路线
 
 ```
-C&G（3 个月无进展 → 转）
-  └→ Earth Science Informatics（稳）
-       └→ Journal of Applied Geophysics（保底）
+C&G（首选，免费，2 区，最匹配）
+  └─ 3 个月无进展 → Earth Science Informatics（稳，免费，3 区）
+       └─ Journal of Applied Geophysics（保底，免费，3 区）
 ```
-或纯求稳：`ESI → JAG → Exploration Geophysics`。
 
-## 每个候选需要改什么
+纯求稳、不追分区：`ESI → JAG → Exploration Geophysics`。
 
-| 期刊 | 必须调整 |
-|---|---|
-| C&G | 摘要与引言改成"可复现基准 + 开源实现"，突出软件可用性；补仓库/归档 DOI 与安装说明；表格压到 8 个以内 |
-| ESI | 突出数据工作流与元数据；把 TES、镶嵌、掩膜写成一节"数据处理流水线" |
-| JAG | 把"方法审计"翻译成"对勘查实践的启示"；强调真实 ASTER 与真实放射性联合使用的工程价值 |
-| Exploration Geophysics | 加一段与勘查习惯的对接（比值法、三元图），弱化深度学习式表述 |
-| JSTARS | 必须压到 8 页、图减到 4–5 张、突出遥感新意（真实 ASTER + 融合），并接受超页费 |
+**不建议** Ore Geology Reviews、Natural Resources Research、Economic Geology：
+它们要正向找矿/矿床结果，本稿会被判“没有地质结论”。
+**不建议** 任何全 OA 遥感刊：APC 是硬成本，且审稿口味偏“应用新方法”，与本稿的
+“审计 + 负结果”不合。
 
-## 投稿前必须补的三件事（否则哪个都危险）
+## 5. 针对 C&G 的投稿前清单
 
-1. **仓库 + 归档 DOI**（Zenodo/Figshare）。没有它，C&G 与 ESI 的"可复现"卖点落空。
-2. **EM 的表述**：全文所有 EM 结果必须带 "synthetic EM" 限定词；摘要不能暗示 EM 为实测。这是最容易被拒的表述问题。
-3. **图与表**：12 表 6 图对多数期刊偏多，建议主文留 7–8 表，其余进补充材料。
+1. **软件可用性段落**：名称、版本、许可证、仓库、归档 DOI、运行环境、复现命令。
+   已在正文 “Reproducibility and data availability” 中加入 `Software availability`
+   段落（2026-11-12）。
+2. **Highlights** ≤ 5 条、每条 ≤ 85 字符；**摘要** ≤ 250 词（现 247）；关键词 6 个。
+   均已就绪（`docs/submission/`）。
+3. **图表**：正文 9 表 6 图。C&G 无硬性页数，但建议把 Table 8（TES 敏感性）或
+   Table 9（已发表实践）移入补充材料，正文留 7–8 表，审稿更顺。
+4. **生成式 AI 声明**：Elsevier 要求披露。是否添加由作者决定（`docs/submission/README.md`
+   第 41 行仍标为待定）。
+5. **Cover letter**：已按 C&G 写（`docs/COVER_LETTER.md`），数字与当前产物一致。
+6. **费用确认**：订阅路径无 APC；彩图印刷、超页可能另计，投稿系统会显示，选
+   “subscription / no open access” 即可保持免费。
 
-## 需要你确认
+## 6. 证据链接（可复核）
 
-1. 单位对**分区/IF**是否有硬门槛？（只要 SCIE → ESI 最稳；要 Q1/IF>4 → C&G 或 JSTARS）
-2. **截止时间**？（3 个月内要录用通知，只能选 ESI/JAG；6 个月以上可冲 C&G）
-3. 是否接受把 EM 明确写成"受控合成"，而不是继续等实测 AEM？（决定稿件能否立刻投）
-
-## 按分区口径重排（Q2 保底、Q1 目标）
-
-> 分区以最新 JCR 与中科院升级版为准，下表为近似判断，投稿前须核对本单位认定口径。
-
-| 期刊 | JCR 分区（估） | 中科院分区（估） | APC | 命中率 | 主要风险 |
-|---|---|---|---|---|---|
-| Computers & Geosciences | Q1 | 地球科学 2 区 | 无 | 中 | 要求软件可用性证据（缺仓库 DOI） |
-| IEEE JSTARS | Q1 | 地球科学 2 区 | 无（超页收费） | 中偏低 | 8 页限制、要遥感新意 |
-| International Journal of Applied Earth Observation and Geoinformation | Q1 | 2 区 | 订阅制可选 | 中 | 偏应用，需强化找矿/填图价值 |
-| Mathematical Geosciences | Q1–Q2 | 2–3 区 | 无 | 中 | 读者偏统计，需弱化工程细节 |
-| Journal of Applied Geophysics | Q2 | 3 区 | 无 | 中高 | 需把审计写成勘查启示 |
-| Earth Science Informatics | Q2 | 3–4 区 | 无 | 高 | 分区可能不满足 2 区要求 |
-| International Journal of Remote Sensing | Q2 | 3 区 | 无 | 中高 | 审稿慢、影响力一般 |
-
-**若单位要求中科院 2 区**：只能在 C&G / JSTARS / IJAEOG / Mathematical Geosciences 中选，ESI 与 JAG 不达标。
-**若只要求 JCR Q2**：上面全部满足，此时 ESI 是命中率最高的选择。
-
-## 建议的组合
-
-- **目标 Q1 + 可接受中等风险**：Computers & Geosciences（免费、最匹配、期刊本身对基准+复现友好）。
-- **必须稳、且接受 Q2**：Earth Science Informatics 首投，JAG 兜底。
-- **既想 Q1 又怕 C&G 慢**：IJAEOG（应用地球观测，真实 ASTER 可作卖点），但需要重写引言的应用价值。
+- OpenAlex 期刊元数据（本次查询）：
+  `https://api.openalex.org/sources?filter=issn:0098-3004|1865-0473|0926-9851|0812-3985|1874-8961|1939-1404|0143-1161|1569-8432`
+- Crossref 近作许可（JSTARS 全 CC BY）：`https://api.crossref.org/journals/1939-1404/works?filter=from-pub-date:2025-01-01`
+- Crossref 近作许可（C&G 无 CC，订阅）：`https://api.crossref.org/journals/0098-3004/works?filter=from-pub-date:2025-06-01`
+- Crossref 近作许可（JAG 无 CC，订阅）：`https://api.crossref.org/journals/0926-9851/works?filter=from-pub-date:2025-06-01`
+- Crossref 近作许可（ESI 无 CC，订阅）：`https://api.crossref.org/journals/1865-0473/works?filter=from-pub-date:2025-06-01`
+- 本稿归档：`https://doi.org/10.5281/zenodo.24130421`；仓库：
+  `https://github.com/Xbotsd/fusion-gain-confounds`

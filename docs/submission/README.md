@@ -1,6 +1,9 @@
 # Submission package — checks against the journal's requirements
 
-Target: *Computers & Geosciences* (Elsevier). **Caveat:** the live Guide for
+Target: *Computers & Geosciences* (Elsevier), confirmed on 2026-11-12 as the
+best free option (subscription route, no APC); fallbacks are Earth Science
+Informatics and Journal of Applied Geophysics, see `../JOURNAL_SHORTLIST.md`.
+**Caveat:** the live Guide for
 Authors could not be retrieved from this machine (ScienceDirect answers HTTP 403
 to scripted requests), so the list below was checked against Elsevier's standard
 article requirements, not against the current journal-specific text. Re-check

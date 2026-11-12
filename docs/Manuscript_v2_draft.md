@@ -544,6 +544,16 @@ https://github.com/Xbotsd/fusion-gain-confounds
 The code and the derived results are archived at https://doi.org/10.5281/zenodo.24130421
 (all versions: https://doi.org/10.5281/zenodo.24130420).
 
+**Software availability.** The benchmark is released as `fusion-gain-confounds`
+version 1.0.0 under the MIT licence (source:
+https://github.com/Xbotsd/fusion-gain-confounds; archived snapshot:
+https://doi.org/10.5281/zenodo.24130421). It requires Python 3.9 or newer with
+NumPy, SciPy, pandas, Matplotlib and GDAL; `python code/run_all.py` reproduces
+every table and figure, and `python code/validate_pipeline.py` re-checks the 53
+artefacts and 22 invariants. Only the third-party raw data are not
+redistributed; `docs/DATA_PROVENANCE.md` records their sources, licences and
+SHA-256 hashes.
+
 ## Declarations
 
 **CRediT author statement.** Yudong Xu (ORCID 0009-0002-3231-0444): conceptualisation, methodology,

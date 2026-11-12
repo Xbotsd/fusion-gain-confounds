@@ -18,6 +18,7 @@ The documents that are current are, in reading order:
 | `../NORMALISATION_AUDIT.md` | the two normalisation bugs and their fix |
 | `../REFERENCES_AUDIT.md` | bibliography state |
 | `../CHANGELOG.md` | round-by-round history |
+| `../DATA_STRUCTURE.md` | current data chain, masks, schemas and integrity rules |
 | `../JOURNAL_SHORTLIST.md`, `../COVER_LETTER.md`, `../GITHUB_SETUP.md` | submission logistics |
 | `../Manuscript_v2_draft.md` / `.docx` | the manuscript |
 
@@ -32,6 +33,9 @@ Why the archived notes are stale, concretely:
   model-free multi-class test and the single shared block bootstrap, so they
   present fusion gains without the decomposition that the paper is about.
 * `Manuscript_v2_draft.md.bak` is a snapshot before the structural rewrite.
+* `DATA_STRUCTURE_V2.md` describes the 10-channel synthetic-TIR chain and
+  `run_fusion.py`; it was replaced by the 11-channel real-ASTER structure in
+  `../DATA_STRUCTURE.md`.
 
 Two of them are still useful as narrative rather than as numbers:
 `PIPELINE_AUDIT.md` for the timing/throughput measurements and

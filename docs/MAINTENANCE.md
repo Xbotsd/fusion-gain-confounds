@@ -44,8 +44,9 @@ it makes the manifest stale.
   `docs/GITHUB_SETUP.md`; the concept DOI at least in `GITHUB_SETUP.md` and the
   manuscript.
 * `docs/Manuscript_v2_draft.md` is the source of the submitted manuscript. The
-  `.docx` is generated from it with `docs/build_draft_docx.py` and must be
-  rebuilt after any text edit.
+  `.docx` is generated from it with `docs/build_draft_docx.py` (needs
+  `pip install python-docx`, not a pipeline dependency) and must be rebuilt
+  after any text edit.
 * The archive is never re-uploaded under the same version. A new version gets a
   new version DOI; the concept DOI stays fixed.
 

@@ -27,7 +27,7 @@ synthetic. No claim is made about field EM behaviour.
 
 | target | construction | status |
 |---|---|---|
-| `clay_prior` | 0.5·K + 0.3·(1−eTh) + 0.2·|eU−eTh| on p2–p98 normalised channels, smoothed σ = 15 px | gamma-derived, **circular** for gamma |
+| `clay_prior` | 0.5·K + 0.3·(1−eTh) + 0.2·abs(eU−eTh) on p2–p98 normalised channels, smoothed σ = 15 px | gamma-derived, **circular** for gamma |
 | `truth_abundance` | 0.4K+0.2eU etc., renormalised | only used to synthesise the control TIR cube |
 | substrate labels | SIM 3206 classes rasterised to the grid | independent of all observed modalities |
 

@@ -19,12 +19,12 @@
     "rmse": 0.13835497200489044
   },
   "latency_ms_10k": {
-    "float": 15.793323516845703,
-    "int8_sim": 32.84883499145508
+    "float": 31.2960147857666,
+    "int8_sim": 17.786741256713867
   },
-  "latency_us_per_sample": 3.284883499145508,
+  "latency_us_per_sample": 1.7786741256713867,
   "budget_200ms": true,
-  "train_seconds": 39.055872440338135,
+  "train_seconds": 41.76925015449524,
   "train_n": 120000,
   "test_n": 200000,
   "hardware": "CPU only; no Jetson/MCU; INT8 simulated (quantized weights)",

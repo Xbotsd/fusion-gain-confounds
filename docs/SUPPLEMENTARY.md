@@ -72,7 +72,29 @@
 D:\miniconda3\envs\geo\python.exe code\test_core.py
 ```
 
-## S6. Pre-emptive reviewer questions
+## S6. Standalone and legacy scripts
+
+These run, but are deliberately not in `run_all.py`; they are kept for the record
+or for one-off use. None of their outputs is among the 53 validated artefacts.
+
+| script | status | output |
+|---|---|---|
+| `run_fusion.py` | legacy: the v2 Kalman fusion stage (10-channel `load_cubes`) | `kf_mineral_abundance.npy`, `fusion.json` |
+| `block_bootstrap.py` | legacy: pixel-block bootstrap of the v2 method comparison | `bootstrap.json/csv` |
+| `run_independent_target.py` | legacy: first independent-target experiment | `independent_target.*` |
+| `run_real_tir.py` | legacy: first real-ASTER ablation branch | `real_tir.*` |
+| `run_em_fix_repeats.py` | legacy: 10-run average for the corrected-EM model | `em_fix_repeats.json/csv` |
+| `run_ablation_emfix.py`, `run_calibration_emfix.py`, `run_validation_emfix.py` | thin wrappers that append `--emfix` and call the corresponding `run_*` module | the `*_emfix` artefacts |
+| `make_submission_package.py` | packaging helper: copies figures and writes captions/keywords | `docs/submission/` |
+| `fetch_aster.py` | network: archives the raw ASTER scenes once | `raw/aster/` |
+| `maintain.py` | read-only repository/archive health check | printed report, exit code |
+| `common.py`, `run_all.py` | shared code and the launcher | — |
+
+`run_all.py legacy` covers the synthetic-TIR reference branch only (ablation,
+validation, baselines, advantage, EM fix, repeats, sensitivity, environment,
+threshold, perturbation, scenarios, beta/generation sensitivity, V2).
+
+## S7. Pre-emptive reviewer questions
 
 1. **Is the thermal data real?** Yes, ASTER L1T v003, five bands, archived with
    STAC ids and hashes; the synthetic splib07 cube is a control only.

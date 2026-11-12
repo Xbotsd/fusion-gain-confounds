@@ -1,5 +1,45 @@
 # Changelog — cleanup and corrections
 
+## Round 12 — system check and journal choice (2026-11-12)
+
+* **End-to-end rerun from the committed tree.** `python code/run_all.py all`
+  exited 0: every stage ran, and the headline numbers reproduced exactly —
+  gamma F1 0.5314, gamma+TIR 0.6519, all 0.4967; zero channels 0.6144, noise
+  0.6490, block-shuffled 0.6341; model-free 0.3503 → 0.5290 (+0.1787, CI
+  [0.1198, 0.2412]); ΔF1 +0.1195 [0.0674, 0.1668]. The validator passed 53/53
+  artefacts and 22/22 invariants, `test_core.py` 36/36, and the manifest was
+  rebuilt (6,843 files / 11.46 GB). A field-by-field comparison with HEAD shows
+  no scientific value changed: only `generated_at`/`runtime_s` fields, file
+  sizes that differ by the one digit of a timestamp, and the measured
+  `edge_ai` latency moved.
+* **`DATA_STRUCTURE.md` rewritten for the real-ASTER line.** The old file still
+  described the 10-channel synthetic v2 chain and `run_fusion.py` as the fusion
+  stage. It is archived as `docs/archive/DATA_STRUCTURE_V2.md`, and the new file
+  documents the 11 channels, the two masks, the response matrix, the current
+  array/JSON schemas and the 22 invariants.
+* **Standalone and legacy scripts documented** (SUPPLEMENTARY §S6):
+  `run_fusion`, `block_bootstrap`, `run_independent_target`, `run_real_tir`,
+  `run_em_fix_repeats`, the three `*_emfix` wrappers and the packaging/network
+  helpers. They run but are deliberately outside `run_all.py`, and none of their
+  outputs is one of the 53 validated artefacts.
+* **Journal re-evaluated against live metadata.** OpenAlex and Crossref checks on
+  2026-11-12 show that **IEEE JSTARS and IJAEOG are now fully open access**
+  (CC BY articles, mandatory APC ~$1,800 and ~$3,550) and must leave the free
+  list; C&G, ESI, JAG, Mathematical Geosciences, Geophysical Prospecting,
+  Exploration Geophysics and IJRS remain hybrid with a subscription route.
+  `JOURNAL_SHORTLIST.md` is rewritten around that evidence and confirms **C&G as
+  the target** (free subscription route, Q1/2 区), with ESI then JAG as
+  fallbacks. JSTARS and IJAEOG were previously recommended as free; they are not.
+* **Software availability paragraph added** to the manuscript (name, version,
+  licence, repository, DOI, environment, reproduction command) and the `.docx`
+  rebuilt (419 paragraphs, 9 tables, 6 figures). This is what the C&G Guide for
+  Authors asks for, and it was impossible before the DOI existed.
+* **Static check:** pyflakes over `code/*.py` reports only unused imports and
+  unused local variables — no undefined names and no syntax errors; CI's
+  `compileall` stays green.
+* **No Zenodo edit.** Version 1.0.0 remains the archived snapshot; this round
+  changes docs and tooling only, so no new version is published.
+
 ## Round 11 — maintenance (2026-11-12)
 
 * **State re-verified from the artefacts, not from memory.** Working tree clean at
