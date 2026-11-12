@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-12T19:24:59+08:00",
+  "generated_at": "2026-11-12T19:52:20+08:00",
   "root": "D:\\A_MineralProspecting",
   "n_files": 6843,
-  "total_bytes": 11460613986,
+  "total_bytes": 11460615199,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -74,7 +74,7 @@
     },
     "docs": {
       "files": 58,
-      "bytes": 19435863
+      "bytes": 19437076
     },
     "code": {
       "files": 142,
@@ -48191,8 +48191,8 @@
     {
       "path": "docs/JOURNAL_SHORTLIST.md",
       "stage": "docs",
-      "size": 8800,
-      "sha256": "4d0a976d88cb3de41981c83df0dec8288c97d545dac4236e0a334d4bbd541a5d",
+      "size": 10013,
+      "sha256": "c7b95265628ce4829f97a60d42e471470543755c3f5a4b8210485150a557cfbc",
       "schema": {}
     },
     {
