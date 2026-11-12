@@ -2,7 +2,7 @@
 
 Snapshot 2026-11-10, re-verified 2026-11-12, real-ASTER main line: **53/53
 artefacts, 22/22 invariants, 36/36 unit assertions, 0 coverage orphans**, manifest
-with SHA-256 for every file (about 6.7k files / 11.5 GB).
+**6,842 files / 11.46 GB**, SHA-256 for every file.
 
 ## Rigour scorecard
 

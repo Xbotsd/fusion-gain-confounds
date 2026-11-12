@@ -42,7 +42,7 @@ contribution than the previous "fusion works / does not work" framing.
 | cross-artefact invariants | **22/22** |
 | unit assertions | **36/36 in 9 test groups** |
 | coverage orphans | **0** |
-| manifest | every file with SHA-256 (`processed/data_manifest.json`, about 6.7k files / 11.5 GB) |
+| manifest | **6,842 files / 11.46 GB**, SHA-256 for every file (`processed/data_manifest.json`) |
 | raw ASTER archived | 7 scenes + XML, `raw/aster/<date>/manifest.json` |
 
 ## Still open (needs an external action)

@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-11T20:47:16+08:00",
+  "generated_at": "2026-11-12T15:26:00+08:00",
   "root": "D:\\A_MineralProspecting",
-  "n_files": 6840,
-  "total_bytes": 11460574197,
+  "n_files": 6842,
+  "total_bytes": 11460593031,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -73,12 +73,12 @@
       "bytes": 87026
     },
     "docs": {
-      "files": 56,
-      "bytes": 19406320
+      "files": 57,
+      "bytes": 19414896
     },
     "code": {
-      "files": 141,
-      "bytes": 529768
+      "files": 142,
+      "bytes": 540026
     }
   },
   "files": [
@@ -46952,7 +46952,7 @@
       "path": "processed/pipeline_validation.json",
       "stage": "audit",
       "size": 16673,
-      "sha256": "e38414077b77a3df0dac6547f5475c3b11a90e2e780d5bb1adcd7e67b6cf118e",
+      "sha256": "854bcd55dc6e60850c109d679aa5ff8e917590367eadae57ff38748a9c3dfe17",
       "schema": {
         "keys": [
           "checks",
@@ -48120,15 +48120,15 @@
     {
       "path": "docs/CHANGELOG.md",
       "stage": "docs",
-      "size": 20537,
-      "sha256": "9c2cd0807e475ab59294c137107997285c8f9e6495a9630fb988f5363c7ef303",
+      "size": 23226,
+      "sha256": "44d645ce59755e75bb14b941bab2798924298d901c4e13d8262172b51b1f1877",
       "schema": {}
     },
     {
       "path": "docs/COVER_LETTER.md",
       "stage": "docs",
-      "size": 3953,
-      "sha256": "de7a407ac4e0d4da390dd8b263267ec9e8d3640afe6cb06d3e14a37a31332498",
+      "size": 3958,
+      "sha256": "31a288fd6fec9e2b93540cad52708c70072199b1c2182cb5ec69c315338b4f0f",
       "schema": {}
     },
     {
@@ -48163,15 +48163,15 @@
     {
       "path": "docs/GAP_AUDIT.md",
       "stage": "docs",
-      "size": 3377,
-      "sha256": "8ddffa12b00eecb98e9b7e3b1f21a890974f34f0e0ff30da7dd974394bbba79a",
+      "size": 3461,
+      "sha256": "be483bd9c7bd75ffac783b7cfcc7b9347c3bdfffde22fdb870a08ef298d14e40",
       "schema": {}
     },
     {
       "path": "docs/GITHUB_SETUP.md",
       "stage": "docs",
-      "size": 3840,
-      "sha256": "26a7d03c01da75ab041b5159799da952713df17a1cf1c9766781d53f3270acb9",
+      "size": 4544,
+      "sha256": "3824d4e3e8a5b6bcc6ff0ca69035833bfa19333aa8e48da1771a3d832dfbb68c",
       "schema": {}
     },
     {
@@ -48186,6 +48186,13 @@
       "stage": "docs",
       "size": 7491,
       "sha256": "81a2a4054607c7c463e92c413d5991aaec4c5df5b7cf737056d32d172a5f2661",
+      "schema": {}
+    },
+    {
+      "path": "docs/MAINTENANCE.md",
+      "stage": "docs",
+      "size": 3941,
+      "sha256": "59b0a2d04e98ee0e0bc67087afac6299c51803ebcf46fb02989ac98caf9c567a",
       "schema": {}
     },
     {
@@ -48231,8 +48238,8 @@
     {
       "path": "docs/NORMALISATION_AUDIT.md",
       "stage": "docs",
-      "size": 3449,
-      "sha256": "096493c3832be62526d34dac2c5710c4691b28d38b9b4c102f1e52704182b63b",
+      "size": 3963,
+      "sha256": "95684d8d8a33fe35c3bf1f194451432bc11944d344a933bc8aa0d532bd0a689d",
       "schema": {}
     },
     {
@@ -48245,15 +48252,15 @@
     {
       "path": "docs/READINESS_AUDIT.md",
       "stage": "docs",
-      "size": 2954,
-      "sha256": "c21297a06daa415e296bbb35cd446a4a3b3d61313523dffa104ef65681027dce",
+      "size": 3418,
+      "sha256": "68db74736cfca97d01295126d3a4fc1c2853ec422ebaef29c0dfb7bb7d946457",
       "schema": {}
     },
     {
       "path": "docs/README.md",
       "stage": "docs",
-      "size": 3666,
-      "sha256": "752f35edfd6e7a2b2e7ef1020f23a6fb2c03e2df1c6b2c2055ad3438cbf4a15f",
+      "size": 3753,
+      "sha256": "2d11705d16df8f524f74be0e975b1d1fe16f10bd8a77a156e527ce07f2be4924",
       "schema": {}
     },
     {
@@ -48336,15 +48343,15 @@
     {
       "path": "docs/submission/README.md",
       "stage": "docs",
-      "size": 3325,
-      "sha256": "7f3980ab398b1f80e4b5a3d38f731f13d54748873b15762072f3f458da22fb09",
+      "size": 3397,
+      "sha256": "01b7d864707cb30b359e0026d0197829cec084201c0d445529dd9256694dc141",
       "schema": {}
     },
     {
       "path": "docs/SUPPLEMENTARY.md",
       "stage": "docs",
-      "size": 4893,
-      "sha256": "b8e49ae0894e04faf679ff3619eaa76ee36fbb21ec9d5b0c3fd07ffd76dd0f38",
+      "size": 4909,
+      "sha256": "0b390822d07a7aefbc98723671bf1a7bfcada6286b382d27e90e19c4be315d58",
       "schema": {}
     },
     {
@@ -48975,6 +48982,13 @@
       "stage": "code",
       "size": 3856,
       "sha256": "7c7df33bd6753fd03cd8335d72c5afddfeb37454aa9549f3034196cb85e56506",
+      "schema": {}
+    },
+    {
+      "path": "code/maintain.py",
+      "stage": "code",
+      "size": 10258,
+      "sha256": "46f94baeee927e5ba1212be61fbc635293b4862fdf7c56e3f72dc07065b83ccd",
       "schema": {}
     },
     {
