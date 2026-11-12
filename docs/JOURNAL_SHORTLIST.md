@@ -1,9 +1,11 @@
 # 免费 SCI 期刊评估（核实版，2026-11-12）
 
-**按“无版面费 + 最高录用率”：首投 _Earth Science Informatics_（Springer）。**
-订阅路径 0 费用、无版面费、SCIE/Q2，主题就是地学数据、计算工作流与可复现性；对
-本稿“基准 + 审计 + 部分负结果”的接受度高于 C&G。C&G 仍是免费选项里唯一的
-Q1/中科院 2 区，但录用率明显更低——**分区是硬指标时选 C&G，否则选 ESI**。
+**最终选择：_Computers & Geosciences_（Elsevier）。** 免费订阅路径（0 APC、
+0 版面费）、JCR Q1 / 中科院 地球科学 2 区，且与“基准 + 软件 + 审计”的稿型最匹配。
+Earth Science Informatics 作为兜底：3 区、录用率更高、同样免费。
+
+**若只看录用率**：首投 _Earth Science Informatics_；它对“基准 + 审计 + 部分负
+结果”的接受度高于 C&G。选择 C&G 的代价是录用率，换来的是 2 区与更强的期刊匹配。
 
 **免费、无版面费的录用率排序：ESI → Journal of Applied Geophysics →
 Acta Geophysica → Pure and Applied Geophysics。** 录用率没有官方数字，这个排序
@@ -97,36 +99,34 @@ PLOS ONE、Frontiers 系列、Solid Earth / Geoscientific Model Development (Cop
 ## 4. 推荐路线
 
 ```
-ESI（首选：免费、无版面费、录用率最高）
-  └─ 3 个月无进展 → Journal of Applied Geophysics（免费）
-       └─ Acta Geophysica / Pure and Applied Geophysics（免费保底）
-
-若单位硬性要求 Q1 / 中科院 2 区：
-C&G（免费，但录用率低于 ESI；备选 TGRS 有超页费）
+C&G（最终选择：免费、无版面费、Q1 / 中科院 2 区、最匹配）
+  └─ 3 个月无进展 → ESI（免费、3 区、录用率更高）
+       └─ JAG（免费保底）→ Acta Geophysica / PAGEOPH
 ```
 
-**不建议** Ore Geology Reviews、Natural Resources Research、Economic Geology：
-它们要正向找矿/矿床结果，本稿会被判“没有地质结论”。
+**不建议** Ore Geology Reviews、Economic Geology：它们要正向找矿/矿床结果，本稿会被判
+“没有地质结论”。Natural Resources Research 只在愿意把论文重构为资源评价/不确定性
+框架时考虑（2 区、免费，但属于改稿，不是换模板）。
 **不建议** 任何全 OA 遥感刊：APC 是硬成本，且审稿口味偏“应用新方法”，与本稿的
 “审计 + 负结果”不合。
 
-## 5. 投稿前清单（ESI 优先；C&G 分支见括号）
+## 5. 投稿前清单（C&G）
 
 1. **软件可用性段落**：名称、版本、许可证、仓库、归档 DOI、运行环境、复现命令。
    已在正文 “Reproducibility and data availability” 中加入 `Software availability`
-   段落（2026-11-12）；ESI 尤其看重这一点。
-2. **摘要** ≤ 250 词（现 247）、关键词 4–6 个（现 6 个）。Springer/ESI 不要求
-   Highlights；现有 `highlights.txt` 可留作可选材料。
-3. **图表**：正文 9 表 6 图；ESI 无硬性页数。仍建议把 Table 8（TES 敏感性）或
+   段落（2026-11-12）；C&G 明确要求软件可用性。
+2. **摘要** ≤ 250 词（现 247）、关键词 6 个、Highlights 5 条（每条 ≤ 85 字符，
+   现最大 77）。均已就绪（`docs/submission/`）。
+3. **图表**：正文 9 表 6 图；C&G 无硬性页数。仍建议把 Table 8（TES 敏感性）或
    Table 9（已发表实践）移入补充材料，正文留 7–8 表。
 4. **生成式 AI 声明**：Elsevier 要求披露。是否添加由作者决定（`docs/submission/README.md`
-   第 41 行仍标为待定）。
-5. **Cover letter**：已改为 ESI 版本（`docs/COVER_LETTER.md`）；C&G 版本在 git
-   提交 `d1a4cea` 中可取回。
+   仍标为待定）。
+5. **Cover letter**：已恢复为 C&G 版本（`docs/COVER_LETTER.md`）；ESI 版本在 git
+   提交 `87e9797` 中可取回。
 6. **费用确认**：订阅路径无 APC、无版面费；彩图印刷可能另计且可选，投稿系统里
-   不要勾选 Open Choice / OA 即可保持 0 费用。
-7. **参考文献格式**：ESI 要求作者-年份制。当前稿件是数字编号，上传前必须转换
-   （正文标记 + 24 条文献表）；这是投 ESI 唯一比 C&G/JAG 多出的实质工作。
+   选 subscription / no open access 即保持 0 费用。
+7. **参考文献格式**：正文 `[n]` 数字引用可直接用；C&G 为 Elsevier numbered 制，
+   参考文献列表的标点/作者写法可能需按期刊模板微调（不影响正文与表）。
 
 ## 6. 证据链接（可复核）
 

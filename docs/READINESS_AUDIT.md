@@ -52,7 +52,7 @@ contribution than the previous "fusion works / does not work" framing.
 | push to GitHub | **done** 2026-11-10 — see `docs/GITHUB_SETUP.md` |
 | Zenodo DOI | **done** 2026-11-11 — version 1.0.0; checksum verified 2026-11-12 |
 | `remote-sensing` community inclusion | request open since 2026-11-11; the record shows the community only after a curator accepts |
-| ESI/Springer template | needs the official template file; the double-spaced review copy is ready |
+| C&G/Elsevier two-column template | needs the official template file; the double-spaced review copy is ready |
 | generative-AI declaration | **author decision** — Elsevier requires it when generative AI was used |
 | journal submission | **not submitted**; the DOI identifies the software, not a publication |
 

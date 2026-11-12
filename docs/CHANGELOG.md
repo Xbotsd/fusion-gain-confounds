@@ -1,5 +1,21 @@
 # Changelog — cleanup and corrections
 
+## Round 14 — final journal choice: Computers & Geosciences (2026-11-12)
+
+* **Target fixed on C&G.** Free subscription route (0 APC, 0 page charges), JCR Q1 /
+  中科院 地球科学 2 区, and the best scope match for a benchmark + software + audit
+  paper. The acceptance-first alternative (ESI: free, 3 区, higher acceptance) is
+  documented as the fallback in `docs/JOURNAL_SHORTLIST.md`.
+* **Package switched back.** `docs/COVER_LETTER.md` is restored to the C&G version
+  (the ESI version remains in git `87e9797`); `docs/submission/README.md` targets
+  Elsevier again, highlights are marked as required (5 bullets, max 77 characters)
+  and the ESI-only author–year conversion is removed. References stay numeric;
+  only the reference-list punctuation may need minor restyling to Elsevier
+  numbered.
+* **Manuscript, data and artefacts unchanged.** The software-availability
+  paragraph, the numeric citations, the 9 tables and 6 figures all stay as they
+  are; nothing in `processed/` was regenerated for this decision.
+
 ## Round 13 — acceptance-first journal target (2026-11-12)
 
 * **Target changed to _Earth Science Informatics_ (Springer).** Under the stated

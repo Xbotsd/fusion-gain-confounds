@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-12T19:52:20+08:00",
+  "generated_at": "2026-11-12T19:55:42+08:00",
   "root": "D:\\A_MineralProspecting",
   "n_files": 6843,
-  "total_bytes": 11460615199,
+  "total_bytes": 11460616581,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -74,7 +74,7 @@
     },
     "docs": {
       "files": 58,
-      "bytes": 19437076
+      "bytes": 19438458
     },
     "code": {
       "files": 142,
@@ -48127,15 +48127,15 @@
     {
       "path": "docs/CHANGELOG.md",
       "stage": "docs",
-      "size": 27466,
-      "sha256": "4b078f70590b3dfa4c2b38ecbc2536f6e3dc877882e64321e6d84cf930b9f05b",
+      "size": 28516,
+      "sha256": "0ea1fce53ea7111ab1fe0f160899d7a4709d4db9b5ae6f5a7167eb8e99787bdd",
       "schema": {}
     },
     {
       "path": "docs/COVER_LETTER.md",
       "stage": "docs",
-      "size": 3823,
-      "sha256": "26becf45d2fd7a87774bf4127bd5914467ccf2d6636cab1f02015a6b9182ba5d",
+      "size": 3958,
+      "sha256": "31a288fd6fec9e2b93540cad52708c70072199b1c2182cb5ec69c315338b4f0f",
       "schema": {}
     },
     {
@@ -48191,8 +48191,8 @@
     {
       "path": "docs/JOURNAL_SHORTLIST.md",
       "stage": "docs",
-      "size": 10013,
-      "sha256": "c7b95265628ce4829f97a60d42e471470543755c3f5a4b8210485150a557cfbc",
+      "size": 10087,
+      "sha256": "8fe41c524c414f4d67c9a9226d24270301c68bcf71d286122e34b5fbc1599839",
       "schema": {}
     },
     {
@@ -48259,8 +48259,8 @@
     {
       "path": "docs/READINESS_AUDIT.md",
       "stage": "docs",
-      "size": 3449,
-      "sha256": "4d02c9a7e8b187166ac111d435a5572900c9168a1fbde3abda7def9829477c1d",
+      "size": 3460,
+      "sha256": "e4241e20858ac679ec9d78fb9138f858431f22a3918541c08a7a49a97edfa541",
       "schema": {}
     },
     {
@@ -48350,8 +48350,8 @@
     {
       "path": "docs/submission/README.md",
       "stage": "docs",
-      "size": 3760,
-      "sha256": "1a59397a11cec4199c74fb5bbfe347a1eeb1630a346c90c58366b46accccac30",
+      "size": 3872,
+      "sha256": "34570190aa72bec1ae807b91d2cc37dc0441d611ce760a6afe5bd6c77a113340",
       "schema": {}
     },
     {
