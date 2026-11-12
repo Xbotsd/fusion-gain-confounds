@@ -1,5 +1,44 @@
 # Changelog — cleanup and corrections
 
+## Round 11 — maintenance (2026-11-12)
+
+* **State re-verified from the artefacts, not from memory.** Working tree clean at
+  `36f1836`, in sync with `origin/main`; CI run
+  [43023376520](https://github.com/Xbotsd/fusion-gain-confounds/actions/runs/43023376520)
+  green; this round re-ran `test_core.py` (36/36 assertions) and
+  `validate_pipeline.py` (PASS, 53/53 artefacts, 22/22 invariants), which refreshed
+  `processed/pipeline_validation.json` with the same values. The last full
+  `run_all.py all` (2026-11-10) had exited 0.
+* **The archive was checked, not assumed.** The Zenodo file
+  `fusion-gain-confounds-1.0.0.zip` was downloaded: its MD5
+  `5a9ee01403f63109bd0076c436093323` equals the record's checksum, its 270 entries
+  equal `git ls-tree -r 2d194a2`, and the DOI resolves to record 24130421.
+* **Metadata aligned with that snapshot.** `pyproject.toml` still named the old
+  repository (`ivanpah-fusion-benchmark`, version 0.1.0); it is now
+  `fusion-gain-confounds` 1.0.0 with repository and DOI URLs. `.zenodo.json` moved
+  to version 1.0.0 and now carries the published description, the `eng` language
+  and the GitHub `isSupplementTo` relation alongside the SIM 3206 citation.
+* **Tag and release added.** `v1.0.0` is an annotated tag on `2d194a2`, the archived
+  commit, and the GitHub release points at the DOI. Until now the only release
+  (`v0.1.0`) was unrelated to the DOI, which made the archive untraceable from
+  GitHub; it is now marked superseded.
+* **Documentation corrected where it contradicted the artefacts.** The "25 unit
+  tests" in the README, SUPPLEMENTARY, READINESS_AUDIT and the cover letter are 36
+  assertions in 9 test groups; the cover letter's "19 invariants" is 22; the
+  submission checklist's abstract count (236) is 247 and its data-availability row
+  still said "DOI on acceptance"; READINESS_AUDIT and GAP_AUDIT still listed the
+  GitHub push and the DOI as open; NORMALISATION_AUDIT still said the fix was
+  "designed, not yet applied" although Round 7 applied it.
+* **Maintenance made repeatable.** `code/maintain.py` is a read-only health check
+  (git state, version strings, DOI strings, Zenodo record, GitHub release,
+  placeholder/encoding scan, last validator run) and `docs/MAINTENANCE.md` states
+  what may change and how a new version is published.
+* **Zenodo was not edited.** Record 24130421 stays at version 1.0.0, the
+  `remote-sensing` inclusion request is still open, and there is no newer upload of
+  this project to maintain. DOI 10.5281/zenodo.24130421 is a *version* DOI: a new
+  version gets a new version DOI, while the concept DOI 10.5281/zenodo.24130420
+  stays fixed.
+
 ## Removed
 
 All versioned duplicates and the pre-translation backup were deleted from

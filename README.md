@@ -37,7 +37,12 @@ cube gives 0.354.
 .\run.bat legacy           # synthetic-TIR reference branch (optional)
 ```
 
-Measured: 53 artefacts, 22 invariants, 25 unit tests, 0 coverage orphans.
+Measured: 53 artefacts, 22 invariants, 36 unit assertions, 0 coverage orphans.
+
+The archived snapshot is version 1.0.0 (commit `2d194a2`) at
+[10.5281/zenodo.24130421](https://doi.org/10.5281/zenodo.24130421).
+`python code/maintain.py` re-checks the repository, the DOI and the record;
+`docs/MAINTENANCE.md` is the procedure for a new version.
 
 ## Layout
 

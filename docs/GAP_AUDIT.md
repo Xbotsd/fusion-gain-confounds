@@ -1,7 +1,8 @@
 # Gap audit — what is done, what is missing, and where the rigour is thin
 
-Snapshot 2026-11-10, real-ASTER main line: **53/53 artefacts, 22/22 invariants,
-25/25 unit tests, 0 coverage orphans**, manifest 6,772 files / 11.45 GB.
+Snapshot 2026-11-10, re-verified 2026-11-12, real-ASTER main line: **53/53
+artefacts, 22/22 invariants, 36/36 unit assertions, 0 coverage orphans**, manifest
+with SHA-256 for every file (about 6.7k files / 11.5 GB).
 
 ## Rigour scorecard
 
@@ -28,14 +29,14 @@ Snapshot 2026-11-10, real-ASTER main line: **53/53 artefacts, 22/22 invariants,
 * **A model-free information test**: +0.179 balanced accuracy (CI [0.120, 0.241],
   20/20), null for a block-shuffled cube.
 * **Independent target wired into every experiment** (proxy F1 *and* geology AUC).
-* Manuscript rewritten; abstract 249 words; 9 tables, 6 figures in order.
+* Manuscript rewritten; abstract 247 words; 9 tables, 6 figures in order.
 
 ## Open — needs an external action
 
 | # | item | who |
 |---:|---|---|
-| 1 | create the GitHub repository and push (`docs/GITHUB_SETUP.md`) | **you** — credentials |
-| 2 | Zenodo DOI from that repository | **you** |
+| 1 | create the GitHub repository and push (`docs/GITHUB_SETUP.md`) | **done** 2026-11-10 |
+| 2 | Zenodo DOI from that repository | **done** 2026-11-11 — version 1.0.0 |
 | 3 | CRediT, conflict of interest, funding, acknowledgements | me, **funding text from you** |
 | 4 | target-journal two-column template and figure sizing | needs the template file |
 | 5 | cover-letter reviewer suggestions | **needs real names** |

@@ -23,7 +23,7 @@ items marked *(confirm)* on the Guide for Authors page before uploading.
 
 | requirement | state |
 |---|---|
-| Abstract ≤ 250 words | 236 |
+| Abstract ≤ 250 words | 247 (whitespace count) |
 | Highlights: ≤ 5 bullets, ≤ 85 characters each | 5 bullets, max 77 |
 | Keywords ≤ 6 | 6 |
 | Double-spaced text with line numbers | yes (2.0, continuous) |
@@ -36,9 +36,9 @@ items marked *(confirm)* on the Guide for Authors page before uploading.
 | Declaration of competing interests | present |
 | Funding statement | present (none) |
 | Acknowledgements and data-source credits | present |
-| Data availability statement | present (repository, MIT licence, Zenodo DOI on acceptance) |
+| Data availability statement | present (repository, MIT licence, Zenodo DOI 10.5281/zenodo.24130421) |
 | Cover letter | present, numbers rewritten against the current results |
-| Generative-AI declaration | **not yet added — needs your decision** |
+| Generative-AI declaration | **not added — author decision** (Elsevier requires it when generative AI was used) |
 
 ## Still to do before upload
 

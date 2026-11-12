@@ -64,7 +64,8 @@ spurious gain.
 `docs/READINESS_AUDIT.md` (publication readiness), `docs/GAP_AUDIT.md` (what is
 missing and why), `docs/MODEL_AUDIT.md` (model caveats),
 `docs/NORMALISATION_AUDIT.md` (the two switch-off bugs and their fix),
-`docs/REFERENCES_AUDIT.md` (bibliography state), `docs/CHANGELOG.md`.
+`docs/REFERENCES_AUDIT.md` (bibliography state), `docs/MAINTENANCE.md`
+(how the repository and the Zenodo record are kept consistent), `docs/CHANGELOG.md`.
 
 Older round notes are in `docs/archive/`; they are historical and their numbers
 are superseded — see `docs/archive/README.md`.

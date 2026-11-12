@@ -1,15 +1,16 @@
 # Publication readiness — real-ASTER main line
 
-Date: 2026-11-10. Every number below is from a command, not recall.
+Date: 2026-11-10; maintenance pass 2026-11-12. Every number below is from a command, not recall.
 
 ## Verdict
 
 | layer | verdict |
 |---|---|
-| Framework | **complete** — 53 artefacts, 22 invariants, 0 coverage orphans, 25 unit tests |
+| Framework | **complete** — 53 artefacts, 22 invariants, 0 coverage orphans, 36 unit assertions (9 test groups) |
 | Functional coverage | **complete for the manuscript**; the legacy synthetic branch is labelled and optional |
 | Data reality | gamma, ASTER TIR, TMI and geology are real; **EM is synthetic and cannot be otherwise** |
 | Manuscript | rewritten around the new evidence, 9 tables, 6 figures, IEEE-style references |
+| Archive | **published** — Zenodo 10.5281/zenodo.24130421, version 1.0.0; file checksum and contents re-verified 2026-11-12 |
 
 ## What changed and why it matters
 
@@ -39,20 +40,21 @@ contribution than the previous "fusion works / does not work" framing.
 | stages | prepare, main, controls, aux, legacy, figures, audit (+ asu, refs network) |
 | artefacts validated | **53/53** |
 | cross-artefact invariants | **22/22** |
-| unit tests | **25/25** |
+| unit assertions | **36/36 in 9 test groups** |
 | coverage orphans | **0** |
-| manifest | 6,772 files / 11.45 GB with SHA-256 |
+| manifest | every file with SHA-256 (`processed/data_manifest.json`, about 6.7k files / 11.5 GB) |
 | raw ASTER archived | 7 scenes + XML, `raw/aster/<date>/manifest.json` |
 
 ## Still open (needs an external action)
 
-| item | who |
+| item | state |
 |---|---|
-| push to GitHub (credentials) | **you** — see `docs/GITHUB_SETUP.md` |
-| Zenodo DOI (after the push) | **you** |
+| push to GitHub | **done** 2026-11-10 — see `docs/GITHUB_SETUP.md` |
+| Zenodo DOI | **done** 2026-11-11 — version 1.0.0; checksum verified 2026-11-12 |
+| `remote-sensing` community inclusion | request open since 2026-11-11; the record shows the community only after a curator accepts |
 | JSTARS/C&G two-column template | needs the official template file |
-| CRediT / conflict of interest / funding text | me, but **funding text from you** |
-| measured AEM section | does not exist at this site — stated in the paper |
+| generative-AI declaration | **author decision** — Elsevier requires it when generative AI was used |
+| journal submission | **not submitted**; the DOI identifies the software, not a publication |
 
 ## Scientific limits, stated in the paper
 

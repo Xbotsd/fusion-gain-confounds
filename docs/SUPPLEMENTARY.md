@@ -21,7 +21,7 @@
 | `uncertainty_calibration.py` | coverage and reliability of the filter variance |
 | `autocorr_sample_size.py` | integral scale, design effect, N_eff |
 | `run_edge_ai.py`, `prepare_granite.py`, `run_granite_compensation.py` | edge-deployment modules |
-| `test_core.py` | 25 unit checks, including the two switch-off invariances |
+| `test_core.py` | 36 assertions in 9 test groups, including the two switch-off invariances |
 | `check_coverage.py` | fails if any validated artefact has no producer |
 | `validate_pipeline.py` | 53 artefacts, 22 invariants |
 | `make_figures.py`, `make_graphical_abstract.py` | paper figures and the graphical abstract |

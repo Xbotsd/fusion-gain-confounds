@@ -25,8 +25,8 @@ used as a controlled augmentation, not as evidence about field EM.
 
 **It is reproducible in a checkable sense.** The pipeline is 40 scripts in eight
 stages. A coverage guard fails if any validated artefact lacks a producing
-script; a validator checks 53 artefacts and 19 cross-artefact invariants; 25 unit
-tests cover the estimator's algebraic properties, including the two switch-off
+script; a validator checks 53 artefacts and 22 cross-artefact invariants; 36 unit
+assertions cover the estimator's algebraic properties, including the two switch-off
 invariances; every file carries a SHA-256 in a manifest; dependencies are pinned.
 A single command rebuilds every number in the paper.
 

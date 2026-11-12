@@ -1,13 +1,14 @@
 {
   "title": "Two confounds in reported fusion gains for airborne mineral exploration",
-  "description": "Reproducible airborne multi-modal mineral-exploration benchmark: real USGS radiometrics + real ASTER L1T thermal infrared + real aeromagnetics + USGS SIM 3206 geology, with a documented synthetic EM augmentation. Separates target circularity from the conditioning effect of an underdetermined inversion and provides a model-free information test.",
+  "description": "Reproducible airborne multi-modal mineral-exploration benchmark over the Ivanpah-Clark Mountain area (Nevada-California), built from public data: USGS airborne radiometrics (295,943 samples, 2019-2020), real ASTER L1T thermal infrared (five emissivity bands, 2006-10-18, retrieved by normalisation TES), real USGS aeromagnetics and the USGS SIM 3206 surficial geologic map. Airborne EM is synthetic and labelled as such, because no measured airborne EM exists over this footprint.\n\nThe benchmark separates two confounds that inflate reported fusion gains. (1) Target circularity: the clay proxy is derived from the gamma channels being inverted. (2) An underdetermined inversion: three gamma channels for five mineral unknowns give rank 3, so appending any channel changes conditioning before it adds information. Five inert channels with the true ASTER response rows recover 69-98% of the F1 gain and a geological AUC at least as high as the real cube's, while a model-free four-substrate test that never uses the response matrix keeps a smaller real gain (+0.179 balanced accuracy, 95% CI [0.120, 0.241], 20/20 repeats).\n\nContents of the archive: code (40 scripts, eight stages), the manuscript (Markdown and Word), all result JSON/CSV files, the figure sources, the audit and validation outputs, and a manifest with SHA-256 hashes. Raw third-party data and the derived cubes are not redistributed; the documented preparation stage rebuilds them.\n\nReproduce with: python code/run_all.py prepare && python code/run_all.py. The public repository is https://github.com/Xbotsd/fusion-gain-confounds.",
   "upload_type": "software",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "language": "eng",
   "creators": [
     {
       "name": "Xu, Yudong",
-      "affiliation": "Heilongjiang University of Science and Technology",
+      "affiliation": "Heilongjiang University of Science and Technology, Harbin, China",
       "orcid": "0009-0002-3231-0444"
     }
   ],
@@ -21,6 +22,11 @@
     "mineral exploration"
   ],
   "related_identifiers": [
+    {
+      "identifier": "https://github.com/Xbotsd/fusion-gain-confounds",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    },
     {
       "identifier": "10.3133/sim3206",
       "relation": "cites",

@@ -29,7 +29,8 @@ that ignores inactive rows the two matrices agree exactly, as they must.
 ## Consequences for the current numbers
 
 Both bugs are fixed (§*The fix*) and the whole benchmark was re-run. What the
-fix changed, stated against the numbers now in `main_results.json`:
+fix changed, stated against the numbers in `main_results.json` at the time
+(2026-11-08; the real-ASTER main line came later):
 
 * The gamma-only row no longer depends on which EM matrix is used: it is 0.531
   under the legacy and the corrected model alike. Before the fix the same row
@@ -65,9 +66,14 @@ once the normalisation is made neutral is now an open, answerable question.
 
 ## Status
 
-* Fix designed, not yet applied (it invalidates every number in `docs/`).
-* Experiments 2–4 of the rigor plan (bootstrap CI, TES sensitivity, second date)
-  should run **after** the fix, otherwise they inherit the artefact.
-* Experiment 1's geology-target results are recorded in
-  `processed/independent_target.json` but are marked provisional for the same
-  reason.
+* **Applied** (Round 7, 2026-11-08). `common.normalize_H` divides each mineral
+  column by its norm over the rows that are *active* in the experiment, and
+  `test_core.py` asserts both switch-off invariances ("inactive rows do not change
+  the estimate" and "switching channels off equals deleting them").
+* Every artefact was regenerated after the fix. The numbers quoted above are the
+  state measured on 2026-11-07 and are kept only as the audit trail; the current
+  numbers are in `docs/RESULTS.md`.
+* Experiments 2–4 of the rigor plan (bootstrap CI, TES sensitivity, second
+  acquisition date) ran **after** the fix, so they do not inherit the artefact.
+* The pre-fix geology-target run in `processed/independent_target.json` is
+  superseded by the main-line `geology_multiclass.json` and `tir_information.json`.

@@ -36,9 +36,23 @@ Zenodo record: https://zenodo.org/records/24130421
   keywords and a relation to the GitHub repository
 
 The record was created through the Zenodo API (`POST /api/deposit/depositions`,
-bucket upload, then `actions/publish`), not through the GitHub webhook, so the
-GitHub release `v0.1.0` is unrelated to the DOI. A later version is published the
-same way, or by linking the repository in Zenodo and cutting a new release.
+bucket upload, then `actions/publish`), not through the GitHub webhook. The
+`v0.1.0` release predates the DOI; `v1.0.0` is the archived snapshot (below).
+A later version is published the same way.
+
+## Releases and tags
+
+* `v0.1.0` — the first push, before the rename and before the DOI existed. It is
+  kept only so the history is traceable, and its release notes say that it is
+  superseded.
+* `v1.0.0` — annotated tag on `2d194a2`, the exact commit archived at Zenodo as
+  `fusion-gain-confounds-1.0.0.zip` (270 entries; the zip listing equals
+  `git ls-tree -r 2d194a2`, and the file's MD5 matches the record's
+  `5a9ee01403f63109bd0076c436093323`). The commits after it are metadata-only:
+  the DOI strings, the expanded Zenodo description and these notes.
+
+A later version follows the same rule: tag the commit, archive that tag, and only
+then publish the Zenodo version, so the DOI always names a commit that exists.
 
 ## Maintaining the Zenodo record
 
