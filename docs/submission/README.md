@@ -1,13 +1,12 @@
 # Submission package — checks against the journal's requirements
 
-Target: *Computers & Geosciences* (Elsevier), confirmed on 2026-11-12 as the
-best free option (subscription route, no APC); fallbacks are Earth Science
-Informatics and Journal of Applied Geophysics, see `../JOURNAL_SHORTLIST.md`.
-**Caveat:** the live Guide for
-Authors could not be retrieved from this machine (ScienceDirect answers HTTP 403
-to scripted requests), so the list below was checked against Elsevier's standard
-article requirements, not against the current journal-specific text. Re-check
-items marked *(confirm)* on the Guide for Authors page before uploading.
+Target: *Earth Science Informatics* (Springer), chosen on 2026-11-12 under the
+"no page charges + highest acceptance" constraint: subscription route, no APC,
+no page charges (`../JOURNAL_SHORTLIST.md`). *Computers & Geosciences* remains
+the free Q1/中科院 2 区 alternative. **Caveat:** the live Guide for Authors could
+not be retrieved from this machine, so the list below was checked against
+Springer's standard article requirements, not the current journal-specific
+text. Re-check items marked *(confirm)* before uploading.
 
 ## Files in this folder
 
@@ -27,7 +26,7 @@ items marked *(confirm)* on the Guide for Authors page before uploading.
 | requirement | state |
 |---|---|
 | Abstract ≤ 250 words | 247 (whitespace count) |
-| Highlights: ≤ 5 bullets, ≤ 85 characters each | 5 bullets, max 77 |
+| Highlights | not required by ESI; 5 bullets (max 77 chars) kept as optional |
 | Keywords ≤ 6 | 6 |
 | Double-spaced text with line numbers | yes (2.0, continuous) |
 | Tables as editable text, not images | 9 native Word tables |
@@ -54,7 +53,10 @@ items marked *(confirm)* on the Guide for Authors page before uploading.
    the `.docx`.
 2. **Repository DOI — done.** https://doi.org/10.5281/zenodo.24130421 (version 1.0.0), concept
    https://doi.org/10.5281/zenodo.24130420. The manuscript, `CITATION.cff` and README carry it.
-3. **Confirm three journal-specific points** on the Guide for Authors: reference
-   style (numbered vs author-date), whether the graphical abstract is mandatory,
-   and whether a separate title-page file is required (this package keeps the
-   title page inside the manuscript).
+3. **Convert the references to Springer Basic (author-year).** The manuscript
+   currently uses IEEE numeric citations ([1]–[24]); ESI requires author-year.
+   This is the one real reformatting step before an ESI upload; JAG/C&G would
+   not need it.
+4. **Confirm journal-specific points** on the ESI Guide for Authors: reference
+   style, whether highlights are accepted as a separate file, and whether a
+   separate title page is required (this package keeps it inside the manuscript).

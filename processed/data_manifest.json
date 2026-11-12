@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-12T19:15:22+08:00",
+  "generated_at": "2026-11-12T19:24:59+08:00",
   "root": "D:\\A_MineralProspecting",
   "n_files": 6843,
-  "total_bytes": 11460610098,
+  "total_bytes": 11460613986,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -74,7 +74,7 @@
     },
     "docs": {
       "files": 58,
-      "bytes": 19431975
+      "bytes": 19435863
     },
     "code": {
       "files": 142,
@@ -48127,15 +48127,15 @@
     {
       "path": "docs/CHANGELOG.md",
       "stage": "docs",
-      "size": 26008,
-      "sha256": "76eccf17a64c6f354d33c621a66a961490da4b138e5179757ae72c410c38df73",
+      "size": 27466,
+      "sha256": "4b078f70590b3dfa4c2b38ecbc2536f6e3dc877882e64321e6d84cf930b9f05b",
       "schema": {}
     },
     {
       "path": "docs/COVER_LETTER.md",
       "stage": "docs",
-      "size": 3958,
-      "sha256": "31a288fd6fec9e2b93540cad52708c70072199b1c2182cb5ec69c315338b4f0f",
+      "size": 3823,
+      "sha256": "26becf45d2fd7a87774bf4127bd5914467ccf2d6636cab1f02015a6b9182ba5d",
       "schema": {}
     },
     {
@@ -48191,8 +48191,8 @@
     {
       "path": "docs/JOURNAL_SHORTLIST.md",
       "stage": "docs",
-      "size": 6442,
-      "sha256": "794368b9e8c2e7b6d34f76d44f28fa675e4645f42341d959b4a84a99f19c1149",
+      "size": 8800,
+      "sha256": "4d0a976d88cb3de41981c83df0dec8288c97d545dac4236e0a334d4bbd541a5d",
       "schema": {}
     },
     {
@@ -48259,8 +48259,8 @@
     {
       "path": "docs/READINESS_AUDIT.md",
       "stage": "docs",
-      "size": 3418,
-      "sha256": "68db74736cfca97d01295126d3a4fc1c2853ec422ebaef29c0dfb7bb7d946457",
+      "size": 3449,
+      "sha256": "4d02c9a7e8b187166ac111d435a5572900c9168a1fbde3abda7def9829477c1d",
       "schema": {}
     },
     {
@@ -48350,8 +48350,8 @@
     {
       "path": "docs/submission/README.md",
       "stage": "docs",
-      "size": 3584,
-      "sha256": "60ee37e095eedb8141e885b1082d8bd977fececf6bd85f02467ec7bbd0d6b981",
+      "size": 3760,
+      "sha256": "1a59397a11cec4199c74fb5bbfe347a1eeb1630a346c90c58366b46accccac30",
       "schema": {}
     },
     {

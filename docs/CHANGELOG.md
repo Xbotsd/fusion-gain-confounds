@@ -1,5 +1,27 @@
 # Changelog — cleanup and corrections
 
+## Round 13 — acceptance-first journal target (2026-11-12)
+
+* **Target changed to _Earth Science Informatics_ (Springer).** Under the stated
+  constraint — no page charges and the highest realistic acceptance — ESI is the
+  best free option: subscription route with no APC and no page charges, a scope
+  built around geoscience data, computational workflows and reproducibility, and
+  a review culture more receptive to a benchmark with a partly negative result
+  than C&G. The acceptance ordering and its caveats are in
+  `docs/JOURNAL_SHORTLIST.md`.
+* **C&G is kept as the Q1 alternative.** It remains free (subscription route) and
+  is the only free Q1 / 中科院 2 区 option in this list, but its acceptance rate is
+  lower; the choice is now explicit rather than implicit.
+* **Package updated for ESI.** `docs/COVER_LETTER.md` is rewritten for *Earth
+  Science Informatics*; `docs/submission/README.md` now targets Springer, marks
+  highlights as optional and records the one real reformatting task: the
+  manuscript still uses IEEE numeric citations and must be converted to Springer
+  Basic (author–year) before an ESI upload. JAG and C&G use numeric styles and
+  would not need that step. The C&G letter and the numeric manuscript remain in
+  git (`d1a4cea`).
+* **Manuscript text, numbers and docx unchanged.** This round changes only the
+  venue-facing documents; the validator, artefacts and figures are untouched.
+
 ## Round 12 — system check and journal choice (2026-11-12)
 
 * **End-to-end rerun from the committed tree.** `python code/run_all.py all`
