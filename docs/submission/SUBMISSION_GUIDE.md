@@ -125,6 +125,21 @@ bootstrap）。选 6–8 项都合理，1 项即满足系统要求。
    `The code and the derived results are archived at https://doi.org/10.5281/zenodo.24130421 (all versions: https://doi.org/10.5281/zenodo.24130420).`
    生成式 AI 声明正文里已有，按需粘贴同段文字。
 
+### 4.0 稿件分类页（1–2 个，不是多选）
+
+投稿流程里还有一页 "Identify your manuscript's area of interest… by selecting
+**1 to 2** classifications"——这一页**最多选 2 个**，用于分配审稿人，和个人资料页
+可以多选不同。
+
+本稿推荐选这 2 个：
+
+1. **Inverse problems & data assimilation**（欠定反演、秩、条件数——论文的方法核心）
+2. **Remote sensing in a geoscience context**（真实 ASTER 热红外、航空数据融合）
+
+若更希望审稿人来自找矿/地球物理背景，可把第 2 个换成
+`Geochemistry & mineral exploration` 或 `Electromagnetic & potential field methods`；
+但**不要超过 2 个**，否则页面会报错。
+
 ### 4.1 作者页的 Contributor roles（必填）
 
 系统要求至少 1 个 CRediT 角色（红字 `Select at least one contributor role`）。
