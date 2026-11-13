@@ -21,7 +21,7 @@ usual pitfalls. `paste_fields.txt` holds the exact text to paste into the form.
 
 `python code/make_submission_package.py` rebuilds `upload/` and
 `upload_manifest.json` from the canonical files every time it runs, so the upload
-cannot drift from the manuscript. `CG_submission_package.zip` holds the same 11
+cannot drift from the manuscript. `CG_submission_package.zip` holds the same 12
 files (git-ignored, as are the copies under `upload/`; rebuild with the script).
 
 | Editorial Manager slot | file in `upload/` | size |
@@ -29,6 +29,7 @@ files (git-ignored, as are the copies under `upload/`; rebuild with the script).
 | Cover Letter | `Cover_Letter.docx` | 40 KB |
 | Manuscript (Word) | `Manuscript.docx` | 9.3 MB |
 | Highlights | `Highlights.docx` | 40 KB |
+| Declaration of competing interests | `Declaration_of_Competing_Interests.docx` | 40 KB |
 | Figure 1–6 | `figures/figure01..06.png` | 0.1–5.0 MB each |
 | Graphical Abstract | `Graphical_Abstract.png` | 0.15 MB |
 | Supplementary Material | `Supplementary_Material.docx` | 40 KB |
@@ -46,6 +47,7 @@ the journal uses.
 | `../Manuscript_v2_draft.docx` | the manuscript: title page, abstract, 6 keywords, 8 tables, 6 figures, continuous line numbers, double spacing |
 | `../Supplementary_Tables.docx` | supplementary Table S1 (thermal-retrieval sensitivity), referenced from §7.6 |
 | `highlights.txt` / `highlights.docx` | 5 bullets, 70-77 characters each (limit 85, up to 5) |
+| `declaration_of_competing_interests.docx` | required separate Word file: no competing interests |
 | `keywords.txt` | the 6 keywords, one line |
 | `figure_captions.txt` | the six captions, numbered to match `figures/` |
 | `figures/figure01..06.png` | the six figures as separate files, 300 dpi, RGB |

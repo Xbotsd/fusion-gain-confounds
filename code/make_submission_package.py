@@ -181,6 +181,27 @@ for b in bullets:
 doc.save(OUT / "highlights.docx")
 print("wrote highlights.docx")
 
+# declaration of competing interests (required as a separate Word file)
+doc = base_doc()
+doc.add_heading("Declaration of competing interests", level=1)
+doc.add_paragraph("Manuscript title: " + title)
+doc.add_paragraph("Author: Yudong Xu (ORCID 0009-0002-3231-0444)")
+doc.add_paragraph("Affiliation: Heilongjiang University of Science and Technology, "
+                  "Harbin, China")
+doc.add_paragraph("Corresponding author e-mail: 3468858545@qq.com")
+doc.add_paragraph(
+    "The author declares that he has no known competing financial interests or "
+    "personal relationships that could have appeared to influence the work "
+    "reported in this paper.")
+doc.add_paragraph(
+    "The author also confirms that he does not currently serve, and has not "
+    "served in the past three years, on the editorial board of Computers & "
+    "Geosciences.")
+doc.add_paragraph("Date: " + dt.date.today().strftime("%d %B %Y"))
+doc.add_paragraph("Signature: Yudong Xu")
+doc.save(OUT / "declaration_of_competing_interests.docx")
+print("wrote declaration_of_competing_interests.docx")
+
 
 # ------------------------------------------------------------ upload folder
 def flatten(src: Path, dst: Path) -> None:
@@ -197,6 +218,8 @@ if UPLOAD.exists():
 shutil.copy2(MS, UPLOAD / "Manuscript.docx")
 shutil.copy2(OUT / "cover_letter.docx", UPLOAD / "Cover_Letter.docx")
 shutil.copy2(OUT / "highlights.docx", UPLOAD / "Highlights.docx")
+shutil.copy2(OUT / "declaration_of_competing_interests.docx",
+             UPLOAD / "Declaration_of_Competing_Interests.docx")
 shutil.copy2(ROOT / "docs" / "Supplementary_Tables.docx",
              UPLOAD / "Supplementary_Material.docx")
 for i in range(1, 7):
@@ -209,6 +232,7 @@ slots = {
     "Cover_Letter.docx": "Cover Letter",
     "Manuscript.docx": "Manuscript (Word)",
     "Highlights.docx": "Highlights",
+    "Declaration_of_Competing_Interests.docx": "Declaration of competing interests",
     "Supplementary_Material.docx": "Supplementary Material",
     "Graphical_Abstract.png": "Graphical Abstract",
 }

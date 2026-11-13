@@ -1,5 +1,18 @@
 # Changelog — cleanup and corrections
 
+## Round 19 — new Elsevier upload page (2026-11-13)
+
+* The submission UI now lists **Manuscript, Highlights, Cover letter and
+  Declaration of competing interests** as required files, with a file-type
+  dropdown and a separate optional/supplementary section.
+* Added `Declaration_of_Competing_Interests.docx`, generated with the package:
+  manuscript title, author, affiliation, a statement of no competing interests, a
+  statement of no editorial-board service, date and signature. The upload set is
+  now 12 files.
+* `SUBMISSION_GUIDE.md` §5 and the submission README follow the new flow
+  (required vs optional slots, automatic metadata extraction, no Data in Brief /
+  MethodsX co-submission, which carries an extra charge).
+
 ## Round 18 — registration fields for Editorial Manager (2026-11-13)
 
 * The registration page requires **1+ personal classifications and 5+ personal

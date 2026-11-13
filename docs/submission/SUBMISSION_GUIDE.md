@@ -21,6 +21,7 @@
 | 系统槽位 | 文件 | 说明 |
 |---|---|---|
 | Cover Letter | `Cover_Letter.docx` | 日期 13 November 2026，致 C&G 主编 |
+| Declaration of competing interests | `Declaration_of_Competing_Interests.docx` | **系统必传**，Word 文件（无利益冲突声明） |
 | Manuscript | `Manuscript.docx` | 正文：标题页、摘要、8 表、6 图、行号、双倍行距 |
 | Highlights | `Highlights.docx` | 5 条，最长 77 字符（上限 85） |
 | Figure | `figures/figure01.png` … `figure06.png` | 逐张上传，RGB / 300 dpi |
@@ -124,18 +125,39 @@ bootstrap）。选 6–8 项都合理，1 项即满足系统要求。
    `The code and the derived results are archived at https://doi.org/10.5281/zenodo.24130421 (all versions: https://doi.org/10.5281/zenodo.24130420).`
    生成式 AI 声明正文里已有，按需粘贴同段文字。
 
-## 5. 上传文件（Item Type 对照）
+## 5. 上传文件（Elsevier 新投稿界面）
 
-| 顺序 | 上传文件 | Item Type |
+新版界面分两栏：左侧 "Upload your submission files"，右侧是要求说明。
+
+**Required files（必传，缺一不可）**：Manuscript、Highlights、Cover letter、
+Declaration of competing interests。每次在 `Select file type` 下拉框选类型 → 点
+`Upload` 选文件。
+
+| 顺序 | 文件 | 下拉框 File type |
 |---:|---|---|
-| 1 | `Cover_Letter.docx` | Cover Letter |
-| 2 | `Manuscript.docx` | Manuscript |
-| 3 | `Highlights.docx` | Highlights |
-| 4–9 | `figures/figure01..06.png` | Figure（每张单独一条） |
-| 10 | `Graphical_Abstract.png` | Graphical Abstract |
-| 11 | `Supplementary_Material.docx` | Supplementary Material |
+| 1 | `Manuscript.docx` | Manuscript |
+| 2 | `Highlights.docx` | Highlights |
+| 3 | `Cover_Letter.docx` | Cover Letter |
+| 4 | `Declaration_of_Competing_Interests.docx` | Declaration of competing interests |
 
-要点：文件名只用字母/数字/下划线；图不要合并成一张；**不要上传 zip**；上传后可用 "Order" 调整顺序。
+**Optional and supplementary files（可选/补充）**：
+
+| 顺序 | 文件 | 下拉框 File type |
+|---:|---|---|
+| 5–10 | `figures/figure01..06.png` | Figure（每张单独上传） |
+| 11 | `Graphical_Abstract.png` | Graphical Abstract |
+| 12 | `Supplementary_Material.docx` | Supplementary Material |
+
+要点：
+
+- 稿件格式选 **Microsoft Word or similar**（上传 .docx）。
+- 系统会从稿件里自动提取标题/摘要/关键词/作者，下一步可核对修改。
+- 生成式 AI 声明已写在正文 Declarations（参考文献之前），符合右侧说明。
+- 利益冲突声明必须是**单独的 Word 文件**；若系统还提供 "declaration of interest tool"，
+  用它生成也可以，直接上传我们这份即可。
+- `Data in Brief` / `MethodsX` 联合投稿是可选项，会产生额外费用，**不选**。
+- 文件名只用字母/数字/下划线；**不要上传 zip**；图不要合并。
+- 全部上传完点 **`Save and continue`**，进入元数据核对页。
 
 ## 6. 生成 PDF 并检查
 
