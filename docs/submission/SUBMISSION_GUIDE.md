@@ -140,6 +140,24 @@ bootstrap）。选 6–8 项都合理，1 项即满足系统要求。
 `Geochemistry & mineral exploration` 或 `Electromagnetic & potential field methods`；
 但**不要超过 2 个**，否则页面会报错。
 
+### 4.0b Additional information 页（数据链接 / 预印本 / 学科）
+
+**Your research data**：选 `Yes`，把 Zenodo 归档作为可复现数据包链接出去。
+
+| 字段 | 填写 |
+|---|---|
+| Link to data repository | `https://doi.org/10.5281/zenodo.24130421` |
+| Repository name | `Zenodo`（下拉里没有就选 Other 并保留链接） |
+| Source of data | `Original data`（本研究的代码与派生结果是作者产出；若界面解释为“支撑材料”，改 Reference data 也可） |
+| Title of the data set | `fusion-gain-confounds 1.0.0: reproducible airborne multi-modal fusion benchmark, code and derived results` |
+
+**Free Preprint Service（SSRN）**：建议选 `NO`。预印本会在初审通过后立即公开，
+虽不影响审稿，但审稿期间稿件仍可能修改；Zenodo 归档已经提供了时间戳与 DOI。
+若想要早期可见性再选 YES。
+
+**Manuscript subject area**：选最接近的 `Geophysics`（或 `Remote sensing` /
+`Applied geophysics`），用于指派编辑。
+
 ### 4.1 作者页的 Contributor roles（必填）
 
 系统要求至少 1 个 CRediT 角色（红字 `Select at least one contributor role`）。
