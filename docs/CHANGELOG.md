@@ -1,5 +1,13 @@
 # Changelog — cleanup and corrections
 
+## Round 18 — registration fields for Editorial Manager (2026-11-13)
+
+* The registration page requires **1+ personal classifications and 5+ personal
+  keywords** (used to match reviewers). `SUBMISSION_GUIDE.md` §3.1 now lists the
+  classification categories to pick and ten keywords to enter, and
+  `paste_fields.txt` carries the same list so it can be copied directly.
+* No change to the manuscript or the upload set.
+
 ## Round 17 — submission guide and paste fields (2026-11-13)
 
 * **Step-by-step guide** `docs/submission/SUBMISSION_GUIDE.md`: official links

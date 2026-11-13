@@ -24,3 +24,15 @@ Three gamma channels for five minerals give rank 3; AUC 0.387 on real geology
 Real ASTER TIR lifts proxy F1 to 0.652; inert channels recover 69-98 %
 Model-free gain is +0.179 balanced accuracy, lost when the cube is shuffled
 Fixing the synthetic EM row helps (+0.332 F1) but still loses to gamma+TIR
+
+PERSONAL KEYWORDS (registration, pick 5+)
+airborne geophysics
+gamma-ray spectrometry
+thermal infrared remote sensing
+ASTER
+multi-modal data fusion
+inverse problems
+identifiability
+mineral exploration
+reproducible research
+spatial statistics

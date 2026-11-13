@@ -42,6 +42,37 @@
    - 设置用户名和密码；建议在 Profile 里关联 ORCID `0009-0002-3231-0444`。
 3. 已有账号直接 **Login**；忘记密码用 "Forgot Username/Password"。
 
+### 3.1 注册页的 “Areas of Interest or Expertise”（必填）
+
+EM 注册页要求 **Personal Classifications 至少 1 个**、**Personal Keywords 至少 5 个**，
+否则不能继续（截图里的红字 `Select 1+ Classifications` / `Enter 5+ Keywords`）。
+这两项只用于匹配审稿人，不影响稿件内容。
+
+**Personal Classifications**：点 `Select Personal Classifications`，在列表里勾选与稿件
+最接近的 2–3 项（列表名称各刊不同，按实际出现的选）：
+
+- Geophysics / Applied geophysics
+- Remote sensing / Satellite remote sensing
+- Computational geoscience / Numerical methods
+- Mineral exploration / Economic geology
+- Data analysis / Machine learning
+
+**Personal Keywords**：点 `Edit Personal Keywords`，在 “New Keyword” 里**逐个输入**
+下面的词并点 `Add`（至少 5 个，建议 8 个）：
+
+1. airborne geophysics
+2. gamma-ray spectrometry
+3. thermal infrared remote sensing
+4. ASTER
+5. multi-modal data fusion
+6. inverse problems
+7. identifiability
+8. mineral exploration
+9. reproducible research
+10. spatial statistics
+
+填完点 `Continue` / `Save` 完成注册；之后可在 `Update My Information` 里随时补充。
+
 ## 4. 新建投稿（Submit New Manuscript）
 
 按系统向导逐页填写：

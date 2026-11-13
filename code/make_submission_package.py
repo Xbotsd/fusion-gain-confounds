@@ -94,12 +94,18 @@ authors_clean = (
     "Heilongjiang University of Science and Technology, Harbin, China\n"
     "3468858545@qq.com")
 abstract = text.split("## Abstract", 1)[1].split("**Keywords:**", 1)[0].strip()
+personal = [
+    "airborne geophysics", "gamma-ray spectrometry", "thermal infrared remote sensing",
+    "ASTER", "multi-modal data fusion", "inverse problems", "identifiability",
+    "mineral exploration", "reproducible research", "spatial statistics",
+]
 paste = (
     "TITLE\n" + title + "\n\n"
     "AUTHORS\n" + authors_clean + "\n\n"
     "ABSTRACT\n" + " ".join(abstract.split()) + "\n\n"
     "KEYWORDS\n" + "\n".join(kws) + "\n\n"
-    "HIGHLIGHTS\n" + "\n".join(bullets) + "\n")
+    "HIGHLIGHTS\n" + "\n".join(bullets) + "\n\n"
+    "PERSONAL KEYWORDS (registration, pick 5+)\n" + "\n".join(personal) + "\n")
 (OUT / "paste_fields.txt").write_text(paste, encoding="utf-8")
 print("wrote paste_fields.txt")
 
