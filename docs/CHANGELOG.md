@@ -1,5 +1,27 @@
 # Changelog — cleanup and corrections
 
+## Round 16 — upload set assembled (2026-11-13)
+
+* **One command builds the upload set.** `code/make_submission_package.py` now
+  produces `docs/submission/upload/` with the manuscript, a dated cover letter, a
+  highlights file, the supplementary material, six RGB 300-dpi figures (alpha
+  flattened to white) and the graphical abstract, plus
+  `docs/submission/upload_manifest.json` (path, bytes, SHA-256 and the Editorial
+  Manager slot of every file) and `CG_submission_package.zip` (17.8 MB). The
+  `upload/` copies and the zip are git-ignored build artefacts; rerunning the
+  script refreshes them from the canonical files.
+* **Cover letter and highlights are stand-alone Word files** generated from the
+  Markdown sources, so the letter is dated, addressed to the C&G editor and uses
+  the same numbers as the manuscript.
+* **The submission README lists the upload slots** (cover letter, manuscript,
+  highlights, six figures, graphical abstract, supplementary material), their
+  sizes and the rebuild command.
+* **Manifest hygiene:** `build_manifest.py` now skips `docs/submission/upload/`
+  and the submission zip, so build artefacts no longer enter the scientific
+  manifest while the raw `.zip` survey files stay in it.
+* **No change to scientific content.** The validator and the 36 assertions are
+  untouched; the manifest stands at 6,848 files / 11.46 GB.
+
 ## Round 15 — C&G submission package completed (2026-11-12)
 
 * **Generative-AI declaration added.** The Declarations section now states that a

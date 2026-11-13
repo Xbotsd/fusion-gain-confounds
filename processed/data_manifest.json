@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-12T20:08:25+08:00",
+  "generated_at": "2026-11-13T10:34:18+08:00",
   "root": "D:\\A_MineralProspecting",
-  "n_files": 6846,
-  "total_bytes": 11460659398,
+  "n_files": 6848,
+  "total_bytes": 11460744056,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -73,12 +73,12 @@
       "bytes": 87026
     },
     "docs": {
-      "files": 61,
-      "bytes": 19481281
+      "files": 63,
+      "bytes": 19559622
     },
     "code": {
       "files": 142,
-      "bytes": 540023
+      "bytes": 546340
     }
   },
   "files": [
@@ -48134,8 +48134,8 @@
     {
       "path": "docs/CHANGELOG.md",
       "stage": "docs",
-      "size": 30000,
-      "sha256": "58d224c9397128c60ad674383fb06cb219f649d29c68c9c3667c435a6b333ee0",
+      "size": 31394,
+      "sha256": "c9416a8098dbfbc9357c473c11aa4c4fd3eaa193c30a5a908162f37b1de09efe",
       "schema": {}
     },
     {
@@ -48292,6 +48292,13 @@
       "schema": {}
     },
     {
+      "path": "docs/submission/cover_letter.docx",
+      "stage": "docs",
+      "size": 38719,
+      "sha256": "103f5ee74d5a0213e6765025ab66ea798a6a1249c479d2fe3a28b06708bc1f17",
+      "schema": {}
+    },
+    {
       "path": "docs/submission/figure_captions.txt",
       "stage": "docs",
       "size": 1550,
@@ -48341,6 +48348,13 @@
       "schema": {}
     },
     {
+      "path": "docs/submission/highlights.docx",
+      "stage": "docs",
+      "size": 36908,
+      "sha256": "ab2e89f3402c05a1626ef012acb9142f4d14184767924f8f2875c679298d9bfa",
+      "schema": {}
+    },
+    {
       "path": "docs/submission/highlights.txt",
       "stage": "docs",
       "size": 391,
@@ -48357,8 +48371,8 @@
     {
       "path": "docs/submission/README.md",
       "stage": "docs",
-      "size": 3949,
-      "sha256": "3550b7889ef93752d7becbf487fd8d7a4c65c7843dd6d3e51416f9f8e1b6871d",
+      "size": 5269,
+      "sha256": "350e2ca560eea1e7681e22c1eae096926a1ed4c9c72019968c114c6a5f31bc2b",
       "schema": {}
     },
     {
@@ -48406,8 +48420,8 @@
     {
       "path": "code/build_manifest.py",
       "stage": "code",
-      "size": 5060,
-      "sha256": "12260ead33711e7e3112a7fd702ad888bdd186a9a46fafde3e1552a298d3d9d0",
+      "size": 5551,
+      "sha256": "a99a025d5d58f40de67314792da52ced8221853f18eeec9be6e6c58aade75f88",
       "schema": {}
     },
     {
@@ -49036,8 +49050,8 @@
     {
       "path": "code/make_submission_package.py",
       "stage": "code",
-      "size": 2577,
-      "sha256": "0af904007c194de4b00e01d062c1ffa470c88cb3d7729b8b4ccc0aa79bf2b19a",
+      "size": 8403,
+      "sha256": "51c9cf466bc68a48c1068539b66c29a649eee952e5a2872296ccd1741a5c3182",
       "schema": {}
     },
     {

@@ -1,0 +1,71 @@
+{
+  "generated": "2026-11-13T10:31:36",
+  "files": [
+    {
+      "file": "Cover_Letter.docx",
+      "upload_slot": "Cover Letter",
+      "bytes": 38719,
+      "sha256": "103f5ee74d5a0213e6765025ab66ea798a6a1249c479d2fe3a28b06708bc1f17"
+    },
+    {
+      "file": "Manuscript.docx",
+      "upload_slot": "Manuscript (Word)",
+      "bytes": 9315769,
+      "sha256": "7a935e7608a05095efa30c36ca3b634c6d76a941644df37ef60f2569956c8649"
+    },
+    {
+      "file": "Highlights.docx",
+      "upload_slot": "Highlights",
+      "bytes": 36908,
+      "sha256": "ab2e89f3402c05a1626ef012acb9142f4d14184767924f8f2875c679298d9bfa"
+    },
+    {
+      "file": "Supplementary_Material.docx",
+      "upload_slot": "Supplementary Material",
+      "bytes": 37445,
+      "sha256": "6376649a6de2abdc1946fea27206b6e21d67b85a8e6b419e76433f54889641b4"
+    },
+    {
+      "file": "Graphical_Abstract.png",
+      "upload_slot": "Graphical Abstract",
+      "bytes": 152405,
+      "sha256": "c2eb8cf66ab0d505e032f102685090ec25f183100293c51c3a2f10d9757dc758"
+    },
+    {
+      "file": "figures/figure01.png",
+      "upload_slot": "Figure 1",
+      "bytes": 4957983,
+      "sha256": "2590ddbbdd70f0d49554cf1e62dcb3c851fc829b642f9fe49f756a55b5693f01"
+    },
+    {
+      "file": "figures/figure02.png",
+      "upload_slot": "Figure 2",
+      "bytes": 245721,
+      "sha256": "46f2812f4d2685ce99168875a31ce1ecd115c43d82c870bf54e92ed1aa5b9e00"
+    },
+    {
+      "file": "figures/figure03.png",
+      "upload_slot": "Figure 3",
+      "bytes": 103023,
+      "sha256": "6528e11f49596df1064fdc5e4e55841f19f2fcf0404970f807a3f99f9906f823"
+    },
+    {
+      "file": "figures/figure04.png",
+      "upload_slot": "Figure 4",
+      "bytes": 2895666,
+      "sha256": "63d58f1cde5f94b978a030157d778d7462ecba8805e4e06d9cb27827b7e40a3e"
+    },
+    {
+      "file": "figures/figure05.png",
+      "upload_slot": "Figure 5",
+      "bytes": 126445,
+      "sha256": "11e264b90adba6522d73861b76a3198475e67d1259deb818a1bd138fcc467849"
+    },
+    {
+      "file": "figures/figure06.png",
+      "upload_slot": "Figure 6",
+      "bytes": 126417,
+      "sha256": "1b3c81669cc928204d006748654b1570887fecf9edbc9e1bb9361ea19f19d1a4"
+    }
+  ]
+}
