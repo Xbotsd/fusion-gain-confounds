@@ -146,8 +146,8 @@ bootstrap）。选 6–8 项都合理，1 项即满足系统要求。
 
 | 字段 | 填写 |
 |---|---|
-| Link to data repository | `https://doi.org/10.5281/zenodo.24130421` |
-| Repository name | `Zenodo`（下拉里没有就选 Other 并保留链接） |
+| Link to data repository | `https://doi.org/10.5281/zenodo.24130421`（**只填一个链接**；GitHub 地址写在正文里，不要放这里） |
+| Repository name | 先在下拉里找 `Zenodo`；没有就选 `Other`，并在 **Other repository name** 填 `Zenodo` |
 | Source of data | `Original data`（本研究的代码与派生结果是作者产出；若界面解释为“支撑材料”，改 Reference data 也可） |
 | Title of the data set | `fusion-gain-confounds 1.0.0: reproducible airborne multi-modal fusion benchmark, code and derived results` |
 
