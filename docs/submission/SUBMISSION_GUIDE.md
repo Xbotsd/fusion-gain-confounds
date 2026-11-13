@@ -48,14 +48,22 @@ EM 注册页要求 **Personal Classifications 至少 1 个**、**Personal Keywor
 否则不能继续（截图里的红字 `Select 1+ Classifications` / `Enter 5+ Keywords`）。
 这两项只用于匹配审稿人，不影响稿件内容。
 
-**Personal Classifications**：点 `Select Personal Classifications`，在列表里勾选与稿件
-最接近的 2–3 项（列表名称各刊不同，按实际出现的选）：
+**Personal Classifications**：点 `Select Personal Classifications`。C&G 的列表只有两个
+顶层节点，先点 `+` 展开，再选子项：
 
-- Geophysics / Applied geophysics
-- Remote sensing / Satellite remote sensing
-- Computational geoscience / Numerical methods
-- Mineral exploration / Economic geology
-- Data analysis / Machine learning
+- **1: Computational & Methods** → 找 `Data analysis`、`Machine learning`、
+  `Numerical methods`、`Inverse problems`、`Statistics`、`Software`
+- **2: Geoscience Domain** → 找 `Geophysics`、`Remote sensing`、
+  `Mineral exploration`、`Economic geology`、`Geochemistry`
+
+操作方式：展开节点 → 点中一个子项（高亮）→ 点中间的 `Add` → 右侧
+`Selected Classifications` 出现该条目，红字 `Select 1+ Classifications` 消失。
+可重复添加 2–4 项（1 项就满足要求）。搜索框可输入 `geophys`、`remote`、
+`mineral`，匹配项会以红字显示。
+
+> **必须点对话框底部的 `Submit` 保存**（页面提示 "To save changes you must
+> click Submit before you leave this window"）；直接关闭或点浏览器返回不会保存。
+> 这里的 Submit 只是保存分类，不是提交稿件。
 
 **Personal Keywords**：点 `Edit Personal Keywords`，在 “New Keyword” 里**逐个输入**
 下面的词并点 `Add`（至少 5 个，建议 8 个）：
