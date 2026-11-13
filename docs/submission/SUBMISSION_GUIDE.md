@@ -51,10 +51,28 @@ EM 注册页要求 **Personal Classifications 至少 1 个**、**Personal Keywor
 **Personal Classifications**：点 `Select Personal Classifications`。C&G 的列表只有两个
 顶层节点，先点 `+` 展开，再选子项：
 
-- **1: Computational & Methods** → 找 `Data analysis`、`Machine learning`、
-  `Numerical methods`、`Inverse problems`、`Statistics`、`Software`
-- **2: Geoscience Domain** → 找 `Geophysics`、`Remote sensing`、
-  `Mineral exploration`、`Economic geology`、`Geochemistry`
+- **1: Computational & Methods**（实际子项）：`1.1 Machine learning & deep
+  learning`、`1.2 Geostatistics & stochastic modelling`、`1.3 Numerical modelling &
+  simulation`、`1.4 Signal processing`、`1.5 Inverse problems & data assimilation`、
+  `1.6 Image processing & classification`、`1.7 Spatial data analysis`、`1.8
+  Uncertainty quantification`、`1.9 High-performance computing`、`1.10
+  Geovisualization`
+- **2: Geoscience Domain**（实际子项，向下还有更多）：`2.1 Seismology & seismic
+  imaging`、`2.2 Remote sensing in a geoscience context`、`2.3 Hydrogeology &
+  groundwater`、`2.4 Surface hydrology & flood modelling`、`2.5 Reservoir &
+  subsurface characterisation`、`2.6 Natural hazards & risk`、`2.7 Geochemistry &
+  mineral exploration` …
+
+**本稿推荐勾选这 5 项**（点中 → `Add`，重复）：
+
+1. `1.5 Inverse problems & data assimilation`（欠定反演、条件数）
+2. `1.7 Spatial data analysis`（空间掩膜、块交叉验证）
+3. `1.8 Uncertainty quantification`（覆盖率、N_eff）
+4. `2.2 Remote sensing in a geoscience context`（ASTER 热红外、航空测量）
+5. `2.7 Geochemistry & mineral exploration`（伽马能谱、找矿）
+
+把 `2` 展开到底再看一眼，若有 `Geophysics` / `Applied geophysics` 一类，可替换
+`1.7` 或作为第 6 项。`1.2 Geostatistics` 也贴合（块 bootstrap），可选。
 
 操作方式：展开节点 → 点中一个子项（高亮）→ 点中间的 `Add` → 右侧
 `Selected Classifications` 出现该条目，红字 `Select 1+ Classifications` 消失。
