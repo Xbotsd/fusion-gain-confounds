@@ -125,6 +125,18 @@ bootstrap）。选 6–8 项都合理，1 项即满足系统要求。
    `The code and the derived results are archived at https://doi.org/10.5281/zenodo.24130421 (all versions: https://doi.org/10.5281/zenodo.24130420).`
    生成式 AI 声明正文里已有，按需粘贴同段文字。
 
+### 4.1 作者页的 Contributor roles（必填）
+
+系统要求至少 1 个 CRediT 角色（红字 `Select at least one contributor role`）。
+单人作者按稿件里的 CRediT 声明勾选这 **10 项**：
+
+`Conceptualization`、`Data curation`、`Formal analysis`、`Investigation`、
+`Methodology`、`Software`、`Validation`、`Visualization`、`Writing – original draft`、
+`Writing – review & editing`
+
+不勾 `Funding acquisition`（无资助）、`Resources`、`Supervision`、`Project
+administration`。同时勾选 **`This is the corresponding author`**，然后继续。
+
 ## 5. 上传文件（Elsevier 新投稿界面）
 
 新版界面分两栏：左侧 "Upload your submission files"，右侧是要求说明。
