@@ -86,6 +86,23 @@ for i, (name, (num, _caption)) in enumerate(zip(figs, caps), start=1):
 (OUT / "figure_captions.txt").write_text(
     "\n\n".join(f"Figure {n}. {c}" for n, c in caps) + "\n", encoding="utf-8")
 
+# ------------------------------------------------------- copy-paste fields
+title = next(ln[2:].strip() for ln in text.splitlines() if ln.startswith("# "))
+authors_clean = (
+    "Yudong Xu (corresponding author)\n"
+    "ORCID 0009-0002-3231-0444\n"
+    "Heilongjiang University of Science and Technology, Harbin, China\n"
+    "3468858545@qq.com")
+abstract = text.split("## Abstract", 1)[1].split("**Keywords:**", 1)[0].strip()
+paste = (
+    "TITLE\n" + title + "\n\n"
+    "AUTHORS\n" + authors_clean + "\n\n"
+    "ABSTRACT\n" + " ".join(abstract.split()) + "\n\n"
+    "KEYWORDS\n" + "\n".join(kws) + "\n\n"
+    "HIGHLIGHTS\n" + "\n".join(bullets) + "\n")
+(OUT / "paste_fields.txt").write_text(paste, encoding="utf-8")
+print("wrote paste_fields.txt")
+
 
 # ------------------------------------------------------------------- docx
 def base_doc(margins_cm: float = 2.5, spacing: float = 1.0) -> Document:

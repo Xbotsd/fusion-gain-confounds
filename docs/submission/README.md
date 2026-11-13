@@ -10,6 +10,13 @@ scripted requests), so the list below was checked against Elsevier's standard
 article requirements, not the current journal-specific text. Re-check items
 marked *(confirm)* before uploading.
 
+## Step-by-step guide
+
+`SUBMISSION_GUIDE.md` is the operating manual: official links (journal home,
+Guide for Authors, Editorial Manager), registration, field-by-field entry of the
+title/abstract/keywords/authors, the upload-slot order, the PDF check and the
+usual pitfalls. `paste_fields.txt` holds the exact text to paste into the form.
+
 ## Ready-to-upload set
 
 `python code/make_submission_package.py` rebuilds `upload/` and
@@ -46,6 +53,8 @@ the journal uses.
 | `../graphical_abstract.png` | graphical abstract (optional for this journal), copied and flattened into `upload/` |
 | `../CITATION.cff`, `../.zenodo.json` | archive metadata for the DOI |
 | `upload/`, `upload_manifest.json`, `CG_submission_package.zip` | the ready-to-upload set and its checksums |
+| `SUBMISSION_GUIDE.md` | step-by-step Editorial Manager walkthrough and links |
+| `paste_fields.txt` | title, authors, abstract, keywords and highlights ready to paste |
 
 ## Checked
 

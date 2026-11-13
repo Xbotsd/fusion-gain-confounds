@@ -1,5 +1,19 @@
 # Changelog — cleanup and corrections
 
+## Round 17 — submission guide and paste fields (2026-11-13)
+
+* **Step-by-step guide** `docs/submission/SUBMISSION_GUIDE.md`: official links
+  (journal home, Guide for Authors, Editorial Manager `cageo`), registration,
+  field-by-field entry, the upload-slot order, the PDF check before approval,
+  post-submission states and the usual pitfalls.
+* **`paste_fields.txt`** is generated with the package: title, authors, abstract
+  (247 words), six keywords and five highlights, stripped of Markdown, ready to
+  paste into the submission form.
+* **Links checked as far as this machine allows:** Editorial Manager answers 200;
+  ScienceDirect and Elsevier pages return 403 to scripted requests but open
+  normally in a browser.
+* **No scientific content changed.**
+
 ## Round 16 — upload set assembled (2026-11-13)
 
 * **One command builds the upload set.** `code/make_submission_package.py` now

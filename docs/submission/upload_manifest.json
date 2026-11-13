@@ -1,11 +1,11 @@
 {
-  "generated": "2026-11-13T10:31:36",
+  "generated": "2026-11-13T11:19:23",
   "files": [
     {
       "file": "Cover_Letter.docx",
       "upload_slot": "Cover Letter",
       "bytes": 38719,
-      "sha256": "103f5ee74d5a0213e6765025ab66ea798a6a1249c479d2fe3a28b06708bc1f17"
+      "sha256": "58f4c39c1d56311ca326a06e7d7f240592b27f6d72f90eac24e138433152abf9"
     },
     {
       "file": "Manuscript.docx",
@@ -17,7 +17,7 @@
       "file": "Highlights.docx",
       "upload_slot": "Highlights",
       "bytes": 36908,
-      "sha256": "ab2e89f3402c05a1626ef012acb9142f4d14184767924f8f2875c679298d9bfa"
+      "sha256": "9f121670acda0a5ad75ba2e000ff2af9e8955f4d7fd11af8adf0f7349b2e870c"
     },
     {
       "file": "Supplementary_Material.docx",

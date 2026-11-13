@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-13T10:34:18+08:00",
+  "generated_at": "2026-11-13T11:20:10+08:00",
   "root": "D:\\A_MineralProspecting",
-  "n_files": 6848,
-  "total_bytes": 11460744056,
+  "n_files": 6850,
+  "total_bytes": 11460754419,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -73,12 +73,12 @@
       "bytes": 87026
     },
     "docs": {
-      "files": 63,
-      "bytes": 19559622
+      "files": 65,
+      "bytes": 19569217
     },
     "code": {
       "files": 142,
-      "bytes": 546340
+      "bytes": 547108
     }
   },
   "files": [
@@ -48134,8 +48134,8 @@
     {
       "path": "docs/CHANGELOG.md",
       "stage": "docs",
-      "size": 31394,
-      "sha256": "c9416a8098dbfbc9357c473c11aa4c4fd3eaa193c30a5a908162f37b1de09efe",
+      "size": 32172,
+      "sha256": "1ce942b0dcccf00ff1dad060d45521237ccb757b07b9ce9e832ba05148ffdb9f",
       "schema": {}
     },
     {
@@ -48295,7 +48295,7 @@
       "path": "docs/submission/cover_letter.docx",
       "stage": "docs",
       "size": 38719,
-      "sha256": "103f5ee74d5a0213e6765025ab66ea798a6a1249c479d2fe3a28b06708bc1f17",
+      "sha256": "58f4c39c1d56311ca326a06e7d7f240592b27f6d72f90eac24e138433152abf9",
       "schema": {}
     },
     {
@@ -48351,7 +48351,7 @@
       "path": "docs/submission/highlights.docx",
       "stage": "docs",
       "size": 36908,
-      "sha256": "ab2e89f3402c05a1626ef012acb9142f4d14184767924f8f2875c679298d9bfa",
+      "sha256": "9f121670acda0a5ad75ba2e000ff2af9e8955f4d7fd11af8adf0f7349b2e870c",
       "schema": {}
     },
     {
@@ -48369,10 +48369,24 @@
       "schema": {}
     },
     {
+      "path": "docs/submission/paste_fields.txt",
+      "stage": "docs",
+      "size": 2342,
+      "sha256": "50c968c052af5873e08a55bfcee4fa039ad5a46c570907f3d6e3cc7615aeb345",
+      "schema": {}
+    },
+    {
       "path": "docs/submission/README.md",
       "stage": "docs",
-      "size": 5269,
-      "sha256": "350e2ca560eea1e7681e22c1eae096926a1ed4c9c72019968c114c6a5f31bc2b",
+      "size": 5789,
+      "sha256": "bd9e52d569ea3ac80080e92127f1cb6dc6ad7c9320edd5de5da1e4a0e643e3aa",
+      "schema": {}
+    },
+    {
+      "path": "docs/submission/SUBMISSION_GUIDE.md",
+      "stage": "docs",
+      "size": 5955,
+      "sha256": "a48827a979276daa3c9c6b33f9736bf5099f8fa49d5b008e2715c3cada5d6b7b",
       "schema": {}
     },
     {
@@ -49050,8 +49064,8 @@
     {
       "path": "code/make_submission_package.py",
       "stage": "code",
-      "size": 8403,
-      "sha256": "51c9cf466bc68a48c1068539b66c29a649eee952e5a2872296ccd1741a5c3182",
+      "size": 9171,
+      "sha256": "bbcd322bac35c68cd91b8a246a101c5b9837f843071dc4f789e63230f3090c58",
       "schema": {}
     },
     {

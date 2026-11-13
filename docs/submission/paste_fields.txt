@@ -1,0 +1,26 @@
+TITLE
+Two confounds in reported fusion gains for airborne mineral exploration: target circularity and an underdetermined inversion
+
+AUTHORS
+Yudong Xu (corresponding author)
+ORCID 0009-0002-3231-0444
+Heilongjiang University of Science and Technology, Harbin, China
+3468858545@qq.com
+
+ABSTRACT
+Reported fusion gains in airborne mineral exploration are rarely reproducible because of two confounds: the target is derived from the channels being inverted, and the inversion is underdetermined, so adding any channel changes conditioning rather than information. We separate both on a real-data benchmark over the Ivanpah-Clark Mountain area: USGS radiometrics (295,943 samples), real ASTER L1T thermal infrared (five emissivity bands), real aeromagnetics and USGS SIM 3206 geology, with one synthetic electromagnetic augmentation since no measured airborne EM exists. Three gamma channels for five minerals give rank 3, and gamma alone scores at chance against independent geology (AUC 0.387). Five ASTER bands raise proxy F1 from 0.531 to 0.652 and geological AUC to 0.913 - but five uninformative channels with the same response rows recover 69-98 % of the F1 gain and all of the AUC gain, so most of it is conditioning. A model-free test isolates the information: gamma plus ASTER classifies four similar substrates at balanced accuracy 0.529 versus 0.350 for gamma (+0.179, CI [0.120, 0.241], 20/20 repeats), while a shuffled cube gives 0.354. Correcting a mis-specified electromagnetic row raises F1 from 0.168 to 0.497 but still loses to gamma plus thermal. Effective sample size is 110, not 1.2 million pixels, and the filter variance is not a confidence interval (coverage 0.13). Fusion studies should report the rank of the inverse problem and an information test that does not use the response matrix.
+
+KEYWORDS
+airborne mineral exploration
+gamma-ray spectrometry
+thermal infrared
+ASTER
+multi-modal fusion
+identifiability
+
+HIGHLIGHTS
+Most fusion gains stem from circular targets and underdetermined inversions
+Three gamma channels for five minerals give rank 3; AUC 0.387 on real geology
+Real ASTER TIR lifts proxy F1 to 0.652; inert channels recover 69-98 %
+Model-free gain is +0.179 balanced accuracy, lost when the cube is shuffled
+Fixing the synthetic EM row helps (+0.332 F1) but still loses to gamma+TIR
