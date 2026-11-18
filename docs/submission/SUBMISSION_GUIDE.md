@@ -204,6 +204,31 @@ Declaration of competing interests。每次在 `Select file type` 下拉框选�
 - 文件名只用字母/数字/下划线；**不要上传 zip**；图不要合并。
 - 全部上传完点 **`Save and continue`**，进入元数据核对页。
 
+## 5b. 返修重投（2026-11-18 被退回后）
+
+退回原因只有一条：参考文献必须是作者-年份、列出全部作者、期刊名不缩写。已按
+C&G Word 模板改好（23 条，见 `../REFERENCES_AUDIT.md`），并新增独立的
+**Code availability** 章节。重投步骤：
+
+1. EM 首页 → `Submissions Sent Back to Author` → `Edit Submission`。
+2. **Revise Submission**：把 `upload/Manuscript.docx` 重新上传，类型仍选
+   **Manuscript**；同样替换 Cover Letter。
+3. **Attach Files**：这次务必核对每条文件的 Item Type——
+   - `Manuscript.docx` → Manuscript
+   - `Highlights.docx` → Highlights
+   - `Cover_Letter.docx` → Cover Letter
+   - `Declaration_of_Competing_Interests.docx` → Declaration of competing interests
+   - `figures/figure01..06.png` → **Figure**（上次错成 Supplementary Material）
+   - `Graphical_Abstract.png` → **Graphical Abstract**
+   - `Supplementary_Material.docx` → Supplementary Material
+4. **作者信息**：`Edit Author Details` 把国家设为 China，去掉
+   `--- Select One ---`；头衔 "B.E. Candidate" 可清空。
+5. `Build PDF for my Approval` → 重点看：参考文献是否为作者-年份、Code availability
+   是否独立成节、表 8 引用列、图表是否齐全 → `Approve` → `Submit`。
+
+> 期刊明确写了：**只有一次修改机会**，再不合格直接 desk rejection。提交前务必
+> 把生成的 PDF 翻到参考文献页确认一遍。
+
 ## 6. 生成 PDF 并检查
 
 1. 点 **Build PDF for my Approval**，等 1–3 分钟。
