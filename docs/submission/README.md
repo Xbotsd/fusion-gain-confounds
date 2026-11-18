@@ -10,6 +10,12 @@ scripted requests), so the list below was checked against Elsevier's standard
 article requirements, not the current journal-specific text. Re-check items
 marked *(confirm)* before uploading.
 
+## Resubmission checklist
+
+`RESUBMIT_CHECKLIST.md` is the short operating card for the returned
+submission: which file goes into which Editorial Manager slot, which two
+metadata fields to fix, and the five PDF checks to make before approving.
+
 ## Submission record
 
 `SUBMISSION_RECORD.md` documents the submitted package for manuscript
@@ -64,6 +70,7 @@ the journal uses.
 | `upload/`, `upload_manifest.json`, `CG_submission_package.zip` | the ready-to-upload set and its checksums |
 | `SUBMISSION_GUIDE.md` | step-by-step Editorial Manager walkthrough and links |
 | `SUBMISSION_RECORD.md` | the submitted record, its defects and their status |
+| `RESUBMIT_CHECKLIST.md` | the one-page operating card for the resubmission |
 | `paste_fields.txt` | title, authors, abstract, keywords and highlights ready to paste |
 
 ## Checked
