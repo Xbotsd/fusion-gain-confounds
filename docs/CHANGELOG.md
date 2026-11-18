@@ -1,5 +1,34 @@
 # Changelog — cleanup and corrections
 
+## Round 21 — pre-review return: author-date references (2026-11-18)
+
+* **The journal returned the submission before review** for one guideline
+  breach — reference format — with a warning that a second failure means desk
+  rejection. The other requirement it restates (a functional code repository with
+  README and documentation) is already satisfied and is now stated in a dedicated
+  section.
+* **References converted to author–date.** C&G's Word template asks for
+  `Author, A.A., Author, B.B., Year. Title. Journal Volume, pages.` and in-text
+  `(Author and Author, 1997; Author et al., 2016)`. All eight numeric marker
+  groups were rewritten, Table 8's reference column follows the same style, and
+  the list was rebuilt alphabetically with **all** authors named (Wilkinson lists
+  53, Christensen 8, Kruse 7) and **full** journal titles.
+* **Two DOIs corrected** against Crossref: Fountain 1998 is `10.1071/EG998001`
+  (the audited `EG980001` resolves to an unrelated 1980 paper); the Salisbury 1991
+  book has no DOI, because `10.1180/mono-4` belongs to a different 1974 volume.
+* **One reference dropped, two cited.** Sun et al. (2016) had become uncited when
+  the manuscript was rewritten and is removed; Powers (2011) and Reeves (2005)
+  were uncited and are now cited where they belong (§4.4 metric definitions, §3.4
+  TMI grid). Result: 23 entries, 23 in-text keys, no orphans in either direction.
+* **New "Code availability" section**, in the form the template prescribes: name,
+  contact, hardware, language, software, size and repository link, with the
+  archived DOI.
+* **Cover letter** now states that the source codes are in a public repository
+  "with details listed in the section *Code availability*", which is the template's
+  own wording.
+* Build: 28 pages, 8 tables, 6 figures; the validator still passes 53/53 artefacts
+  and 22/22 invariants, the 36 assertions pass, and the upload set was rebuilt.
+
 ## Round 20 — post-submission review of CAGEO-D-26-02178 (2026-11-18)
 
 * **The submitted PDF was inspected page by page** (39 pages: 31 of manuscript,

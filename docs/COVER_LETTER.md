@@ -58,9 +58,12 @@ better than a remote-sensing venue, where the contribution would read as an
 application rather than as a method.
 
 The manuscript is original, is not under consideration elsewhere, and the single
-author approves submission. The code is public at https://github.com/Xbotsd/fusion-gain-confounds and archived at https://doi.org/10.5281/zenodo.24130421;
-the layout, licence and one-command reproduction are described in the
-data-availability section.
+author approves submission. We provide the source codes in a public repository with details listed in the
+section "Code availability": https://github.com/Xbotsd/fusion-gain-confounds,
+archived at https://doi.org/10.5281/zenodo.24130421. The repository contains the
+README, the full documentation in docs/, a coverage guard, 36 unit assertions, a
+53-artefact/22-invariant validator, pinned dependencies and a SHA-256 manifest, so
+a single command rebuilds every number in the paper.
 
 Yours sincerely,
 

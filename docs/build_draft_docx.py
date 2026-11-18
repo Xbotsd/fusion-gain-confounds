@@ -194,6 +194,15 @@ def main():
             p = doc.add_paragraph()
             p.alignment = WD_ALIGN_PARAGRAPH.CENTER
             add_runs(p, line)
+        elif in_refs and line.strip():
+            # one reference per line, with a hanging indent
+            p = doc.add_paragraph()
+            p.paragraph_format.first_line_indent = Cm(-0.75)
+            p.paragraph_format.left_indent = Cm(0.75)
+            p.paragraph_format.space_after = Pt(6)
+            add_runs(p, line.strip())
+            i += 1
+            continue
         else:
             # Join hard-wrapped markdown lines into one Word paragraph, stopping
             # at blank lines, structural lines and numbered list/reference items.

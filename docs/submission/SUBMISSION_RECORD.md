@@ -77,10 +77,38 @@ Severity: **A** = visible to the editor/reviewers and worth correcting now;
    to the editorial office listing the two items and asking them to update the
    record; include the manuscript number.
 
-## 5. Status and next step
+## 5. Pre-review return (2026-11-18)
 
-* The PDF states `--Manuscript Draft--`: this is the submitted version, not a
-  decision. Nothing in the repository changes the submitted record by itself.
+The journal returned the submission **before review**, flagging one breach and
+warning that a second failure means desk rejection:
+
+> Reference Format — the reference list must be consistent, must name all
+> authors, must not abbreviate journal titles, and in-text citations must be
+> author–date (APSA/APA).
+
+The repository requirement in the same notice (a functional repository with README
+and documentation) was already met.
+
+What was changed in response (Round 21 in `docs/CHANGELOG.md`):
+
+| item | before | after |
+|---|---|---|
+| in-text citations | `[1–4,21]`, `[16,17]`, … | `(Dickson and Scott, 1997; IAEA, 2003; …)` |
+| list style | IEEE numeric, year at the end | `Author, A.A., Author, B.B., Year. Title. Journal Volume, pages.` |
+| authors | `Christensen, P.R., … et al.` | all named (Wilkinson 53, Christensen 8, Kruse 7, …) |
+| journal titles | `AGSO J.`, `JGR` | full titles |
+| table 8 references | `IAEA 2003` | `IAEA (2003)` |
+| code | software paragraph inside Reproducibility | dedicated **Code availability** section with the template's fields |
+| cover letter | repository mentioned | "details listed in the section *Code availability*" |
+
+23 entries, 23 in-text keys, no orphan on either side. Two DOIs were corrected
+(Fountain `10.1071/EG998001`; the Salisbury book has none) and one uncited entry
+(Sun et al., 2016) was removed.
+
+## 6. Status and next step
+
+* The PDF states `--Manuscript Draft--`: the first submission was returned at
+  pre-review on 2026-11-18; the corrected files in `upload/` are the resubmission. Nothing in the repository changes the submitted record by itself.
 * Everything in §3 is staged for the **revision** (or for a fresh submission if
   the paper is declined). Before any resubmission: rebuild with
   `python code/make_submission_package.py`, re-render, and check pagination again

@@ -72,10 +72,11 @@ Q1/中科院 2 区时首选。
 **IEEE TGRS**（1 区，但超页费不可控）、**RSE / ISPRS JPRS**（1 区，门槛极高）。
 分区为近年近似值，投稿前以本单位认定口径复核。
 
-**格式代价（重要）**：ESI 用 Springer Basic（作者-年份）引用制，本稿目前是
-IEEE 数字编号（24 条参考文献）；投 ESI 前必须把正文引用标记和参考文献表转成
-作者-年份，工作机械但需逐条校对。JAG 与 C&G 用数字制，几乎不用改引用格式。
-若不想动参考文献，选 JAG；若以录用率为先，选 ESI 并接受这次转换。
+**格式代价（已解决）**：C&G 的 Word 模板要求**作者-年份（author-date）**引用制，
+而不是数字编号；ESI 的 Springer Basic 也是作者-年份。2026-11-18 已按 C&G 模板把
+正文引用和 23 条参考文献全部改成 “Author, A.A., Author, B.B., Year. Title.
+Journal Volume, pages.” 的作者-年份格式，两种期刊都直接适用；只有 JAG 仍用数字制，
+若转投 JAG 需要再改回编号。
 
 JCR 分区（估，按近年 JIF）：C&G、TGRS 为 Q1；ESI、JAG、Mathematical Geosciences、
 Geophysical Prospecting、IJRS 为 Q2；Exploration Geophysics 为 Q3。若只要求

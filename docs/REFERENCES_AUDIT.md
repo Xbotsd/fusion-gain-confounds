@@ -5,114 +5,88 @@ enough for final citations**: several queries matched unrelated papers or book
 chapters. The raw auto-match table was therefore discarded; this file is the
 manual audit to use before submission.
 
+**Style (changed 2026-11-18).** *Computers & Geosciences* requires author–date
+citations and rejects numeric ones at pre-review; the list below was rebuilt in
+the style of the journal's Word template
+(`Author, A.A., Author, B.B., Year. Title. Journal Volume, pages.`). Every entry
+names **all** authors and gives **full** journal titles. Do not reintroduce
+numeric markers.
+
 Status legend: **OK** = DOI/title checked; **BOOK** = book DOI, check edition;
 **MANUAL** = no reliable DOI, verify volume/pages in the publisher or library.
 
-| # | citation | status | note |
-|---:|---|---|---|
-| 1 | IAEA, Guidelines for radioelement mapping using gamma ray spectrometry data, IAEA-TECDOC-1363, 2003 | MANUAL | IAEA reports usually have no DOI; verify TECDOC number |
-| 2 | Minty, Fundamentals of airborne gamma-ray spectrometry, AGSO J. 17(2), 1997 | MANUAL | AGSO journal, no DOI |
-| 3 | Wilford et al., AGSO J. 17(2), 1997 | MANUAL | same issue as [2] |
-| 4 | Dickson & Scott, AGSO J. 17(2), 1997 | MANUAL | same issue as [2] |
-| 5 | Fountain, Exploration Geophysics 29, 1998 | OK | DOI 10.1071/EG998001 |
-| 6 | Siemon et al., J. Appl. Geophys. 67, 2009 | OK | DOI 10.1016/j.jappgeo.2007.11.003 |
-| 7 | Dentith & Mudge, Geophysics for the Mineral Exploration Geoscientist, CUP 2014 | BOOK | DOI 10.1017/CBO9781139024358 |
-| 8 | Christensen et al., JGR Planets 105, 2000 | OK | DOI 10.1029/1998JE000624 |
-| 9 | Salisbury et al., Infrared Spectra of Minerals, 1991 | BOOK | DOI 10.1180/mono-4 |
-| 10 | Ramsey & Christensen, JGR Solid Earth 103, 1998 | OK | DOI 10.1029/97JB02784 |
-| 11 | Kalman, J. Basic Eng. 82, 1960 | OK | DOI 10.1115/1.3662552 |
-| 12 | Maybeck, Stochastic Models, Estimation and Control, 1979 | MANUAL | book, ISBN; no DOI |
-| 13 | Bar-Shalom et al., Estimation with Applications..., Wiley 2001 | BOOK | DOI 10.1002/0471221279 |
-| 14 | Julier & Uhlmann, ACC 1997 | OK | DOI 10.1109/ACC.1997.609105 |
-| 15 | Sun et al., AAAI 2016 | OK | DOI 10.1609/aaai.v30i1.10306 |
-| 16 | Wilkinson et al., Scientific Data 3, 2016 | OK | DOI 10.1038/sdata.2016.18 |
-| 17 | Peng, Science 334, 2011 | OK | DOI 10.1126/science.1213847 |
-| 18 | Powers, J. Machine Learning Technologies 2(1), 2011 | MANUAL | journal; check pages 37–63 |
-| 19 | Reeves, Aeromagnetic Surveys, Geosoft 2005 | MANUAL | technical book, no DOI |
-| 20 | Nabighian (ed.), Electromagnetic Methods in Applied Geophysics, SEG 1988 | BOOK | DOI 10.1190/1.9781560802631 |
-| 21 | Telford et al., Applied Geophysics, CUP 1990 | BOOK | DOI 10.1017/CBO9781139167932 |
-| 22 | Hook et al., in Remote Sensing for the Earth Sciences, 1999 | MANUAL | chapter; verify pages |
-| 23 | Gnojek & Prichystal, Geoexploration 23, 491–502, 1985 | **OK** | DOI 10.1016/0016-7142(85)90076-6 (Crossref-verified 2026-11-07). The draft's "1995, 33(1–3), 99–113" was wrong — year, volume and pages corrected |
-| 24 | Kruse et al., Remote Sens. Environ. 44, 145–163, 1993 | **OK** | DOI 10.1016/0034-4257(93)90013-N (Crossref-verified 2026-11-07). Added because §7.10 and Table 12 cite SAM on TIR and the work was missing from the list |
+## Current list: 23 entries, alphabetical
+
+| entry | year | status | DOI |
+|---|---:|---|---|
+| Bar-Shalom, Li, Kirubarajan — Estimation with applications to tracking and navigation | 2001 | BOOK | 10.1002/0471221279 |
+| Christensen et al. (8 authors) — thermal emission spectral library | 2000 | OK | 10.1029/1998JE000624 |
+| Dentith & Mudge — Geophysics for the mineral exploration geoscientist | 2014 | BOOK | 10.1017/CBO9781139024358 |
+| Dickson & Scott — aerial gamma-ray surveys | 1997 | MANUAL | — (AGSO Journal 17(2), unindexed) |
+| Fountain — airborne EM systems, 50 years | 1998 | OK | 10.1071/EG998001 |
+| Gnojek & Přichystal — zinc mineralisation, northern Moravia | 1985 | OK | 10.1016/0016-7142(85)90076-6 |
+| Hook et al. (5 authors) — multispectral TIR in geological studies | 1999 | MANUAL | — (book chapter) |
+| IAEA — guidelines for radioelement mapping (TECDOC-1363) | 2003 | MANUAL | — (agency report) |
+| Julier & Uhlmann — non-divergent estimation | 1997 | OK | 10.1109/ACC.1997.609105 |
+| Kalman — linear filtering and prediction | 1960 | OK | 10.1115/1.3662552 |
+| Kruse et al. (7 authors) — SIPS | 1993 | OK | 10.1016/0034-4257(93)90013-N |
+| Maybeck — Stochastic models, estimation, and control | 1979 | MANUAL | — (book) |
+| Minty — airborne gamma-ray spectrometry | 1997 | MANUAL | — (AGSO Journal 17(2), unindexed) |
+| Nabighian (Ed.) — Electromagnetic methods in applied geophysics | 1988 | BOOK | 10.1190/1.9781560802631 |
+| Peng — reproducible research | 2011 | OK | 10.1126/science.1213847 |
+| Powers — precision, recall, F-measure, ROC | 2011 | MANUAL | — (journal not in Crossref) |
+| Ramsey & Christensen — mineral abundance determination | 1998 | OK | 10.1029/97JB02784 |
+| Reeves — Aeromagnetic surveys | 2005 | MANUAL | — (technical book) |
+| Salisbury et al. (4 authors) — infrared spectra of minerals | 1991 | MANUAL | — (book; the Mineralogical Society DOI belongs to a different 1974 volume) |
+| Siemon, Auken & Christiansen — laterally constrained inversion | 2009 | OK | 10.1016/j.jappgeo.2007.11.003 |
+| Telford, Geldart & Sheriff — Applied geophysics | 1990 | BOOK | 10.1017/CBO9781139167932 |
+| Wilford, Bierwirth & Craig — gamma-ray spectrometry in regolith mapping | 1997 | MANUAL | — (AGSO Journal 17(2), unindexed) |
+| Wilkinson et al. (53 authors) — FAIR guiding principles | 2016 | OK | 10.1038/sdata.2016.18 |
+
+Counts: **23 entries**, **14 with a DOI**, **9 without** (three books, one chapter,
+one agency report, three AGSO Journal 1997 papers, one unindexed journal).
+
+## Changes made on 2026-11-18 (pre-review return)
+
+* **Numeric → author–date.** All eight in-text marker groups were rewritten, e.g.
+  `[1–4,21]` became `(Dickson and Scott, 1997; IAEA, 2003; Minty, 1997; Telford et
+  al., 1990; Wilford et al., 1997)`.
+* **Table 8's reference column** now reads `IAEA (2003)`, `Gnojek and Přichystal
+  (1985)` and so on.
+* **All authors named.** `et al.` was removed from the list itself: Christensen
+  (8 names), Hook (5), Kruse (7), Wilkinson (53), Salisbury (4), Siemon (3),
+  Telford (3), Wilford (3), Bar-Shalom (3).
+* **Full journal titles.** `AGSO J.` → *AGSO Journal of Australian Geology and
+  Geophysics*; `JGR` → *Journal of Geophysical Research: Planets* / *: Solid
+  Earth*; `Remote Sens. Environ.` → *Remote Sensing of Environment*.
+* **Two DOIs corrected.** Fountain 1998 is `10.1071/EG998001` (the audit's
+  `EG980001` resolved to an unrelated 1980 paper); the Salisbury 1991 book has no
+  DOI (the `10.1180/mono-4` DOI belongs to *The Infrared Spectra of Minerals*,
+  Mineralogical Society, 1974, edited by Farmer).
+* **One entry removed, two newly cited.** Sun et al. (2016) was in the list but
+  cited nowhere after the manuscript rewrite; it was dropped. Powers (2011) and
+  Reeves (2005) were also uncited and are now cited where they belong (metric
+  definitions in §4.4; the TMI grid in §3.4).
+* **Result:** 23 entries, 23 in-text keys, no uncited entry, no dangling citation.
 
 ## Verification trail (2026-11-07, Crossref + publisher pages)
 
-- **Gnojek & Prichystal — CORRECTED**: Crossref returns 10.1016/0016-7142(85)90076-6,
-  Geoexploration **23, 491–502, December 1985** ("northern Moravia
-  (Czechoslovakia)"). The draft cited 1995/33(1–3)/99–113 — all three fields
-  wrong. Fixed in the draft and in `PUBLISHED_BASELINES.md`.
+- **Gnojek & Přichystal 1985** — Crossref returns 10.1016/0016-7142(85)90076-6,
+  *Geoexploration* **23, 491–502**, December 1985. The draft had cited
+  1995/33(1)/99–113; all three fields were wrong and are fixed.
 - **AGSO Journal 17(2) 1997 special issue** (Minty; Wilford et al.; Dickson &
-  Scott): queried Crossref by full title — **not indexed, no DOI exists**.
-  The papers are standard literature; pages must be confirmed in a library
-  (Geoscience Australia holds the series). Status stays MANUAL.
-- **Bedini 2009** and **Macnae 2016 (ASEG abstract)**: not found in Crossref
-  by title/author queries after repeated attempts, and both are poorly
-  documented (conference abstract / unindexed journal). **Both were removed from
-  the reference list on 2026-11-07**, and neither is cited in the body, so no
-  in-text change was needed. The list went from 25 to 24 entries, with Kruse et
-  al. 1993 added to fill the SAM citation that §7.10 and Table 12 make.
-- **Kruse et al. 1993 — ADDED**: `Remote Sensing of Environment` 44(2–3),
-  145–163, DOI 10.1016/0034-4257(93)90013-N, Crossref-verified. The draft cited
-  "Kruse et al. 1993" for the Spectral Angle Mapper without listing it.
-- **IAEA TECDOC-1363 (2003)**: IAEA reports carry no DOIs; the document is a
-  standard reference (catalogue under TECDOC series). Cite as
-  *IAEA-TECDOC-1363, Vienna, 2003*; no further verification possible online.
-- **Powers 2011**: *Journal of Machine Learning Technologies* 2(1) is not in
-  Crossref; the citation (37–63) circulates consistently but stays MANUAL.
-- **Maybeck 1979 / Reeves 2005 / Hook 1999**: books/chapters without DOIs for
-  these editions; keep MANUAL with ISBN/publisher.
+  Scott): not indexed in Crossref, no DOI exists. Pages were confirmed against
+  the standard citations and stay MANUAL.
+- **Bedini 2009** and **Macnae 2016**: unverifiable (conference abstract /
+  unindexed journal) and uncited; removed on 2026-11-07.
+- **Kruse et al. 1993** — added to support the SAM citation, Crossref-verified.
+- **IAEA TECDOC-1363 (2003)** — agency reports carry no DOI; cite as
+  *IAEA-TECDOC-1363, Vienna*.
+- **Powers 2011** — *Journal of Machine Learning Technologies* 2(1) is not in
+  Crossref; the citation (37–63) stays MANUAL.
 
-## Updated counts
+## What to do at proof stage
 
-- Total entries in the reference list: **24**
-- DOI-verified: **11** (9 previous + Gnojek corrected + Kruse added)
-- Books with DOI: 5
-- MANUAL: **8** entries — IAEA 2003, Minty 1997, Wilford 1997, Dickson & Scott
-  1997, Maybeck 1979, Powers 2011, Reeves 2005, Hook 1999. All are standard,
-  widely cited sources with stable bibliographic details; none is a conference
-  abstract. Three of them share one AGSO Journal 17(2) 1997 special issue that
-  is confirmed to be unindexed (no DOI exists for the issue).
-- Removed as unverifiable: **Bedini 2009, Macnae 2016** (executed 2026-11-07;
-  neither was cited in the body, so the text is unchanged).
-
-## What to do
-
-1. For **OK/BOOK** entries, copy the DOI into the reference list and check the
-   edition/year.
-2. For **MANUAL** entries, use the publisher/library record; do not invent a DOI.
-3. Replace the draft's candidate list with the checked entries before
-   submission.
-4. If a reference cannot be verified, remove it rather than risk a wrong
-   citation. **Done for Bedini 2009 and Macnae 2016.**
-
-## Citation coverage (executed 2026-11-07)
-
-The body uses IEEE-style numeric markers. Before this pass, 19 of the 25 entries
-were never cited and one cited work (Kruse et al. 1993) was not in the list.
-Both problems are fixed; every entry 1–24 now has at least one marker, and no
-marker lacks an entry:
-
-| body citation | marker | list entry | status |
-|---|---|---|---|
-| gamma ratios as alteration indices | [1–4,21] | 1–4, 21 | IAEA / AGSO / Telford |
-| EM systems and inversion | [5–7,20,21] | 5–7, 20, 21 | Fountain, Siemon, Nabighian, Telford |
-| TIR spectroscopy | [8–10,22] | 8–10, 22 | Christensen, Salisbury, Ramsey, Hook |
-| fusion approaches | [11–14] | 11–14 | Kalman, Maybeck, Bar-Shalom, Julier |
-| domain adaptation (CORAL) | [15] | 15 | Sun et al. |
-| reproducibility | [16,17] | 16, 17 | Wilkinson (FAIR), Peng |
-| metric definitions | [18] | 18 | Powers |
-| aeromagnetic/TMI grid | [19] | 19 | Reeves |
-| SAM on TIR | [24] | 24 | Kruse et al. |
-| F-parameter | [23] | 23 | Gnojek & Prichystal |
-| low eTh/K | [4] | 4 | Dickson & Scott |
-| triad / IAEA practice | [1] | 1 | IAEA |
-
-The bibliography was renumbered accordingly: Macnae 2016 and Bedini 2009 were
-removed (see above), Kruse et al. 1993 took slot 24, and the list is contiguous
-1–24 with no gaps.
-
-## Why the automatic table is not used
-
-Crossref's `query.bibliographic` returned, for example, a 2012 Resource Geology
-paper for the IAEA TECDOC and a 1979 GSC report for Minty 1997. Those matches are
-wrong. The script is useful for finding candidate DOIs, not for verification.
+1. For **OK/BOOK** entries, check the DOI resolves and the edition/year matches.
+2. For **MANUAL** entries, use the publisher or library record; never invent a DOI.
+3. If a reference cannot be verified, remove it rather than risk a wrong citation.

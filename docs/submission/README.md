@@ -98,7 +98,13 @@ the journal uses.
    archive DOI, environment and reproduction command are in the manuscript.
 4. **Table S1 — moved out of the main text.** Upload `Supplementary_Tables.docx`
    with the submission; §7.6 points to it. The main text now has 8 tables.
-5. **Confirm journal-specific points** on the C&G Guide for Authors: whether the
+5. **Resubmission after the pre-review return (2026-11-18).** The journal asked
+   for author–date references and a documented code repository; both are done
+   (Round 21). Re-upload the rebuilt files from `upload/`, with figures typed as
+   **Figure**, the graphical abstract as **Graphical Abstract** and only
+   `Supplementary_Material.docx` as supplementary, and set the author country in
+   Editorial Manager.
+6. **Confirm journal-specific points** on the C&G Guide for Authors: whether the
    graphical abstract is mandatory, whether a separate title page is required (this
    package keeps it inside the manuscript), and whether the Highlights file should
    be uploaded separately or pasted into the submission form.
