@@ -1,5 +1,32 @@
 # Changelog — cleanup and corrections
 
+## Round 20 — post-submission review of CAGEO-D-26-02178 (2026-11-18)
+
+* **The submitted PDF was inspected page by page** (39 pages: 31 of manuscript,
+  8 of attachments) and the findings are recorded in
+  `docs/submission/SUBMISSION_RECORD.md`, with severity and status for each.
+* **Two items need action in Editorial Manager, not in the repository:** the six
+  figures, the graphical abstract and the supplementary file were registered as
+  *Supplementary Material* (they appear as download links on pp. 32–39), and the
+  affiliation line reads `Harbin, --- Select One --- CHINA` because the
+  state/country selector was never set.
+* **Nine defects fixed in the build.** A Markdown line that began with `-` had
+  become a bullet in the middle of §7.3 ("…gives 0.354 / • no gain…"); table
+  captions could be separated from their tables by a page break; the abstract
+  split across two pages; three paragraphs opened with "Table 4./7./8." just
+  before the real captions; hyphens stood in for dashes and ranges; the reference
+  note pointed at an internal file; and the cover letter's signature block spilled
+  onto a second page. `docs/build_draft_docx.py` now keeps table rows whole and
+  headers repeating, keeps captions with their tables and figures, breaks the page
+  before the abstract, and only treats `- ` as a bullet inside a list. The cover
+  letter is now 1 page (581 words); the manuscript is 26 pages.
+* **Abstract word count corrected:** it is 235 words, not 247 — the earlier figure
+  had counted the keywords line with it. The checklist, GAP_AUDIT,
+  JOURNAL_SHORTLIST and SUBMISSION_GUIDE now say 235.
+* **Nothing scientific changed.** The validator still passes 53/53 artefacts and
+  22/22 invariants, including "tables 4-8 equal the artefacts"; the 36 assertions
+  pass; the manifest was rebuilt.
+
 ## Round 19 — new Elsevier upload page (2026-11-13)
 
 * The submission UI now lists **Manuscript, Highlights, Cover letter and

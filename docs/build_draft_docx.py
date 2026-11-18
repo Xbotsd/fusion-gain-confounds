@@ -7,6 +7,7 @@ from pathlib import Path
 from docx import Document
 from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Cm, Pt, RGBColor
 
@@ -78,6 +79,11 @@ def add_table(doc, rows):
             add_runs(para, val.strip())
             for run in para.runs:
                 run.font.size = Pt(8.5)
+    # no row may straddle a page break, and the header repeats if it does
+    for r in t.rows:
+        r.allow_break_across_pages = False
+    t.rows[0]._tr.get_or_add_trPr().append(
+        OxmlElement("w:tblHeader"))
     doc.add_paragraph()
 
 
@@ -112,7 +118,26 @@ def main():
             if path.exists():
                 doc.add_picture(str(path), width=Cm(15.5))
                 doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
+                doc.paragraphs[-1].paragraph_format.keep_with_next = True
             i += 1
+            continue
+
+        # table caption: italic, small, and attached to the table that follows
+        if re.match(r"^\*\*Table \d+\.\*\*", line.strip()):
+            parts = [line.strip()]
+            j = i + 1
+            while j < len(lines) and lines[j].strip() and not lines[j].lstrip().startswith(("|", "#")):
+                parts.append(lines[j].strip())
+                j += 1
+            p = doc.add_paragraph()
+            p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            p.paragraph_format.keep_with_next = True
+            p.paragraph_format.space_before = Pt(6)
+            add_runs(p, " ".join(parts))
+            for r in p.runs:
+                r.italic = True
+                r.font.size = Pt(9)
+            i = j
             continue
 
         # figure caption
@@ -131,6 +156,8 @@ def main():
             doc.add_heading(line[4:].strip(), level=3)
         elif line.startswith("## "):
             title = line[3:].strip()
+            if title.lower().startswith("abstract"):
+                doc.add_page_break()
             if title.lower().startswith("references") and not in_refs:
                 doc.add_page_break()
                 in_refs = True
@@ -143,8 +170,26 @@ def main():
             r.font.size = Pt(16)
             r.font.color.rgb = BLUE
         elif line.startswith("- "):
-            p = doc.add_paragraph(style="List Bullet")
-            add_runs(p, line[2:].strip())
+            # a hyphen is a bullet only when it opens a list; a wrapped line that
+            # happens to start with "-" continues the previous paragraph
+            prev = lines[i - 1].rstrip() if i else ""
+            in_list = (not prev.strip()) or prev.startswith("- ")
+            if in_list:
+                p = doc.add_paragraph(style="List Bullet")
+                add_runs(p, line[2:].strip())
+            else:
+                parts = [line.strip().lstrip("-").strip()]
+                j = i + 1
+                while j < len(lines):
+                    nxt = lines[j].rstrip()
+                    if not nxt.strip() or nxt.startswith(("|", "#", "- ")):
+                        break
+                    parts.append(nxt.strip())
+                    j += 1
+                p = doc.add_paragraph()
+                add_runs(p, " ".join(parts))
+                i = j
+                continue
         elif line.startswith("**Authors:**") or line.startswith("**Corresponding"):
             p = doc.add_paragraph()
             p.alignment = WD_ALIGN_PARAGRAPH.CENTER

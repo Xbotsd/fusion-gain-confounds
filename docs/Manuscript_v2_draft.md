@@ -6,7 +6,7 @@
 
 ## Abstract
 
-Reported fusion gains in airborne mineral exploration are rarely reproducible because of two confounds: the target is derived from the channels being inverted, and the inversion is underdetermined, so adding any channel changes conditioning rather than information. We separate both on a real-data benchmark over the Ivanpah-Clark Mountain area: USGS radiometrics (295,943 samples), real ASTER L1T thermal infrared (five emissivity bands), real aeromagnetics and USGS SIM 3206 geology, with one synthetic electromagnetic augmentation since no measured airborne EM exists. Three gamma channels for five minerals give rank 3, and gamma alone scores at chance against independent geology (AUC 0.387). Five ASTER bands raise proxy F1 from 0.531 to 0.652 and geological AUC to 0.913 - but five uninformative channels with the same response rows recover 69-98 % of the F1 gain and all of the AUC gain, so most of it is conditioning. A model-free test isolates the information: gamma plus ASTER classifies four similar substrates at balanced accuracy 0.529 versus 0.350 for gamma (+0.179, CI [0.120, 0.241], 20/20 repeats), while a shuffled cube gives 0.354. Correcting a mis-specified electromagnetic row raises F1 from 0.168 to 0.497 but still loses to gamma plus thermal. Effective sample size is 110, not 1.2 million pixels, and the filter variance is not a confidence interval (coverage 0.13). Fusion studies should report the rank of the inverse problem and an information test that does not use the response matrix.
+Reported fusion gains in airborne mineral exploration are rarely reproducible because of two confounds: the target is derived from the channels being inverted, and the inversion is underdetermined, so adding any channel changes conditioning rather than information. We separate both on a real-data benchmark over the Ivanpah-Clark Mountain area: USGS radiometrics (295,943 samples), real ASTER L1T thermal infrared (five emissivity bands), real aeromagnetics and USGS SIM 3206 geology, with one synthetic electromagnetic augmentation since no measured airborne EM exists. Three gamma channels for five minerals give rank 3, and gamma alone scores at chance against independent geology (AUC 0.387). Five ASTER bands raise proxy F1 from 0.531 to 0.652 and geological AUC to 0.913 – but five uninformative channels with the same response rows recover 69–98 % of the F1 gain and all of the AUC gain, so most of it is conditioning. A model-free test isolates the information: gamma plus ASTER classifies four similar substrates at balanced accuracy 0.529 versus 0.350 for gamma (+0.179, CI [0.120, 0.241], 20/20 repeats), while a shuffled cube gives 0.354. Correcting a mis-specified electromagnetic row raises F1 from 0.168 to 0.497 but still loses to gamma plus thermal. Effective sample size is 110, not 1.2 million pixels, and the filter variance is not a confidence interval (coverage 0.13). Fusion studies should report the rank of the inverse problem and an information test that does not use the response matrix.
 
 **Keywords:** airborne mineral exploration; gamma-ray spectrometry; thermal infrared; ASTER; multi-modal fusion; identifiability
 
@@ -14,7 +14,7 @@ Reported fusion gains in airborne mineral exploration are rarely reproducible be
 
 - Most fusion gains stem from circular targets and underdetermined inversions
 - Three gamma channels for five minerals give rank 3; AUC 0.387 on real geology
-- Real ASTER TIR lifts proxy F1 to 0.652; inert channels recover 69-98 %
+- Real ASTER TIR lifts proxy F1 to 0.652; inert channels recover 69–98 %
 - Model-free gain is +0.179 balanced accuracy, lost when the cube is shuffled
 - Fixing the synthetic EM row helps (+0.332 F1) but still loses to gamma+TIR
 
@@ -56,8 +56,8 @@ definition.
 Our contributions are four.
 
 (i) We show that the two confounds can be separated experimentally. Appending
-channels that carry no information - all zeros, Gaussian noise, or the real cube
-block-shuffled - recovers 69-98 % of that F1 gain (0.614, 0.649 and 0.634
+channels that carry no information – all zeros, Gaussian noise, or the real
+cube block-shuffled – recovers 69–98 % of that F1 gain (0.614, 0.649 and 0.634
 against 0.652) and all of the geological AUC gain, which measures the
 conditioning effect directly.
 
@@ -292,7 +292,7 @@ section of Section 3.3; they constrain the response model, not field EM.
 
 ### 7.1 The gamma proxy rewards gamma, and TIR helps on it
 
-Table 4. With the corrected EM model, gamma alone reaches F1 0.531; adding the
+With the corrected EM model (Table 4), gamma alone reaches F1 0.531; adding the
 five ASTER bands raises it to **0.652** (AP 0.393 → 0.624, precision 0.367 →
 0.544). Adding the synthetic EM instead gives 0.418, and the full set 0.497. On
 this circular target the best configuration is gamma+TIR, and the synthetic EM
@@ -360,12 +360,11 @@ average precision, geological AUC and the model-free balanced accuracy.
 | gamma + real ASTER + TMI | 0.521 ± 0.036 | +0.170 [+0.109, +0.235] | 20/20 |
 
 Inside the estimator, zeros, noise and shuffled copies all score close to the real
-cube (69-98 % of the F1 gain, and a geological AUC at or above the real cube's),
+cube (69–98 % of the F1 gain, and a geological AUC at or above the real cube's),
 because the extra rows regularise a rank-3 problem. The model-free column of
 Table 5 (expanded in Table 6) does not use the response matrix: there gamma+ASTER
-reaches 0.529 against 0.350 for gamma (+0.179), a block-shuffled cube gives 0.354
-- no gain - and the synthetic TIR cube gives 0.389, a much smaller real gain
-(+0.039).
+reaches 0.529 against 0.350 for gamma (+0.179), a block-shuffled cube gives 0.354, which is no gain, and the synthetic TIR
+cube gives 0.389, a much smaller real gain (+0.039).
 
 The honest reading is that real ASTER TIR does carry information about substrate
 that gamma does not (20 of 20 repeats, CI [0.120, 0.241]), but the +0.12 F1 and
@@ -375,7 +374,7 @@ share is roughly a third.
 
 ### 7.4 Estimator comparison
 
-Table 7. On the proxy, GLS reaches the highest F1 (0.560), the proposed
+On the proxy (Table 7), GLS reaches the highest F1 (0.560), while the proposed
 WLS+Kalman 0.497 with the highest AP (0.577) and the highest geological AUC
 (0.912), and the fewest components among the accurate methods (919 against 4,786
 for the independent inversion and 7,949 for GLS). The Kalman stage therefore buys
@@ -429,7 +428,7 @@ and the only depth-varying information is the synthetic EM section.
 
 ### 7.8 Published single-modality practice
 
-Table 8. On the matched-prevalence rule the strongest published index is low
+On the matched-prevalence rule (Table 8), the strongest published index is low
 eTh/K (F1 0.365), followed by the F-parameter (0.284) and ternary K-dominance
 (0.150); spectral angle mapping on the real ASTER bands and an EM conductor index
 give 0.071 and 0.016. The fusion reaches 0.497. On independent geology the
@@ -509,7 +508,7 @@ only the thermal rows are derived from a spectral library.
 
 On a real-data airborne benchmark, the apparent gain from adding real thermal
 infrared to gamma-ray data is mostly an artefact of an underdetermined inversion:
-five uninformative channels with the same response rows recover 69-98 % of the
+five uninformative channels with the same response rows recover 69–98 % of the
 F1 gain (0.614 for zeros, 0.649 for noise, 0.652 for the real cube) and a
 geological AUC at least as high (0.919 and 0.922 against 0.913). What survives a
 model-free test is a real but much smaller information gain, +0.179 balanced
@@ -576,8 +575,7 @@ author.
 Numbers follow the IEEE style used in the text. Entries 1–24 are contiguous;
 every entry is cited in the body. DOIs were checked against Crossref (11
 entries). Eight entries carry no DOI (IAEA TECDOC; the AGSO Journal 17(2) 1997
-special issue, which is unindexed; and four books or chapters). See
-`docs/REFERENCES_AUDIT.md`.
+special issue, which is unindexed; and four books or chapters). 
 
 1. IAEA. Guidelines for radioelement mapping using gamma ray spectrometry data. IAEA-TECDOC-1363, 2003.
 2. Minty, B.R.S. Fundamentals of airborne gamma-ray spectrometry. AGSO Journal of Australian Geology and Geophysics, 17(2), 39–50, 1997.

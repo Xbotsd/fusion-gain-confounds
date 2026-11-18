@@ -112,7 +112,7 @@ bootstrap）。选 6–8 项都合理，1 项即满足系统要求。
 
 1. **Article Type**：选 `Research paper`（若列表里叫 `Full length article` 或类似项，选最接近的）。
 2. **Title**：粘贴 `paste_fields.txt` 的 TITLE 一行。
-3. **Abstract**：粘贴 ABSTRACT 段（247 词，系统上限通常 250）。
+3. **Abstract**：粘贴 ABSTRACT 段（235 词，系统上限通常 250）。
 4. **Keywords**：6 个，逐个填或用分号分隔（见 paste_fields.txt）。
 5. **Authors**：Add Author →
    - Given name `Yudong`，Family name `Xu`
@@ -209,7 +209,7 @@ Declaration of competing interests。每次在 `Select file type` 下拉框选�
 1. 点 **Build PDF for my Approval**，等 1–3 分钟。
 2. 点 **View Submission**，重点检查：
    - 标题、作者、单位、邮箱正确；ORCID 已显示；
-   - 摘要完整（247 词），关键词 6 个；
+   - 摘要完整（235 词），关键词 6 个；
    - 正文 8 张表、6 张图都在，图注顺序正确；
    - 行号连续、双倍行距；
    - 参考文献 1–24 连续、无缺号；

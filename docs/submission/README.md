@@ -10,6 +10,13 @@ scripted requests), so the list below was checked against Elsevier's standard
 article requirements, not the current journal-specific text. Re-check items
 marked *(confirm)* before uploading.
 
+## Submission record
+
+`SUBMISSION_RECORD.md` documents the submitted package for manuscript
+**CAGEO-D-26-02178** (13 Nov 2026): what was uploaded, what the built PDF shows,
+the twelve defects found in it, which are fixed in the repository and which need
+an Editorial Manager change.
+
 ## Step-by-step guide
 
 `SUBMISSION_GUIDE.md` is the operating manual: official links (journal home,
@@ -56,13 +63,14 @@ the journal uses.
 | `../CITATION.cff`, `../.zenodo.json` | archive metadata for the DOI |
 | `upload/`, `upload_manifest.json`, `CG_submission_package.zip` | the ready-to-upload set and its checksums |
 | `SUBMISSION_GUIDE.md` | step-by-step Editorial Manager walkthrough and links |
+| `SUBMISSION_RECORD.md` | the submitted record, its defects and their status |
 | `paste_fields.txt` | title, authors, abstract, keywords and highlights ready to paste |
 
 ## Checked
 
 | requirement | state |
 |---|---|
-| Abstract ≤ 250 words | 247 (whitespace count) |
+| Abstract ≤ 250 words | 235 (word count of the abstract paragraph) |
 | Highlights: ≤ 5 bullets, ≤ 85 characters each | 5 bullets, max 77 |
 | Keywords ≤ 6 | 6 |
 | Double-spaced text with line numbers | yes (2.0, continuous) |

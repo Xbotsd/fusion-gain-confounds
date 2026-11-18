@@ -144,7 +144,8 @@ def add_runs(p, s: str) -> None:
 
 # cover letter: markdown -> letter
 lines = LETTER_MD.read_text(encoding="utf-8").splitlines()
-doc = base_doc()
+doc = base_doc(margins_cm=2.2)
+doc.styles["Normal"].paragraph_format.space_after = Pt(4)
 i = 0
 first_heading = True
 while i < len(lines):

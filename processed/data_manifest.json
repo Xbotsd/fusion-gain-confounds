@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-13T12:49:57+08:00",
+  "generated_at": "2026-11-18T15:14:31+08:00",
   "root": "D:\\A_MineralProspecting",
-  "n_files": 6851,
-  "total_bytes": 11460802075,
+  "n_files": 6852,
+  "total_bytes": 11460812261,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -73,12 +73,12 @@
       "bytes": 87026
     },
     "docs": {
-      "files": 66,
-      "bytes": 19615214
+      "files": 67,
+      "bytes": 19625327
     },
     "code": {
       "files": 142,
-      "bytes": 548767
+      "bytes": 548840
     }
   },
   "files": [
@@ -46952,7 +46952,7 @@
       "path": "processed/pipeline_validation.json",
       "stage": "audit",
       "size": 16669,
-      "sha256": "68c595bcd4c756ac05d7064a215477af06f219d82213b6515503c8d9b0375ce9",
+      "sha256": "d9c4dffcf540c61f23a281f105b63789a046ee625cca6a04a32fc1cc3249ec57",
       "schema": {
         "keys": [
           "checks",
@@ -48113,8 +48113,8 @@
     {
       "path": "docs/build_draft_docx.py",
       "stage": "docs",
-      "size": 6413,
-      "sha256": "15735e29d777a2bcfc1be3c1b60705414b34464635db29548a9bb6dd79ee2f8e",
+      "size": 8418,
+      "sha256": "8ef325d0355288e37aa1ba96a61afcdcbc5bafdb71af88872147adce686e75ca",
       "schema": {}
     },
     {
@@ -48134,8 +48134,8 @@
     {
       "path": "docs/CHANGELOG.md",
       "stage": "docs",
-      "size": 33349,
-      "sha256": "60bba7020259e1933e3b045c4ea7015bb461d8394c136a02300ab19cd1e153f9",
+      "size": 35210,
+      "sha256": "9055f22490304440a205af3f2f155b939204ba5a0bc1a78dd6737cd5f8e82d85",
       "schema": {}
     },
     {
@@ -48178,7 +48178,7 @@
       "path": "docs/GAP_AUDIT.md",
       "stage": "docs",
       "size": 3474,
-      "sha256": "aae53037a135dbc09e03161f396d719ae206e771f956c3308c46ecae968f4b39",
+      "sha256": "25ada01f0bedf8f33431da8686749d21493c386ed7dffa2af85cf35c36eb6386",
       "schema": {}
     },
     {
@@ -48199,7 +48199,7 @@
       "path": "docs/JOURNAL_SHORTLIST.md",
       "stage": "docs",
       "size": 10075,
-      "sha256": "043e4f8f2b26d95f02aaf8463a88a9bd3327e4cc2988998bd4170a146436b656",
+      "sha256": "c09ef9e6dd982c8a393af52112e0d587dc0d0a9bd2212b803bf5c9982bad7a55",
       "schema": {}
     },
     {
@@ -48212,15 +48212,15 @@
     {
       "path": "docs/Manuscript_v2_draft.docx",
       "stage": "docs",
-      "size": 9315769,
-      "sha256": "7a935e7608a05095efa30c36ca3b634c6d76a941644df37ef60f2569956c8649",
+      "size": 9315797,
+      "sha256": "d81e29e5683fde63487261887c40fdf980a43737a482b64768bc93587eb289d6",
       "schema": {}
     },
     {
       "path": "docs/Manuscript_v2_draft.md",
       "stage": "docs",
       "size": 37072,
-      "sha256": "19a441364b896de2c0dbdda26501dff00f1ad966673efc52d2e680e97ecde8a6",
+      "sha256": "abc6d18398e845c6a6bf672f2d48261211839981f376ae791cb31b8cd715117a",
       "schema": {}
     },
     {
@@ -48294,15 +48294,15 @@
     {
       "path": "docs/submission/cover_letter.docx",
       "stage": "docs",
-      "size": 38719,
-      "sha256": "d5a37e0faa4b690c33c744efc87932e90f6bb14339135dcba2eb3a7673bab8f2",
+      "size": 38716,
+      "sha256": "9bcb34f4a9699a81a8fc026889b68265527a38537e48e1648bd033dbee25b68e",
       "schema": {}
     },
     {
       "path": "docs/submission/declaration_of_competing_interests.docx",
       "stage": "docs",
       "size": 37065,
-      "sha256": "1dbf16b09d01cf2d8c152bf6e0341a9363a335cefa95d22f1865f1d656f76304",
+      "sha256": "774ae841ea3f2dc8f8c5e644643ffa7e05d52aa9b6f1d718418fbf34ce331a70",
       "schema": {}
     },
     {
@@ -48357,15 +48357,15 @@
     {
       "path": "docs/submission/highlights.docx",
       "stage": "docs",
-      "size": 36908,
-      "sha256": "1d0818c9823bac29bca68659f4b225b5e644d1c2bcb6f921b79754382905f2d2",
+      "size": 36916,
+      "sha256": "09473f0591ebaba1ce443ec5aa2c0e9825f9f1a3bff9fb5bd5bc38e556c3b427",
       "schema": {}
     },
     {
       "path": "docs/submission/highlights.txt",
       "stage": "docs",
-      "size": 391,
-      "sha256": "faf2233dce1067ebb8edde2181b79a436ce9b29be77281ed9fea212608d81839",
+      "size": 393,
+      "sha256": "cc0169b145048d0558d3cf87ac7b2c3291ece7c19965c095a2aa0a4d6322400d",
       "schema": {}
     },
     {
@@ -48378,22 +48378,29 @@
     {
       "path": "docs/submission/paste_fields.txt",
       "stage": "docs",
-      "size": 2596,
-      "sha256": "0c83156d744caddee60a6d879ee3afb5d48c57e930db014a2c4560833e64ae4f",
+      "size": 2602,
+      "sha256": "b0c89185cd7af87ae7b95f1e8728320b0b0b9a469c99e6a58378a5b5972ded70",
       "schema": {}
     },
     {
       "path": "docs/submission/README.md",
       "stage": "docs",
-      "size": 5982,
-      "sha256": "b32964eee83f807b37d127e0814c157cbc49fc7095521aa6eec6103abea9bb56",
+      "size": 6374,
+      "sha256": "486c30ec23eaa7092ed9422e596c1094803f71fc544dc427147dfb88cd271142",
       "schema": {}
     },
     {
       "path": "docs/submission/SUBMISSION_GUIDE.md",
       "stage": "docs",
       "size": 13263,
-      "sha256": "98c2033c4e20d3a50a959be60499210ba96c206ed42447b4304dd32e28ce87d3",
+      "sha256": "045db2517038fc3c5f1807740c943d1f0ba12663876610a78804fc550411fde2",
+      "schema": {}
+    },
+    {
+      "path": "docs/submission/SUBMISSION_RECORD.md",
+      "stage": "docs",
+      "size": 5814,
+      "sha256": "3c1e9c4019911f8b8230c5d2211f511447a6dfb47bf000653fdc7225093c94d4",
       "schema": {}
     },
     {
@@ -49071,8 +49078,8 @@
     {
       "path": "code/make_submission_package.py",
       "stage": "code",
-      "size": 10830,
-      "sha256": "8ebb0a2f20d2930b942c8fc1d476e4d3c329f0673893bdd1b33244d7f313cbc0",
+      "size": 10903,
+      "sha256": "196e84e02e42fdabf48770c7d3c97724b601dfcf23ddd2295e157b583b77d3f2",
       "schema": {}
     },
     {

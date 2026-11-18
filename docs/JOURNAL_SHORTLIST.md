@@ -115,7 +115,7 @@ C&G（最终选择：免费、无版面费、Q1 / 中科院 2 区、最匹配）
 1. **软件可用性段落**：名称、版本、许可证、仓库、归档 DOI、运行环境、复现命令。
    已在正文 “Reproducibility and data availability” 中加入 `Software availability`
    段落（2026-11-12）；C&G 明确要求软件可用性。
-2. **摘要** ≤ 250 词（现 247）、关键词 6 个、Highlights 5 条（每条 ≤ 85 字符，
+2. **摘要** ≤ 250 词（现 235）、关键词 6 个、Highlights 5 条（每条 ≤ 85 字符，
    现最大 77）。均已就绪（`docs/submission/`）。
 3. **图表**：正文 8 表 6 图；原 Table 8（TES 敏感性）已移为 Supplementary Table S1，
    §7.6 引用，随稿上传 `Supplementary_Tables.docx`。
