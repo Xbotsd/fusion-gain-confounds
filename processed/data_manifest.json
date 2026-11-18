@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-18T17:21:26+08:00",
+  "generated_at": "2026-11-18T18:42:46+08:00",
   "root": "D:\\A_MineralProspecting",
   "n_files": 6854,
-  "total_bytes": 11460831135,
+  "total_bytes": 11460833018,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -74,7 +74,7 @@
     },
     "docs": {
       "files": 68,
-      "bytes": 19637532
+      "bytes": 19639415
     },
     "code": {
       "files": 143,
@@ -48134,8 +48134,8 @@
     {
       "path": "docs/CHANGELOG.md",
       "stage": "docs",
-      "size": 37179,
-      "sha256": "49ad204388ef97c7463e164f89b21a68612e2add02226866dcdd1babe1f2a046",
+      "size": 37954,
+      "sha256": "6e03be512189c83c5d161fc70d7e1e5ae4bd0f7d7ff716bb9aedfbf87433f3b3",
       "schema": {}
     },
     {
@@ -48406,8 +48406,8 @@
     {
       "path": "docs/submission/SUBMISSION_RECORD.md",
       "stage": "docs",
-      "size": 7411,
-      "sha256": "68c2ed6b234d6ab47fcec162c6cdbcb695ee613b110ca97b2c5de29199af3037",
+      "size": 8519,
+      "sha256": "39eb8f55212e2958824b6cb356f54ad6de69d8c41ebdc58d38e3fdc33e8bd6b8",
       "schema": {}
     },
     {

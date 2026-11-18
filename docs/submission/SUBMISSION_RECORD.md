@@ -105,7 +105,28 @@ What was changed in response (Round 21 in `docs/CHANGELOG.md`):
 (Fountain `10.1071/EG998001`; the Salisbury book has none) and one uncited entry
 (Sun et al., 2016) was removed.
 
-## 6. Status and next step
+## 6. Resubmission (2026-11-18)
+
+The corrected package was uploaded again and approved by the author on
+**18 November 2026** under the same manuscript number, **CAGEO-D-26-02178**.
+
+Uploaded: `Manuscript.docx` (author–date references, Code availability section,
+46 scripts / nine stages), `Cover_Letter.docx` (cites the Code availability
+section), `Highlights.docx`, `Declaration_of_Competing_Interests.docx`,
+`figure01..06.png` as **Figure**, `Graphical_Abstract.png` as **Graphical
+Abstract**, `Supplementary_Material.docx` as **Supplementary Material**.
+
+Metadata fixed in Editorial Manager: author country set to China (the
+`--- Select One ---` placeholder is gone); data-availability statement set to
+"Other" with the Zenodo DOI and the GitHub repository; preprint service declined;
+section/category *Remote sensing* with the method and remote-sensing
+classifications.
+
+A note to the publication office lists the three corrections and states that all
+reported results and numeric values are unchanged (verified: all 223 numeric
+values of the first submission are still present).
+
+## 7. Status and next step
 
 * The PDF states `--Manuscript Draft--`: the first submission was returned at
   pre-review on 2026-11-18; the corrected files in `upload/` are the resubmission. Nothing in the repository changes the submitted record by itself.

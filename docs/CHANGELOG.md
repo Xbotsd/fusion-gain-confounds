@@ -1,5 +1,18 @@
 # Changelog — cleanup and corrections
 
+## Round 22 — resubmitted (2026-11-18)
+
+* The corrected package was uploaded and approved in Editorial Manager under the
+  same manuscript number, **CAGEO-D-26-02178**: new manuscript and cover letter,
+  corrected item types for the six figures and the graphical abstract, author
+  country set to China, data-availability statement pointing at the Zenodo DOI and
+  the GitHub repository, preprint service declined.
+* A note to the publication office records the three corrections and states that
+  the reported results and every numeric value are unchanged (verified: all 223
+  numeric values of the first submission are still present in the current text).
+* Nothing else moved: validator 53/53 and 22/22, 36 assertions, `check_submission`
+  30/30, CI green.
+
 ## Round 21 — pre-review return: author-date references (2026-11-18)
 
 * **The journal returned the submission before review** for one guideline
