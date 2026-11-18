@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-18T17:16:02+08:00",
+  "generated_at": "2026-11-18T17:21:26+08:00",
   "root": "D:\\A_MineralProspecting",
-  "n_files": 6853,
-  "total_bytes": 11460824138,
+  "n_files": 6854,
+  "total_bytes": 11460831135,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -74,11 +74,11 @@
     },
     "docs": {
       "files": 68,
-      "bytes": 19637204
+      "bytes": 19637532
     },
     "code": {
-      "files": 142,
-      "bytes": 548840
+      "files": 143,
+      "bytes": 555509
     }
   },
   "files": [
@@ -48392,8 +48392,8 @@
     {
       "path": "docs/submission/RESUBMIT_CHECKLIST.md",
       "stage": "docs",
-      "size": 3226,
-      "sha256": "2732eecb6ae84de787daf4eb426857019fde741f266b17238380445bf02b822f",
+      "size": 3554,
+      "sha256": "e624724a26f0ff03f1ace974de554dcc5f187d56a5c870def6ac0a2241c7bbee",
       "schema": {}
     },
     {
@@ -48464,6 +48464,13 @@
       "stage": "code",
       "size": 2313,
       "sha256": "ec26cac0bc5b3dcd6e7bc5de62fefb99223b546c658e7e10b14483455a9c9664",
+      "schema": {}
+    },
+    {
+      "path": "code/check_submission.py",
+      "stage": "code",
+      "size": 6669,
+      "sha256": "4131f4530241b55f1011b4a4b17f311f8fd42b2deef7c56032eec8662d420b22",
       "schema": {}
     },
     {

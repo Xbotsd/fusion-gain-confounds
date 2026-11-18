@@ -4,6 +4,15 @@
 状态：**已在仓库改好并校验通过**，你只需要在 Editorial Manager 里替换文件、改两处
 元数据、再提交一次。期刊明确写了只有一次机会，再不合格直接 desk review 拒稿。
 
+## 0a. 上传前先跑一次自动检查
+
+```powershell
+python code/check_submission.py
+```
+
+30 项检查（参考文献样式、章节、字数、版式、上传包与源文件一致性），应输出
+`30 passed, 0 failed`。任何 FAIL 都先别提交。
+
 ## 0. 本地文件（直接上传，不要改名）
 
 `D:\A_MineralProspecting\docs\submission\upload\`
