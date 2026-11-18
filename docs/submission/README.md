@@ -94,8 +94,9 @@ the journal uses.
    author reviewed and verified all content, sits in the Declarations section.
 2. **Repository DOI — done.** https://doi.org/10.5281/zenodo.24130421 (version 1.0.0), concept
    https://doi.org/10.5281/zenodo.24130420. The manuscript, `CITATION.cff` and README carry it.
-3. **Software availability — done.** Named software, version, MIT licence, repository,
-   archive DOI, environment and reproduction command are in the manuscript.
+3. **Code availability — done (2026-11-18).** A dedicated section in the template's
+   form: code name/version, contact, hardware, language, software, program size and
+   repository link, plus the MIT licence and the archive DOI.
 4. **Table S1 — moved out of the main text.** Upload `Supplementary_Tables.docx`
    with the submission; §7.6 points to it. The main text now has 8 tables.
 5. **Resubmission after the pre-review return (2026-11-18).** The journal asked

@@ -113,9 +113,9 @@ C&G（最终选择：免费、无版面费、Q1 / 中科院 2 区、最匹配）
 
 ## 5. 投稿前清单（C&G）
 
-1. **软件可用性段落**：名称、版本、许可证、仓库、归档 DOI、运行环境、复现命令。
-   已在正文 “Reproducibility and data availability” 中加入 `Software availability`
-   段落（2026-11-12）；C&G 明确要求软件可用性。
+1. **Code availability 章节**：C&G 模板要求独立成节，含代码名称、联系人、
+   硬件要求、语言、依赖软件、程序规模与仓库链接。正文已有该章节（2026-11-18），
+   版本、MIT 许可、归档 DOI 与复现命令都在其中。
 2. **摘要** ≤ 250 词（现 235）、关键词 6 个、Highlights 5 条（每条 ≤ 85 字符，
    现最大 77）。均已就绪（`docs/submission/`）。
 3. **图表**：正文 8 表 6 图；原 Table 8（TES 敏感性）已移为 Supplementary Table S1，
