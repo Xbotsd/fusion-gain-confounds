@@ -1,29 +1,29 @@
 {
-  "generated": "2026-11-18T15:24:59",
+  "generated": "2026-11-18T17:15:32",
   "files": [
     {
       "file": "Cover_Letter.docx",
       "upload_slot": "Cover Letter",
-      "bytes": 38789,
-      "sha256": "47747d4bce021014262c57d2d813739a77badb6b91a8c5dd584829a6495182c0"
+      "bytes": 38809,
+      "sha256": "adc2d1aad14fc115e9e885735d8301188b7a0bf3d8a0e23bd2616baaf2bf8b5c"
     },
     {
       "file": "Manuscript.docx",
       "upload_slot": "Manuscript (Word)",
-      "bytes": 9316840,
-      "sha256": "8fec552a3fb14532449e182be9aac8d3495326ab7e51c76ebd5240e13243dec8"
+      "bytes": 9316866,
+      "sha256": "b5aaab326ecf14eeae07dd62f90f2723f861baecf3e1fadd36f311e4ef50f622"
     },
     {
       "file": "Highlights.docx",
       "upload_slot": "Highlights",
       "bytes": 36916,
-      "sha256": "369eec9c295f34e6a8b4e35255802d825d5c0ebbc1ab21cc455b7f4c3627d517"
+      "sha256": "84e4e4c3bc210c7315b394eea2f5263959c16cd883d6645923bfa65d5008c532"
     },
     {
       "file": "Declaration_of_Competing_Interests.docx",
       "upload_slot": "Declaration of competing interests",
       "bytes": 37065,
-      "sha256": "dcb5b9e25a4a4bf4644d5f7c245fec3bb6ec9abe30781796359eed1021da75a3"
+      "sha256": "db22979fcebb151f2ca1367ff9ce64e9091574f454b0c725687f508449aa5d5f"
     },
     {
       "file": "Supplementary_Material.docx",

@@ -25,7 +25,7 @@ Status legend: **OK** = DOI/title checked; **BOOK** = book DOI, check edition;
 | Dickson & Scott — aerial gamma-ray surveys | 1997 | MANUAL | — (AGSO Journal 17(2), unindexed) |
 | Fountain — airborne EM systems, 50 years | 1998 | OK | 10.1071/EG998001 |
 | Gnojek & Přichystal — zinc mineralisation, northern Moravia | 1985 | OK | 10.1016/0016-7142(85)90076-6 |
-| Hook et al. (5 authors) — multispectral TIR in geological studies | 1999 | MANUAL | — (book chapter) |
+| Hook et al. (5 authors) — multispectral TIR in geological studies | 1999 | MANUAL | — (book chapter; page range 59–110 from the standard citation, not independently verified) |
 | IAEA — guidelines for radioelement mapping (TECDOC-1363) | 2003 | MANUAL | — (agency report) |
 | Julier & Uhlmann — non-divergent estimation | 1997 | OK | 10.1109/ACC.1997.609105 |
 | Kalman — linear filtering and prediction | 1960 | OK | 10.1115/1.3662552 |

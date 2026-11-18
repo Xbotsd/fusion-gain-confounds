@@ -23,8 +23,8 @@ SIM 3206 geological mapping; the one synthetic modality (airborne EM, for which
 no measured survey exists at this site) is labelled as such throughout and is
 used as a controlled augmentation, not as evidence about field EM.
 
-**It is reproducible in a checkable sense.** The pipeline is 40 scripts in eight
-stages. A coverage guard fails if any validated artefact lacks a producing
+**It is reproducible in a checkable sense.** The pipeline is 46 scripts in nine stages, 29 of which run on the
+default path. A coverage guard fails if any validated artefact lacks a producing
 script; a validator checks 53 artefacts and 22 cross-artefact invariants; 36 unit
 assertions cover the estimator's algebraic properties, including the two switch-off
 invariances; every file carries a SHA-256 in a manifest; dependencies are pinned.
