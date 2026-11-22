@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T15:06:35+08:00",
+  "generated_at": "2026-11-22T15:07:19+08:00",
   "root": "D:\\A_MineralProspecting",
   "n_files": 6858,
   "total_bytes": 11496465048,
@@ -48220,7 +48220,7 @@
       "path": "docs/Manuscript_v2_draft.docx",
       "stage": "docs",
       "size": 9320190,
-      "sha256": "b13510a7ac4f7c147e3a601c0766c1f765e33ee7d8ab9312f52ea3305dd0d2c8",
+      "sha256": "cf42a40bedd4bfb3ad194d481928899dad7353565d7732fca6994436bec8eb74",
       "schema": {}
     },
     {
@@ -48302,7 +48302,7 @@
       "path": "docs/submission/cover_letter.docx",
       "stage": "docs",
       "size": 38311,
-      "sha256": "a77e011daa6ac3727c4f3e65776f8c2b5f97a895318f575523bbdf926267d933",
+      "sha256": "7886a2c38657542b6ac69453ccaf13356c53e1d5625c7ef3ccf4ff8607e3c67e",
       "schema": {}
     },
     {
@@ -48400,7 +48400,7 @@
       "path": "docs/submission/NRR_submission_package.zip",
       "stage": "docs",
       "size": 17809751,
-      "sha256": "046f9daf11abb1a9a53677788a3965b15aff5913298e7abc36fbd05ae6d560d7",
+      "sha256": "8aad7c85e5b4befcc28d62054eff1bd7233b7f593f0bda14909eebf87ab1a1f1",
       "schema": {}
     },
     {
