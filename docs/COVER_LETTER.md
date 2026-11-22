@@ -55,5 +55,7 @@ author approves submission.
 Yours sincerely,
 
 Yudong Xu
+
 Heilongjiang University of Science and Technology, Harbin, China
+
 3468858545@qq.com

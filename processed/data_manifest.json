@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-22T10:01:37+08:00",
+  "generated_at": "2026-11-22T10:07:51+08:00",
   "root": "D:\\A_MineralProspecting",
   "n_files": 6857,
-  "total_bytes": 11496395313,
+  "total_bytes": 11496395384,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -74,7 +74,7 @@
     },
     "docs": {
       "files": 71,
-      "bytes": 55207553
+      "bytes": 55207624
     },
     "code": {
       "files": 143,
@@ -46952,7 +46952,7 @@
       "path": "processed/pipeline_validation.json",
       "stage": "audit",
       "size": 16669,
-      "sha256": "0ca7f4048d15f762e1f30b8b6df94683281371a748e3ac5928383ea27b4c76f0",
+      "sha256": "a3df7d6683660e2270542dadce1262051f5b1e4e5261e26cd0ea0e2d86606f51",
       "schema": {
         "keys": [
           "checks",
@@ -48141,8 +48141,8 @@
     {
       "path": "docs/COVER_LETTER.md",
       "stage": "docs",
-      "size": 3142,
-      "sha256": "5b32c769f0c14c0bd05336582b64052a154de888dfd73ff08d510c94bcadabdb",
+      "size": 3205,
+      "sha256": "1f5072aafb001c3aa644e89d483c45a9263533fc8679e12797e3880595acb276",
       "schema": {}
     },
     {
@@ -48301,8 +48301,8 @@
     {
       "path": "docs/submission/cover_letter.docx",
       "stage": "docs",
-      "size": 38307,
-      "sha256": "fe645565749e0f1e82e9dcdbd4c156043a6b4f3034d6a10199e5ca9e6c93f835",
+      "size": 38311,
+      "sha256": "cfca95c8ee1aa97dfe3dc4e07ef89ced3ba0efbcbda4619ad6157357c929e91f",
       "schema": {}
     },
     {
@@ -48392,8 +48392,8 @@
     {
       "path": "docs/submission/NRR_submission_package.zip",
       "stage": "docs",
-      "size": 17774955,
-      "sha256": "f4a3df69186a9c2cd2f8f879f06074aa0da68d10b40accc3a2c1db63643a149f",
+      "size": 17774959,
+      "sha256": "3c99781430a2552a3748534675aa2aabefd85c39a33d5d9e0fc73ba4f5e0640e",
       "schema": {}
     },
     {

@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-22T10:00:38",
+  "generated": "2026-11-22T10:07:31",
   "target": "Natural Resources Research",
   "files": [
     {
       "file": "Cover_Letter.docx",
       "upload_slot": "Cover letter",
-      "bytes": 38307,
-      "sha256": "fe645565749e0f1e82e9dcdbd4c156043a6b4f3034d6a10199e5ca9e6c93f835"
+      "bytes": 38311,
+      "sha256": "cfca95c8ee1aa97dfe3dc4e07ef89ced3ba0efbcbda4619ad6157357c929e91f"
     },
     {
       "file": "Manuscript.docx",
