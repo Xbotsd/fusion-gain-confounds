@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-22T14:37:02+08:00",
+  "generated_at": "2026-11-22T15:02:33+08:00",
   "root": "D:\\A_MineralProspecting",
   "n_files": 6858,
-  "total_bytes": 11496467360,
+  "total_bytes": 11496468417,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -74,11 +74,11 @@
     },
     "docs": {
       "files": 72,
-      "bytes": 55279294
+      "bytes": 55279967
     },
     "code": {
       "files": 143,
-      "bytes": 549972
+      "bytes": 550356
     }
   },
   "files": [
@@ -46952,7 +46952,7 @@
       "path": "processed/pipeline_validation.json",
       "stage": "audit",
       "size": 16669,
-      "sha256": "a3df7d6683660e2270542dadce1262051f5b1e4e5261e26cd0ea0e2d86606f51",
+      "sha256": "584d96e25a464d27c3cb4ed44d9fe43e81e70502e655365870c01a58659be84d",
       "schema": {
         "keys": [
           "checks",
@@ -48219,15 +48219,15 @@
     {
       "path": "docs/Manuscript_v2_draft.docx",
       "stage": "docs",
-      "size": 9320054,
-      "sha256": "c810f955363839d63c9697f8bce2c60fd90919ee522961364df4ad7522509962",
+      "size": 9320176,
+      "sha256": "50baf7914f0ee3147774d5eaecc4952bd2f43155f7fad2d1502bcf09bbfb6ac6",
       "schema": {}
     },
     {
       "path": "docs/Manuscript_v2_draft.md",
       "stage": "docs",
-      "size": 46205,
-      "sha256": "927e02f2b14f9475f5076d9469df902d80f3723a559e794f742b456c63a8b128",
+      "size": 46633,
+      "sha256": "16ffa18e44d553a24625b0fd3946db12feb49f329e2a4c3b48536c9f310727b5",
       "schema": {}
     },
     {
@@ -48302,7 +48302,7 @@
       "path": "docs/submission/cover_letter.docx",
       "stage": "docs",
       "size": 38311,
-      "sha256": "b2600750a901d49c8542811c1e7f645c2b31619a8406c1e164dad1405528dae2",
+      "sha256": "7eb298fc20691ee7a6b915acef9302f3639784fc80020b2a3cf9c365bd51174a",
       "schema": {}
     },
     {
@@ -48399,8 +48399,8 @@
     {
       "path": "docs/submission/NRR_submission_package.zip",
       "stage": "docs",
-      "size": 17809620,
-      "sha256": "0384ff4f8d75f4e5468bc3c73fb6e2f4c63d2b8e3678e1c912190d722f3cf11d",
+      "size": 17809743,
+      "sha256": "90b3c364b30c2f13824351715e6d84f0a526298f137af3fa2cbb8643d117989e",
       "schema": {}
     },
     {
@@ -48497,8 +48497,8 @@
     {
       "path": "code/check_submission.py",
       "stage": "code",
-      "size": 5738,
-      "sha256": "a71b716762337901ee2b854604522b5497ca14c4805fb3c1d7a46ca5d29bec13",
+      "size": 6122,
+      "sha256": "9f0d3453ba14ce076e792251086dabab2dad1e4a60440831ec4ba9046b8e73de",
       "schema": {}
     },
     {

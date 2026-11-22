@@ -81,6 +81,12 @@ def main() -> int:
     kw = next(t for t in texts if t.startswith("Keywords:"))
     n_kw = len(kw.split(":", 1)[1].split(";"))
     chk("4-6 keywords", 4 <= n_kw <= 6, str(n_kw))
+    paras = doc.paragraphs
+    i_abs = next(i for i, p in enumerate(paras) if p.text.strip() == "Abstract")
+    i_kw = next(i for i, p in enumerate(paras) if p.text.startswith("Keywords:"))
+    bullets = [p for p in paras[i_abs + 1:i_kw] if p.style.name == "List Bullet"]
+    chk("3 key-message bullets after the abstract", len(bullets) == 3,
+        f"{len(bullets)} bullets")
 
     # ---------------------------------------------------------------- layout
     chk("line numbers enabled", "w:lnNumType" in doc.element.xml)
