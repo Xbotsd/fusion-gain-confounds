@@ -49,8 +49,8 @@ manifest, and an open repository archived at
 https://doi.org/10.5281/zenodo.24130421 (MIT licence), described in the Code
 availability section.
 
-The manuscript is original, is not under consideration elsewhere, and the single
-author approves submission.
+The manuscript is original, is not under consideration elsewhere, and all authors
+approve submission.
 
 Yours sincerely,
 

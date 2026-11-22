@@ -1,6 +1,6 @@
 # Two confounds in reported fusion gains for airborne mineral exploration: target circularity and an underdetermined inversion
 
-**Authors:** Yudong Xu¹ (ORCID 0009-0002-3231-0444)  
+**Authors:** Yudong Xu¹ (ORCID 0009-0002-3231-0444), Yutong Yang¹, Yawen Yang¹  
 ¹ Heilongjiang University of Science and Technology, Harbin, China  
 **Corresponding author:** 3468858545@qq.com
 
@@ -604,15 +604,11 @@ in `docs/`, and an archived snapshot at https://doi.org/10.5281/zenodo.24130421.
 
 ## Statements and Declarations
 
-**Authorship contribution statement (CRediT).** Yudong Xu (ORCID 0009-0002-3231-0444): conceptualisation, methodology,
-software, validation, formal analysis, investigation, data curation, writing —
-original draft, writing — review and editing, visualisation.
-
 **Declaration of generative AI and AI-assisted technologies in the writing process.**
-During the preparation of this work the author used a large language model
+During the preparation of this work the first author used a large language model
 (DeepSeek) to draft and edit text, to write and review code, and to assist with
-the data analysis. The author reviewed and verified all content and takes full
-responsibility for the content of the publication.
+the data analysis. All authors reviewed and verified the content and take full
+responsibility for the publication.
 
 **Data Availability.** The code and the derived results are archived at
 https://doi.org/10.5281/zenodo.24130421 and openly available at
@@ -620,7 +616,7 @@ https://github.com/Xbotsd/fusion-gain-confounds under the MIT licence. The
 third-party raw data are not redistributed; their sources, licences and SHA-256
 hashes are documented in the repository.
 
-**Competing Interests.** The author declares no competing financial or
+**Competing Interests.** The authors declare no competing financial or
 non-financial interests.
 
 **Funding.** This research received no specific grant from any funding agency in
@@ -631,7 +627,7 @@ courtesy of the U.S. Geological Survey; the thermal data are courtesy of NASA,
 JAXA and METI through the ASTER instrument on Terra. Radiometric and magnetic
 processing followed the USGS surveys cited in Section 3; responsibility for the
 analysis and for the conclusions drawn from these public data rests with the
-author.
+authors.
 
 ## References
 
