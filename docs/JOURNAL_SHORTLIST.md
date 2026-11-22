@@ -1,15 +1,16 @@
 # 免费 SCI 期刊评估（核实版，2026-11-12）
 
-**现状（2026-11-22）：C&G 已拒稿，理由是不在期刊范围，并建议投遥感类期刊。**
-编辑同时指出“当前文献完全缺失”——这一条成立：原稿 23 条文献最新只到 2016 年。
-现已补入 16 篇 2019–2026 文献（见 `docs/literature/CANDIDATES.md`），并把目标改为
-**International Journal of Remote Sensing（IJRS，Taylor & Francis）**：hybrid 期刊，
-订阅路径 0 APC、无版面费，明确覆盖遥感方法与地质应用。
+**现状（2026-11-22）：C&G 以“不在范围”拒稿；IJRS 指标偏低（IF ≈ 2.6、JCR Q3、
+中科院 4 区，且在下滑），已放弃。最终目标改为 Natural Resources Research（NRR，
+Springer）：hybrid、订阅路径 0 APC、IF ≈ 5、2 区（估），读者群正是矿产资源评价与
+不确定性，与补入的 2019–2026 文献完全对口。**
 
-免费遥感类备选（OpenAlex 核实）：Remote Sensing Applications: Society and
-Environment（Elsevier，hybrid）、Journal of Applied Remote Sensing（SPIE，hybrid）。
-**已排除**：IEEE JSTARS、IJAEOG、Geocarto International、Canadian Journal of
-Remote Sensing——均已转全 OA，强制 APC。
+投稿系统：https://www.editorialmanager.com/narr/default.aspx
+
+免费备选：Remote Sensing Applications: Society and Environment（Elsevier）、
+Journal of Applied Remote Sensing（SPIE）。已排除（全 OA 强制付费）：IEEE JSTARS、
+IJAEOG、Geocarto International、Canadian Journal of Remote Sensing、GIScience &
+Remote Sensing。
 
 ## 1. 口径与核实方法
 

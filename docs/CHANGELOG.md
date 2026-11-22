@@ -1,5 +1,25 @@
 # Changelog — cleanup and corrections
 
+## Round 25 — retarget to Natural Resources Research (2026-11-22)
+
+* **IJRS set aside.** Its real metrics (IF ≈ 2.6, JCR Q3, CAS 4 区 per an external
+  check) are below what a 2 区 requirement needs, and the trend is downward.
+* **New target: Natural Resources Research** (Springer, hybrid, subscription route
+  with no APC, IF ≈ 5, 2 区 estimate). Its readership — mineral prospectivity,
+  uncertainty, data-driven mapping — matches the literature added in Round 24
+  better than any other free venue.
+* **Manuscript reframed**: abstract opens on prospectivity mapping, introduction
+  positions the benchmark inside that literature; the contribution reads as a
+  control for multimodal prospectivity maps.
+* **APA 7 everywhere**: 39 references (30 with DOIs), journal names italicised;
+  in-text (Author, Year); `&` before the last author; 21+ author entry abbreviated
+  with an ellipsis as APA allows.
+* **Springer declarations**: Statements and Declarations with Competing
+  Interests, Data Availability, Funding, CRediT and the generative-AI statement;
+  page numbers added to the footer.
+* Upload set rebuilt (10 files); `check_submission.py` retargeted and passing
+  28/28; validator 53/53 and 22/22; 36 assertions pass.
+
 ## Round 24 — retarget to IJRS, literature integrated (2026-11-22)
 
 * **Sixteen 2019–2026 references added** (39 entries in total), covering

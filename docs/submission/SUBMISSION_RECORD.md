@@ -151,7 +151,27 @@ What was done in response (Round 24):
 * cover letter rewritten for the IJRS readership;
 * upload set rebuilt (10 files) and `check_submission.py` retargeted (29 checks).
 
-## 8. Status and next step
+## 8. Venue decision after the rejection (2026-11-22)
+
+IJRS was prepared first (Taylor & Francis style, 10-file set, 29 checks), then set
+aside: its metrics are weaker than an earlier estimate suggested (IF ≈ 2.6, JCR
+Q3, CAS 4 区 according to an external check), and it is trending down. Under the
+no-fee constraint the realistic higher-tier option is **Natural Resources
+Research** (Springer, hybrid, subscription route free, IF ≈ 5, 2 区 estimate),
+whose readership is mineral prospectivity and uncertainty — exactly the framing
+the new literature supports.
+
+The manuscript was therefore retargeted once more:
+
+* abstract and introduction reframed around mineral prospectivity mapping;
+* references converted to APA 7 (39 entries, 30 DOIs, journal names italicised);
+* Statements and Declarations in Springer's form, with a Data Availability
+  statement;
+* page numbers added to the footer;
+* cover letter rewritten for NRR;
+* upload set rebuilt (10 files) and the checker retargeted (28 checks).
+
+## 9. Status and next step
 
 * The PDF states `--Manuscript Draft--`: the first submission was returned at
   pre-review on 2026-11-18; the corrected files in `upload/` are the resubmission. Nothing in the repository changes the submitted record by itself.

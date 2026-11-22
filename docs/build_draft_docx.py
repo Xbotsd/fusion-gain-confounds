@@ -40,13 +40,16 @@ def add_line_numbers(doc):
 
 
 def add_runs(p, text):
-    parts = re.split(r"(\*\*.*?\*\*|`.*?`)", text)
+    parts = re.split(r"(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)", text)
     for part in parts:
         if not part:
             continue
         if part.startswith("**") and part.endswith("**"):
             r = p.add_run(part[2:-2])
             r.bold = True
+        elif part.startswith("*") and part.endswith("*"):
+            r = p.add_run(part[1:-1])
+            r.italic = True
         elif part.startswith("`") and part.endswith("`"):
             r = p.add_run(part[1:-1])
             r.font.name = "Consolas"
@@ -85,6 +88,25 @@ def add_table(doc, rows):
     t.rows[0]._tr.get_or_add_trPr().append(
         OxmlElement("w:tblHeader"))
     doc.add_paragraph()
+
+
+def add_page_numbers(doc):
+    """Automatic page numbers in the footer (Springer submission guideline)."""
+    for section in doc.sections:
+        footer = section.footer
+        para = footer.paragraphs[0]
+        para.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        run = para.add_run()
+        begin = OxmlElement("w:fldChar")
+        begin.set(qn("w:fldCharType"), "begin")
+        instr = OxmlElement("w:instrText")
+        instr.set(qn("xml:space"), "preserve")
+        instr.text = "PAGE"
+        end = OxmlElement("w:fldChar")
+        end.set(qn("w:fldCharType"), "end")
+        run._r.append(begin)
+        run._r.append(instr)
+        run._r.append(end)
 
 
 def main():
@@ -231,6 +253,7 @@ def main():
 
     # figures are placed inline at their first citation
     add_line_numbers(doc)
+    add_page_numbers(doc)
     doc.save(OUT)
     print(f"saved {OUT}")
     print(f"paragraphs {len(doc.paragraphs)} tables {len(doc.tables)} "

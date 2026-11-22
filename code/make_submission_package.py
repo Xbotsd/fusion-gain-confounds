@@ -1,12 +1,8 @@
 """Build the upload set for the current target journal.
 
-The canonical sources are docs/Manuscript_v2_draft.docx, docs/COVER_LETTER.md,
-docs/Supplementary_Tables.docx, processed/ figures and docs/graphical_abstract.png.
-Everything the journals need is copied into docs/submission/upload/, with a
-SHA-256 manifest; the zip is a convenience copy.
-
-Target: International Journal of Remote Sensing (Taylor & Francis) — no
-highlights file is required, so none is produced.
+Target: Natural Resources Research (Springer, hybrid). Submission is through
+Editorial Manager; the journal asks for a Word manuscript with line numbers and
+page numbers, a separate cover letter, figures, and supplementary material.
 
     python code/make_submission_package.py
 """
@@ -33,13 +29,12 @@ UPLOAD = OUT / "upload"
 LETTER_MD = ROOT / "docs" / "COVER_LETTER.md"
 
 text = MS_MD.read_text(encoding="utf-8")
-body = text.split("## References")[0]
 
 # ---------------------------------------------------------------- keywords
 kw_line = next(ln for ln in text.splitlines() if ln.startswith("**Keywords:**"))
 kws = [k.strip().strip("*").strip() for k in kw_line.split(":", 1)[1].split(";")]
 kws = [k for k in kws if k]
-assert len(kws) == 6, kws
+assert 4 <= len(kws) <= 6, kws
 print("keywords:", kws)
 
 # --------------------------------------------------------- figures, captions
@@ -139,7 +134,7 @@ flatten(ROOT / "docs" / "graphical_abstract.png", UPLOAD / "Graphical_Abstract.p
 
 slots = {
     "Cover_Letter.docx": "Cover letter",
-    "Manuscript.docx": "Main document",
+    "Manuscript.docx": "Manuscript",
     "Supplementary_Material.docx": "Supplementary material",
     "Graphical_Abstract.png": "Graphical abstract (optional)",
 }
@@ -157,11 +152,11 @@ for rel, slot in slots.items():
     })
 (OUT / "upload_manifest.json").write_text(
     json.dumps({"generated": dt.datetime.now().isoformat(timespec="seconds"),
-                "target": "International Journal of Remote Sensing",
+                "target": "Natural Resources Research",
                 "files": manifest}, indent=2, ensure_ascii=False) + "\n",
     encoding="utf-8")
 
-zip_path = OUT / "IJRS_submission_package.zip"
+zip_path = OUT / "NRR_submission_package.zip"
 with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
     for p in sorted(UPLOAD.rglob("*")):
         if p.is_file():

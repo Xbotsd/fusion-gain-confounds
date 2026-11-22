@@ -1,18 +1,18 @@
 {
-  "generated": "2026-11-22T09:28:15",
-  "target": "International Journal of Remote Sensing",
+  "generated": "2026-11-22T10:00:38",
+  "target": "Natural Resources Research",
   "files": [
     {
       "file": "Cover_Letter.docx",
       "upload_slot": "Cover letter",
-      "bytes": 38360,
-      "sha256": "65ed295c0fc3a0f23056fb142e7edc7d067ab48a5c9500c7cc96cf652737bb74"
+      "bytes": 38307,
+      "sha256": "fe645565749e0f1e82e9dcdbd4c156043a6b4f3034d6a10199e5ca9e6c93f835"
     },
     {
       "file": "Manuscript.docx",
-      "upload_slot": "Main document",
-      "bytes": 9319434,
-      "sha256": "0bdd671518cb8813d354794d0af8629b8a8f27f5dd46316d6f659b0d289366bb"
+      "upload_slot": "Manuscript",
+      "bytes": 9320054,
+      "sha256": "c810f955363839d63c9697f8bce2c60fd90919ee522961364df4ad7522509962"
     },
     {
       "file": "Supplementary_Material.docx",
