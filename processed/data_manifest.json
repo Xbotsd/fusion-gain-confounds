@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-22T10:07:51+08:00",
+  "generated_at": "2026-11-22T14:37:02+08:00",
   "root": "D:\\A_MineralProspecting",
-  "n_files": 6857,
-  "total_bytes": 11496395384,
+  "n_files": 6858,
+  "total_bytes": 11496467360,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -73,12 +73,12 @@
       "bytes": 87026
     },
     "docs": {
-      "files": 71,
-      "bytes": 55207624
+      "files": 72,
+      "bytes": 55279294
     },
     "code": {
       "files": 143,
-      "bytes": 549666
+      "bytes": 549972
     }
   },
   "files": [
@@ -48302,7 +48302,14 @@
       "path": "docs/submission/cover_letter.docx",
       "stage": "docs",
       "size": 38311,
-      "sha256": "cfca95c8ee1aa97dfe3dc4e07ef89ced3ba0efbcbda4619ad6157357c929e91f",
+      "sha256": "b2600750a901d49c8542811c1e7f645c2b31619a8406c1e164dad1405528dae2",
+      "schema": {}
+    },
+    {
+      "path": "docs/submission/Data_Deposition.docx",
+      "stage": "docs",
+      "size": 37009,
+      "sha256": "abc5b7e06aa394127cafecd360d477a688c424481aa05675bb2e0dfd9e754021",
       "schema": {}
     },
     {
@@ -48392,8 +48399,8 @@
     {
       "path": "docs/submission/NRR_submission_package.zip",
       "stage": "docs",
-      "size": 17774959,
-      "sha256": "3c99781430a2552a3748534675aa2aabefd85c39a33d5d9e0fc73ba4f5e0640e",
+      "size": 17809620,
+      "sha256": "0384ff4f8d75f4e5468bc3c73fb6e2f4c63d2b8e3678e1c912190d722f3cf11d",
       "schema": {}
     },
     {
@@ -48491,7 +48498,7 @@
       "path": "code/check_submission.py",
       "stage": "code",
       "size": 5738,
-      "sha256": "1f2d3d1523c390c7f7beef81ceae268d558ec8be4f8c38431d46dc5bcfea6f68",
+      "sha256": "a71b716762337901ee2b854604522b5497ca14c4805fb3c1d7a46ca5d29bec13",
       "schema": {}
     },
     {
@@ -49113,8 +49120,8 @@
     {
       "path": "code/make_submission_package.py",
       "stage": "code",
-      "size": 5991,
-      "sha256": "f0ec1e17df39880633e6844cda193b8b7c82e6d42da4e4a5cd6c8a9d0ad968fb",
+      "size": 6297,
+      "sha256": "5d662f558c317b2d285c16a9f366e8b0ce40ecd07a311b5ac561aa1bfa5e970e",
       "schema": {}
     },
     {

@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-22T10:07:31",
+  "generated": "2026-11-22T14:36:13",
   "target": "Natural Resources Research",
   "files": [
     {
       "file": "Cover_Letter.docx",
       "upload_slot": "Cover letter",
       "bytes": 38311,
-      "sha256": "cfca95c8ee1aa97dfe3dc4e07ef89ced3ba0efbcbda4619ad6157357c929e91f"
+      "sha256": "b2600750a901d49c8542811c1e7f645c2b31619a8406c1e164dad1405528dae2"
     },
     {
       "file": "Manuscript.docx",
@@ -19,6 +19,12 @@
       "upload_slot": "Supplementary material",
       "bytes": 37445,
       "sha256": "6376649a6de2abdc1946fea27206b6e21d67b85a8e6b419e76433f54889641b4"
+    },
+    {
+      "file": "Data_Deposition.docx",
+      "upload_slot": "Data deposition information",
+      "bytes": 37009,
+      "sha256": "abc5b7e06aa394127cafecd360d477a688c424481aa05675bb2e0dfd9e754021"
     },
     {
       "file": "Graphical_Abstract.png",

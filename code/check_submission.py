@@ -100,7 +100,7 @@ def main() -> int:
              if hashlib.sha256((UP / n).read_bytes()).hexdigest()
              != hashlib.sha256(s.read_bytes()).hexdigest()]
     chk("upload set matches its sources", not stale, str(stale))
-    chk("manifest lists 10 files", len(man["files"]) == 10, str(len(man["files"])))
+    chk("manifest lists 11 files", len(man["files"]) == 11, str(len(man["files"])))
     chk("6 figure files", len(list((UP / "figures").glob("*.png"))) == 6)
 
     for status, name, detail in ROWS:

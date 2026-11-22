@@ -127,6 +127,7 @@ shutil.copy2(MS, UPLOAD / "Manuscript.docx")
 shutil.copy2(OUT / "cover_letter.docx", UPLOAD / "Cover_Letter.docx")
 shutil.copy2(ROOT / "docs" / "Supplementary_Tables.docx",
              UPLOAD / "Supplementary_Material.docx")
+shutil.copy2(OUT / "Data_Deposition.docx", UPLOAD / "Data_Deposition.docx")
 for i in range(1, 7):
     flatten(OUT / "figures" / f"figure{i:02d}.png",
             UPLOAD / "figures" / f"figure{i:02d}.png")
@@ -136,6 +137,7 @@ slots = {
     "Cover_Letter.docx": "Cover letter",
     "Manuscript.docx": "Manuscript",
     "Supplementary_Material.docx": "Supplementary material",
+    "Data_Deposition.docx": "Data deposition information",
     "Graphical_Abstract.png": "Graphical abstract (optional)",
 }
 for i in range(1, 7):
