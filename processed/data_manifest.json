@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-22T15:02:33+08:00",
+  "generated_at": "2026-11-22T15:06:35+08:00",
   "root": "D:\\A_MineralProspecting",
   "n_files": 6858,
-  "total_bytes": 11496468417,
+  "total_bytes": 11496465048,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -74,7 +74,7 @@
     },
     "docs": {
       "files": 72,
-      "bytes": 55279967
+      "bytes": 55276598
     },
     "code": {
       "files": 143,
@@ -46952,7 +46952,7 @@
       "path": "processed/pipeline_validation.json",
       "stage": "audit",
       "size": 16669,
-      "sha256": "584d96e25a464d27c3cb4ed44d9fe43e81e70502e655365870c01a58659be84d",
+      "sha256": "120e641179914bc2aec6c0a4ab9b571942055b10c00e52dc810dbd0c4eeac861",
       "schema": {
         "keys": [
           "checks",
@@ -48219,15 +48219,15 @@
     {
       "path": "docs/Manuscript_v2_draft.docx",
       "stage": "docs",
-      "size": 9320176,
-      "sha256": "50baf7914f0ee3147774d5eaecc4952bd2f43155f7fad2d1502bcf09bbfb6ac6",
+      "size": 9320190,
+      "sha256": "b13510a7ac4f7c147e3a601c0766c1f765e33ee7d8ab9312f52ea3305dd0d2c8",
       "schema": {}
     },
     {
       "path": "docs/Manuscript_v2_draft.md",
       "stage": "docs",
-      "size": 46633,
-      "sha256": "16ffa18e44d553a24625b0fd3946db12feb49f329e2a4c3b48536c9f310727b5",
+      "size": 46615,
+      "sha256": "fd2c32c7b827daecec8bf2c0df772d7050426c1edbfdc2c7f67dd989a3024b62",
       "schema": {}
     },
     {
@@ -48287,8 +48287,8 @@
     {
       "path": "docs/REFERENCES_AUDIT.md",
       "stage": "docs",
-      "size": 6245,
-      "sha256": "9a78e9882d87133b99c2c46599b75247af14db70cd2271048b299e1719e30202",
+      "size": 2872,
+      "sha256": "e8acf2a4c7e0d3d62e6ca9eb4914de128da16b2fe96c6af7f8a4382acdde1595",
       "schema": {}
     },
     {
@@ -48302,7 +48302,7 @@
       "path": "docs/submission/cover_letter.docx",
       "stage": "docs",
       "size": 38311,
-      "sha256": "7eb298fc20691ee7a6b915acef9302f3639784fc80020b2a3cf9c365bd51174a",
+      "sha256": "a77e011daa6ac3727c4f3e65776f8c2b5f97a895318f575523bbdf926267d933",
       "schema": {}
     },
     {
@@ -48399,8 +48399,8 @@
     {
       "path": "docs/submission/NRR_submission_package.zip",
       "stage": "docs",
-      "size": 17809743,
-      "sha256": "90b3c364b30c2f13824351715e6d84f0a526298f137af3fa2cbb8643d117989e",
+      "size": 17809751,
+      "sha256": "046f9daf11abb1a9a53677788a3965b15aff5913298e7abc36fbd05ae6d560d7",
       "schema": {}
     },
     {

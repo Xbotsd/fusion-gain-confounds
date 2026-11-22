@@ -25,7 +25,7 @@ equivalent thorium in roughly the top 30 cm; electromagnetic (EM) induction
 responds to bulk conductivity; thermal infrared (TIR) emissivity carries
 mineralogical information through reststrahlen features. Each modality is
 physically limited, so combining them is attractive, and the literature reports
-that fusion improves a map or a classification score (Dickson and Scott, 1997;
+that fusion improves a map or a classification score (Dickson & Scott, 1997;
 IAEA, 2003; Minty, 1997; Telford et al., 1990; Wilford et al., 1997). The breadth of
 that literature is itself the problem: two recent reviews of multisource fusion
 in remote sensing (Ghamisi et al., 2019) and of machine learning for mineral
@@ -41,7 +41,7 @@ than caveats.
 there is rarely an independent mineral map, so the evaluation target is often an
 alteration index computed from the same gamma channels the inversion uses. A
 gamma ratio then tracks the target by construction, and any multimodal model is
-competing against the target's own definition (Dickson and Scott, 1997; Gnojek and Přichystal, 1985).
+competing against the target's own definition (Dickson & Scott, 1997; Gnojek & Přichystal, 1985).
 
 **Confound 2: the inversion is often underdetermined.** With three gamma
 channels and five mineral abundances the linear mixture problem has rank 3.
@@ -97,24 +97,24 @@ critical-mineral exploration (Weihermann et al., 2026), which shows that the
 radiometric signal is still being mined with new estimators.
 
 Airborne EM provides conductivity to tens or hundreds of metres and is non-unique
-in inversion (Dentith and Mudge, 2014; Fountain, 1998; Nabighian, 1988; Siemon et
+in inversion (Dentith & Mudge, 2014; Fountain, 1998; Nabighian, 1988; Siemon et
 al., 2009). TIR spectroscopy identifies rock-forming minerals through 8–14 µm
 emissivity features (Christensen et al., 2000; Hook et al., 1999; Ramsey and
 Christensen, 1998; Salisbury et al., 1991); quantitative abundance requires
 temperature–emissivity separation and is sensitive to particle size and
 atmospheric correction. ASTER has supplied lithological and mineral mapping for
-two decades (Abrams and Yamaguchi, 2019), and its use in arid terrains has been
-reviewed specifically (Rajendran and Nasir, 2019); the wider hyperspectral
+two decades (Abrams & Yamaguchi, 2019), and its use in arid terrains has been
+reviewed specifically (Rajendran & Nasir, 2019); the wider hyperspectral
 literature is reviewed by Peyghambari and Zhang (2021). These reviews describe
 what the instruments can retrieve, not what fusion adds to the retrieval.
 
 ### 2.2 Multi-modal fusion
 
 Fusion has been approached with Bayesian updating, weighted least squares, Kalman
-filters and principal components (Bar-Shalom et al., 2001; Julier and Uhlmann, 1997; Kalman, 1960; Maybeck, 1979), and more recently with learned models. The
+filters and principal components (Bar-Shalom et al., 2001; Julier & Uhlmann, 1997; Kalman, 1960; Maybeck, 1979), and more recently with learned models. The
 remote-sensing literature now has comprehensive reviews of multisource and
 multitemporal fusion (Ghamisi et al., 2019), fusion designed for label uncertainty
-(Du and Zare, 2020), transformer-based multimodal classification (Roy et al., 2023), and fusion that must cope with a modality missing at inference time (Chen
+(Du & Zare, 2020), transformer-based multimodal classification (Roy et al., 2023), and fusion that must cope with a modality missing at inference time (Chen
 et al., 2024). In mineral exploration the same idea appears as prospectivity
 mapping, where remote sensing, geophysics, geochemistry and geology are combined
 into one map (Shabani et al., 2022; Shirmard et al., 2022), including self-supervised
@@ -515,7 +515,7 @@ is large enough to consume the entire reported gain. The two controls we propose
 are cheap: report the rank of the active matrix, and report one information test
 computed without the response matrix. That is also the lesson of the
 reproducibility literature: without a control that does not share the defect,
-an improvement cannot be attributed (Kapoor and Narayanan, 2023; Zhang et al., 2024).
+an improvement cannot be attributed (Kapoor & Narayanan, 2023; Zhang et al., 2024).
 
 ### 8.2 Why EM hurt, and what correcting it bought
 
