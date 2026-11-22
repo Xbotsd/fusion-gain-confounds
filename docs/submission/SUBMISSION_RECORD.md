@@ -171,6 +171,49 @@ The manuscript was therefore retargeted once more:
 * cover letter rewritten for NRR;
 * upload set rebuilt (10 files) and the checker retargeted (28 checks).
 
+
+## 10. Submitted to Natural Resources Research (2026-11-22)
+
+| field | value |
+|---|---|
+| Journal | Natural Resources Research (Springer) |
+| System | Editorial Manager, https://www.editorialmanager.com/narr/ |
+| Manuscript number | **NARR-D-26-02074** |
+| Submitted | 2026-11-22 |
+| Article type | Original Research |
+| Authors | Yudong Xu (corresponding, ORCID 0009-0002-3231-0444), Yutong Yang (0009-0000-8606-0562), Yawen Yang (0009-0009-2504-5882) |
+| Affiliation | Heilongjiang University of Science and Technology, Harbin, China |
+| Status | Submitted |
+
+Uploaded set (11 files, hashes in `upload_manifest.json`):
+
+* `Manuscript.docx` — 39 pages in EM's PDF, line numbers and page numbers, APA 7
+  references (39 entries), three key-message bullets after the abstract,
+  Statements and Declarations, Code availability
+* `Cover_Letter.docx`
+* `Supplementary_Material.docx` — uploaded with item type **Table** (the site
+  offers no "Supplementary Material" type); Table S1
+* `Data_Deposition.docx` — Zenodo DOI and GitHub repository
+* `Graphical_Abstract.png` (optional)
+* `figures/figure01..06.png` — item type Figure
+
+Declarations recorded in EM: data deposit in a repository; three short bullet
+points after the abstract; Research Square author dashboard consent; not a
+special issue. No Open Choice, so no APC.
+
+Pre-submission checks: `check_submission.py` 29/29, validator 53 artefacts and 22
+invariants, 36 unit assertions, 30 DOI references verified against Crossref.
+
+### What happens next
+
+`Submitted` → `With Editor` → `Under Review`. Typical NRR first decision takes a
+few months. If the editor returns it for formatting, the source files and the
+checker are in this repository; rebuild with
+
+    python docs/build_draft_docx.py
+    python code/make_submission_package.py
+    python code/check_submission.py
+
 ## 9. Status and next step
 
 * The PDF states `--Manuscript Draft--`: the first submission was returned at

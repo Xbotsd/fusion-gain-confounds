@@ -1,5 +1,14 @@
 # Changelog — cleanup and corrections
 
+## Round 26 — submitted to NRR (2026-11-22)
+
+* **Submitted**: NARR-D-26-02074, *Natural Resources Research*, 22 November 2026.
+* Three authors listed in both the system and the manuscript, with ORCID iDs.
+* Final pre-submission checks: 29/29 submission checks, 53/53 artefacts, 22/22
+  invariants, 36 assertions, 30 DOIs verified against Crossref.
+* Journal history recorded: CAGEO-D-26-02178 desk-rejected on scope (2026-11-22);
+  IJRS prepared and set aside on metrics; NRR submitted the same day.
+
 ## Round 25 — retarget to Natural Resources Research (2026-11-22)
 
 * **IJRS set aside.** Its real metrics (IF ≈ 2.6, JCR Q3, CAS 4 区 per an external
