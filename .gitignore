@@ -41,4 +41,4 @@ desktop.ini
 *.shp
 # Submission build artefacts (rebuilt by code/make_submission_package.py)
 docs/submission/upload/
-docs/submission/CG_submission_package.zip
+docs/submission/*_submission_package.zip
