@@ -1,3 +1,8 @@
+> **Historical — C&G submission only.** This describes the Editorial
+> Manager submission to *Computers & Geosciences*, which was rejected on
+> scope on 2026-11-22. The current target is *International Journal of
+> Remote Sensing* (ScholarOne); see `README.md`.
+
 # 重投操作清单 — CAGEO-D-26-02178
 
 退回原因：参考文献格式（必须作者-年份、列出全部作者、期刊名不缩写）。

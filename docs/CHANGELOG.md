@@ -1,5 +1,26 @@
 # Changelog — cleanup and corrections
 
+## Round 24 — retarget to IJRS, literature integrated (2026-11-22)
+
+* **Sixteen 2019–2026 references added** (39 entries in total), covering
+  multimodal fusion (Ghamisi et al. 2019; Du and Zare 2020; Roy et al. 2023; Chen
+  et al. 2024), ASTER/hyperspectral mapping (Abrams and Yamaguchi 2019;
+  Rajendran and Nasir 2019; Peyghambari and Zhang 2021; Xi et al. 2024;
+  Weihermann et al. 2026), prospectivity uncertainty (Yang et al. 2022; Zhang et
+  al. 2024) and reproducibility (Kapoor and Narayanan 2023), plus recent
+  mineral-exploration fusion work (Shabani et al. 2022; Shirmard et al. 2022;
+  Christa et al. 2026; Zhang et al. 2026).
+* **§1 and §2 rewritten** around that literature; §8.1 now ties the controls to the
+  reproducibility literature. The paper no longer claims a gap without evidence:
+  it shows that the reviews list validation as open while providing no such
+  benchmark.
+* **Reformatted to Taylor & Francis style** for IJRS: (Author Year) citations,
+  quoted article titles, `Journal Vol (Issue): pages.`; Highlights removed;
+  Competing interests renamed Disclosure statement.
+* **Cover letter rewritten** for the IJRS readership; upload set rebuilt (10
+  files); `check_submission.py` retargeted and passing 29/29.
+* Scientific content unchanged: validator 53/53 and 22/22, 36 assertions.
+
 ## Round 23 — C&G desk rejection: scope and literature (2026-11-22)
 
 * **Outcome:** CAGEO-D-26-02178 was rejected at the editorial desk, not sent for

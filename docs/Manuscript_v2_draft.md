@@ -10,14 +10,6 @@ Reported fusion gains in airborne mineral exploration are rarely reproducible be
 
 **Keywords:** airborne mineral exploration; gamma-ray spectrometry; thermal infrared; ASTER; multi-modal fusion; identifiability
 
-## Highlights
-
-- Most fusion gains stem from circular targets and underdetermined inversions
-- Three gamma channels for five minerals give rank 3; AUC 0.387 on real geology
-- Real ASTER TIR lifts proxy F1 to 0.652; inert channels recover 69–98 %
-- Model-free gain is +0.179 balanced accuracy, lost when the cube is shuffled
-- Fixing the synthetic EM row helps (+0.332 F1) but still loses to gamma+TIR
-
 ## 1. Introduction
 
 Airborne surveys are a primary tool for mapping alteration and lithology over
@@ -25,8 +17,14 @@ large areas. Gamma-ray spectrometry measures potassium, equivalent uranium and
 equivalent thorium in roughly the top 30 cm; electromagnetic (EM) induction
 responds to bulk conductivity; thermal infrared (TIR) emissivity carries
 mineralogical information through reststrahlen features. Each modality is
-physically limited, so combining them is attractive, and the literature
-repeatedly reports that fusion improves a map or a classification score (Dickson and Scott, 1997; IAEA, 2003; Minty, 1997; Telford et al., 1990; Wilford et al., 1997).
+physically limited, so combining them is attractive, and the literature reports
+that fusion improves a map or a classification score (Dickson and Scott 1997;
+IAEA 2003; Minty 1997; Telford et al. 1990; Wilford et al. 1997). The breadth of
+that literature is itself the problem: two recent reviews of multisource fusion
+in remote sensing (Ghamisi et al. 2019) and of machine learning for mineral
+exploration (Shirmard et al. 2022) together cover several hundred studies, and
+almost every one reports an improved map or score. Almost none reports when the
+improvement should be expected.
 
 The reported gains range from marginal to more than 100 %. Reproducing them is
 difficult for two reasons that this paper treats as measurable quantities rather
@@ -36,7 +34,7 @@ than caveats.
 there is rarely an independent mineral map, so the evaluation target is often an
 alteration index computed from the same gamma channels the inversion uses. A
 gamma ratio then tracks the target by construction, and any multimodal model is
-competing against the target's own definition (Dickson and Scott, 1997; Gnojek and Přichystal, 1985).
+competing against the target's own definition (Dickson and Scott 1997; Gnojek and Přichystal 1985).
 
 **Confound 2: the inversion is often underdetermined.** With three gamma
 channels and five mineral abundances the linear mixture problem has rank 3.
@@ -80,41 +78,76 @@ but leaves it below gamma+TIR at 0.652.
 
 ## 2. Related work
 
-### 2.1 Single-modality mineral exploration
+### 2.1 Single-modality mapping
 
 Gamma-ray spectrometry is routinely used for mapping and alteration detection,
-with ternary images and ratios such as K/eTh as alteration indices (Dickson and Scott, 1997; IAEA, 2003; Minty, 1997; Telford et al., 1990; Wilford et al., 1997). It
+with ternary images and ratios such as K/eTh as alteration indices (Dickson and
+Scott 1997; IAEA 2003; Minty 1997; Telford et al. 1990; Wilford et al. 1997). It
 is sensitive to the top 30 cm only and is affected by soil moisture and
-vegetation. Airborne EM provides conductivity to tens or hundreds of metres and
-is non-unique in inversion (Dentith and Mudge, 2014; Fountain, 1998; Nabighian, 1988; Siemon et al., 2009). TIR spectroscopy identifies rock-forming
-minerals through 8–14 µm emissivity features (Christensen et al., 2000; Hook et al., 1999; Ramsey and Christensen, 1998; Salisbury et al., 1991); quantitative abundance
-requires temperature–emissivity separation and is sensitive to particle size and
-atmospheric correction.
+vegetation. Recent work applies the method to lithological mapping in the Qinling
+Mountains (Xi et al. 2024) and uses machine learning to normalise thorium for
+critical-mineral exploration (Weihermann et al. 2026), which shows that the
+radiometric signal is still being mined with new estimators.
+
+Airborne EM provides conductivity to tens or hundreds of metres and is non-unique
+in inversion (Dentith and Mudge 2014; Fountain 1998; Nabighian 1988; Siemon et
+al. 2009). TIR spectroscopy identifies rock-forming minerals through 8–14 µm
+emissivity features (Christensen et al. 2000; Hook et al. 1999; Ramsey and
+Christensen 1998; Salisbury et al. 1991); quantitative abundance requires
+temperature–emissivity separation and is sensitive to particle size and
+atmospheric correction. ASTER has supplied lithological and mineral mapping for
+two decades (Abrams and Yamaguchi 2019), and its use in arid terrains has been
+reviewed specifically (Rajendran and Nasir 2019); the wider hyperspectral
+literature is reviewed by Peyghambari and Zhang (2021). These reviews describe
+what the instruments can retrieve, not what fusion adds to the retrieval.
 
 ### 2.2 Multi-modal fusion
 
 Fusion has been approached with Bayesian updating, weighted least squares, Kalman
-filters, principal components and, recently, learned models (Bar-Shalom et al., 2001; Julier and Uhlmann, 1997; Kalman, 1960; Maybeck, 1979). Most studies
-report an improved map or score; few analyse when an improvement is expected. In
-a linear mixture model the benefit of a channel depends on the conditioning of
-the response matrix, on the noise of the new channel and on the target
-definition. If the target is a function of the existing channels, the last two
-cannot be separated without an external check.
+filters and principal components (Bar-Shalom et al. 2001; Julier and Uhlmann
+1997; Kalman 1960; Maybeck 1979), and more recently with learned models. The
+remote-sensing literature now has comprehensive reviews of multisource and
+multitemporal fusion (Ghamisi et al. 2019), fusion designed for label uncertainty
+(Du and Zare 2020), transformer-based multimodal classification (Roy et al.
+2023), and fusion that must cope with a modality missing at inference time (Chen
+et al. 2024). In mineral exploration the same idea appears as prospectivity
+mapping, where remote sensing, geophysics, geochemistry and geology are combined
+into one map (Shabani et al. 2022; Shirmard et al. 2022), including self-supervised
+fusion of geological maps with aeromagnetic data (Christa et al. 2026) and
+causal-aware frameworks that try to model the mineralisation process rather than
+its statistical correlates (Zhang et al. 2026).
 
-### 2.3 Evaluation and reproducibility
+Across both literatures the evaluation is almost always the same: a fused map, or
+a score computed against a target. Few studies analyse when an improvement is
+expected. In a linear mixture model the benefit of a channel depends on the
+conditioning of the response matrix, on the noise of the new channel and on the
+target definition; if the target is a function of the existing channels, the last
+two cannot be separated without an external check. The recent fusion methods make
+this harder to see, because the added capacity of a learned model changes the
+conditioning as well as the information.
+
+### 2.3 Evaluation, uncertainty and reproducibility
 
 Reproducibility requires fixed data, code, parameters and metric definitions
-(Peng, 2011; Wilkinson et al., 2016). Benchmark studies in geoscience repeatedly show that gains shrink when
-splits and metrics are standardised. A specific hazard for spatial data is
-pseudo-replication: neighbouring pixels are not independent, so a metric computed
-per pixel has an effective sample size orders of magnitude below the pixel count.
+(Peng 2011; Wilkinson et al. 2016). The failure mode is now documented well
+beyond geoscience: Kapoor and Narayanan (2023) survey machine-learning-based
+science and find data leakage in 17 fields, and in prospectivity mapping the
+product itself changes with the workflow chosen (Zhang et al. 2024) while the
+evidence layers carry their own uncertainty (Yang et al. 2022). A specific hazard
+for spatial data is pseudo-replication: neighbouring pixels are not independent,
+so a metric computed per pixel has an effective sample size orders of magnitude
+below the pixel count.
 
 ### 2.4 Gap
 
-There is no airborne multi-modal benchmark that (a) uses real data for the
-modalities that exist, (b) reports the rank of the inverse problem, and (c)
-includes a target-independent information test. This paper supplies all three and
-shows that omitting (b) and (c) is enough to manufacture an apparent fusion gain.
+The recent reviews of fusion (Ghamisi et al. 2019) and of machine learning for
+mineral exploration (Shirmard et al. 2022) list validation and benchmarking as
+open problems, but neither provides a benchmark that separates the two effects
+this paper is about. There is no airborne multi-modal benchmark that (a) uses real
+data for the modalities that exist, (b) reports the rank of the inverse problem,
+and (c) includes a target-independent information test. This paper supplies all
+three and shows that omitting (b) and (c) is enough to manufacture an apparent
+fusion gain.
 
 ## 3. Data
 
@@ -157,7 +190,7 @@ Thermal infrared is the real ASTER L1T product (v003, NASA/METI), five bands at
 scenes mosaic to full coverage of the study area. Processing is: mosaic and
 resample to the 50 m grid, DN to at-sensor radiance with the ASTER
 unit-conversion coefficients, brightness temperature by inverting the Planck
-function at each band centre, and emissivity by normalisation (Kruse et al., 1993) with an
+function at each band centre, and emissivity by normalisation (Kruse et al. 1993) with an
 assumed maximum of 0.98. The retrieved brightness temperature is 282–298 K
 (median 291 K) and emissivity 0.87–0.98, with band means
 0.895 / 0.913 / 0.918 / 0.977 / 0.979. The short-wavelength bands show the
@@ -175,7 +208,7 @@ observation channels. Every EM result in this paper is labelled synthetic.
 
 ### 3.4 Real aeromagnetics and geology
 
-The total magnetic intensity grid (Reeves, 2005) is real and resampled to the analysis grid; it
+The total magnetic intensity grid (Reeves 2005) is real and resampled to the analysis grid; it
 enters only the edge-deployment experiment. The USGS SIM 3206 surficial geologic
 map (DOI 10.3133/sim3206) is rasterised to the same grid into eight substrate
 classes. It is the only target in this paper that is not derived from any of the
@@ -475,7 +508,10 @@ not evidence that a modality adds information: a rank-deficient inversion will
 improve when any channel is added, and our zero-filled control shows the effect
 is large enough to consume the entire reported gain. The two controls we propose
 are cheap: report the rank of the active matrix, and report one information test
-computed without the response matrix.
+computed without the response matrix. That is also the lesson of the
+reproducibility literature: without a control that does not share the defect,
+an improvement cannot be attributed (Kapoor and Narayanan 2023; Zhang et al.
+2024).
 
 ### 8.2 Why EM hurt, and what correcting it bought
 
@@ -574,7 +610,7 @@ During the preparation of this work the author used a large language model
 the data analysis. The author reviewed and verified all content and takes full
 responsibility for the content of the publication.
 
-**Competing interests.** The author declares no competing financial or
+**Disclosure statement.** The author declares no competing financial or
 non-financial interests.
 
 **Funding.** This research received no specific grant from any funding agency in
@@ -589,26 +625,42 @@ author.
 
 ## References
 
-Bar-Shalom, Y., Li, X.-R., Kirubarajan, T., 2001. Estimation with Applications to Tracking and Navigation: Theory, Algorithms, and Software. Wiley. https://doi.org/10.1002/0471221279
-Christensen, P.R., Bandfield, J.L., Hamilton, V.E., Howard, D.A., Lane, M.D., Piatek, J.L., Ruff, S.W., Stefanov, W.L., 2000. A thermal emission spectral library of rock-forming minerals. Journal of Geophysical Research: Planets 105, 9735–9739. https://doi.org/10.1029/1998JE000624
-Dentith, M., Mudge, S.T., 2014. Geophysics for the Mineral Exploration Geoscientist. Cambridge University Press. https://doi.org/10.1017/CBO9781139024358
-Dickson, B.L., Scott, K.M., 1997. Interpretation of aerial gamma-ray surveys—adding the geochemical factors. AGSO Journal of Australian Geology and Geophysics 17, 187–200.
-Fountain, D., 1998. Airborne electromagnetic systems—50 years of development. Exploration Geophysics 29, 1–11. https://doi.org/10.1071/EG998001
-Gnojek, I., Přichystal, A., 1985. A new zinc mineralization detected by airborne gamma-ray spectrometry in northern Moravia (Czechoslovakia). Geoexploration 23, 491–502. https://doi.org/10.1016/0016-7142(85)90076-6
-Hook, S.J., Abbott, E.A., Grove, C., Kahle, A.B., Palluconi, F.D., 1999. Use of multispectral thermal infrared data in geological studies, in: Rencz, A.N. (Ed.), Remote Sensing for the Earth Sciences: Manual of Remote Sensing, 3rd ed. Wiley, pp. 59–110.
-International Atomic Energy Agency (IAEA), 2003. Guidelines for Radioelement Mapping Using Gamma Ray Spectrometry Data. IAEA-TECDOC-1363, Vienna.
-Julier, S.J., Uhlmann, J.K., 1997. A non-divergent estimation algorithm in the presence of unknown correlations, in: Proceedings of the 1997 American Control Conference. IEEE, pp. 2369–2373. https://doi.org/10.1109/ACC.1997.609105
-Kalman, R.E., 1960. A new approach to linear filtering and prediction problems. Journal of Basic Engineering 82, 35–45. https://doi.org/10.1115/1.3662552
-Kruse, F.A., Lefkoff, A.B., Boardman, J.W., Heidebrecht, K.B., Shapiro, A.T., Barloon, P.J., Goetz, A.F.H., 1993. The spectral image processing system (SIPS)—interactive visualization and analysis of imaging spectrometer data. Remote Sensing of Environment 44, 145–163. https://doi.org/10.1016/0034-4257(93)90013-N
-Maybeck, P.S., 1979. Stochastic Models, Estimation, and Control, Vol. 1. Academic Press, New York.
-Minty, B.R.S., 1997. Fundamentals of airborne gamma-ray spectrometry. AGSO Journal of Australian Geology and Geophysics 17, 39–50.
-Nabighian, M.N. (Ed.), 1988. Electromagnetic Methods in Applied Geophysics, Vol. 1. Society of Exploration Geophysicists. https://doi.org/10.1190/1.9781560802631
-Peng, R.D., 2011. Reproducible research in computational science. Science 334, 1226–1227. https://doi.org/10.1126/science.1213847
-Powers, D.M.W., 2011. Evaluation: From precision, recall and F-measure to ROC, informedness, markedness and correlation. Journal of Machine Learning Technologies 2, 37–63.
-Ramsey, M.S., Christensen, P.R., 1998. Mineral abundance determination: Quantitative deconvolution of thermal emission spectra. Journal of Geophysical Research: Solid Earth 103, 577–596. https://doi.org/10.1029/97JB02784
-Reeves, C.V., 2005. Aeromagnetic Surveys: Principles, Practice and Interpretation. Geosoft.
-Salisbury, J.W., Walter, L.S., Vergo, N., D'Aria, D.M., 1991. Infrared (2.1–25 μm) Spectra of Minerals. Johns Hopkins University Press, Baltimore.
-Siemon, B., Auken, E., Christiansen, A.V., 2009. Laterally constrained inversion of helicopter-borne frequency-domain electromagnetic data. Journal of Applied Geophysics 67, 259–268. https://doi.org/10.1016/j.jappgeo.2007.11.003
-Telford, W.M., Geldart, L.P., Sheriff, R.E., 1990. Applied Geophysics, 2nd ed. Cambridge University Press. https://doi.org/10.1017/CBO9781139167932
-Wilford, J.R., Bierwirth, P.N., Craig, M.A., 1997. Application of airborne gamma-ray spectrometry in soil/regolith mapping and applied geomorphology. AGSO Journal of Australian Geology and Geophysics 17, 201–216.
-Wilkinson, M.D., Dumontier, M., Aalbersberg, I.J., Appleton, G., Axton, M., Baak, A., Blomberg, N., Boiten, J.-W., da Silva Santos, L.B., Bourne, P.E., Bouwman, J., Brookes, A.J., Clark, T., Crosas, M., Dillo, I., Dumon, O., Edmunds, S., Evelo, C.T., Finkers, R., Gonzalez-Beltran, A., Gray, A.J.G., Groth, P., Goble, C., Grethe, J.S., Heringa, J., ’t Hoen, P.A.C., Hooft, R., Kuhn, T., Kok, R., Kok, J., Lusher, S.J., Martone, M.E., Mons, A., Packer, A.L., Persson, B., Rocca-Serra, P., Roos, M., van Schaik, R., Sansone, S.-A., Schultes, E., Sengstag, T., Slater, T., Strawn, G., Swertz, M.A., Thompson, M., van der Lei, J., van Mulligen, E., Velterop, J., Waagmeester, A., Wittenburg, P., Wolstencroft, K., Zhao, J., Mons, B., 2016. The FAIR guiding principles for scientific data management and stewardship. Scientific Data 3, 160018. https://doi.org/10.1038/sdata.2016.18
+Abrams, M., and Y. Yamaguchi. 2019. “Twenty Years of ASTER Contributions to Lithologic Mapping and Mineral Exploration.” Remote Sensing 11 (11): 1394. https://doi.org/10.3390/rs11111394
+Bar-Shalom, Y., X.-R. Li, and T. Kirubarajan. 2001. Estimation with Applications to Tracking and Navigation: Theory, Algorithms, and Software. New York: Wiley. https://doi.org/10.1002/0471221279
+Chen, Y., M. Zhao, and L. Bruzzone. 2024. “A Novel Approach to Incomplete Multimodal Learning for Remote Sensing Data Fusion.” IEEE Transactions on Geoscience and Remote Sensing 62: 1–14. https://doi.org/10.1109/TGRS.2024.3387837
+Christa, S., K. T. Suhari, and T. Mane. 2026. “Self-Supervised Multi-Modal Fusion for Mineral Prospectivity Mapping Using Vision Transformers Integrating Multi-Scale Geological Maps with Aeromagnetic Data.” Natural Resources Research. https://doi.org/10.1007/s11053-026-10771-3
+Christensen, P. R., J. L. Bandfield, V. E. Hamilton, D. A. Howard, M. D. Lane, J. L. Piatek, S. W. Ruff, and W. L. Stefanov. 2000. “A Thermal Emission Spectral Library of Rock-Forming Minerals.” Journal of Geophysical Research: Planets 105 (E4): 9735–9739. https://doi.org/10.1029/1998JE000624
+Dentith, M., and S. T. Mudge. 2014. Geophysics for the Mineral Exploration Geoscientist. Cambridge: Cambridge University Press. https://doi.org/10.1017/CBO9781139024358
+Dickson, B. L., and K. M. Scott. 1997. “Interpretation of Aerial Gamma-Ray Surveys—Adding the Geochemical Factors.” AGSO Journal of Australian Geology and Geophysics 17 (2): 187–200.
+Du, X., and A. Zare. 2020. “Multiresolution Multimodal Sensor Fusion for Remote Sensing Data With Label Uncertainty.” IEEE Transactions on Geoscience and Remote Sensing 58 (4): 2755–2769. https://doi.org/10.1109/TGRS.2019.2955320
+Fountain, D. 1998. “Airborne Electromagnetic Systems—50 Years of Development.” Exploration Geophysics 29 (1–2): 1–11. https://doi.org/10.1071/EG998001
+Ghamisi, P., R. Gloaguen, P. M. Atkinson, J. A. Benediktsson, B. Rasti, N. Yokoya, Q. Wang, B. Höfle, L. Bruzzone, F. Bovolo, M. Chi, and K. Anders. 2019. “Multisource and Multitemporal Data Fusion in Remote Sensing: A Comprehensive Review of the State of the Art.” IEEE Geoscience and Remote Sensing Magazine 7 (1): 6–39. https://doi.org/10.1109/MGRS.2018.2890023
+Gnojek, I., and A. Přichystal. 1985. “A New Zinc Mineralization Detected by Airborne Gamma-Ray Spectrometry in Northern Moravia (Czechoslovakia).” Geoexploration 23 (4): 491–502. https://doi.org/10.1016/0016-7142(85)90076-6
+Hook, S. J., E. A. Abbott, C. Grove, A. B. Kahle, and F. D. Palluconi. 1999. “Use of Multispectral Thermal Infrared Data in Geological Studies.” In Remote Sensing for the Earth Sciences: Manual of Remote Sensing, 3rd ed., edited by A. N. Rencz, 59–110. New York: Wiley.
+International Atomic Energy Agency (IAEA). 2003. Guidelines for Radioelement Mapping Using Gamma Ray Spectrometry Data. IAEA-TECDOC-1363. Vienna: IAEA.
+Julier, S. J., and J. K. Uhlmann. 1997. “A Non-divergent Estimation Algorithm in the Presence of Unknown Correlations.” In Proceedings of the 1997 American Control Conference, 2369–2373. IEEE. https://doi.org/10.1109/ACC.1997.609105
+Kalman, R. E. 1960. “A New Approach to Linear Filtering and Prediction Problems.” Journal of Basic Engineering 82 (1): 35–45. https://doi.org/10.1115/1.3662552
+Kapoor, S., and A. Narayanan. 2023. “Leakage and the Reproducibility Crisis in Machine-Learning-Based Science.” Patterns 4 (9): 100804. https://doi.org/10.1016/j.patter.2023.100804
+Kruse, F. A., A. B. Lefkoff, J. W. Boardman, K. B. Heidebrecht, A. T. Shapiro, P. J. Barloon, and A. F. H. Goetz. 1993. “The Spectral Image Processing System (SIPS)—Interactive Visualization and Analysis of Imaging Spectrometer Data.” Remote Sensing of Environment 44 (2–3): 145–163. https://doi.org/10.1016/0034-4257(93)90013-N
+Maybeck, P. S. 1979. Stochastic Models, Estimation, and Control. Vol. 1. New York: Academic Press.
+Minty, B. R. S. 1997. “Fundamentals of Airborne Gamma-Ray Spectrometry.” AGSO Journal of Australian Geology and Geophysics 17 (2): 39–50.
+Nabighian, M. N., ed. 1988. Electromagnetic Methods in Applied Geophysics. Vol. 1. Tulsa: Society of Exploration Geophysicists. https://doi.org/10.1190/1.9781560802631
+Peng, R. D. 2011. “Reproducible Research in Computational Science.” Science 334 (6060): 1226–1227. https://doi.org/10.1126/science.1213847
+Peyghambari, S., and Y. Zhang. 2021. “Hyperspectral Remote Sensing in Lithological Mapping, Mineral Exploration, and Environmental Geology: An Updated Review.” Journal of Applied Remote Sensing 15 (3): 031501. https://doi.org/10.1117/1.JRS.15.031501
+Powers, D. M. W. 2011. “Evaluation: From Precision, Recall and F-Measure to ROC, Informedness, Markedness and Correlation.” Journal of Machine Learning Technologies 2 (1): 37–63.
+Rajendran, S., and S. Nasir. 2019. “ASTER Capability in Mapping of Mineral Resources of Arid Region: A Review on Mapping of Mineral Resources of the Sultanate of Oman.” Ore Geology Reviews 108: 33–53. https://doi.org/10.1016/j.oregeorev.2018.04.014
+Ramsey, M. S., and P. R. Christensen. 1998. “Mineral Abundance Determination: Quantitative Deconvolution of Thermal Emission Spectra.” Journal of Geophysical Research: Solid Earth 103 (B1): 577–596. https://doi.org/10.1029/97JB02784
+Reeves, C. V. 2005. Aeromagnetic Surveys: Principles, Practice and Interpretation. Ottawa: Geosoft.
+Roy, S. K., A. Deria, D. Hong, B. Rasti, A. Plaza, and J. Chanussot. 2023. “Multimodal Fusion Transformer for Remote Sensing Image Classification.” IEEE Transactions on Geoscience and Remote Sensing 61: 1–20. https://doi.org/10.1109/TGRS.2023.3286826
+Salisbury, J. W., L. S. Walter, N. Vergo, and D. M. D’Aria. 1991. Infrared (2.1–25 μm) Spectra of Minerals. Baltimore: Johns Hopkins University Press.
+Shabani, A., M. Ziaii, M. Monfared, A. Shirazy, and A. Shirazi. 2022. “Multi-Dimensional Data Fusion for Mineral Prospectivity Mapping (MPM) Using Fuzzy-AHP Decision-Making Method, Kodegan-Basiran Region, East Iran.” Minerals 12 (12): 1629. https://doi.org/10.3390/min12121629
+Shirmard, H., E. Farahbakhsh, R. D. Müller, and R. Chandra. 2022. “A Review of Machine Learning in Processing Remote Sensing Data for Mineral Exploration.” Remote Sensing of Environment 268: 112750. https://doi.org/10.1016/j.rse.2021.112750
+Siemon, B., E. Auken, and A. V. Christiansen. 2009. “Laterally Constrained Inversion of Helicopter-Borne Frequency-Domain Electromagnetic Data.” Journal of Applied Geophysics 67 (3): 259–268. https://doi.org/10.1016/j.jappgeo.2007.11.003
+Telford, W. M., L. P. Geldart, and R. E. Sheriff. 1990. Applied Geophysics. 2nd ed. Cambridge: Cambridge University Press. https://doi.org/10.1017/CBO9781139167932
+Weihermann, J. D., Y. Li, and M. Zhang. 2026. “Machine Learning-Based Thorium Normalization in Airborne Gamma-Ray Spectrometry for Enhanced Critical Mineral Exploration.” Scientific Reports. https://doi.org/10.1038/s41598-026-76122-7
+Wilford, J. R., P. N. Bierwirth, and M. A. Craig. 1997. “Application of Airborne Gamma-Ray Spectrometry in Soil/Regolith Mapping and Applied Geomorphology.” AGSO Journal of Australian Geology and Geophysics 17 (2): 201–216.
+Wilkinson, M. D., M. Dumontier, I. J. Aalbersberg, G. Appleton, M. Axton, A. Baak, N. Blomberg, J.-W. Boiten, L. B. da Silva Santos, P. E. Bourne, J. Bouwman, A. J. Brookes, T. Clark, M. Crosas, I. Dillo, O. Dumon, S. Edmunds, C. T. Evelo, R. Finkers, A. Gonzalez-Beltran, A. J. G. Gray, P. Groth, C. Goble, J. S. Grethe, J. Heringa, P. A. C. ’t Hoen, R. Hooft, T. Kuhn, R. Kok, J. Kok, S. J. Lusher, M. E. Martone, A. Mons, A. L. Packer, B. Persson, P. Rocca-Serra, M. Roos, R. van Schaik, S.-A. Sansone, E. Schultes, T. Sengstag, T. Slater, G. Strawn, M. A. Swertz, M. Thompson, J. van der Lei, E. van Mulligen, J. Velterop, A. Waagmeester, P. Wittenburg, K. Wolstencroft, J. Zhao, and B. Mons. 2016. “The FAIR Guiding Principles for Scientific Data Management and Stewardship.” Scientific Data 3: 160018. https://doi.org/10.1038/sdata.2016.18
+Xi, Y., G. Liao, Y. Li, J. Liu, S. Wu, N. Lu, and P. He. 2024. “Application of Airborne Gamma-Ray Spectrometry in Geological Lithology Mapping—A Case Study of a Region in the Qinling Mountains, China.” Acta Geophysica 73 (2): 1297–1315. https://doi.org/10.1007/s11600-024-01408-1
+Yang, F., Z. Wang, R. Zuo, S. Sun, and B. Zhou. 2022. “Quantification of Uncertainty Associated with Evidence Layers in Mineral Prospectivity Mapping Using Direct Sampling and Convolutional Neural Network.” Natural Resources Research 32 (1): 79–98. https://doi.org/10.1007/s11053-022-10144-6
+Zhang, S. E., C. J. M. Lawley, J. E. Bourdeau, G. T. Nwaila, and Y. Ghorbani. 2024. “Workflow-Induced Uncertainty in Data-Driven Mineral Prospectivity Mapping.” Natural Resources Research 33 (3): 995–1023. https://doi.org/10.1007/s11053-024-10322-8
+Zhang, Z., J. Chen, and F. Jiang. 2026. “A Causal-Aware Artificial Intelligence Framework for Mineral Prospectivity Mapping.” Geoscience Frontiers 17 (3): 102248. https://doi.org/10.1016/j.gsf.2026.102248

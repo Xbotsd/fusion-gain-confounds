@@ -1,20 +1,12 @@
-"""Check the submission package against the journal's requirements.
+"""Check the submission package against the International Journal of Remote Sensing requirements.
 
-Runs without network access and without opening Word. Verifies:
-
-  * the reference style the journal returned the submission for (author–date,
-    all authors named, full journal titles, alphabetical, nothing orphaned);
-  * the sections the C&G template requires, including Code availability;
-  * the metadata limits (abstract words, keyword count, highlight length);
-  * the layout properties that caused earlier defects (page breaks, table rows
-    that cannot split, captions kept with their tables and figures, line numbers,
-    double spacing);
-  * the upload set against its sources (SHA-256) and the manifest.
-  * the repository checks run by code/maintain.py are separate.
+Run before every upload:
 
     python code/check_submission.py
 
-Exit code 0 when every check passes.
+Verifies the reference style (Taylor & Francis author-date), the required
+sections, the metadata limits, the layout properties and the upload set against
+its sources. Exit code 0 when every check passes.
 """
 from __future__ import annotations
 
@@ -42,53 +34,44 @@ def chk(name: str, ok: bool, detail: str = "") -> None:
 def main() -> int:
     md = MD.read_text(encoding="utf-8")
     body, refblock = md.split("## References", 1)
-    flat = re.sub(r"\s+", " ", body)
     entries = [ln.strip() for ln in refblock.strip().splitlines() if ln.strip()]
     doc = Document(str(DOCX))
     texts = [p.text for p in doc.paragraphs]
 
-    # ---------------------------------------------------- reference style
+    # ------------------------------------------------ Taylor & Francis style
     groups = re.findall(r"\([^()]*?(?:19|20)\d\d\)", body)
-    chk("no numeric citation markers",
-        not re.findall(r"\[\s*\d+\s*[,–\-]", body),
-        f"{len(groups)} author-date groups")
-    chk("in-text uses 'and', not '&'",
-        not re.search(r"[A-Z][a-z]+ & [A-Z][a-z]+,\s*(?:19|20)\d\d", body))
+    chk("in-text citations are author-date", bool(groups), f"{len(groups)} groups")
+    chk("no comma before the year in citations",
+        not re.findall(r"\([^()]*?[A-Za-z],\s(?:19|20)\d\d", body))
+    chk("no numeric citation markers", not re.findall(r"\[\s*\d+\s*[,\u2013-]", body))
     chk("all authors named in the list", "et al." not in refblock, f"{len(entries)} entries")
-
-    abbr = re.findall(r"(?:AGSO J\.|JGR|J\.\s?(?:Geophys|Appl|Basic|Res|Sci)\b|"
-                      r"Remote Sens\.|Comput\.\s?Geosci\.|IEEE Trans\.|Geophys\.\s?Res\.)", refblock)
-    chk("no abbreviated journal titles", not abbr, str(abbr[:3]) if abbr else "full titles")
-
-    chk("every entry has 'Authors, Year.'",
-        all(re.search(r",\s*(?:19|20)\d\d\.\s", e) for e in entries),
-        str([e[:40] for e in entries if not re.search(r",\s*(?:19|20)\d\d\.\s", e)][:2]))
-    chk("every entry ends with a DOI or a period",
-        all(re.search(r"https://doi\.org/\S+$", e) or e.endswith(".") for e in entries))
+    chk("article titles in quotation marks",
+        all(("\u201c" in e) for e in entries if re.search(r",\s(?:19|20)\d\d\.\s", e)))
+    chk("every entry has 'Authors. Year.'",
+        all(re.search(r"\.\s(?:19|20)\d\d\.\s", e) for e in entries))
 
     surnames = [e.split(",")[0].strip() for e in entries]
     chk("alphabetical order", surnames == sorted(surnames, key=str.lower))
-    chk("no uncited entry",
-        not [s for s in surnames if s not in body and "IAEA" not in s])
+    chk("no uncited entry", not [s for s in surnames if s not in body and "IAEA" not in s])
     keys = set()
     for m in re.finditer(r"\(([^()]*?(?:19|20)\d\d)\)", body):
         for part in m.group(1).split(";"):
-            mm = re.match(r"\s*([A-Z][A-Za-zÀ-ž'\- ]+?)(?: et al\.| and [A-Z][A-Za-zÀ-ž'\- ]+)?,"
-                          r"\s*((?:19|20)\d\d)", part)
+            mm = re.search(r"([A-Z][A-Za-zÀ-ž\-]+)(?: et al\.)?(?:\s+and\s+[A-Z][A-Za-zÀ-ž\-]+)?"
+                           r"\s+(?:19|20)\d\d", part)
             if mm:
-                keys.add(mm.group(1).strip())
+                keys.add(mm.group(1))
     chk("no citation without an entry",
-        not [k for k in keys if k not in surnames and k != "IAEA"])
+        not [k for k in keys if k not in surnames and k != "IAEA"], str(sorted(keys))[:80])
 
     # ------------------------------------------------------------- sections
-    for sec in ("## Abstract", "## Highlights", "## Code availability",
-                "## Declarations", "## References"):
+    for sec in ("## Abstract", "## Code availability", "## Declarations", "## References"):
         chk(f"section {sec[3:]}", sec in md)
+    chk("disclosure statement", "**Disclosure statement.**" in md)
     chk("Code availability has the template fields",
         all(k in md for k in ("Name of the code/library", "Contact", "Hardware requirements",
                               "Program language", "Software required", "Program size",
                               "Repository")))
-    chk("supplementary table S1 referenced", "Table S1" in flat)
+    chk("supplementary table S1 referenced", "Table S1" in re.sub(r"\s+", " ", body))
     chk("supplementary file exists", (ROOT / "docs" / "Supplementary_Tables.docx").exists())
 
     # ------------------------------------------------------------- metadata
@@ -97,10 +80,6 @@ def main() -> int:
     chk("abstract <= 250 words", len(abstract.split()) <= 250, f"{len(abstract.split())} words")
     kw = next(t for t in texts if t.startswith("Keywords:"))
     chk("6 keywords", len(kw.split(":", 1)[1].split(";")) == 6)
-    hl = [p for p in doc.paragraphs if p.style.name == "List Bullet"]
-    chk("5 highlights, each <= 85 characters",
-        len(hl) == 5 and all(len(p.text) <= 85 for p in hl),
-        f"{len(hl)} bullets, max {max((len(p.text) for p in hl), default=0)}")
 
     # --------------------------------------------------------------- layout
     xml = doc.element.xml
@@ -118,15 +97,13 @@ def main() -> int:
     sources = {
         "Manuscript.docx": DOCX,
         "Cover_Letter.docx": SUB / "cover_letter.docx",
-        "Highlights.docx": SUB / "highlights.docx",
         "Supplementary_Material.docx": ROOT / "docs" / "Supplementary_Tables.docx",
-        "Declaration_of_Competing_Interests.docx": SUB / "declaration_of_competing_interests.docx",
     }
     stale = [n for n, s in sources.items()
              if hashlib.sha256((UP / n).read_bytes()).hexdigest()
              != hashlib.sha256(s.read_bytes()).hexdigest()]
     chk("upload set matches its sources", not stale, str(stale))
-    chk("manifest lists 12 files", len(man["files"]) == 12, str(len(man["files"])))
+    chk("manifest lists 10 files", len(man["files"]) == 10, str(len(man["files"])))
     chk("6 figure files", len(list((UP / "figures").glob("*.png"))) == 6)
 
     for status, name, detail in ROWS:

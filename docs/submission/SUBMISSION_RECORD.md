@@ -126,7 +126,32 @@ A note to the publication office lists the three corrections and states that all
 reported results and numeric values are unchanged (verified: all 223 numeric
 values of the first submission are still present).
 
-## 7. Status and next step
+## 7. C&G rejection and retarget (2026-11-22)
+
+CAGEO-D-26-02178 was **rejected at the editorial desk** without review:
+
+> "the topic of your manuscript falls outside of the scope of this journal …
+> I think a journal on remote sensing specifically would be better, note however,
+> that you also need to consider searching for current literature on the topic,
+> this is at present completely missing."
+
+Both points are accepted as fair. The reference list had 23 entries and none after
+2016; that is a substantive defect independent of venue.
+
+What was done in response (Round 24):
+
+* target changed to **International Journal of Remote Sensing** (Taylor & Francis,
+  hybrid, no APC on the subscription route);
+* **16 references from 2019–2026** added (multimodal fusion, ASTER/hyperspectral
+  mapping, prospectivity uncertainty, reproducibility), bringing the list to 39;
+* §1 and §2 rewritten around that literature, §8.1 extended with the
+  reproducibility argument;
+* manuscript reformatted to Taylor & Francis author–date style; Highlights
+  removed, "Competing interests" renamed "Disclosure statement";
+* cover letter rewritten for the IJRS readership;
+* upload set rebuilt (10 files) and `check_submission.py` retargeted (29 checks).
+
+## 8. Status and next step
 
 * The PDF states `--Manuscript Draft--`: the first submission was returned at
   pre-review on 2026-11-18; the corrected files in `upload/` are the resubmission. Nothing in the repository changes the submitted record by itself.

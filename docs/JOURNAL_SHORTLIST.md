@@ -1,17 +1,15 @@
 # 免费 SCI 期刊评估（核实版，2026-11-12）
 
-**最终选择：_Computers & Geosciences_（Elsevier）。** 免费订阅路径（0 APC、
-0 版面费）、JCR Q1 / 中科院 地球科学 2 区，且与“基准 + 软件 + 审计”的稿型最匹配。
-Earth Science Informatics 作为兜底：3 区、录用率更高、同样免费。
+**现状（2026-11-22）：C&G 已拒稿，理由是不在期刊范围，并建议投遥感类期刊。**
+编辑同时指出“当前文献完全缺失”——这一条成立：原稿 23 条文献最新只到 2016 年。
+现已补入 16 篇 2019–2026 文献（见 `docs/literature/CANDIDATES.md`），并把目标改为
+**International Journal of Remote Sensing（IJRS，Taylor & Francis）**：hybrid 期刊，
+订阅路径 0 APC、无版面费，明确覆盖遥感方法与地质应用。
 
-**若只看录用率**：首投 _Earth Science Informatics_；它对“基准 + 审计 + 部分负
-结果”的接受度高于 C&G。选择 C&G 的代价是录用率，换来的是 2 区与更强的期刊匹配。
-
-**免费、无版面费的录用率排序：ESI → Journal of Applied Geophysics →
-Acta Geophysica → Pure and Applied Geophysics。** 录用率没有官方数字，这个排序
-依据“主题匹配度 × 期刊定位 × 审稿门槛”，不是承诺；见 §2.1。
-
-**不要再把 IEEE JSTARS 或 IJAEOG 当免费选项**：两者已转为全 OA，强制 APC（见 §3）。
+免费遥感类备选（OpenAlex 核实）：Remote Sensing Applications: Society and
+Environment（Elsevier，hybrid）、Journal of Applied Remote Sensing（SPIE，hybrid）。
+**已排除**：IEEE JSTARS、IJAEOG、Geocarto International、Canadian Journal of
+Remote Sensing——均已转全 OA，强制 APC。
 
 ## 1. 口径与核实方法
 

@@ -1,3 +1,8 @@
+> **Historical — C&G submission only.** This describes the Editorial
+> Manager submission to *Computers & Geosciences*, which was rejected on
+> scope on 2026-11-22. The current target is *International Journal of
+> Remote Sensing* (ScholarOne); see `README.md`.
+
 # 投稿操作指南 — Computers & Geosciences（Editorial Manager）
 
 目标期刊：*Computers & Geosciences*（Elsevier，ISSN 0098-3004）
