@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-22T18:01:54+08:00",
+  "generated_at": "2026-11-22T18:16:51+08:00",
   "root": "D:\\A_MineralProspecting",
   "n_files": 6858,
-  "total_bytes": 11496464693,
+  "total_bytes": 11496465206,
   "summary": {
     "survey_vector": {
       "files": 28,
@@ -74,7 +74,7 @@
     },
     "docs": {
       "files": 72,
-      "bytes": 55276243
+      "bytes": 55276756
     },
     "code": {
       "files": 143,
@@ -46952,7 +46952,7 @@
       "path": "processed/pipeline_validation.json",
       "stage": "audit",
       "size": 16669,
-      "sha256": "0b60f1de67e1060d01f9c829dffe183e7cadd437372044ddd2ca3874c53429a4",
+      "sha256": "039db652db32573c01869010c60018d736026e65fba4cfaf0c89d3f6d8c22762",
       "schema": {
         "keys": [
           "checks",
@@ -48113,8 +48113,8 @@
     {
       "path": "docs/build_draft_docx.py",
       "stage": "docs",
-      "size": 9658,
-      "sha256": "155cf93bc6ab652d80f66e7711683bb25b4fc7d1f0763eb723b82cdc71ca8fce",
+      "size": 10140,
+      "sha256": "983008125df161fdd70d6b98d573766ef27a05c19028182a111051f9482b17e5",
       "schema": {}
     },
     {
@@ -48219,8 +48219,8 @@
     {
       "path": "docs/Manuscript_v2_draft.docx",
       "stage": "docs",
-      "size": 9320112,
-      "sha256": "7afe8235bdd820f66af5381e5bbc78da553e0e5eb26fdd2b8c721001615f5cdc",
+      "size": 9320127,
+      "sha256": "7dedd36a2c4e96d8ae57cfb7f61fcd454005d9f11066240947e8e5f7c57eae06",
       "schema": {}
     },
     {
@@ -48302,7 +48302,7 @@
       "path": "docs/submission/cover_letter.docx",
       "stage": "docs",
       "size": 38309,
-      "sha256": "0c73f83891d2fa6fc9a8243709438978a4b6fc11558a0fe47061f4039f63752a",
+      "sha256": "4433c8da52f628ff45f1c7d70055f7d61fb8e3989ee5503b964b61cda1e38602",
       "schema": {}
     },
     {
@@ -48399,8 +48399,8 @@
     {
       "path": "docs/submission/NRR_submission_package.zip",
       "stage": "docs",
-      "size": 17809674,
-      "sha256": "0d71a698fa5412ecb9408ed1ea06fc15c435e88c8e364d32b3187767a2a250be",
+      "size": 17809690,
+      "sha256": "973a36c9fdc2ba0e1889cbda452662848d15332614363127ef91dff5c016d7b4",
       "schema": {}
     },
     {

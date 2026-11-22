@@ -215,7 +215,16 @@ def main():
         elif line.startswith("**Authors:**") or line.startswith("**Corresponding"):
             p = doc.add_paragraph()
             p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-            add_runs(p, line)
+            if line.startswith("**Authors:**"):
+                # one author per line so an ORCID is never split across lines
+                names = line.split("**Authors:**", 1)[1].strip().split(", ")
+                p.add_run("Authors: ").bold = True
+                for idx, name in enumerate(names):
+                    if idx:
+                        p.add_run("\n")
+                    add_runs(p, name + ("," if idx < len(names) - 1 else ""))
+            else:
+                add_runs(p, line)
         elif in_refs and line.strip():
             # one reference per line, with a hanging indent
             p = doc.add_paragraph()
