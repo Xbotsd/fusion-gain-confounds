@@ -1,5 +1,28 @@
 # Changelog — cleanup and corrections
 
+## Round 23 — C&G desk rejection: scope and literature (2026-11-22)
+
+* **Outcome:** CAGEO-D-26-02178 was rejected at the editorial desk, not sent for
+  review. The Editor-in-Chief gave two reasons: the topic is outside C&G's scope
+  (a remote-sensing journal is suggested), and the current literature on the topic
+  is "completely missing".
+* **Both are accurate.** The reference list had 23 entries and none after 2016: it
+  is a methods lineage with no engagement with 2019–2026 work on multimodal
+  fusion, ASTER mapping, prospectivity uncertainty or reproducibility. This is a
+  substantive defect independent of the venue.
+* **Retarget planned.** Under the no-APC constraint the free options are now
+  International Journal of Remote Sensing (hybrid, no APC), Remote Sensing
+  Applications: Society and Environment (hybrid) and Journal of Applied Remote
+  Sensing (SPIE); JSTARS, IJAEOG, Geocarto International and Canadian Journal of
+  Remote Sensing are fully open access and therefore excluded. IJRS is the
+  recommendation.
+* **Sixteen verified recent references** collected from OpenAlex (2019–2026), with
+  DOIs, grouped by the section each would strengthen; see
+  `docs/literature/CANDIDATES.md`. Integration, the §2 rewrite and the IJRS
+  reformatting are the next steps.
+* No manuscript change yet: the scientific content is untouched until the new
+  literature is read and integrated.
+
 ## Round 22 — resubmitted (2026-11-18)
 
 * The corrected package was uploaded and approved in Editorial Manager under the
